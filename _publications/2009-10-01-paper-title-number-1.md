@@ -1,15 +1,15 @@
 ---
 title: "Paper Title Number 1"
 collection: publications
-permalink: /publication/2009-10-01-paper-title-number-1
-excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
-date: 2009-10-01
-venue: 'Journal 1'
-paperurl: 'http://academicpages.github.io/files/paper1.pdf'
-citation: 'Your Name, You. (2009). &quot;Paper Title Number 1.&quot; <i>Journal 1</i>. 1(1).'
+permalink: /publication/2008-03-15-paper-title-number-3
+excerpt: 'This paper is about using probabilistic cellular automata for calculation of the critical points for the anisotropic two-layer Ising and Potts models.'
+date: 2008-03-15
+venue: 'Physica A'
+paperurl: 'https://www.sciencedirect.com/science/article/abs/pii/S0378437107012265'
+citation: 'Y. Asgari, M. Ghaemi, (2008). &quot;Obtaining the critical point and shift exponent for the anisotropic two-layer Ising and Potts models: Cellular Automata approach&quot; <i>Physica A: Statistical Mechanics and its Applications</i>. Vol.387, No.8-9, Page:1937-1946'
 ---
-This paper is about the number 1. The number 2 is left for future work.
+This paper is about using probabilistic cellular automata for calculation of the critical points for the anisotropic two-layer Ising and Potts models.
 
-[Download paper here](http://academicpages.github.io/files/paper1.pdf)
+[Download paper here](https://www.sciencedirect.com/science/article/abs/pii/S0378437107012265)
 
-Recommended citation: Your Name, You. (2009). "Paper Title Number 1." <i>Journal 1</i>. 1(1).
+Y. Asgari, M. Ghaemi, (2008). "Obtaining the critical point and shift exponent for the anisotropic two-layer Ising and Potts models: Cellular Automata approach" <i>Physica A: Statistical Mechanics and its Applications</i>. Vol.387, No.8-9, Page:1937-1946.
