@@ -8,6 +8,4 @@ date: 2019-09-01
 location: "Tehran, Iran"
 ---
 
-You could find "Research Method" course information (overview, Textbooks, Lecture Schedule and details) in the following page:
-
-[Research Method Course Details in CODEBERG](https://codeberg.org/yazdan59/Research_Method)
+You could find "Research Method" course information (overview, Textbooks, Lecture Schedule and details) in the following page: [Research Method Course Details in CODEBERG](https://codeberg.org/yazdan59/Research_Method)
