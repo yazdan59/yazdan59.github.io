@@ -8,10 +8,10 @@ redirect_from:
   - /about.html
 ---
 
-I am bioinformatician and I work as a researcher in biomedical field in France.
+I am a bioinformatician and I work as a researcher in the biomedical field in France.
 <br><br>
-I passed a long way to be a bioinformatician. I always wanted to be a scientist and since bachelor degree, I tried so hard for that. I believe that the science does not belong to any particular country or region and all the scientific findings should be open access to every one and also be reproducible. My dream is some day I could see that one part of a project that I worked in before led to an achievement makes life easier for people around the world.
+I had to go through a long journey to become a bioinformatician, as I had always wanted to be a scientist since my undergraduate degree. I strongly believe that science does not belong to any particular country or region, and that all scientific findings should be openly accessible and reproducible by everyone. My dream is to one day see that a project I worked on has led to an achievement that makes life easier for people around the world.
 <br><br>
-Now, I am working on application of GWAS summary statistic data and try to find common genetic factors responsible for both Breast and Thyroid cancers.
+Currently, I am working on the application of GWAS summary statistic data to identify common genetic factors responsible for both Breast and Thyroid cancers.
 <br><br>
-You could follow our group GitHub page for our latest studies: [CESP GitHub pages](https://github.com/CESP-ExpHer).
+You can follow our group's latest studies on our GitHub page: [CESP GitHub pages](https://github.com/CESP-ExpHer).
