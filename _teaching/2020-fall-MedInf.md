@@ -8,6 +8,4 @@ date: 2020-09-01
 location: "Tehran, Iran"
 ---
 
-You could find "Medical Informatics" course information (overview, Textbooks, Lecture Schedule and details) in the following page:
-
-[Medical Informatics Course Details in CODEBERG](https://codeberg.org/yazdan59/Medical_Informatics)
+You could find "Medical Informatics" course information (overview, Textbooks, Lecture Schedule and details) in the following page: ["Medical Informatics Course Details in my GitHub Page"](https://github.com/yazdan59/medinf)

@@ -8,6 +8,4 @@ date: 2019-09-01
 location: "Tehran, Iran"
 ---
 
-You could find "Systems Biology for Tissue Engineering" course information (overview, Textbooks, Lecture Schedule and details) in the following page:
-
-[Systems Biology for Tissue Engineering Course Details in CODEBERG](https://codeberg.org/yazdan59/SB_TE)
+You could find "Systems Biology for Tissue Engineering" course information (overview, Textbooks, Lecture Schedule and details) in the following page: ["Systems Biology for Tissue Engineering Course Details in my GitHub Page"](https://github.com/yazdan59/SB_TE)
