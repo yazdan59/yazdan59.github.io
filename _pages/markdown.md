@@ -12,4 +12,5 @@ redirect_from:
   INSERM U1018, University Paris-Saclay
   Gustave Roussy, Villejuif, France
 
-<p>If you want to get in touch, please drop me an email at<!-- fhetydagzzzgjds --> yazdan.asgari@<!-- sdfjsdhfkjypcs -->inse<!-- asjoxp -->rm.fr</p>
+## Email
+* <p>If you want to get in touch, please send me an email at<!-- fhetydagzzzgjds --> yazdan.asgari@<!-- sdfjsdhfkjypcs -->inse<!-- asjoxp -->rm.fr</p>
