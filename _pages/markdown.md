@@ -8,8 +8,8 @@ redirect_from:
 ---
 
 ## Address
-* Équipe Exposome et Hérédité, CESP
-  INSERM U1018, University Paris-Saclay
+* Équipe Exposome et Hérédité, CESP<br>
+  INSERM U1018, University Paris-Saclay<br>
   Gustave Roussy, Villejuif, France
 
 ## Email
