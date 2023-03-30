@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of postprocess_CytoHubba</title>
+  <meta name="keywords" content="postprocess_CytoHubba">
+  <meta name="description" content="Reads an output of the CytoHubba and construct a new output file which has been added the name of the related SBML metabolites or reactions">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../index.html">Home</a> &gt;  <a href="index.html">.</a> &gt; postprocess_CytoHubba.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../index.html"><img alt="<" border="0" src="../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for .&nbsp;<img alt=">" border="0" src="../right.png"></a></td></tr></table>-->
+
+<h1>postprocess_CytoHubba
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="box"><strong>Reads an output of the CytoHubba and construct a new output file which has been added the name of the related SBML metabolites or reactions</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="box"><strong>function [Output] = postprocess_CytoHubba(fileName1,fileName2) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Reads an output of the CytoHubba and construct a new output file which has been added the name of the related SBML metabolites or reactions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ The &quot;PostProcess&quot; Functions in this toolbox do some changes on some useful structural plugins in the Cytoscape software.
+ This function reads an output (.csv format) of the CytoHubba (a Cytoscape plugin),
+ and construct a new output file which has been added the name of the related SBML metabolites or reactions.
+ http://hub.iis.sinica.edu.tw/cytoHubba/
+ Note: COBRA Toolbox must be installed in MATLAB before running this function
+ Note: This function is applicable for CytoHubba analysis on Bipartite, Metabolite-Metabolite, and Enzyme-Enzyme networks (both Directed and Undirected).
+
+ [Output] = postprocess_CytoHubba(fileName1,fileName2)
+
+INPUTS
+ fileName1                        comma separated file includes CytoHubba results for a given ranking method (in .csv format)
+ fileName2                        The metabolic Network in the SBML format
+ 
+OUTPUTS
+ *_fileName1_fileName2.dat        The output file which includes the name of the related SBML metabolites or reactions.
+ 
+ Yazdan Asgari 12/07/2012         http://lbb.ut.ac.ir
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [Output] = postprocess_CytoHubba(fileName1,fileName2)</a>
+0002 <span class="comment">% Reads an output of the CytoHubba and construct a new output file which has been added the name of the related SBML metabolites or reactions</span>
+0003 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0004 <span class="comment">% The &quot;PostProcess&quot; Functions in this toolbox do some changes on some useful structural plugins in the Cytoscape software.</span>
+0005 <span class="comment">% This function reads an output (.csv format) of the CytoHubba (a Cytoscape plugin),</span>
+0006 <span class="comment">% and construct a new output file which has been added the name of the related SBML metabolites or reactions.</span>
+0007 <span class="comment">% http://hub.iis.sinica.edu.tw/cytoHubba/</span>
+0008 <span class="comment">% Note: COBRA Toolbox must be installed in MATLAB before running this function</span>
+0009 <span class="comment">% Note: This function is applicable for CytoHubba analysis on Bipartite, Metabolite-Metabolite, and Enzyme-Enzyme networks (both Directed and Undirected).</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">% [Output] = postprocess_CytoHubba(fileName1,fileName2)</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">%INPUTS</span>
+0014 <span class="comment">% fileName1                        comma separated file includes CytoHubba results for a given ranking method (in .csv format)</span>
+0015 <span class="comment">% fileName2                        The metabolic Network in the SBML format</span>
+0016 <span class="comment">%</span>
+0017 <span class="comment">%OUTPUTS</span>
+0018 <span class="comment">% *_fileName1_fileName2.dat        The output file which includes the name of the related SBML metabolites or reactions.</span>
+0019 <span class="comment">%</span>
+0020 <span class="comment">% Yazdan Asgari 12/07/2012         http://lbb.ut.ac.ir</span>
+0021 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0022 
+0023 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0024 <span class="comment">% check validity of input files format</span>
+0025 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0026 check1=regexp(fileName1,<span class="string">'.csv'</span>);
+0027 assert(~isempty(check1),<span class="string">'Error in the first input: The fileName1 must contain .csv at its end'</span>)
+0028 check2=regexp(fileName2,<span class="string">'.xml'</span>);
+0029 assert(~isempty(check2),<span class="string">'Error in the second input: The fileName2 must contain .xml at its end'</span>)
+0030 
+0031 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0032 <span class="comment">% start time evaluation of program</span>
+0033 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0034 tic;
+0035 
+0036 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0037 <span class="comment">% reading the SBML file using COBRA Toolbox Command</span>
+0038 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0039 model=readCbModel(fileName2);
+0040 
+0041 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0042 <span class="comment">% building the output file name</span>
+0043 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0044 outname1=strrep(fileName1,<span class="string">'.xml'</span>,<span class="string">''</span>);
+0045 outname2=strrep(fileName2,<span class="string">'.csv'</span>,<span class="string">'.dat'</span>);
+0046 outname3=strcat(outname1,outname2)
+0047 fout = fopen(outname3, <span class="string">'w+'</span>);
+0048 
+0049 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0050 <span class="comment">% reading an output (.csv format) of the CytoHubba and ignore first and second lines.</span>
+0051 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0052 fid = fopen(fileName1);
+0053 fgetl(fid);
+0054 fgetl(fid);
+0055 M=textscan(fid,<span class="string">'%*d %s %*d'</span>,<span class="string">'delimiter'</span>, <span class="string">','</span>);
+0056 C=M{1};
+0057 
+0058 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0059 <span class="comment">% construct a new output file which has been added the name of the related SBML metabolites or reactions.</span>
+0060 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0061 [g,h]=size(C);
+0062 [k,n]=size(model.mets);
+0063 [kk,nn]=size(model.rxns);
+0064 <span class="keyword">for</span> i=1:g
+0065     p=0;
+0066     <span class="keyword">if</span> strncmp(C(i,1),<span class="string">'E_'</span>,2)==1
+0067         fprintf(fout,<span class="string">'%s\n '</span>,C{i});
+0068         p=p+1;
+0069     <span class="keyword">end</span>
+0070     <span class="keyword">if</span> p==0
+0071         <span class="keyword">for</span> j=1:k
+0072             Maddition=strcat(<span class="string">'M_'</span>,model.mets{j});
+0073             <span class="keyword">if</span> strcmp(C(i,1),Maddition)==1
+0074                 fprintf(fout,<span class="string">'%s\t%s\n '</span>,model.mets{j},model.metNames{j});
+0075                 p=p+1;
+0076                 <span class="keyword">break</span>;
+0077             <span class="keyword">end</span>
+0078         <span class="keyword">end</span>
+0079     <span class="keyword">end</span>
+0080     <span class="keyword">if</span> p==0
+0081         <span class="keyword">for</span> j=1:kk
+0082             Raddition=strcat(<span class="string">'R_'</span>,model.rxns{j});
+0083             <span class="keyword">if</span> strcmp(C(i,1),Raddition)==1
+0084                 fprintf(fout,<span class="string">'%s\t%s\n '</span>,model.rxns{j},model.rxnNames{j});
+0085                 p=p+1;
+0086                 <span class="keyword">break</span>;
+0087             <span class="keyword">end</span>
+0088         <span class="keyword">end</span>
+0089     <span class="keyword">end</span>
+0090     <span class="keyword">if</span> p==0
+0091         fprintf(fout,<span class="string">'%s\n '</span>,C{i});
+0092     <span class="keyword">end</span>
+0093 <span class="keyword">end</span>
+0094 fclose(fid);
+0095 fclose(fout);
+0096 
+0097 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0098 <span class="comment">% End of time evaluation of program</span>
+0099 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0100 toc;
+0101</pre></div>
+<hr><address>Generated on Thu 13-Dec-2012 14:17:37 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

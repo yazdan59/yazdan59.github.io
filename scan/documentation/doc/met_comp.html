@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of met_comp</title>
+  <meta name="keywords" content="met_comp">
+  <meta name="description" content="reads two Metabolic Network SBML files, compares them and finds Metabolites which are not in common">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../index.html">Home</a> &gt;  <a href="index.html">.</a> &gt; met_comp.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../index.html"><img alt="<" border="0" src="../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for .&nbsp;<img alt=">" border="0" src="../right.png"></a></td></tr></table>-->
+
+<h1>met_comp
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="box"><strong>reads two Metabolic Network SBML files, compares them and finds Metabolites which are not in common</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="box"><strong>function [Output] = met_comp(fileName1,fileName2) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="fragment"><pre class="comment"> reads two Metabolic Network SBML files, compares them and finds Metabolites which are not in common
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ The function reads two Metabolic Network SBML files,
+ compares them and finds metabolites which are not in common among these models.
+ Then, write the differences in output files.
+ Note: COBRA Toolbox must be installed in MATLAB before running this function
+
+ [Output] = met_comp(fileName1,fileName2)
+
+INPUTS
+ fileName1                               The first metabolic Network in the SBML format
+ fileName2                               The second metabolic Network in the SBML format
+ 
+OUTPUTS
+ *_mets_filename1_not_in_filename2.dat   Metabolites in the first SBML file which do not exist in the second SBML file
+ *_mets_filename2_not_in_filename1.dat   Metabolites in the second SBML file which do not exist in the first SBML file
+ 
+ Yazdan Asgari 12/07/2012                http://lbb.ut.ac.ir
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [Output] = met_comp(fileName1,fileName2)</a>
+0002 <span class="comment">% reads two Metabolic Network SBML files, compares them and finds Metabolites which are not in common</span>
+0003 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0004 <span class="comment">% The function reads two Metabolic Network SBML files,</span>
+0005 <span class="comment">% compares them and finds metabolites which are not in common among these models.</span>
+0006 <span class="comment">% Then, write the differences in output files.</span>
+0007 <span class="comment">% Note: COBRA Toolbox must be installed in MATLAB before running this function</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">% [Output] = met_comp(fileName1,fileName2)</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">%INPUTS</span>
+0012 <span class="comment">% fileName1                               The first metabolic Network in the SBML format</span>
+0013 <span class="comment">% fileName2                               The second metabolic Network in the SBML format</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">%OUTPUTS</span>
+0016 <span class="comment">% *_mets_filename1_not_in_filename2.dat   Metabolites in the first SBML file which do not exist in the second SBML file</span>
+0017 <span class="comment">% *_mets_filename2_not_in_filename1.dat   Metabolites in the second SBML file which do not exist in the first SBML file</span>
+0018 <span class="comment">%</span>
+0019 <span class="comment">% Yazdan Asgari 12/07/2012                http://lbb.ut.ac.ir</span>
+0020 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0021 
+0022 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0023 <span class="comment">% check validity of input files format</span>
+0024 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0025 check1=regexp(fileName1,<span class="string">'.xml'</span>);
+0026 assert(~isempty(check1),<span class="string">'Error in the first input: The fileName1 must contain .xml at its end'</span>)
+0027 check2=regexp(fileName2,<span class="string">'.xml'</span>);
+0028 assert(~isempty(check2),<span class="string">'Error in the second input: The fileName2 must contain .xml at its end'</span>)
+0029 
+0030 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0031 <span class="comment">% start time evaluation of program</span>
+0032 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0033 tic;
+0034 
+0035 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0036 <span class="comment">% reading the SBML files using COBRA Toolbox Command and calculate size of them</span>
+0037 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0038 model1=readCbModel(fileName1);
+0039 model2=readCbModel(fileName2);
+0040 [m,mm]=size(model1.metNames);
+0041 [n,nn]=size(model2.metNames);
+0042 
+0043 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0044 <span class="comment">% building the output file name</span>
+0045 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0046 outname1=strrep(fileName1,<span class="string">'.xml'</span>,<span class="string">''</span>);
+0047 outname2=strrep(fileName2,<span class="string">'.xml'</span>,<span class="string">'.dat'</span>);
+0048 outname3=strcat(<span class="string">'Mets_in_'</span>,outname1);
+0049 outname4=strcat(outname3,<span class="string">'_not_in_'</span>);
+0050 outname5=strcat(outname4,outname2);
+0051 fout = fopen(outname5, <span class="string">'w+'</span>);
+0052 
+0053 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0054 <span class="comment">% compares two files and finds metabolites in the first file which are not in the second one</span>
+0055 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0056 <span class="keyword">for</span> i=1:m
+0057     a=0;
+0058     <span class="keyword">for</span> j=1:n
+0059         <span class="keyword">if</span> strcmp(model1.metNames{i},model2.metNames{j})==1
+0060             a=a+1;
+0061         <span class="keyword">end</span>
+0062     <span class="keyword">end</span>
+0063     <span class="keyword">if</span> a==0
+0064         fprintf(fout,<span class="string">'%s\t\t%s\n'</span>,model1.mets{i},model1.metNames{i});
+0065     <span class="keyword">end</span>
+0066 <span class="keyword">end</span>
+0067 fclose(fout);
+0068 
+0069 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0070 <span class="comment">% building the output file name</span>
+0071 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0072 outname6=strrep(fileName2,<span class="string">'.xml'</span>,<span class="string">''</span>);
+0073 outname7=strrep(fileName1,<span class="string">'.xml'</span>,<span class="string">'.dat'</span>);
+0074 outname8=strcat(<span class="string">'Mets_in_'</span>,outname6);
+0075 outname9=strcat(outname8,<span class="string">'_not_in_'</span>);
+0076 outname10=strcat(outname9,outname7);
+0077 fout2 = fopen(outname10, <span class="string">'w+'</span>);
+0078 
+0079 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0080 <span class="comment">% compares two files and finds metabolites in the second file which are not in the first one</span>
+0081 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0082 <span class="keyword">for</span> j=1:n
+0083     b=0;
+0084     <span class="keyword">for</span> i=1:m
+0085         <span class="keyword">if</span> strcmp(model2.metNames{j},model1.metNames{i})==1
+0086             b=b+1;
+0087         <span class="keyword">end</span>
+0088     <span class="keyword">end</span>
+0089     <span class="keyword">if</span> b==0
+0090         fprintf(fout2,<span class="string">'%s\t\t%s\n'</span>,model2.mets{j},model2.metNames{j});
+0091     <span class="keyword">end</span>
+0092 <span class="keyword">end</span>
+0093 fclose(fout2);
+0094 
+0095 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0096 <span class="comment">% End of time evaluation of program</span>
+0097 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0098 toc;
+0099</pre></div>
+<hr><address>Generated on Thu 13-Dec-2012 14:17:37 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of enz_cent_single_node</title>
+  <meta name="keywords" content="enz_cent_single_node">
+  <meta name="description" content="Builds Binary Stoichiometric Matrix and Enzyme-Enzyme Networks considering Currency Metabolites and single nodes (without any edges)">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../index.html">Home</a> &gt;  <a href="index.html">.</a> &gt; enz_cent_single_node.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../index.html"><img alt="<" border="0" src="../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for .&nbsp;<img alt=">" border="0" src="../right.png"></a></td></tr></table>-->
+
+<h1>enz_cent_single_node
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="box"><strong>Builds Binary Stoichiometric Matrix and Enzyme-Enzyme Networks considering Currency Metabolites and single nodes (without any edges)</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="box"><strong>function [Output] = enz_cent_single_node(fileName) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Builds Binary Stoichiometric Matrix and Enzyme-Enzyme Networks considering Currency Metabolites and single nodes (without any edges)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ The function reads a Metabolic Network SBML file and builds Stoichiometric Matrix,
+ Binary Stoichiometric Matrix, and Enzyme-Enzyme Networks.
+ This file also contains single nodes (without any edges) in Cytoscape-compatible files.
+ Note: COBRA Toolbox must be installed in MATLAB before running this function
+ Note: Currency metabolites have been considered for construction of this network. 
+
+ [Output] = enz_cent_single_node(fileName)
+
+INPUTS
+ fileName                                 The metabolic Network in the SBML format
+ 
+OUTPUTS
+ *_Stoich_Matrix.dat                      Stoichiometric Matrix (comma separated Format)
+ *_Binary_Stoich_Matrix.dat               Binary Stoichiometric Matrix (comma separated Format)
+ *_Enzyme_Cent.dat                        Undirected-Enzyme-Enzyme Network (comma separated Format)
+ *_Enzyme_Cent_single_node_Cyt.dat        Undirected-Enzyme-Enzyme Network - Cytoscape Compatible (contains single nodes (without any edges))
+ 
+ Yazdan Asgari 12/07/2012                 http://lbb.ut.ac.ir
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [Output] = enz_cent_single_node(fileName)</a>
+0002 <span class="comment">% Builds Binary Stoichiometric Matrix and Enzyme-Enzyme Networks considering Currency Metabolites and single nodes (without any edges)</span>
+0003 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0004 <span class="comment">% The function reads a Metabolic Network SBML file and builds Stoichiometric Matrix,</span>
+0005 <span class="comment">% Binary Stoichiometric Matrix, and Enzyme-Enzyme Networks.</span>
+0006 <span class="comment">% This file also contains single nodes (without any edges) in Cytoscape-compatible files.</span>
+0007 <span class="comment">% Note: COBRA Toolbox must be installed in MATLAB before running this function</span>
+0008 <span class="comment">% Note: Currency metabolites have been considered for construction of this network.</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% [Output] = enz_cent_single_node(fileName)</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%INPUTS</span>
+0013 <span class="comment">% fileName                                 The metabolic Network in the SBML format</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">%OUTPUTS</span>
+0016 <span class="comment">% *_Stoich_Matrix.dat                      Stoichiometric Matrix (comma separated Format)</span>
+0017 <span class="comment">% *_Binary_Stoich_Matrix.dat               Binary Stoichiometric Matrix (comma separated Format)</span>
+0018 <span class="comment">% *_Enzyme_Cent.dat                        Undirected-Enzyme-Enzyme Network (comma separated Format)</span>
+0019 <span class="comment">% *_Enzyme_Cent_single_node_Cyt.dat        Undirected-Enzyme-Enzyme Network - Cytoscape Compatible (contains single nodes (without any edges))</span>
+0020 <span class="comment">%</span>
+0021 <span class="comment">% Yazdan Asgari 12/07/2012                 http://lbb.ut.ac.ir</span>
+0022 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0023 
+0024 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0025 <span class="comment">% check validity of input file format</span>
+0026 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0027 check=regexp(fileName,<span class="string">'.xml'</span>);
+0028 assert(~isempty(check),<span class="string">'The SBML fileName must contain .xml at its end'</span>)
+0029 
+0030 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0031 <span class="comment">% start time evaluation of program</span>
+0032 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0033 tic;
+0034 
+0035 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0036 <span class="comment">% reading the SBML file using COBRA Toolbox Command</span>
+0037 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0038 model=readCbModel(fileName);
+0039 
+0040 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0041 <span class="comment">% construction of Stoichiometric Matrix (comma separated Format)</span>
+0042 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0043 outname1=strrep(fileName,<span class="string">'.xml'</span>,<span class="string">'_Stoich_Matrix.dat'</span>)
+0044 dlmwrite(outname1,full(model.S));
+0045 
+0046 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0047 <span class="comment">% construction of Binary Stoichiometric Matrix (comma separated Format)</span>
+0048 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0049 S_bin=zeros(size(model.S));
+0050 S_bin(find(model.S))=1;
+0051 outname2=strrep(fileName,<span class="string">'.xml'</span>,<span class="string">'_Binary_Stoich_Matrix.dat'</span>)
+0052 dlmwrite(outname2,full(S_bin));
+0053 
+0054 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0055 <span class="comment">% construction of Undirected-Enzyme-Enzyme Network (comma separated Format)</span>
+0056 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0057 Aenz=S_bin'*S_bin;
+0058 outname3=strrep(fileName,<span class="string">'.xml'</span>,<span class="string">'_Enzyme_Cent.dat'</span>)
+0059 dlmwrite(outname3,full(Aenz));
+0060 
+0061 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0062 <span class="comment">% reading a Enzyme-Enzyme comma separated file and re-format it</span>
+0063 <span class="comment">% to a Cytoscape-compatible file.</span>
+0064 <span class="comment">% One could import the file using &quot;File/Import/Network from Table(Text/MS Excel)...&quot;</span>
+0065 <span class="comment">% Select &quot;first column&quot; as &quot;Source Interaction&quot; and &quot;second column&quot; as &quot;Target Interaction&quot;</span>
+0066 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0067 ss = csvread(outname3);
+0068 [g,h]=size(ss);
+0069 outname4=strrep(fileName,<span class="string">'.xml'</span>,<span class="string">'_Enzyme_Cent_single_node_Cyt.dat'</span>)
+0070 fout = fopen(outname4, <span class="string">'w+'</span>);
+0071 <span class="keyword">for</span> row=1:g
+0072     num=0;
+0073     <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0074     <span class="comment">% because cell(i,j)=cell(j,i) we must delete duplicate entries by putting</span>
+0075     <span class="comment">% col=row:h in the second if command. since we must ignor diagonal elements,</span>
+0076     <span class="comment">% the counter will be col=row+1:h</span>
+0077     <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0078     <span class="keyword">for</span> col=row+1:h
+0079         <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0080         <span class="comment">% edge are those which includes number not equal to zero</span>
+0081         <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0082         <span class="keyword">if</span> ss(row,col)~=0
+0083             fprintf(fout,<span class="string">'%s\t%s\t%d\n'</span>,model.rxns{row},model.rxns{col},ss(row,col));
+0084             num=num+1;
+0085         <span class="keyword">end</span>
+0086     <span class="keyword">end</span>
+0087     <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0088     <span class="comment">% considering nodes which do not contain any edges</span>
+0089     <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0090     <span class="keyword">if</span> num==0
+0091         fprintf(fout,<span class="string">'%s\n'</span>,model.rxns{row});
+0092     <span class="keyword">end</span>
+0093 <span class="keyword">end</span>
+0094 fclose(fout);
+0095 
+0096 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0097 <span class="comment">% End of time evaluation of program</span>
+0098 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0099 toc;</pre></div>
+<hr><address>Generated on Thu 13-Dec-2012 14:17:37 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

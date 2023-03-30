@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of met_cent_dir_quatexelero</title>
+  <meta name="keywords" content="met_cent_dir_quatexelero">
+  <meta name="description" content="Builds Directed Enzyme-Enzyme Networks which could be used as an input for QuateXelero Algorithm.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../index.html">Home</a> &gt;  <a href="index.html">.</a> &gt; met_cent_dir_quatexelero.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../index.html"><img alt="<" border="0" src="../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for .&nbsp;<img alt=">" border="0" src="../right.png"></a></td></tr></table>-->
+
+<h1>met_cent_dir_quatexelero
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="box"><strong>Builds Directed Enzyme-Enzyme Networks which could be used as an input for QuateXelero Algorithm.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="box"><strong>function [Output] = met_cent_dir_quatexelero(fileName) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Builds Directed Enzyme-Enzyme Networks which could be used as an input for QuateXelero Algorithm.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ The function reads a Metabolic Network SBML file,
+ and builds Directed Metabolite-Metabolite Networks which is compatible with QuateXelero Algorithm.
+ The QuateXelero is one of the best motif finding algorithms which is recently developed by Kavosh developer team.
+ http://lbb.ut.ac.ir/Download/LBBsoft/QuateXelero
+ So, one could easily use this algorithm in order to find motifs in different sizes for the metabolic network.
+ Note: COBRA Toolbox must be installed in MATLAB before running this function
+
+ [Output] = met_cent_dir_quatexelero(fileName)
+
+INPUTS
+ fileName                                 The metabolic Network in the SBML format
+ 
+OUTPUTS
+ *_Metabolite_Cent_Dir_Index.dat          Matrix Indeces of Metabolite-Metabolite Connections 
+ *_Metabolite_Cent_Dir_QuateXelero.dat    Directed-Metabolite-Metabolite Network - QuateXelero Compatible
+ 
+ Yazdan Asgari 12/07/2012          http://lbb.ut.ac.ir
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [Output] = met_cent_dir_quatexelero(fileName)</a>
+0002 <span class="comment">% Builds Directed Enzyme-Enzyme Networks which could be used as an input for QuateXelero Algorithm.</span>
+0003 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0004 <span class="comment">% The function reads a Metabolic Network SBML file,</span>
+0005 <span class="comment">% and builds Directed Metabolite-Metabolite Networks which is compatible with QuateXelero Algorithm.</span>
+0006 <span class="comment">% The QuateXelero is one of the best motif finding algorithms which is recently developed by Kavosh developer team.</span>
+0007 <span class="comment">% http://lbb.ut.ac.ir/Download/LBBsoft/QuateXelero</span>
+0008 <span class="comment">% So, one could easily use this algorithm in order to find motifs in different sizes for the metabolic network.</span>
+0009 <span class="comment">% Note: COBRA Toolbox must be installed in MATLAB before running this function</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">% [Output] = met_cent_dir_quatexelero(fileName)</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">%INPUTS</span>
+0014 <span class="comment">% fileName                                 The metabolic Network in the SBML format</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">%OUTPUTS</span>
+0017 <span class="comment">% *_Metabolite_Cent_Dir_Index.dat          Matrix Indeces of Metabolite-Metabolite Connections</span>
+0018 <span class="comment">% *_Metabolite_Cent_Dir_QuateXelero.dat    Directed-Metabolite-Metabolite Network - QuateXelero Compatible</span>
+0019 <span class="comment">%</span>
+0020 <span class="comment">% Yazdan Asgari 12/07/2012          http://lbb.ut.ac.ir</span>
+0021 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0022 
+0023 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0024 <span class="comment">% check validity of input file format</span>
+0025 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0026 check=regexp(fileName,<span class="string">'.xml'</span>);
+0027 assert(~isempty(check),<span class="string">'The SBML fileName must contain .xml at its end'</span>)
+0028 
+0029 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0030 <span class="comment">% start time evaluation of program</span>
+0031 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0032 tic;
+0033 
+0034 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0035 <span class="comment">% reading the SBML file using COBRA Toolbox Command</span>
+0036 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0037 model=readCbModel(fileName);
+0038 [m,n]=size(model.S);
+0039 
+0040 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0041 <span class="comment">% building the output file name</span>
+0042 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0043 outname=strrep(fileName,<span class="string">'.xml'</span>,<span class="string">'_Metabolite_Cent_Dir_Index.dat'</span>)
+0044 fout = fopen(outname, <span class="string">'w+'</span>);
+0045 
+0046 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0047 <span class="comment">% finds non-zero elements of the S-matrix (in order to make the algorithm faster),</span>
+0048 <span class="comment">% parses through each column, and considers an edge for every unlike-signs,</span>
+0049 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0050 num=zeros(size(model.mets));
+0051 <span class="keyword">for</span> j=1:n
+0052     indices=find(model.S(:,j));
+0053     [a,b]=size(indices);
+0054     r=0;
+0055     <span class="keyword">if</span> a~=0
+0056         r=1;
+0057     <span class="keyword">end</span> 
+0058     <span class="keyword">while</span> r&lt;a
+0059         i=1;
+0060         <span class="keyword">while</span> i&lt;(a-r+1)
+0061             <span class="keyword">if</span> model.S(indices(r,1),j)&lt;0 &amp;&amp; model.S(indices(r+i,1),j)&gt;0
+0062                 fprintf(fout,<span class="string">'%d\t%d\n'</span>,indices(r,1),indices(r+i,1));
+0063                 num(indices(r,1),1)=1;
+0064                 num(indices(r+i,1),1)=1;
+0065             <span class="keyword">elseif</span> model.S(indices(r,1),j)&gt;0 &amp;&amp; model.S(indices(r+i,1),j)&lt;0
+0066                 fprintf(fout,<span class="string">'%d\t%d\n'</span>,indices(r+i,1),indices(r,1));
+0067                 num(indices(r,1),1)=1;
+0068                 num(indices(r+i,1),1)=1;
+0069             <span class="keyword">end</span>
+0070             i=i+1;
+0071         <span class="keyword">end</span>
+0072         r=r+1;
+0073     <span class="keyword">end</span>
+0074 <span class="keyword">end</span>
+0075 
+0076 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0077 <span class="comment">% considering nodes which do not contain any edges</span>
+0078 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0079 <span class="keyword">for</span> k=1:m
+0080     <span class="keyword">if</span> num(k,1)==0
+0081         fprintf(fout,<span class="string">'%d\n'</span>,k);
+0082     <span class="keyword">end</span>
+0083 <span class="keyword">end</span>
+0084 fclose(fout);
+0085 
+0086 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0087 <span class="comment">% building the output file name</span>
+0088 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0089 outname2=strrep(fileName,<span class="string">'.xml'</span>,<span class="string">'_Metabolite_Cent_Dir_QuateXelero.dat'</span>)    
+0090 fout2=fopen(outname2,<span class="string">'w+'</span>);
+0091 
+0092 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0093 <span class="comment">% reading the constructed Metabolic-Metabolic network file and re-format it to a QuateXelero-compatible file.</span>
+0094 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0095 fid = fopen(outname);
+0096 fgetl(fid);
+0097 C=fscanf(fid,<span class="string">'%d'</span>);
+0098 i=1;
+0099 <span class="keyword">while</span> isinteger(fid)
+0100     C(i)=fscanf(fid,<span class="string">'%d'</span>,C);
+0101     i=i+1;
+0102 <span class="keyword">end</span>
+0103 g=size(C);
+0104 A=size(unique(C));
+0105 <span class="keyword">if</span> g~=0
+0106     n=1;
+0107 <span class="keyword">else</span>
+0108     disp(<span class="string">'Error in reading the file, No Edge detected'</span>)
+0109 <span class="keyword">end</span>
+0110 k=1;
+0111 j=2;
+0112 last=g/2;
+0113 fprintf(fout2,<span class="string">'%d\n'</span>,A(1,1));   <span class="comment">% total number of uniques nodes in the network (needed for QuateXelero Algorithm)</span>
+0114 <span class="keyword">for</span> i=1:last
+0115     fprintf(fout2,<span class="string">'%d\t%d\n '</span>,C(k),C(j));
+0116     k=k+2;
+0117     j=j+2;
+0118 <span class="keyword">end</span>
+0119 fclose(fid);
+0120 fclose(fout2);
+0121 
+0122 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0123 <span class="comment">% End of time evaluation of program</span>
+0124 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0125 toc;
+0126</pre></div>
+<hr><address>Generated on Thu 13-Dec-2012 14:17:37 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

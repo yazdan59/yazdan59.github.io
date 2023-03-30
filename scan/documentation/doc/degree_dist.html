@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of degree_dist</title>
+  <meta name="keywords" content="degree_dist">
+  <meta name="description" content="Counts Metabolite and Enzyme degree distribution over networks">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../index.html">Home</a> &gt;  <a href="index.html">.</a> &gt; degree_dist.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../index.html"><img alt="<" border="0" src="../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for .&nbsp;<img alt=">" border="0" src="../right.png"></a></td></tr></table>-->
+
+<h1>degree_dist
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="box"><strong>Counts Metabolite and Enzyme degree distribution over networks</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="box"><strong>function [Output] = degree_dist(fileName) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Counts Metabolite and Enzyme degree distribution over networks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ The function reads a Metabolic Network SBML file,
+ builds Undirected Metabolite-Metabolite and Enzyme-Enzyme Networks.
+ Then, counts Metabolite and Enzyme degree distribution over these networks,
+ Note: COBRA Toolbox must be installed in MATLAB before running this function
+
+ [Output] = degree_cent(fileName)
+
+INPUTS
+ fileName                              The metabolic Network in the SBML format
+ 
+OUTPUTS
+ *_Metabolite_Cent_Degree_Dist.dat     Metabolite degree distribution (of the undirected Network)
+ *_Enzyme_Cent_Degree_Dist.dat         Enzyme degree distribution (of the undirected Network)
+ 
+ Yazdan Asgari 12/07/2012           http://lbb.ut.ac.ir
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [Output] = degree_dist(fileName)</a>
+0002 <span class="comment">% Counts Metabolite and Enzyme degree distribution over networks</span>
+0003 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0004 <span class="comment">% The function reads a Metabolic Network SBML file,</span>
+0005 <span class="comment">% builds Undirected Metabolite-Metabolite and Enzyme-Enzyme Networks.</span>
+0006 <span class="comment">% Then, counts Metabolite and Enzyme degree distribution over these networks,</span>
+0007 <span class="comment">% Note: COBRA Toolbox must be installed in MATLAB before running this function</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">% [Output] = degree_cent(fileName)</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">%INPUTS</span>
+0012 <span class="comment">% fileName                              The metabolic Network in the SBML format</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">%OUTPUTS</span>
+0015 <span class="comment">% *_Metabolite_Cent_Degree_Dist.dat     Metabolite degree distribution (of the undirected Network)</span>
+0016 <span class="comment">% *_Enzyme_Cent_Degree_Dist.dat         Enzyme degree distribution (of the undirected Network)</span>
+0017 <span class="comment">%</span>
+0018 <span class="comment">% Yazdan Asgari 12/07/2012           http://lbb.ut.ac.ir</span>
+0019 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0020 
+0021 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0022 <span class="comment">% check validity of input file format</span>
+0023 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0024 check=regexp(fileName,<span class="string">'.xml'</span>);
+0025 assert(~isempty(check),<span class="string">'The fileName must contain .xml at its end'</span>)
+0026 
+0027 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0028 <span class="comment">% start time evaluation of program</span>
+0029 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0030 tic;
+0031 
+0032 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0033 <span class="comment">% reading the SBML file using COBRA Toolbox Command</span>
+0034 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0035 model=readCbModel(fileName);
+0036 
+0037 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0038 <span class="comment">% construction of Binary Stoichiometric Matrix</span>
+0039 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0040 S_bin=zeros(size(model.S));
+0041 S_bin(find(model.S))=1;
+0042 
+0043 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0044 <span class="comment">% construction of Undirected-Metabolite-Metabolite Network</span>
+0045 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0046 Acomp=S_bin*S_bin';
+0047 
+0048 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0049 <span class="comment">% construction of Undirected-Enzyme-Enzyme Network</span>
+0050 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0051 Aenz=S_bin'*S_bin;
+0052 
+0053 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0054 <span class="comment">% reading a Metabolic-Metabolic comma separated file</span>
+0055 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0056 
+0057 [m,n]=size(Acomp);
+0058 outname1=strrep(fileName,<span class="string">'.xml'</span>,<span class="string">'_Metabolite_Cent_Degree_Dist.dat'</span>)
+0059 fout = fopen(outname1, <span class="string">'w+'</span>);
+0060 fprintf(fout, <span class="string">'Metabolite\t\tDegree\n'</span>);
+0061 fprintf(fout, <span class="string">'----------------------------------------------\n'</span>);
+0062 j=0;
+0063 <span class="keyword">for</span> row=1:m
+0064     i=0;
+0065     <span class="keyword">for</span> col=1:n
+0066         <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0067         <span class="comment">% edge are those which includes number not equal to zero</span>
+0068         <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0069         <span class="keyword">if</span> Acomp(row,col)~=0
+0070             i=i+1;
+0071         <span class="keyword">end</span>
+0072     <span class="keyword">end</span>
+0073     fprintf(fout, <span class="string">'%s\t\t%d\n'</span>,model.mets{row},i);
+0074     j=j+i;
+0075 <span class="keyword">end</span>
+0076 fclose(fout);
+0077 
+0078 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0079 <span class="comment">% reading a Enzyme-Enzyme comma separated file</span>
+0080 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0081 [g,h]=size(Aenz);
+0082 outname2=strrep(fileName,<span class="string">'.xml'</span>,<span class="string">'_Enzyme_Cent_Degree_Dist.dat'</span>)
+0083 fout2 = fopen(outname2, <span class="string">'w+'</span>);
+0084 fprintf(fout2, <span class="string">'Reaction\t\tDegree\n'</span>);
+0085 fprintf(fout2, <span class="string">'----------------------------------------------\n'</span>);
+0086 jj=0;
+0087 <span class="keyword">for</span> row=1:g
+0088     ii=0;
+0089     <span class="keyword">for</span> col=1:h
+0090         <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0091         <span class="comment">% edge are those which includes number not equal to zero</span>
+0092         <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0093         <span class="keyword">if</span> Aenz(row,col)~=0
+0094             ii=ii+1;
+0095         <span class="keyword">end</span>
+0096     <span class="keyword">end</span>
+0097     fprintf(fout2, <span class="string">'%s\t\t%d\n'</span>,model.rxns{row},ii);
+0098     jj=jj+ii;
+0099 <span class="keyword">end</span>
+0100 fclose(fout2);
+0101 
+0102 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0103 <span class="comment">% End of time evaluation of program</span>
+0104 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0105 toc;</pre></div>
+<hr><address>Generated on Thu 13-Dec-2012 14:17:37 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

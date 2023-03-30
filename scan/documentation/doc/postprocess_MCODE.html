@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of postprocess_MCODE</title>
+  <meta name="keywords" content="postprocess_MCODE">
+  <meta name="description" content="Reads an output of the MCODE and construct a new output file which has been added the name of the related SBML metabolites or reactions">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../index.html">Home</a> &gt;  <a href="index.html">.</a> &gt; postprocess_MCODE.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../index.html"><img alt="<" border="0" src="../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for .&nbsp;<img alt=">" border="0" src="../right.png"></a></td></tr></table>-->
+
+<h1>postprocess_MCODE
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="box"><strong>Reads an output of the MCODE and construct a new output file which has been added the name of the related SBML metabolites or reactions</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="box"><strong>function [Output] = postprocess_MCODE(fileName1,fileName2) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Reads an output of the MCODE and construct a new output file which has been added the name of the related SBML metabolites or reactions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ The &quot;PostProcess&quot; Functions in this toolbox do some changes on some useful structural plugins in the Cytoscape software.
+ This function reads an output of the MCODE (a Cytoscape plugin),
+ and construct a new output file which has been added the name of the related SBML metabolites or reactions.
+ http://baderlab.org/Software/MCODE
+ Note: COBRA Toolbox must be installed in MATLAB before running this function
+ Note: This function is applicable for MCODE analysis on Bipartite, Metabolite-Metabolite, and Enzyme-Enzyme networks (both Directed and Undirected).
+
+ [Output] = postprocess_MCODE(fileName1,fileName2)
+
+INPUTS
+ fileName1                                  text file includes MCODE results for network clustering
+ fileName2                                  The metabolic Network in the SBML format
+ 
+OUTPUTS
+ *_fileName_fileName2_MCODE_clusters.dat    The output file which includes the name of the related SBML metabolites or reactions.
+ *_fileName_fileName2_MCODE.dat             This output file saves some data which will be used for the main output file in this program 
+ 
+ Yazdan Asgari 12/07/2012                   http://lbb.ut.ac.ir
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [Output] = postprocess_MCODE(fileName1,fileName2)</a>
+0002 <span class="comment">% Reads an output of the MCODE and construct a new output file which has been added the name of the related SBML metabolites or reactions</span>
+0003 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0004 <span class="comment">% The &quot;PostProcess&quot; Functions in this toolbox do some changes on some useful structural plugins in the Cytoscape software.</span>
+0005 <span class="comment">% This function reads an output of the MCODE (a Cytoscape plugin),</span>
+0006 <span class="comment">% and construct a new output file which has been added the name of the related SBML metabolites or reactions.</span>
+0007 <span class="comment">% http://baderlab.org/Software/MCODE</span>
+0008 <span class="comment">% Note: COBRA Toolbox must be installed in MATLAB before running this function</span>
+0009 <span class="comment">% Note: This function is applicable for MCODE analysis on Bipartite, Metabolite-Metabolite, and Enzyme-Enzyme networks (both Directed and Undirected).</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">% [Output] = postprocess_MCODE(fileName1,fileName2)</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">%INPUTS</span>
+0014 <span class="comment">% fileName1                                  text file includes MCODE results for network clustering</span>
+0015 <span class="comment">% fileName2                                  The metabolic Network in the SBML format</span>
+0016 <span class="comment">%</span>
+0017 <span class="comment">%OUTPUTS</span>
+0018 <span class="comment">% *_fileName_fileName2_MCODE_clusters.dat    The output file which includes the name of the related SBML metabolites or reactions.</span>
+0019 <span class="comment">% *_fileName_fileName2_MCODE.dat             This output file saves some data which will be used for the main output file in this program</span>
+0020 <span class="comment">%</span>
+0021 <span class="comment">% Yazdan Asgari 12/07/2012                   http://lbb.ut.ac.ir</span>
+0022 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0023 
+0024 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0025 <span class="comment">% check validity of input files format</span>
+0026 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0027 check=regexp(fileName2,<span class="string">'.xml'</span>);
+0028 assert(~isempty(check),<span class="string">'Error in the second input: The fileName2 must contain .xml at its end'</span>)
+0029 
+0030 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0031 <span class="comment">% start time evaluation of program</span>
+0032 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0033 tic;
+0034 
+0035 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0036 <span class="comment">% reading the SBML file using COBRA Toolbox Command</span>
+0037 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0038 model=readCbModel(fileName2);
+0039 
+0040 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0041 <span class="comment">% reading an output of the MCODE and write first 10 lines to the new output file.</span>
+0042 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0043 fid = fopen(fileName1);
+0044 outname1=strrep(fileName2,<span class="string">'.xml'</span>,<span class="string">'_'</span>);
+0045 outname2=strcat(outname1,fileName1);
+0046 outname3=strcat(outname2,<span class="string">'_MCODE_clusters.dat'</span>)
+0047 fout = fopen(outname3, <span class="string">'w+'</span>);
+0048 B={};
+0049 <span class="keyword">for</span> i=1:10
+0050     B{i}=fgetl(fid);
+0051     fprintf(fout,<span class="string">'%s\n'</span>,B{i});
+0052 <span class="keyword">end</span>
+0053 
+0054 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0055 <span class="comment">% reading the rest of the MCODE output file and construct a new output file,</span>
+0056 <span class="comment">% which has been added the name of the related SBML metabolites or reactions.</span>
+0057 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0058 i=1;
+0059 A={};
+0060 line={};
+0061 <span class="keyword">while</span> ~feof(fid)
+0062     A{i} = fscanf(fid,<span class="string">'%d %f %d %d'</span>);
+0063     line{i} = fgetl(fid);
+0064     i=i+1;
+0065 <span class="keyword">end</span>
+0066 
+0067 M={};
+0068 <span class="keyword">for</span> j=1:i-1
+0069     M{1,j}=regexp(line{1,j},<span class="string">','</span>,<span class="string">'split'</span>);
+0070 <span class="keyword">end</span>
+0071 fclose(fid);
+0072 
+0073 outname4=strrep(fileName2,<span class="string">'.xml'</span>,<span class="string">'_'</span>);
+0074 outname5=strcat(outname4,fileName1);
+0075 outname6=strcat(outname5,<span class="string">'_MCODE.dat'</span>)
+0076 fout2 = fopen(outname6, <span class="string">'w+'</span>);
+0077 [h,hh]=size(model.mets);
+0078 [r,rr]=size(model.rxns);
+0079 <span class="keyword">for</span> k=1:i-1
+0080     k;
+0081     [ee,e]=size(M{1,k});
+0082     g=1;
+0083     <span class="keyword">while</span> g&lt;e+1
+0084         M{1,k}{1,g};
+0085         <span class="keyword">if</span> g==1
+0086             p=0;
+0087             <span class="keyword">if</span> strncmp(M{1,k}{1,g},<span class="string">'E_'</span>,2)==1
+0088                 fprintf(fout2,<span class="string">'%s\t\t'</span>,M{1,k}{1,g});
+0089                 p=p+1;
+0090             <span class="keyword">end</span>
+0091             <span class="keyword">if</span> p==0
+0092                 <span class="keyword">for</span> jj=1:r
+0093                     Raddition=strcat(<span class="string">'R_'</span>,model.rxns{jj});
+0094                     <span class="keyword">if</span> strcmp(M{1,k}{1,g},Raddition)==1
+0095                         fprintf(fout2,<span class="string">'%s\t\t'</span>,model.rxnNames{jj});
+0096                         p=p+1;
+0097                         <span class="keyword">break</span>;
+0098                     <span class="keyword">end</span>
+0099                 <span class="keyword">end</span>
+0100             <span class="keyword">end</span>
+0101             <span class="keyword">if</span> p==0
+0102                 <span class="keyword">for</span> jj=1:h
+0103                     Maddition=strcat(<span class="string">'M_'</span>,model.mets{jj});
+0104                     <span class="keyword">if</span> strcmp(M{1,k}{1,g},Maddition)==1
+0105                         fprintf(fout2,<span class="string">'%s\t\t'</span>,model.metNames{jj});
+0106                         p=p+1;
+0107                         <span class="keyword">break</span>;
+0108                     <span class="keyword">end</span>
+0109                 <span class="keyword">end</span>
+0110             <span class="keyword">end</span>
+0111             <span class="keyword">if</span> p==0
+0112                 fprintf(fout2,<span class="string">'%s\t\t'</span>,M{1,k}{1,g});
+0113             <span class="keyword">end</span>
+0114             g=g+1;
+0115         <span class="keyword">elseif</span> g~=1
+0116             p=0;
+0117             <span class="keyword">if</span> strncmp(M{1,k}{1,g},<span class="string">' E_'</span>,2)==1
+0118                 fprintf(fout2,<span class="string">'%s\t\t'</span>,M{1,k}{1,g});
+0119                 p=p+1;
+0120             <span class="keyword">end</span>
+0121             <span class="keyword">if</span> p==0
+0122                 <span class="keyword">for</span> jj=1:r
+0123                     Raddition=strcat(<span class="string">' R_'</span>,model.rxns{jj});
+0124                     <span class="keyword">if</span> strcmp(M{1,k}{1,g},Raddition)==1
+0125                         fprintf(fout2,<span class="string">'%s\t\t'</span>,model.rxnNames{jj});
+0126                         p=p+1;
+0127                         <span class="keyword">break</span>;
+0128                     <span class="keyword">end</span>
+0129                 <span class="keyword">end</span>
+0130             <span class="keyword">end</span>
+0131             <span class="keyword">if</span> p==0
+0132                 <span class="keyword">for</span> jj=1:h
+0133                     Maddition=strcat(<span class="string">' M_'</span>,model.mets{jj});
+0134                     <span class="keyword">if</span> strcmp(M{1,k}{1,g},Maddition)==1
+0135                         fprintf(fout2,<span class="string">'%s\t\t'</span>,model.metNames{jj});
+0136                         p=p+1;
+0137                         <span class="keyword">break</span>;
+0138                     <span class="keyword">end</span>
+0139                 <span class="keyword">end</span>
+0140             <span class="keyword">end</span>
+0141             <span class="keyword">if</span> p==0
+0142                 fprintf(fout2,<span class="string">'%s\t\t'</span>,M{1,k}{1,g});
+0143             <span class="keyword">end</span>
+0144             g=g+1;
+0145         <span class="keyword">end</span>
+0146     <span class="keyword">end</span>
+0147     fprintf(fout2,<span class="string">'\n'</span>);
+0148 <span class="keyword">end</span>
+0149 fclose(fout2);
+0150 
+0151 fid2 = fopen(outname6);
+0152 y=1;
+0153 <span class="keyword">while</span> ~feof(fid2)
+0154     E{y}=fgetl(fid2);
+0155     y=y+1;
+0156 <span class="keyword">end</span>
+0157 fclose(fid2);
+0158 
+0159 <span class="keyword">for</span> i=1:i-1
+0160     C=A{1,i};
+0161     fprintf(fout,<span class="string">'%d\t%f\t%d\t%d\t%s\n'</span>,C(1),C(2),C(3),C(4),line{1,i});
+0162     fprintf(fout,<span class="string">'%s\n\n'</span>,E{i});
+0163 <span class="keyword">end</span>
+0164 fclose(fout);
+0165 
+0166 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0167 <span class="comment">% End of time evaluation of program</span>
+0168 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0169 toc;</pre></div>
+<hr><address>Generated on Thu 13-Dec-2012 14:17:37 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of enz_cent_RCMLib_dir_single_node</title>
+  <meta name="keywords" content="enz_cent_RCMLib_dir_single_node">
+  <meta name="description" content="Builds Directed Enzyme-Enzyme Networks Removing Currency Metabolites (based-on a Library file) and considering single nodes (without any edges)">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../index.html">Home</a> &gt;  <a href="index.html">.</a> &gt; enz_cent_RCMLib_dir_single_node.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../index.html"><img alt="<" border="0" src="../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for .&nbsp;<img alt=">" border="0" src="../right.png"></a></td></tr></table>-->
+
+<h1>enz_cent_RCMLib_dir_single_node
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="box"><strong>Builds Directed Enzyme-Enzyme Networks Removing Currency Metabolites (based-on a Library file) and considering single nodes (without any edges)</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="box"><strong>function [Output] = enz_cent_RCMLib_dir_single_node(fileName1,fileName2) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Builds Directed Enzyme-Enzyme Networks Removing Currency Metabolites (based-on a Library file) and considering single nodes (without any edges)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ The function reads a Metabolic Network SBML file and builds Directed Enzyme-Enzyme Networks.
+ The Remove Currency Metabolites based-on Library (RCMLib) algorithm removes currency metabolites 
+ in the metabolic network automatically IF AND ONLY IF the currency metabolits exists in the Library file.
+ This file contains single nodes (without any edges) in Cytoscape-compatible files.
+ Note: COBRA Toolbox must be installed in MATLAB before running this function
+
+ [Output] = enz_cent_RCMLib_dir_single_node(fileName1,fileName2)
+
+INPUTS
+ fileName1                                      The Library file includes pre-defined currency metabolites (in .txt format)
+ Note: Library text file must include one metabolites per line (all in one column) 
+ fileName2                                      The metabolic Network in the SBML format
+ 
+OUTPUTS
+ *_Enzyme_Cent_RCMLib_Dir_Single_Node_Cyt.sif   Directed-Enzyme-Enzyme Network - Cytoscape Compatible
+ 
+ Yazdan Asgari 12/07/2012                       http://lbb.ut.ac.ir
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="pic/up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [Output] = enz_cent_RCMLib_dir_single_node(fileName1,fileName2)</a>
+0002 <span class="comment">% Builds Directed Enzyme-Enzyme Networks Removing Currency Metabolites (based-on a Library file) and considering single nodes (without any edges)</span>
+0003 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0004 <span class="comment">% The function reads a Metabolic Network SBML file and builds Directed Enzyme-Enzyme Networks.</span>
+0005 <span class="comment">% The Remove Currency Metabolites based-on Library (RCMLib) algorithm removes currency metabolites</span>
+0006 <span class="comment">% in the metabolic network automatically IF AND ONLY IF the currency metabolits exists in the Library file.</span>
+0007 <span class="comment">% This file contains single nodes (without any edges) in Cytoscape-compatible files.</span>
+0008 <span class="comment">% Note: COBRA Toolbox must be installed in MATLAB before running this function</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% [Output] = enz_cent_RCMLib_dir_single_node(fileName1,fileName2)</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%INPUTS</span>
+0013 <span class="comment">% fileName1                                      The Library file includes pre-defined currency metabolites (in .txt format)</span>
+0014 <span class="comment">% Note: Library text file must include one metabolites per line (all in one column)</span>
+0015 <span class="comment">% fileName2                                      The metabolic Network in the SBML format</span>
+0016 <span class="comment">%</span>
+0017 <span class="comment">%OUTPUTS</span>
+0018 <span class="comment">% *_Enzyme_Cent_RCMLib_Dir_Single_Node_Cyt.sif   Directed-Enzyme-Enzyme Network - Cytoscape Compatible</span>
+0019 <span class="comment">%</span>
+0020 <span class="comment">% Yazdan Asgari 12/07/2012                       http://lbb.ut.ac.ir</span>
+0021 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0022 
+0023 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0024 <span class="comment">% check validity of input files format</span>
+0025 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0026 check1=regexp(fileName1,<span class="string">'.txt'</span>);
+0027 assert(~isempty(check1),<span class="string">'Error in the first input: The fileName1 must contain .txt at its end'</span>)
+0028 check2=regexp(fileName2,<span class="string">'.xml'</span>);
+0029 assert(~isempty(check2),<span class="string">'Error in the second input: The fileName2 must contain .xml at its end'</span>)
+0030 
+0031 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0032 <span class="comment">% start time evaluation of program</span>
+0033 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0034 tic;
+0035 
+0036 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0037 <span class="comment">% reading the Library text file and construct array of currency metabolites</span>
+0038 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0039 fid = fopen(fileName1);
+0040 tline = fgetl(fid);
+0041 i=1;
+0042 Curr_met={};
+0043 <span class="keyword">while</span> ischar(tline)
+0044     Curr_met{i,1}=tline;
+0045     tline = fgetl(fid);
+0046     i=i+1;
+0047 <span class="keyword">end</span>
+0048 fclose(fid);
+0049 [h,g]=size(Curr_met);
+0050 
+0051 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0052 <span class="comment">% reading the SBML file using COBRA Toolbox Command, and sets size of the S matrix</span>
+0053 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0054 model=readCbModel(fileName2);
+0055 [m,n]=size(model.S);
+0056 
+0057 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0058 <span class="comment">% calculate summation of each columns (i.e. How many metabolites each enzyme correlates)</span>
+0059 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0060 S_bin=zeros(size(model.S));
+0061 S_bin(find(model.S))=1;
+0062 CB=sum(S_bin,1);
+0063 A=zeros(m,n);
+0064 B=zeros(m,1);
+0065 N3=zeros(m,1);
+0066 N_curr=zeros(m,1);
+0067 
+0068 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0069 <span class="comment">% reading the Metabolites array and check their availability in the library text file</span>
+0070 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0071 <span class="keyword">for</span> q=1:m
+0072     <span class="keyword">for</span> i=1:h
+0073         <span class="keyword">if</span> strcmp(model.metNames{q},Curr_met{i,1})==1
+0074             N_curr(q,1)=N_curr(q,1)+1;
+0075         <span class="keyword">end</span>
+0076     <span class="keyword">end</span>
+0077 <span class="keyword">end</span>
+0078 
+0079 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0080 <span class="comment">% for each binary S-matrix element, subtracts its value from the column summation and put the result in the A matrix.</span>
+0081 <span class="comment">% A(q) means the metabolite q connects to how many other metabolites through the enzyme i.</span>
+0082 <span class="comment">% for each row, sums the binary S-matrix over all columns.</span>
+0083 <span class="comment">% B(q) means how many enzymes the metabolite q correlates.</span>
+0084 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0085 <span class="keyword">for</span> q=1:m
+0086     <span class="keyword">for</span> i=1:n
+0087         <span class="keyword">if</span> S_bin(q,i)~=0
+0088             A(q,i)=CB(1,i)-S_bin(q,i);
+0089         <span class="keyword">end</span>
+0090         B(q,1)=B(q,1)+S_bin(q,i);
+0091     <span class="keyword">end</span>
+0092 <span class="keyword">end</span>
+0093 
+0094 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0095 <span class="comment">% Assumption: Generally, every metabolite is connected to the other one through a specific enzyme.</span>
+0096 <span class="comment">% If a metabolite connects to more than one metabolite through an enzyme, this will be considered as a suspicious case.</span>
+0097 <span class="comment">% Therefore, every N3(q) value equal to 3 will be marked for further analysis.</span>
+0098 <span class="comment">% In addition, the availability of the metabolite in the library file will be checked.</span>
+0099 <span class="comment">% So, the metabolites which do not exist in the library file, will not select for further analysis.</span>
+0100 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0101 <span class="keyword">for</span> q=1:m
+0102     <span class="keyword">for</span> i=1:n
+0103         <span class="keyword">if</span> A(q,i)==3 &amp;&amp; N_curr(q,1)~=0
+0104             N3(q,1)=N3(q,1)+1;
+0105         <span class="keyword">end</span>
+0106     <span class="keyword">end</span>
+0107 <span class="keyword">end</span>
+0108 
+0109 s=0;
+0110 <span class="keyword">for</span> q=1:m
+0111     <span class="keyword">if</span> N3(q,1)~=0
+0112         s=1;
+0113     <span class="keyword">end</span>
+0114 <span class="keyword">end</span>
+0115 
+0116 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0117 <span class="comment">% If there is any value for N3 array, the RCM algorithm will be done.</span>
+0118 <span class="comment">% This algorithm will be deleted the most probable metabolite among all (i.e. the one with the maximum value of N3 and C)</span>
+0119 <span class="comment">% The selected metabolite will be deleted in the binary S-Matrix, and the &quot;WHILE LOOP&quot; repeated.</span>
+0120 <span class="comment">% The algorithm is ended if there is not any suspicious case.</span>
+0121 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0122 <span class="keyword">while</span> s==1
+0123     C=zeros(m,1);
+0124     max1=max(N3,[],1);
+0125     <span class="keyword">for</span> q=1:m
+0126         <span class="keyword">if</span> N3(q,1)==max1
+0127             C(q,1)=B(q,1);
+0128         <span class="keyword">else</span>
+0129             C(q,1)=0;
+0130         <span class="keyword">end</span>
+0131     <span class="keyword">end</span>
+0132     max2=max(C,[],1);
+0133     <span class="keyword">for</span> q=1:m
+0134         <span class="keyword">if</span> ( (N3(q,1)==max1) &amp;&amp; (C(q,1)==max2) )
+0135             <span class="keyword">for</span> i=1:n
+0136                 S_bin(q,i)=0;
+0137                 model.S(q,i)=0;
+0138             <span class="keyword">end</span>
+0139         <span class="keyword">end</span>
+0140     <span class="keyword">end</span>
+0141     
+0142     CB=sum(S_bin,1);
+0143     A=zeros(m,n);
+0144     B=zeros(m,1);
+0145     N3=zeros(m,1);
+0146     <span class="keyword">for</span> q=1:m
+0147         <span class="keyword">for</span> i=1:n
+0148             <span class="keyword">if</span> S_bin(q,i)~=0
+0149                 A(q,i)=CB(1,i)-S_bin(q,i);
+0150             <span class="keyword">end</span>
+0151             B(q,1)=B(q,1)+S_bin(q,i);
+0152         <span class="keyword">end</span>
+0153     <span class="keyword">end</span>
+0154     <span class="keyword">for</span> q=1:m
+0155         <span class="keyword">for</span> i=1:n
+0156             <span class="keyword">if</span> A(q,i)==3 &amp;&amp; N_curr(q,1)~=0
+0157                 N3(q,1)=N3(q,1)+1;
+0158             <span class="keyword">end</span>
+0159         <span class="keyword">end</span>
+0160     <span class="keyword">end</span>
+0161     s=0;
+0162     <span class="keyword">for</span> q=1:m
+0163         <span class="keyword">if</span> N3(q,1)~=0
+0164             s=1;
+0165         <span class="keyword">end</span>
+0166     <span class="keyword">end</span>
+0167 <span class="keyword">end</span>
+0168 
+0169 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0170 <span class="comment">% building the output file name (Cytoscape compatble file)</span>
+0171 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0172 outname=strrep(fileName2,<span class="string">'.xml'</span>,<span class="string">'_Enzyme_Cent_RCMLib_Dir_Single_Node_Cyt.sif'</span>)
+0173 fout = fopen(outname, <span class="string">'w+'</span>);
+0174 
+0175 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0176 <span class="comment">% construction of Directed-Enzyme-Enzyme Network based on the new binary S-matrix</span>
+0177 <span class="comment">% finds non-zero elements of the new S-matrix (in order to make the algorithm faster),</span>
+0178 <span class="comment">% parses through each row, and considers an edge for every unlike-signs,</span>
+0179 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0180 num=zeros(size(model.rxns));
+0181 <span class="keyword">for</span> j=1:m
+0182     indices=find(model.S(j,:));
+0183     [a,b]=size(indices);
+0184     r=0;
+0185     <span class="keyword">if</span> b~=0
+0186         r=1;
+0187     <span class="keyword">end</span> 
+0188     <span class="keyword">while</span> r&lt;b
+0189         i=1;
+0190         <span class="keyword">while</span> i&lt;(b-r+1)
+0191             <span class="keyword">if</span> model.S(j,indices(1,r))&lt;0 &amp;&amp; model.S(j,indices(1,r+i))&gt;0
+0192                 fprintf(fout,<span class="string">'%s\t%s\t%s\n'</span>,model.rxns{indices(1,r)},<span class="string">'reaction-product'</span>,model.rxns{indices(1,r+i)});
+0193                 num(1,indices(1,r))=1;
+0194                 num(1,indices(1,r+i))=1;
+0195             <span class="keyword">elseif</span> model.S(j,indices(1,r))&gt;0 &amp;&amp; model.S(j,indices(1,r+i))&lt;0
+0196                 fprintf(fout,<span class="string">'%s\t%s\t%s\n'</span>,model.rxns{indices(1,r+i)},<span class="string">'reaction-product'</span>,model.rxns{indices(1,r)});
+0197                 num(1,indices(1,r))=1;
+0198                 num(1,indices(1,r+i))=1;
+0199             <span class="keyword">end</span>
+0200             i=i+1;
+0201         <span class="keyword">end</span>
+0202         r=r+1;
+0203     <span class="keyword">end</span>
+0204 <span class="keyword">end</span>
+0205 
+0206 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0207 <span class="comment">% considering nodes which do not contain any edges</span>
+0208 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0209 <span class="keyword">for</span> k=1:n
+0210     <span class="keyword">if</span> num(1,k)==0
+0211         fprintf(fout,<span class="string">'%s\n'</span>,model.rxns{k});
+0212     <span class="keyword">end</span>
+0213 <span class="keyword">end</span>
+0214 fclose(fout);
+0215 
+0216 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0217 <span class="comment">% End of time evaluation of program</span>
+0218 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0219 toc;</pre></div>
+<hr><address>Generated on Thu 13-Dec-2012 14:17:37 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>
