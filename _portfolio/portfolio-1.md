@@ -1,6 +1,6 @@
 ---
 title: "SCAN Toolbox"
-excerpt: "<img src='/images/scan_web.png', bordercolor="black">"
+excerpt: "<img src='/images/scan_web.png'>"
 collection: portfolio
 ---
 
