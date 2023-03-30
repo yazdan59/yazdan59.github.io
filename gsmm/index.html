@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>GEM DB</title>
+
+	<meta name="keywords" content="Genome-scale Metabolic Modeling, Yazdan Asgari, Ali Salehzadeh-yazdi" />
+	<meta name="description" content="Resources and softwares available for Genome-scale Metabolic Modeling" />
+	<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script> 
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+	<script type="text/javascript" src="js/showhide.js"></script> 
+	<script type="text/JavaScript" src="js/jquery.mousewheel.js"></script> 
+	<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />	
+	<link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="themes/1/js-image-slider.js" type="text/javascript"></script>
+    <link href="generic.css" rel="stylesheet" type="text/css" />   
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/ddsmoothmenu.js"></script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script> 
+
+<!-- Load the CloudCarousel JavaScript file -->
+<script type="text/JavaScript" src="js/cloud-carousel.1.0.5.js"></script>
+ 
+<script type="text/javascript">
+$(document).ready(function(){
+						   
+	// This initialises carousels on the container elements specified, in this case, carousel1.
+	$("#carousel1").CloudCarousel(		
+		{			
+			reflHeight: 40,
+			reflGap:2,
+			titleBox: $('#da-vinci-title'),
+			altBox: $('#da-vinci-alt'),
+			buttonLeft: $('#slider-left-but'),
+			buttonRight: $('#slider-right-but'),
+			yRadius:30,
+			xPos: 480,
+			yPos: 32,
+			speed:0.15,
+		}
+	);
+});
+ 
+</script>
+
+<style type="text/css">
+.auto-style1 {
+	margin-left: 0px;
+}
+.auto-style2 {
+	margin-left: 66px;
+}
+.auto-style3 {
+	color: #FFFFFF;
+	font-size: large;
+	font-family: "Times New Roman", Times, serif;
+}
+.auto-style4 {
+	font-size: small;
+}
+.auto-style5 {
+	color: #FFFFFF;
+	font-size: small;
+	font-family: "Times New Roman", Times, serif;
+}
+.auto-style6 {
+	margin-top: 0px;
+}
+</style>
+
+</head>
+
+<body id="home" style="height: 730px">
+
+<div id="templatemo_header_wrapper" style="width: 960px">
+	<div id="site_title" style="width: 787px; height: 63px;" class="auto-style2"><h1>
+		<a style="width: 719px; height: 55px;" class="auto-style1" ></a></h1></div>
+	
+     <div id="templatemo_menu" class="ddsmoothmenu" style="height: 38px; width: 871px">
+        <ul style="width: 112%; position: relative; left: -92px; top: 0px; right: 92px;">
+            <li><a style="width: 60px" href="index.html"class="selected">Home</a></li>
+            <li><a style="width: 150px" href="GSMM-Recons.html" >GEM Reconstruction</a></li>
+			<li><a style="width: 80px">GEM Models</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="GSM-Model.html">Models</a></li>
+                    <li><a href="Yeast.html">Yeast</a></li>
+                    <li><a href="Human.html">Human</a></li>
+                    <li><a href="Objective.html">Objective</a></li>
+              	</ul>
+			</li>
+            <li><a style="width: 140px">Topological Analysis</a>
+                <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Topological-Def.html">Definitions</a></li>
+                    <li><a href="Topological-Sof.html">Software</a></li>
+              	</ul>
+            </li>
+                                
+            <li><a style="width: 180px">Constraint-based Modeling</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                 	<li><a href="CB-Def.html">Definitions</a></li>
+                    <li><a href="CB-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+           
+			<li><a style="width: 115px">Kinetic Modeling</a>
+			<ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="KM-Def.html">Definitions</a></li>
+                    <li><a href="KM-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+                
+            <li><a style="width: 130px">Hybrid Approaches</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Hyb-Def.html">Definitions</a></li>
+                    <li><a href="Hyb-Int.html">Gene Exp. Mapping</a></li>
+              	</ul>
+			</li>
+			
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+        <br style="clear: left" />
+    </div> <!-- end of templatemo_menu -->
+    
+    <div id="sliderFrame">
+    </div>
+    
+    <div class="cleaner"></div>
+	</div>
+	<!-- END of templatemo_header_wrapper -->
+    
+    <!-- Define left and right buttons. -->
+    <center style="height: 482px">&nbsp; 
+    <div id="sliderFrame0" class="auto-style1" style="width: 678px; height: 72px">
+        <span class="auto-style3">“<em>A model is a mathematical representation of the modelers’s reality, 
+		<br />
+		a way of capturing some aspects of a particular reality within the framework of a mathematical apparatus that provides us with a means for exploring the properties of the reality mirrored in the model.</em>”
+		</span><span class="auto-style5">(</span><span class="auto-style3"><span class="auto-style4" style="line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">J. 
+		L. Casti </span></span><span class="auto-style5">)</span></div>
+	<br />
+	<br />
+        <div id="slider" style="left: 0px; top: 0px">
+            <img src="images/myphoto/slider-01-gsmm.jpg" alt="Welcome to Genome-scale Metabolic Modeling Resource Web page" />
+            <img src="images/myphoto/slider-02-mn.jpg" alt="Metabolic Networks" />
+            <img src="images/myphoto/slider-03-top.jpg" alt="Topological Analysis" />
+            <img src="images/myphoto/slider-04-fba.jpg" alt="Constraint-based Modeling" />
+            <img src="images/myphoto/slider-05-km.jpg" alt="Kinetics Modeling" />
+        </div>
+	</center>
+
+<!-- END of templatemo_main -->
+
+<iframe scrolling="no" src="bottom-frame.html" style="float: middle; height: 189px;" width="100%" border="0" frameborder="0" >
+Your browser does not support inline frames or is currently configured not to display inline frames.
+</iframe>
+
+</body>
+</html>

@@ -1,0 +1,702 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="table2.css" />        
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GEM DB, Kinetic Modeling, Softwares</title>
+<meta name="keywords" content="Genome-scale Metabolic Modeling, Yazdan Asgari, Ali Salehzadeh-yazdi" />
+<meta name="description" content="Resources and softwares available for Genome-scale Metabolic Modeling" />
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+
+<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script> 
+<!--script type="text/javascript" src="/jqueryui/js/jquery-ui-1.7.2.custom.min.js"></script--> 
+<script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="js/showhide.js"></script> 
+<script type="text/JavaScript" src="js/jquery.mousewheel.js"></script> 
+
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+});
+</script> 
+
+<style type="text/css">
+.auto-style1 {
+	border: 0px solid #000000;
+	background-color: #000000;
+}
+.auto-style10 {
+	color: #000000;
+	font-size: large;
+}
+.auto-style12 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14pt;
+}
+.auto-style17 {
+	border: 2px solid #99CCFF;
+	color: #000000;
+	background-color: #99CCFF;
+	font-size: large;
+}
+.auto-style22 {
+	border: 2px solid #99CCFF;
+	background-color: #99CCFF;
+	text-align: center;
+}
+.auto-style23 {
+	color: #000000;
+}
+.auto-style26 {
+	color: #000000;
+	font-size: small;
+}
+.auto-style34 {
+	border: 3px solid #CC0000;
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	background-color: #FF0000;
+	font-size: large;
+	color: #000000;
+}
+.auto-style35 {
+	border: 2px solid #99CCFF;
+	background-color: #CAE4FF;
+	text-align: center;
+}
+.auto-style36 {
+	border: 2px solid #99CCFF;
+	color: #000000;
+	background-color: #CAE4FF;
+	font-size: large;
+}
+.auto-style37 {
+	color: #000000;
+	font-size: small;
+	text-align: left;
+}
+.auto-style38 {
+	border-style: solid;
+	border-color: #FFFFFF;
+	background-color: #FFFFFF;
+}
+.auto-style39 {
+	border: 3px solid #CC0000;
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	background-color: #FFFF00;
+	font-size: large;
+	color: #000000;
+}
+.auto-style40 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 16pt;
+}
+.scrollToTop{
+	width:100px; 
+	height:130px;
+	padding:10px; 
+	text-align:center; 
+	background: whiteSmoke;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	position:fixed;
+	top:0px;
+	right:0px;
+	display:none;
+	background: url('images/myphoto/Arrow-Up.png') no-repeat 0px 20px;
+}
+.scrollToTop:hover{
+	text-decoration:none;
+}
+
+.auto-style44 {
+	font-size: medium;
+}
+.auto-style45 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+	text-decoration: underline;
+}
+.auto-style47 {
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14pt;
+}
+.auto-style48 {
+	font-size: small;
+}
+.auto-style49 {
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.auto-style50 {
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+	text-decoration: underline;
+}
+.auto-style51 {
+	font-size: medium;
+	text-decoration: underline;
+}
+
+.auto-style52 {
+	text-align: center;
+}
+
+</style>
+
+</head>
+
+<body id="subpage" style="height: 4873px">
+
+<div id="templatemo_header_wrapper" style="width: 960px">
+	<div id="site_title" style="width: 787px; height: 63px;" class="auto-style2"><h1>
+		<a style="width: 719px; height: 55px;" class="auto-style1" ></a></h1></div>
+	
+     <div id="templatemo_menu" class="ddsmoothmenu" style="height: 38px; width: 871px">
+        <ul style="width: 112%; position: relative; left: -92px; top: 0px; right: 92px;">
+            <li><a style="width: 60px" href="index.html">Home</a></li>
+            <li><a style="width: 150px" href="GSMM-Recons.html" >GEM Reconstruction</a></li>
+			<li><a style="width: 80px">GEM Models</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="GSM-Model.html">Models</a></li>
+                    <li><a href="Yeast.html">Yeast</a></li>
+                    <li><a href="Human.html">Human</a></li>
+                    <li><a href="Objective.html">Objective</a></li>
+              	</ul>
+			</li>
+            <li><a style="width: 140px">Topological Analysis</a>
+                <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Topological-Def.html">Definitions</a></li>
+                    <li><a href="Topological-Sof.html">Software</a></li>
+              	</ul>
+            </li>
+                                
+            <li><a style="width: 180px">Constraint-based Modeling</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                 	<li><a href="CB-Def.html">Definitions</a></li>
+                    <li><a href="CB-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+           
+			<li><a style="width: 115px"class="selected">Kinetic Modeling</a>
+			<ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="KM-Def.html">Definitions</a></li>
+                    <li><a href="KM-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+                
+            <li><a style="width: 130px">Hybrid Approaches</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Hyb-Def.html">Definitions</a></li>
+                    <li><a href="Hyb-Int.html">Gene Exp. Mapping</a></li>
+              	</ul>
+			</li>
+			
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+        <br style="clear: left" />
+    </div> <!-- end of templatemo_menu -->
+<body style="height: 4873px">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="themes/1/js-image-slider.js" type="text/javascript"></script>
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+</head>
+    <div id="sliderFrame">
+    </div>
+</body>
+    <div class="cleaner"></div>
+</div>
+
+<a href="#" class="scrollToTop"></a>        
+
+	<!-- END of templatemo_header_wrapper -->
+
+<div id="templatemo_main">
+	<div id="content" style="width: 699px">
+    	<div class="post" style="height: 165px">
+            	
+            <h2 class="auto-style44"><strong>Kinetic Modeling: Softwares</strong></h2>
+            	
+            <h2 class="auto-style44"><strong><br />
+			</strong>
+			</h2>
+                    
+            &nbsp;<p style="height: 25px" class="auto-style50"><strong>Recent Studies in 
+			kinetic modeling of Genome-scale:</strong></p>
+			<ul>
+				<li>
+				<p style="height: 22px" class="auto-style49">Constructing 
+				kinetic models of metabolism at genome-scales: A review (<a href="http://onlinelibrary.wiley.com/doi/10.1002/biot.201400522/abstract" target="_blank">Link</a>)</p>
+				</li>
+				<li>
+				<p style="height: 23px" class="auto-style47">
+				<span class="auto-style48">Validation and selection of ODE based 
+				systems biology models: how to arrive at more reliable decisions 
+				(</span><a href="http://www.biomedcentral.com/1752-0509/9/32" target="_blank"><span class="auto-style48">Link</span></a><span class="auto-style48">)</span></p>
+				</li>
+			</ul>
+			<p style="height: 37px" class="auto-style23">
+			<span class="auto-style45"><strong>Here 
+			we have listed some softwares for kinetic modeling and analysis.</strong></span><span class="auto-style40"><br />
+			</span></p>
+			<div class="meta">
+                <div class="cleaner"><br />
+				</div>
+            </div> 
+        </div>
+        
+         <div class="pagging">
+
+
+<table style="width: 100%">
+
+		<tr>
+			 <td class="auto-style52" colspan="3">
+			 <strong>Kinetic Modeling Softwares
+			 </strong>
+			 </td>
+		</tr>
+		<tr>
+			 <td><strong>Name</strong></td>
+			 <td><strong>Description</strong></td>
+			 <td><strong>Reference</strong></td>
+		</tr>
+		<tr>
+			<td>JWS
+				<br />
+				<a href="http://jjj.biochem.sun.ac.za/index.html" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is an Online Systems Biology tool for simulation of 
+				kinetic models from a curated model database. 
+				However it is possible to access the metabolic Models 
+				through the web page.
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/15072998"target="_blank">15072998</a>
+			</td>
+		</tr>
+		<tr>
+			<td>COPASI
+				<br />
+				<a href="http://www.copasi.org" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a software application for simulation and analysis of biochemical networks and their dynamics. 
+				It is a stand-alone program that supports models in the SBML standard and can simulate their 
+				behavior using ODEs or Gillespie's stochastic simulation algorithm; arbitrary discrete events can 
+				be included in such simulations.				
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/17032683"target="_blank">17032683</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Jarnac
+				<br />
+				<a href="http://sbw.kgi.edu/software/jarnac.htm" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a language for describing and manipulating cellular system models and can be used to 
+				describe metabolic, signal transduction and gene networks, or in fact any physical system 
+				which can be described in terms of a network and associated flows.
+				It is a simulator of reaction networks and provides many computational services, includes 
+				time course simulation (ODE or stochastic), steady state analysis, basic structural properties 
+				of networks, dynamic properties like the Jacobian, elasticities, sensitivities, eigenvalues etc. 
+				It also supports a scripting language that allows experienced users to directly interact with the 
+				computational engine.								
+			</td>
+			<td>Sauro, Herbert M., and D. A. Fell. 
+				&quot;Jarnac: a system for interactive metabolic analysis.&quot; Animating 
+				the Cellular Map: Proceedings of the 9th International Meeting 
+				on BioThermoKinetics. Stellenbosch University Press, 2000
+			</td>
+		</tr>
+		<tr>
+			<td>SBW
+				<br />
+				<a href="http://sbw.kgi.edu/research/sbwintro.htm" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				the Systems Biology Workbench (SBW) is an open source framework connecting heterogeneous software 
+				applications. 
+				It is made up of two kinds of components: 1) The applications that a user would use (Modules). 
+				2) The software framework that allows developers to cross programming 
+				language boundaries and connect application modules to form new applications.												
+			</td>
+			<td>Frank T. Bergmann, Herbert M. Sauro. 
+				Computational systems biology: modularity and composition: SBW - a modular framework 
+				for systems biology., Proceedings of the 37th conference on Winter simulation, 
+				Pages: 1637 - 1645, December 2006
+			</td>
+		</tr>
+		<tr>
+			<td>JSim
+				<br />
+				<a href="http://www.physiome.org/jsim/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a Java-based simulation system for building quantitative numeric models and analyzing them 
+				with respect to experimental reference data. 
+				Its primary focus is in physiology and biomedicine, however its computational engine is quite 
+				general and applicable to a wide range of scientific domains. 
+				Models may intermix ODEs, PDEs, implicit equations, integrals, summations, discrete events and 
+				procedural code as appropriate. 
+				Its model compiler can automatically insert conversion factors for compatible physical units 
+				as well as detect and reject unit unbalanced equations. 
+				It also imports and exports model archive formats SBML and CellML.																
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/24555116"target="_blank">24555116</a>
+			</td>
+		</tr>
+		<tr>
+			<td>MathSBML
+				<br />
+				<a href="http://mathsbml.com/mathsbml/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is an open-source package for working with SBML models in Mathematica. 
+				It provides facilities for reading SBML models, converting them to systems of ordinary differential equations 
+				for simulation and plotting in Mathematica, and translating the models to other formats.																				
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/15087311"target="_blank">15087311</a>
+			</td>
+		</tr>
+		<tr>
+			<td>SBToolbox
+				<br />
+				<a href="http://www.sbtoolbox.org/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				The Systems Biology Toolbox for MATLAB offers systems biologists an open and user extensible environment, 
+				in which to explore ideas, prototype and share new algorithms, and build applications for the 
+				analysis and simulation of biological systems.																								
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/16317076"target="_blank">16317076</a>
+			</td>
+		</tr>
+		<tr>
+			<td>VCell
+				<br />
+				<a href="http://www.nrcam.uchc.edu/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				The Virtual Cell is a computational environment designed for cell biologists, 
+				to facilitate the construction of models and the generation of predictive simulations from them.
+				It is a unique computational environment for modeling and simulation of cell biology. 
+				It has been specifically designed to be a tool for a wide range of scientists, from experimental 
+				cell biologists to theoretical biophysicists. 
+				The creation of biological or mathematical models can range from the simple, to evaluate hypotheses 
+				or to interpret experimental data, to complex multi-layered models used to probe the predicted 
+				behavior of complex, highly non-linear systems. 																												
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/14573350"target="_blank">14573350</a>
+			</td>
+		</tr>
+		<tr>
+			<td>BioNetGen
+				<br />
+				<a href="http://www.bionetgen.org/index.php/Main_Page" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is software for the specification and simulation of rule-based models of biochemical systems, 
+				including signal transduction, metabolic, and genetic regulatory networks.				 																												
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/15217809"target="_blank">15217809</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Cellerator/xCellerator
+				<br />
+				<a href="http://www.cellerator.info/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a Mathematica package designed to aide biological modeling via the automated conversion of 
+				chemical reactions into ODEs and their subsequent solution via numerical integration.								 																												
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/12651737"target="_blank">12651737</a>
+			</td>
+		</tr>
+		<tr>
+			<td>JigCell
+				<br />
+				<a href="http://jigcell.cs.vt.edu/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a joint effort by members of the Departments of Biological Sciences and Computer 
+				Science at Virginia Tech. Its goal is to advance the state of the art for modeling in Systems Biology.												 																												
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/15273159"target="_blank">15273159</a>
+			</td>
+		</tr>
+		<tr>
+			<td>PottersWheel
+				<br />
+				<a href="http://www.potterswheel.de/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				This is a very comprehensive parameter-fitting tool that works well with the SBToolBox but can 
+				also be used alone. 
+				In the area of generating non-linear confidence limits on parameter fits and analyzing the 
+				resulting fit, it is better than the capabilities of COPASI. 
+				The experimental data input formats are also very flexible. The tool provides a number of 
+				optimization algorithms, including Genetic and simulated annealing approaches. For a Matlab 
+				user interested in doing parameter fitting properly, this tool is a serious contender, 
+				especially as the built-in optimization methods in Matlab itself are not sufficiently robust 
+				for fitting biochemical models. 
+				A further advantage of this tool is that is comes with copious documentation. 
+				PottersWheel combined with the SBToolbox2 is a powerful mix.																 																												
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/18614583"target="_blank">18614583</a>
+			</td>
+		</tr>
+		<tr>
+			<td>R Packages
+				<br />
+				<a href="http://www.r-project.org/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				There is limited support for dynamic modeling in R, but this is changing. 
+				Given the growing interest in using R in biological research, it would not be surprising 
+				if further work is done in this area. 
+				Currently, the two tools that are of interest include the SBMLR package by Tomas Radivoyevitch 
+				and a more modern version by Michael Lawrence, called RSBML. 
+				Modeling is in all cases limited to simple time-course simulations. 
+				Both packages use the ODEPACK library for integrating the ODEs, which arguably is superior to 
+				CVODE from SUNDIALS.																			 																												
+			</td>
+			<td>Not Available
+			</td>
+		</tr>
+		<tr>
+			<td>SBML-PET-MPI
+				<br />
+				<a href="http://www.bioss.uni-freiburg.de/cms/sbml-pet-mpi.html" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a parallel parameter estimation tool for Systems Biology Markup Language (SBML) based models. 
+				The tool allows the user to perform parameter estimation, parameter uncertainty and identifiability 
+				analysis by collectively fitting multiple experimental data sets. It can run on Windows, Linux and Mac OS systems.																							 																												
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/16926221"target="_blank">16926221</a>
+			</td>
+		</tr>
+		<tr>
+			<td>SloppyCell
+				<br />
+				<a href="http://sloppycell.sourceforge.net/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a software environment for simulation and analysis of biomolecular networks.
+				It includes deterministic and stochastic dynamical simulations, sensitivity analysis without 
+				finite-difference derviatives, optimization methods to fit parameters to experimental data,
+				simulation of multiple related networks sharing common parameters, and stochastic Bayesian 
+				analysis of parameter space to estimate error bars associated with optimal fits.																											 																												
+			</td>
+			<td>
+			Christopher R. Myers, Ryan N. Gutenkunst, James P. Sethna "Python unleashed on systems biology" 
+			Computing in Science and Engineering 9:34 (2007); arXiv:0704.3259
+			</td>
+		</tr>
+		<tr>
+			<td>E-Cell
+				<br />
+				<a href="http://www.e-cell.org/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				The E-Cell Project develops general technologies and theoretical supports for computational biology with 
+				the grand aim to make precise whole cell simulation at the molecular level possible.																															 																												
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/10068694"target="_blank">10068694</a>
+			</td>
+		</tr>
+		<tr>
+			<td>SOSlib
+				<br />
+				<a href="http://www.tbi.univie.ac.at/~raim/odeSolver/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a programming library and a command-line application for symbolic and numerical analysis of a 
+				system of ordinary differential equations (ODEs) derived from a chemical reaction network encoded in 
+				the Systems Biology Markup Language (SBML). It is written in C and distributed under the terms of the 
+				GNU Lesser General Public License. The package employs libSBML's AST (Abstract Syntax Tree) for 
+				formula representation to construct ODE systems, their Jacobian matrix and other derivatives. 
+				CVODES, the sensitivity-enabled ODE solver in the SUNDIALS package is used for numerical integration 
+				and sensitivity analysis of stiff and non-stiff ODE systems.																																			 																												
+			</td>
+			<td>Not Available
+			</td>
+		</tr>
+		<tr>
+			<td>Tav4SB
+				<br />
+				<a href="http://bioputer.mimuw.edu.pl/tav4sb/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				The Taverna services for Systems Biology (Tav4SB) project provides a set of new Web service operations, 
+				which extend the functionality of the Taverna Workbench in a domain of systems biology. 
+				Its operations allow you to perform numerical simulations or model checking of, respectively, 
+				deterministic or stochastic semantics of biological models. 
+				On top of this functionality, Tav4SB enables the construction of high-level experiments. 
+				Its operations are executed in a simple grid environment, integrating heterogeneous software 
+				such as Mathematica, PRISM and SBML ODE Solver.																																							 																												
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/22480273"target="_blank">22480273</a>
+			</td>
+		</tr>
+		<tr>
+			<td>KiMoSys
+				<br />
+				<a href="http://kimosys.org" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a web application for quantitative KInetic MOdels of biological SYStems.
+				It is a freely accessible web site that combines tasks for experimental data-store, 
+				search and share, and tools in order to build ODE-based kinetic models into a single platform.																																						 																												
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/25115331"target="_blank">25115331</a>
+			</td>
+		</tr>
+		<tr>
+			<td>SBMLsqueezer
+				<br />
+				<a href="http://www.cogsys.cs.uni-tuebingen.de/software/SBMLsqueezer/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It generates kinetic equations for biochemical networks according to context of each reaction. 
+				When used as a plug-in for CellDesigner it uses the information from the SBGN representation 
+				of all network components. In the stand-alone mode, SBMLsqueezer evaluates the Systems Biology 
+				Ontology (SBO) annotations to extract this information. 
+				An online version of SBMLsqueezer is available that runs without instally any software on 
+				the local machine. The rate laws that can be produced by SBMLsqueezer include several types 
+				of generalized mass action.																																						 																												
+			</td>
+			<td>
+				<a href="http://www.biomedcentral.com/1752-0509/9/68"target="_blank">Paper_Link</a>
+			</td>
+		</tr>
+
+</table>
+
+                
+    </div>
+    <div class="cleaner"></div>
+    </div>
+    
+    <div id="sidebar" style="width: 228px">
+
+        <h3 class="auto-style51"><strong>Recent Softwares</strong></h3>
+        <ul class="recent_post">
+           <li><a href="http://www.biomedcentral.com/1752-0509/9/68"target="_blank">SBMLsqueezer</a>It generates kinetic equations for biochemical networks according to context of each reaction.</li> 
+           <li><a href="http://kimosys.org"target="_blank">KiMoSys</a>It is a web application for quantitative KInetic MOdels of biological SYStems.
+				It is a freely accessible web site that combines tasks for experimental data-store, search and share, and tools in order to build ODE-based kinetic models into a single platform.</li>
+        </ul>
+    </div> <!-- end of sidebar -->
+    <div class="cleaner"></div>
+</div> <!-- END of templatemo_main -->
+<iframe scrolling="no" src="bottom-frame.html" style="float: middle; height: 187px;" width="100%" border="0" frameborder="0" >
+Your browser does not support inline frames or is currently configured not to display inline frames.
+</iframe>
+
+</body>
+</html>

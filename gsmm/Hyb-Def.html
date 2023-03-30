@@ -1,0 +1,663 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GEM DB, Hybrid Approaches, Definitions</title>
+<meta name="keywords" content="Genome-scale Metabolic Modeling, Yazdan Asgari, Ali Salehzadeh-yazdi" />
+<meta name="description" content="Resources and softwares available for Genome-scale Metabolic Modeling" />
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+
+<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script> 
+<!--script type="text/javascript" src="/jqueryui/js/jquery-ui-1.7.2.custom.min.js"></script--> 
+<script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="js/showhide.js"></script> 
+<script type="text/JavaScript" src="js/jquery.mousewheel.js"></script> 
+
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+});
+</script> 
+
+<style type="text/css">
+.auto-style1 {
+	font-size: medium;
+}
+.auto-style2 {
+	font-size: large;
+}
+.auto-style12 {
+	margin-left: 120px;
+}
+.auto-style19 {
+	font-family: "Times New Roman", Times, serif;
+}
+.auto-style26 {
+	color: #000000;
+	font-size: 14pt;
+}
+.auto-style35 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14pt;
+	color: #000000;
+}
+.auto-style37 {
+	font-size: medium;
+	text-decoration: underline;
+}
+.auto-style38 {
+	color: #000000;
+}
+.auto-style39 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14pt;
+	color: #000000;
+	text-align: center;
+}
+.auto-style40 {
+	font-size: 16pt;
+}
+.auto-style41 {
+	font-family: "Times New Roman", Times, serif;
+	color: #0000FF;
+}
+.auto-style42 {
+	font-size: 14pt;
+}
+.auto-style43 {
+	font-size: 14pt;
+	text-align: center;
+}
+.auto-style44 {
+	font-size: 11pt;
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	color: #000000;
+}
+.auto-style45 {
+	text-align: center;
+}
+.scrollToTop{
+	width:100px; 
+	height:130px;
+	padding:10px; 
+	text-align:center; 
+	background: whiteSmoke;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	position:fixed;
+	top:0px;
+	right:0px;
+	display:none;
+	background: url('images/myphoto/Arrow-Up.png') no-repeat 0px 20px;
+}
+.scrollToTop:hover{
+	text-decoration:none;
+}
+.auto-style47 {
+	font-size: medium;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+	text-decoration: underline;
+}
+.auto-style48 {
+	font-size: 14pt;
+	text-align: left;
+	font-family: "Times New Roman", Times, serif;
+	color: #000000;
+}
+.auto-style49 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12pt;
+	color: #000000;
+}
+.auto-style50 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #7F0D0D;
+}
+.auto-style52 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	font-size: small;
+}
+.auto-style53 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.auto-style54 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+}
+.auto-style56 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14pt;
+	color: #000000;
+}
+.auto-style57 {
+	font-size: small;
+}
+.auto-style60 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: x-small;
+}
+.auto-style61 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+	text-decoration: underline;
+	color: #000000;
+}
+.auto-style62 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.auto-style64 {
+	color: #000000;
+	font-size: small;
+}
+.auto-style65 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: x-small;
+}
+.auto-style66 {
+	font-size: x-small;
+}
+</style>
+
+</head>
+
+<body id="subpage" style="height: 3157px">
+
+<div id="templatemo_header_wrapper" style="width: 960px">
+	<div id="site_title" style="width: 787px; height: 63px;" class="auto-style2"><h1>
+		<a style="width: 719px; height: 55px;" class="auto-style1" ></a></h1></div>
+	
+     <div id="templatemo_menu" class="ddsmoothmenu" style="height: 38px; width: 871px">
+        <ul style="width: 112%; position: relative; left: -92px; top: 0px; right: 92px;">
+            <li><a style="width: 60px" href="index.html">Home</a></li>
+            <li><a style="width: 150px" href="GSMM-Recons.html" >GEM Reconstruction</a></li>
+			<li><a style="width: 80px">GEM Models</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="GSM-Model.html">Models</a></li>
+                    <li><a href="Yeast.html">Yeast</a></li>
+                    <li><a href="Human.html">Human</a></li>
+                    <li><a href="Objective.html">Objective</a></li>
+              	</ul>
+			</li>
+            <li><a style="width: 140px">Topological Analysis</a>
+                <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Topological-Def.html">Definitions</a></li>
+                    <li><a href="Topological-Sof.html">Software</a></li>
+              	</ul>
+            </li>
+                                
+            <li><a style="width: 180px">Constraint-based Modeling</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                 	<li><a href="CB-Def.html">Definitions</a></li>
+                    <li><a href="CB-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+           
+			<li><a style="width: 115px">Kinetic Modeling</a>
+			<ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="KM-Def.html">Definitions</a></li>
+                    <li><a href="KM-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+                
+            <li><a style="width: 130px"class="selected">Hybrid Approaches</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Hyb-Def.html">Definitions</a></li>
+                    <li><a href="Hyb-Int.html">Gene Exp. Mapping</a></li>
+              	</ul>
+			</li>
+			
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+        <br style="clear: left" />
+    </div> <!-- end of templatemo_menu -->
+<body style="height: 3557px">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="themes/1/js-image-slider.js" type="text/javascript"></script>
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+</head>
+    <div id="sliderFrame">
+    </div>
+</body>
+    <div class="cleaner"></div>
+</div>
+
+<a href="#" class="scrollToTop"></a>        
+
+	<!-- END of templatemo_header_wrapper -->
+
+<div id="templatemo_main" style="height: 2970px">
+	<div id="content" style="width: 944px; height: 2854px;">
+    	<div class="post" style="width: 965px; height: 2900px;">
+            	
+            <h2 class="auto-style1"><strong>Hybrid Approaches: Definitions</strong></h2>
+                    
+            <span class="auto-style1"><strong>
+                    
+			<br />
+			</strong></span>
+			<p class="auto-style52">
+			Although we have presented three types of analysis for GEM models 
+			(Topological, Constraint-based, and Kinetic Modeling), it is 
+			rational to consider their limitations and flaws. Like all other 
+			types of modeling, it is not possible to cover all features of 
+			biological networks in each mentioned approaches. Hence, different 
+			hybrid methods have been emerged to progress analysis processes.<o:p></o:p></p>
+			<p class="MsoNormal">
+			<o:p></o:p>
+			</p>
+			<p class="auto-style45">
+			<o:p>
+			<img alt="" height="317" src="images/myphoto/hyb3.png" width="540" /></o:p></p>
+			<p class="auto-style45">
+			<o:p>
+			<span style="line-height:115%;
+mso-fareast-font-family:Calibri;
+color:black;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:
+AR-SA" class="auto-style65">Overview of the various modeling approaches. Comparison depends on level 
+			of details and data requirements<br/> <em>(Tenazinha, N. and S. Vinga, IEEE/ACM Trans Comput Biol Bioinform, 2011, 8(4), 943-58)</em></span><span style="line-height:115%;
+mso-fareast-font-family:Calibri;
+color:black;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:
+AR-SA" class="auto-style53"> </span>
+			</o:p>
+			</p>
+			<p class="auto-style45">
+			<o:p></o:p></p>
+			<p class="MsoNormal">
+			&nbsp;</p>
+			<p class="MsoNormal">
+			<span style="color:black" class="auto-style54">
+			<strong>Here we have described hybrid methods in two different views:</strong></span><span style="font-size:14.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><o:p></o:p></span></p>
+			<p class="auto-style56">
+			<strong><span class="auto-style37">Integration of omics data</span></strong> 
+			<br class="auto-style57"/>
+			<span class="auto-style57">Beginning of high throughput technologies has provided possibility to high content screening 
+			and high content analysis of cells so that it has become a chief and crucial tool in gaining a 
+			better understanding of cell function, disease study and drug discovery over the past few decades. 
+			Besides, their development has been accelerated in the post-genomic era since technologies such as 
+			DNA sequencing has evolved intensely and nowadays this technology has become easier and highly 
+			faster due to the development of dye-based sequencing methods with automated analysis [1,2]. 
+			As a result, biological research has been enhanced and the number of sequenced genomes belonging 
+			to several organisms intensively grows up annually [3]. Afterward, global methods were developed 
+			to reconstruct networks based on direct sequencing and expression array approaches which measures 
+			changes in gene expression on genome-wide basis or at the RNA level, upon mutation or in response 
+			to environmental changes. Emerging ChIp assays (Chromatin Immunoprecipitation) analyzing genome-wide 
+			location of mammalian transcription factors and ChIP-on-chip technologies Combining ChIP assays with 
+			DNA microarray, ChIP-sequencing have provided complex and detailed information about transcriptional 
+			networks [4]. Two distinct powerful proteomic technologies; Yeast two-hybrid systems and Mass Spectrometry 
+			(MS) technologies give straight evidence to protein-protein and protein-DNA interactions in cells and 
+			recognize proteins that co-affinity purify (co-AP) with a bait protein [5,6]. 
+			In general, these high throughput technologies have provided a framework for understanding observations 
+			at the cell, phenotypic, or physiological level. They are also helping us to unravel the complex 
+			relationships between genes, gene products, and cellular and biological functions, to develop novel 
+			therapeutic, diagnostic, and prognostic agents. Whereas high-throughput omics approaches to analyze 
+			molecules at various cellular levels are rapidly becoming available, it is also going to be clear that 
+			any single omics approaches might not be adequate to illustrate the complexity of biological systems (Figure 1) [7]. 
+			</span> 
+			</p>
+			<p class="auto-style35">
+			&nbsp;</p>
+			<p class="auto-style39">
+			<img alt="" height="308" src="images/myphoto/hyb1.png" width="536" /></p>
+			<p class="auto-style48">
+			<span style="line-height:115%;
+mso-fareast-font-family:Calibri;
+mso-fareast-theme-font:minor-latin;color:black;mso-ansi-language:EN-US;
+mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="auto-style60">Figure 1:</span><span style="line-height:115%;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="auto-style65"> 
+			schematic overview of the interconnection between signaling, gene 
+			regulation and metabolism. 
+			In a cell, signaling networks are 
+			activated by external signals (grey shapes) binding to a receptor 
+			(black semi-circles) located in the cell membrane. 
+			Then the signal 
+			is spread in the cell internally using of e.g. protein 
+			phosphorylation cascades (blue diamonds). The cascades might cause 
+			changes in the expression of genes through activating or inhibiting 
+			transcription factors (orange triangles). Gene regulatory networks 
+			control the transcriptional level of genes (purple trapeziums), and 
+			hence the production of messenger RNA molecules (red ovals), which 
+			are consequently translated into proteins (green rectangulars). 
+			The 
+			proteins are intricate in cellular functions, containing signal 
+			transduction and the catalysis of metabolic reactions. 
+			Particular 
+			metabolites (grey circles) are known to affect proteins’ activity 
+			(e.g. binding to the allosteric site) and could also influence gene 
+			regulation. 
+			As demonstrated in the figure, signaling, gene 
+			regulation and metabolism are strongly interconnected relying to the 
+			systems’ behavior could just be precisely understood by integrating 
+			the sub-systems appropriately. The interactions among the molecules 
+			are shown by edges: arrow shaped edges depict activating 
+			interactions; blunt edges show inhibitory interactions; and edges 
+			with a circle illustrate enzyme reaction catalysis<br />
+			<em>(</em></span><span class="auto-style19"><span class="auto-style38"><span style="line-height:115%;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="auto-style65"><em>E 
+			Goncalves et al., </em> </span> 
+			<span style="font-size:11.0pt;line-height:115%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
+mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"> 
+			<span style="line-height:115%;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="auto-style65"> 
+			<em>Molecular BioSystems, 2013, 9, 1576-1583</em></span></span></span></span><span style="font-size:11.0pt;line-height:115%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
+mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">)</span></p>
+			<p class="auto-style35">
+			&nbsp;</p>
+			<p class="auto-style52">
+			Integrated multi-omics approaches have been used recently and the studies have allowed scientists to unravel 
+			global regulatory mechanisms and complex metabolic networks in different eukaryotic organisms [8-11]. 
+			Although integrative analysis of multiple large-scale omics datasets could be applied to produce new knowledge 
+			which is not accessible by analysis of a single data type alone, more studies still needs to be performed in 
+			order to improve computational approaches and experimental protocols. So, these primary studies have obviously 
+			confirmed that integrated omics analysis might be a key to interpret complex biological systems. Some of the 
+			progress and challenges associated with integrated omics studies have been reviewed previously in several 
+			excellent articles [12-14]. 
+			To have a more accurate look at the cell biology, it has recommended to integer omic data 
+			(e.g. genome sequence, transcriptome, proteome and metabolome) and gain a global insight into 
+			cellular behavior because it results from the action and interplay between the distinct networks in  a 
+			complex web of hierarchical, multi-leveled, regulated dynamic processes [13]. 
+			Integrating genomics, transcriptomics and proteomics knowledge has allowed the assessment of the 
+			regulation, activities, and interactions of proteins in response to internal and external stimuli.</p>
+			<p class="auto-style41">
+			<span class="auto-style61" lang="X-NONE" style="line-height: 115%">
+			<strong>Integration of modeling methods</strong></span><span class="auto-style40" style="line-height: 115%"><o:p><strong>:</strong></o:p></span></p>
+			<p class="auto-style42">
+			<o:p></o:p>
+			<span class="auto-style52" 
+				  style="line-height:115%;
+">Another integration 
+			approach is the combination of modeling methods. There is currently 
+			no single modeling formalism that can cover all biological aspects.
+			</span>
+			<span style="font-size:14.0pt;line-height:115%;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
+			EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">
+			<span class="auto-style64" 
+				  style="line-height:115%;
+"><br class="auto-style62" />
+			</span></span>
+			<span class="auto-style38" 
+				  style="font-size:14.0pt;line-height:115%;
+font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">
+			<span style="font-size:14.0pt;line-height:115%;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
+			EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">
+			<span class="auto-style52" 
+				  style="line-height:115%;
+">Ordinary differential equations (ODEs) describing the fundamental 
+			biochemistry are comprehensive and have high explanatory power [16].
+			</span></span>
+			<span style="font-size:14.0pt;line-height:115%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
+			mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
+			EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">
+			<span style="font-size:14.0pt;line-height: 115%;mso-fareast-font-family:Calibri; so-fareast-theme-font:minor-latin; mso-ansi-language: 
+			EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">
+			<span style="font-size:14.0pt;line-height:115%;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
+			EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">
+			<span class="auto-style64" 
+				  style="line-height:115%;
+"><br class="auto-style62" />
+			</span></span></span>
+			<span class="auto-style38" 
+				  style="font-size:14.0pt;line-height:115%;
+">
+			<span style="font-size:14.0pt;line-height:115%;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
+			EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">
+			<span style="line-height: 115%;mso-fareast-font-family:Calibri; so-fareast-theme-font:minor-latin; mso-ansi-language: 
+			EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="auto-style53">Nevertheless, their applicability is restricted because of the 
+			difficulty to gain the necessary model parameters. They also have 
+			restricted scalability, and hence they are not applicable to 
+			genome-scale models and simulations. <o:p><br />
+			Less detailed approaches such as constraint-based models have been 
+			considered in larger networks. Selecting the proper modeling 
+			formalism is a trade-off between detail and complexity.<o:p> <br />
+			Building an integrated model that accounts for interactions from all 
+			levels could be realized by writing down the original biochemical 
+			reactions and converting them into ODEs; such a method has been 
+			already considered to build models in each level separately. <br />
+			The integration of the various levels into ODE models would be very 
+			challenging computationally because of leading to stiff ODEs [17].
+			<br />
+			These problems might become tractable by suitable numerical methods. 
+			However, building models of larger integrated networks requires a 
+			level of information that is very rarely available, even for a 
+			single level. Therefore, it is not expected that fully systematic 
+			ODE models integrating all levels will be developed in the near 
+			future. <br />
+			For qualitative modeling, strategies have been developed based on 
+			the different types of large-scale networks, although their 
+			integration is not straightforward. <br />
+			The lack of integrated models might be the absence of knowledge 
+			about the molecular interfaces between the levels, and the lack of 
+			appropriate data at both levels simultaneously. Furthermore, 
+			different time scales need to be considered for each level, which is 
+			often difficult in qualitative models. <br />
+			Structural Kinetic Modeling (SKM) is another hybrid approach which 
+			seeks to provide a bridge between stoichiometric analysis and 
+			explicit kinetic models of metabolism and represents an intermediate 
+			step on the way from topological analysis to detailed kinetic models 
+			of metabolic pathways. Specifically, SKM aims to give a quantitative 
+			account of the possible dynamics of a metabolic network.<o:p> <br />
+			To summarize, currently no single mathematical formalism seems 
+			having capability of simulating the phenotype of a cell by 
+			consideration of signaling, gene regulation and metabolic systems at 
+			the same time. Figure 2 represents a summary of modeling approaches 
+			which have been performed in three biological levels.</o:p></o:p></o:p></span></span></span></span></span></p>
+			<p class="auto-style42">
+			<o:p>
+			<o:p> 
+			<o:p> </o:p></o:p></o:p></p>
+			<p class="auto-style43">
+			<o:p>
+			<o:p>
+			<o:p>
+			<img alt="" height="284" src="images/myphoto/hyb2.png" width="534" /></o:p></o:p></o:p></p>
+			<p class="auto-style44">
+			<o:p>
+			<o:p>
+			<o:p><span class="auto-style62"><strong><span class="auto-style66">Figure 2:</span></strong><span class="auto-style66"> overview of modeling frameworks for 
+			signaling, gene regulatory, and metabolic networks among multiple 
+			formalisms and simulation approaches.
+			</span></span> 
+			<em>
+			<span style="line-height:115%;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="auto-style66"> 
+			<br class="auto-style62" />
+			</span>
+			<span style="line-height:115%;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="auto-style65"> 
+			(</span></em><span class="auto-style19"><span class="auto-style38"><span style="line-height:115%;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="auto-style65"><em>E 
+			Goncalves et al., </em> </span> 
+			<span style="font-size:11.0pt;line-height:115%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
+mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"> 
+			<span style="line-height:115%;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="auto-style65"> 
+			<em>Molecular BioSystems, 2013, 9, 1576-1583</em></span></span></span></span><span style="line-height:115%;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="auto-style65">)</span> 
+			<span class="auto-style66"> <br class="auto-style62" />
+			</span><span class="auto-style62"><span class="auto-style66">References in the figure: Karr et al. [18], 
+Konig et al. [19], Mosca et al. [20], Stelniec-Koltz et al. [21], Nakakuki et al. [22].</span></span></o:p></o:p></o:p></p>
+			<p class="auto-style44">
+			<o:p>
+			<o:p>
+			<o:p></o:p>
+			</o:p>
+			</o:p>
+			</p></br>
+			<strong><span class="auto-style50">Note:</span><span class="auto-style52"> 
+			Texts and figures in this page have been chosen from the reference 
+			number [15].</span><span class="auto-style49"></br></br></br>
+			</span></strong>
+			<p class="auto-style47">
+			<strong>Recommended readings for Integrated Methods and Analysis of 
+			GEM Models:</strong></p>
+			<ul>
+				<li>
+				<p class="auto-style48"><span class="auto-style62"><em>
+				<span class="auto-style57">Paper:</span></em><span class="auto-style57"> Integrative Analysis of 
+				Metabolic Models – from Structure to Dynamics (</span><a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4306315/" target="_blank"><span class="auto-style57">Link</span></a></span>)</p>
+				</li>
+			</ul>
+			<br />
+			<table style="width: 100%; height: 629px;">
+								
+
+				<tr>
+					<td class="auto-style12" style="width: 951px">
+					<span class="auto-style19"><span class="auto-style26">
+					<strong>References:</strong></span><br />
+					<span class="auto-style38">1. Pettersson E, Lundeberg J, 
+					Ahmadian A (2009) Generations of sequencing technologies. 
+					Genomics 93: 105-111.<br />
+					2. Olsvik O, Wahlberg J, Petterson B, Uhlen M, Popovic T, et 
+					al. (1993) Use of automated sequencing of polymerase chain 
+					reaction-generated amplicons to identify three types of 
+					cholera toxin subunit B in Vibrio cholerae O1 strains. J 
+					Clin Microbiol 31: 22-25.<br />
+					3. Bernal A, Ear U, Kyrpides N (2001) Genomes OnLine 
+					Database (GOLD): a monitor of genome projects world-wide. 
+					Nucleic Acids Res 29: 126-127.<br />
+					4. Ren B, Dynlacht BD (2004) Use of chromatin 
+					immunoprecipitation assays in genome-wide location analysis 
+					of mammalian transcription factors. Methods Enzymol 376: 
+					304-315.<br />
+					5. Young KH (1998) Yeast two-hybrid: so many interactions, 
+					(in) so little time. Biol Reprod 58: 302-311.<br />
+					6. Pandey A, Mann M (2000) Proteomics to study genes and 
+					genomes. Nature 405: 837-846.<br />
+					7. Gygi SP, Rochon Y, Franza BR, Aebersold R (1999) 
+					Correlation between protein and mRNA abundance in yeast. 
+					Molecular and cellular biology 19: 1720-1730.<br />
+					8. Hegde PS, White IR, Debouck C (2003) Interplay of 
+					transcriptomics and proteomics. Curr Opin Biotechnol 14: 
+					647-651.<br />
+					9. Mootha VK, Lepage P, Miller K, Bunkenborg J, Reich M, et 
+					al. (2003) Identification of a gene causing human cytochrome 
+					c oxidase deficiency by integrative genomics. Proc Natl Acad 
+					Sci U S A 100: 605-610.<br />
+					10. Mootha VK, Bunkenborg J, Olsen JV, Hjerrild M, 
+					Wisniewski JR, et al. (2003) Integrated analysis of protein 
+					composition, tissue diversity, and gene regulation in mouse 
+					mitochondria. Cell 115: 629-640.<br />
+					11. Alter O, Golub G (2004) Integrative analysis of 
+					genome-scale data by using pseudoinverse projection predicts 
+					novel correlation between DNA replication and RNA 
+					transcription. Proceedings of the National Academy of 
+					Sciences of the United States of America 101: 16577-16582.<br />
+					12. Joyce A, Palsson B (2006) The model organism as a 
+					system: integrating &#39;omics&#39; data sets. Nature Reviews 
+					Molecular Cell Biology 7: 198-210.<br />
+					13. De Keersmaecker SC, Thijs IM, Vanderleyden J, Marchal K 
+					(2006) Integration of omics data: how well does it work for 
+					bacteria? Mol Microbiol 62: 1239-1250.<br />
+					14. Steinfath M, Repsilber D, Scholz M, Walther D, Selbig J 
+					(2007) Integrated data analysis for genome-wide research. 
+					EXS 97: 309-329.<br />
+					15. Goncalves E, Bucher J, Ryll A, Niklas J, Mauch K, et al. 
+					(2013) Bridging the layers: towards integration of signal 
+					transduction, regulation and metabolism into mathematical 
+					models. Molecular BioSystems 9: 1576-1583.<br />
+					16. Tenenbaum M, Pollard H (1963) Ordinary Differential 
+					Equations: An Elementary Textbook for Students of 
+					Mathematics, Engineering, and the Sciences: Harper and Row.<br />
+					17. Hairer E, Nørsett S, Wanner G (2009) Solving Ordinary 
+					Differential Equations I: Nonstiff Problems (Springer Series 
+					in Computational Mathematics) (v. 1): Springer.<br />
+					18. Karr JR, Sanghvi JC, Macklin DN, Gutschow MV, Jacobs JM, 
+					et al. (2012) A whole-cell computational model predicts 
+					phenotype from genotype. Cell 150: 389-401.<br />
+					19. Konig M, Bulik S, Holzhutter HG (2012) Quantifying the 
+					contribution of the liver to glucose homeostasis: a detailed 
+					kinetic model of human hepatic glucose metabolism. PLoS 
+					Comput Biol 8: e1002577.<br />
+					20. Mosca E, Alfieri R, Maj C, Bevilacqua A, Canti G, et al. 
+					(2012) Computational modeling of the metabolic States 
+					regulated by the kinase akt. Front Physiol 3: 418.<br />
+					21. Stelniec-Klotz I, Legewie S, Tchernitsa O, Witzel F, 
+					Klinger B, et al. (2012) Reverse engineering a hierarchical 
+					regulatory network downstream of oncogenic KRAS. Mol Syst 
+					Biol 8: 601.<br />
+					22. Nakakuki T, Birtwistle MR, Saeki Y, Yumoto N, Ide K, et 
+					al. (2010) Ligand-specific c-Fos expression emerges from the 
+					spatiotemporal control of ErbB network dynamics. Cell 141: 
+					884-896.</span></span></td>
+					
+				</tr>
+				
+
+				</table>
+				
+					<tr>
+					<td class="auto-style42" colspan="2">
+					</div>
+        
+    </div>
+    
+	<!-- end of sidebar -->
+    <div class="cleaner"></div>
+</div> <!-- END of templatemo_main -->
+
+<iframe scrolling="no" src="bottom-frame.html" style="float: middle; height: 195px;" width="100%" border="0" frameborder="0" >
+Your browser does not support inline frames or is currently configured not to display inline frames.
+</iframe>
+
+</body>
+</html>

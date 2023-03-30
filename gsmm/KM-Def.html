@@ -1,0 +1,526 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GEM DB, Kinetic Modeling, Definitions</title>
+<meta name="keywords" content="Genome-scale Metabolic Modeling, Yazdan Asgari, Ali Salehzadeh-yazdi" />
+<meta name="description" content="Resources and softwares available for Genome-scale Metabolic Modeling" />
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+
+<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script> 
+<!--script type="text/javascript" src="/jqueryui/js/jquery-ui-1.7.2.custom.min.js"></script--> 
+<script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="js/showhide.js"></script> 
+<script type="text/JavaScript" src="js/jquery.mousewheel.js"></script> 
+
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+});
+</script> 
+
+<style type="text/css">
+.auto-style1 {
+	font-size: medium;
+}
+.auto-style2 {
+	font-size: large;
+}
+.auto-style12 {
+	margin-left: 120px;
+}
+.auto-style25 {
+	font-family: "Times New Roman", Times, serif;
+	color: #000000;
+}
+.auto-style26 {
+	color: #000000;
+	font-size: small;
+	text-decoration: underline;
+}
+.auto-style28 {
+	color: #000000;
+}
+.auto-style31 {
+	font-size: 14.0pt;
+	font-family: "Times New Roman", serif;
+	color: #000000;
+}
+.auto-style32 {
+	font-size: x-large;
+}
+.auto-style33 {
+	font-size: 14.0pt;
+	font-family: "Times New Roman", serif;
+	color: #000000;
+	text-align: center;
+}
+.auto-style34 {
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+	text-decoration: underline;
+}
+.auto-style35 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14pt;
+	color: #000000;
+}
+.auto-style42 {
+	font-size: small;
+}
+.auto-style44 {
+	text-align: center;
+}
+.scrollToTop{
+	width:100px; 
+	height:130px;
+	padding:10px; 
+	text-align:center; 
+	background: whiteSmoke;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	position:fixed;
+	top:0px;
+	right:0px;
+	display:none;
+	background: url('images/myphoto/Arrow-Up.png') no-repeat 0px 20px;
+}
+.scrollToTop:hover{
+	text-decoration:none;
+}
+.auto-style45 {
+	color: #7F0D0D;
+	font-size: small;
+	text-decoration: underline;
+}
+.auto-style46 {
+	font-size: small;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+.auto-style48 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.auto-style49 {
+	font-size: small;
+	font-family: "Times New Roman", serif;
+	color: #000000;
+}
+.auto-style51 {
+	font-family: "Times New Roman", serif;
+	font-size: 14pt;
+	color: #000000;
+}
+.auto-style52 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.auto-style54 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: small;
+	color: #000000;
+}
+.auto-style56 {
+	border-color: #FFFFFF;
+	border-width: 0;
+}
+.auto-style57 {
+	border-style: solid;
+	border-color: #FFFFFF;
+	text-align: center;
+}
+</style>
+
+</head>
+
+<body id="subpage" style="height: 2245px">
+
+<div id="templatemo_header_wrapper" style="width: 960px">
+	<div id="site_title" style="width: 787px; height: 63px;" class="auto-style2"><h1>
+		<a style="width: 719px; height: 55px;" class="auto-style1" ></a></h1></div>
+	
+     <div id="templatemo_menu" class="ddsmoothmenu" style="height: 38px; width: 871px">
+        <ul style="width: 112%; position: relative; left: -92px; top: 0px; right: 92px;">
+            <li><a style="width: 60px" href="index.html" >Home</a></li>
+            <li><a style="width: 150px" href="GSMM-Recons.html" >GEM Reconstruction</a></li>
+			<li><a style="width: 80px">GEM Models</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="GSM-Model.html">Models</a></li>
+                    <li><a href="Yeast.html">Yeast</a></li>
+                    <li><a href="Human.html">Human</a></li>
+                    <li><a href="Objective.html">Objective</a></li>
+              	</ul>
+			</li>
+            <li><a style="width: 140px">Topological Analysis</a>
+                <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Topological-Def.html">Definitions</a></li>
+                    <li><a href="Topological-Sof.html">Software</a></li>
+              	</ul>
+            </li>
+                                
+            <li><a style="width: 180px">Constraint-based Modeling</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                 	<li><a href="CB-Def.html">Definitions</a></li>
+                    <li><a href="CB-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+           
+			<li><a style="width: 115px"class="selected">Kinetic Modeling</a>
+			<ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="KM-Def.html">Definitions</a></li>
+                    <li><a href="KM-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+                
+            <li><a style="width: 130px">Hybrid Approaches</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Hyb-Def.html">Definitions</a></li>
+                    <li><a href="Hyb-Int.html">Gene Exp. Mapping</a></li>
+              	</ul>
+			</li>
+			
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+        <br style="clear: left" />
+    </div> <!-- end of templatemo_menu -->
+<body style="height: 2445px">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="themes/1/js-image-slider.js" type="text/javascript"></script>
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+</head>
+    <div id="sliderFrame">
+    </div>
+</body>
+    <div class="cleaner"></div>
+</div>
+
+<a href="#" class="scrollToTop"></a>        
+
+	<!-- END of templatemo_header_wrapper -->
+
+<div id="templatemo_main">
+	<div id="content" style="width: 944px">
+    	<div class="post" style="width: 965px; height: 1670px;">
+            	
+            <h2 class="auto-style1"><strong>Kinetic Modeling: Definitions</strong></h2>
+                    
+            <span class="auto-style1"><strong>
+                    
+            <br />
+			<br />
+			</strong></span>
+			<p class="auto-style46" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+			From a modeling perspective, biochemical networks are a set of 
+			chemical species that can be converted into each other through 
+			chemical reactions. The focus of biochemical network models is 
+			usually on the levels of the chemical species and this usually 
+			requires explicit mathematical expressions for the velocity at which 
+			the reactions proceed. </p>
+			<p class="auto-style33" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+			<img alt="" height="205" src="images/myphoto/KineticsTable.gif" width="580" /></p>
+			<p class="auto-style46" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+			The most popular representation for these models uses ordinary 
+			differential equations (ODEs) to describe the change in the 
+			concentrations of the chemical species.</p>
+			<p class="auto-style46" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+			Each chemical species in the network is represented by an ODE that 
+			describes the rate of change of that species along time. The ODE is 
+			composed by an algebraic sum of terms that represent the rates of 
+			the reactions that affect the chemical species. For a chemical 
+			species <em>X</em> :<o:p></o:p></p>
+			<p class="auto-style33" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+			<o:p><!--[if gte msEquation 12]><m:oMathPara><m:oMath><m:f><m:fPr>
+			<span style="font-size: 14.0pt; mso-ansi-font-size: 14.0pt; mso-bidi-font-size: 14.0pt; font-family: &quot;Cambria Math&quot;,&quot;serif&quot;; mso-ascii-font-family: &quot;Cambria Math&quot;; mso-hansi-font-family: &quot;Cambria Math&quot;; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-theme-font: major-bidi; font-style: italic; mso-bidi-font-style: normal"><m:ctrlPr></m:ctrlPr>
+			</span></m:fPr><m:num><i style="mso-bidi-font-style: normal">
+			<span style="font-size: 14.0pt; line-height: 115%; font-family: &quot;Cambria Math&quot;,&quot;serif&quot;; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-theme-font: major-bidi; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><m:r>
+			dX</m:r></span></i></m:num><m:den><i style="mso-bidi-font-style: normal"><span style="font-size: 14.0pt; line-height: 115%; font-family: &quot;Cambria Math&quot;,&quot;serif&quot;; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-theme-font: major-bidi; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><m:r>dt</m:r></span></i></m:den></m:f><i style="mso-bidi-font-style: normal"><span style="font-size: 14.0pt; line-height: 115%; font-family: &quot;Cambria Math&quot;,&quot;serif&quot;; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-theme-font: major-bidi; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><m:r>=</m:r></span></i><m:nary><m:naryPr><m:chr
+     m:val="∑" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"/><m:limLoc m:val="undOvr" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"/><m:supHide m:val="on" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"/><span style="font-size: 14.0pt; mso-ansi-font-size: 14.0pt; mso-bidi-font-size: 14.0pt; font-family: &quot;Cambria Math&quot;,&quot;serif&quot;; mso-ascii-font-family: &quot;Cambria Math&quot;; mso-hansi-font-family: &quot;Cambria Math&quot;; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-theme-font: major-bidi; font-style: italic; mso-bidi-font-style: normal"><m:ctrlPr></m:ctrlPr></span></m:naryPr><m:sub><i style="mso-bidi-font-style: normal"><span style="font-size: 14.0pt; line-height: 115%; font-family: &quot;Cambria Math&quot;,&quot;serif&quot;; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-theme-font: major-bidi; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><m:r>all</m:r><m:r> </m:r><m:r>
+			reactions</m:r><m:r>
+     </m:r><m:r>i</m:r></span></i></m:sub><m:sup></m:sup><m:e><m:sSub><m:sSubPr><span style="font-size: 14.0pt; mso-ansi-font-size: 14.0pt; mso-bidi-font-size: 14.0pt; font-family: &quot;Cambria Math&quot;,&quot;serif&quot;; mso-ascii-font-family: &quot;Cambria Math&quot;; mso-hansi-font-family: &quot;Cambria Math&quot;; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-theme-font: major-bidi; font-style: italic; mso-bidi-font-style: normal"><m:ctrlPr></m:ctrlPr></span></m:sSubPr><m:e><i style="mso-bidi-font-style: normal"><span style="font-size: 14.0pt; line-height: 115%; font-family: &quot;Cambria Math&quot;,&quot;serif&quot;; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-theme-font: major-bidi; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><m:r>s</m:r></span></i></m:e><m:sub><i style="mso-bidi-font-style: normal"><span style="font-size: 14.0pt; line-height: 115%; font-family: &quot;Cambria Math&quot;,&quot;serif&quot;; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-theme-font: major-bidi; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><m:r>i</m:r></span></i></m:sub></m:sSub><i style="mso-bidi-font-style: normal"><span style="font-size: 14.0pt; line-height: 115%; font-family: &quot;Cambria Math&quot;,&quot;serif&quot;; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-theme-font: major-bidi; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><m:r>.</m:r></span></i><m:sSub><m:sSubPr><span style="font-size: 14.0pt; mso-ansi-font-size: 14.0pt; mso-bidi-font-size: 14.0pt; font-family: &quot;Cambria Math&quot;,&quot;serif&quot;; mso-ascii-font-family: &quot;Cambria Math&quot;; mso-hansi-font-family: &quot;Cambria Math&quot;; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-theme-font: major-bidi; font-style: italic; mso-bidi-font-style: normal"><m:ctrlPr></m:ctrlPr></span></m:sSubPr><m:e><i style="mso-bidi-font-style: normal"><span style="font-size: 14.0pt; line-height: 115%; font-family: &quot;Cambria Math&quot;,&quot;serif&quot;; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-theme-font: major-bidi; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><m:r>v</m:r></span></i></m:e><m:sub><i style="mso-bidi-font-style: normal"><span style="font-size: 14.0pt; line-height: 115%; font-family: &quot;Cambria Math&quot;,&quot;serif&quot;; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-theme-font: major-bidi; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><m:r>i</m:r></span></i></m:sub></m:sSub></m:e></m:nary></m:oMath></m:oMathPara><![endif]--><![if !msEquation]><span style="font-size: 11.0pt; line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-font-family: Arial; mso-bidi-theme-font: minor-bidi; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter" xmlns:v="urn:schemas-microsoft-com:vml"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="sum @0 1 0" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="sum 0 0 @1" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @2 1 2" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @3 21600 pixelWidth" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @3 21600 pixelHeight" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="sum @0 0 1" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @6 1 2" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @7 21600 pixelWidth" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="sum @8 21600 0" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="prod @7 21600 pixelHeight" xmlns:v="urn:schemas-microsoft-com:vml"/>
+  <v:f eqn="sum @10 21600 0" xmlns:v="urn:schemas-microsoft-com:vml"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect" xmlns:v="urn:schemas-microsoft-com:vml"/>
+ <o:lock v:ext="edit" aspectratio="t" xmlns:o="urn:schemas-microsoft-com:office:office"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:135pt;
+ height:42.75pt'>
+ <v:imagedata src="../../../AppData/Local/Temp/msohtmlclip1/01/clip_image001.png"
+  o:title="" chromakey="white" xmlns:v="urn:schemas-microsoft-com:vml"/>
+</v:shape><![endif]--><![if !vml]>
+			<img height="57" src="images/myphoto/clip_image002.png" v:shapes="_x0000_i1025" width="180" /><![endif]></span><![endif]></o:p></p>
+			<o:p><![if !vml]><![endif]>
+
+			</o:p>
+			<p class="auto-style49" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+			<span class="auto-style48">where <em>s</em></span><sub><span class="auto-style48"><em>i</em></span></sub><span class="auto-style48"> 
+			is a stoichiometry coefficient that is the number of molecules of
+			<em>X</em> consumed or produced in one cycle of reaction <em>i</em>, 
+			with a positive sign if it is produced or negative if consumed, and
+			<em>v</em><sub><em>i</em></sub> is the velocity of reaction <em>i</em> 
+			. Obviously, for reactions that do not produce or consume <em>X</em> 
+			the corresponding </span> <em>s<sub><span class="auto-style48">i</span></sub></em><span class="auto-style48"> 
+			is zero.</span><o:p></o:p></p>
+			<p class="auto-style46" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+			The velocity of each reaction is described by a <i>rate law </i>that 
+			depends on the concentrations of the reaction substrates, products, 
+			and modifiers.<o:p></o:p></p>
+			<p class="auto-style46" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+			These ODE models can be used to simulate the dynamics of the 
+			concentrations of the chemical species along time given their 
+			initial values.<o:p></o:p></p>
+			
+						<table style="width: 100%">
+				<tr>
+					<td class="auto-style44">
+					<img alt="" height="400" src="images/myphoto/km2.gif" width="460" /><img alt="" height="400" src="images/myphoto/km1.GIF" width="460" /></td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+
+			
+			<p class="auto-style31" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+			&nbsp;</p>
+			<p class="auto-style46" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">Kinetic 
+			simulation of biochemical systems involves the following basic 
+			steps:<o:p></o:p></p>
+			<ol>
+				<li>
+				<p class="auto-style28">
+				<o:p><![if !supportLists]>
+				<b style="mso-bidi-font-weight:normal">
+				<span style="font-size:14.0pt;font-family:
+&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ascii-theme-font:major-bidi;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-fareast-theme-font:major-bidi;mso-hansi-theme-font:major-bidi;
+mso-bidi-theme-font:major-bidi"><span style="mso-list:Ignore">
+				<span style="font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;" class="auto-style52">&nbsp;</span></span></span></b><![endif]><span style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:
+major-bidi" class="auto-style52">Identification of the kinetic problem: This step involves the 
+			determination and output variables as well as the intermediates. Key 
+			species and physical properties to be simulated are determined and 
+			tabulated.<o:p></o:p></span></o:p></p>
+				</li>
+				<li>
+				<p class="auto-style28">
+				<o:p>
+				<o:p>
+			<span style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:
+major-bidi" class="auto-style52">Model formulation: Although that does not have to be the case, most 
+			studies employ the <i>reaction rate equations </i>(RRE) to model 
+			biochemical systems. In the RRE, one simply defines the changes in 
+			the concentrations (or equivalently the number of molecules) as a 
+			function of time and location. We note that constraints can be 
+			embedded in RRE using a Lagrange undetermined multipliers type 
+			formalism.</span></o:p></o:p></p>
+				</li>
+				<li>
+				<p class="auto-style51">
+				<o:p>
+				<o:p><span class="auto-style52">Ch</span><span style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:
+major-bidi" class="auto-style52">oosing a method: At this step a decision needs to be made as to 
+				whether to adopt a deterministic or stochastic formulation. 
+				Although it is still relatively uncommon, a hybrid approach 
+				which moves between deterministic and stochastic regimes is 
+				another possibility. In the deterministic approach, a reasonable 
+				time step is chosen adaptively, based on the estimated local 
+				error according to a differential equation model. In contrast, 
+				discrete stochastic simulations model each individual reaction 
+				event. Using the probabilities of the reactions (called the <i>reaction propensities</i>), 
+			one determines the occurrence statistics of the involved reactions. 
+			This is generally done in one of two ways: In next reaction type 
+			methods, the sequence of the reactions are chosen according to the 
+			reaction propensities and the reaction times are computed to of the 
+			elapsed time step and compute how many times the involved reactions 
+			occur according to their probabilities.</span></o:p></o:p></p>
+				</li>
+				<li>
+				<p class="auto-style51">
+				<o:p>
+				<o:p>
+				<span style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:
+major-bidi" class="auto-style52">
+				<o:p>Simulation: Integrating the RRE deterministically involves choosing 
+			an appropriate algorithm from a wide selection of sophisticated 
+			numerical methods for systems of ODEs and DAEs. Highly efficient and 
+			reliable software is readily available, although one must usually 
+			determine whether or not the problem is stiff and then choose the 
+			software accordingly. Roughly speaking, an ODE or DAE system is 
+			stiff if it involves a wide range of time scales and the fastest of 
+			those scales correspond to stable processes. In chemically reacting 
+			systems, the wide range of time scales can come from some reaction 
+			rates being several orders of magnitude or more greater than others. 
+			A solver which is designed for non-stiff systems will run very 
+			slowly (because it needs to choose time steps on the scale of the 
+			fastest process in the system to maintain stability for its explicit 
+			formulas), if it is applied to a stiff problem. The cure for 
+			stiffness is to approximate the differential equation using implicit 
+			methods. The software that is available for the accurate solution of 
+			stiff ODE and DAE systems always makes use of implicit methods. 
+			Stochastic simulation algorithms are not as advanced as the 
+			deterministic integrators and they do not scale well with the model 
+			size and complexity. Even though recent algorithmic improvements 
+			have led to impressive gains, stochastic simulations are still too 
+			slow for most realistic systems. However, as discussed in the 
+			previous section, fluctuations can be large in biological systems 
+			and, more importantly, stochastic variations may have implications 
+			for biological functions and responses. Therefore, when feasible, 
+			stochastic simulation methods should be preferred. This is 
+			particularly true for processes that involve small number of 
+			regulatory molecules with large variations in their expression 
+			levels.</o:p></span></o:p></o:p></p>
+				</li>
+				<li>
+				<p class="auto-style51">
+				<o:p>
+				<o:p>
+				<o:p>
+				<span style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:
+major-bidi" class="auto-style52">
+				Trajectory analysis: Time courses 
+			obtained during the simulations are catalogued and combined to 
+			derive the statistical distributions of the desired 
+			output/prediction quantities, such as the concentrations of 
+			experimentally monitored species and the resulting material/mass 
+			flow in the system or the probability distribution of the reactions. 
+			Similarly, from simulation results for different model parameter 
+			sets, one can study the sensitivity to parameter variations.</span><span style="font-size:14.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
+mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:
+major-bidi"><span style="font-size:14.0pt;mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:
+major-bidi" class="auto-style48"><o:p></o:p></span> </o:p>
+				</span></o:p>
+				</o:p>
+				</p>
+				</li>
+			</ol>
+			<table style="width: 100%">
+								
+
+				<tr>
+					<td class="auto-style12" style="width: 951px">
+					<span class="auto-style48">
+					<strong><span class="auto-style45">
+					Note:</span><span class="auto-style26">
+					Texts and figures in this page have been chosen 
+					from the following references:</span></strong></span><span class="auto-style25"><br />
+					Kinetic Modeling of Biological Systems (<span class="auto-style42"><em>Methods 
+					Mol Biol. 2009, 541, 311–335</em></span>)<br />
+					&nbsp;</span></td>
+					
+				</tr>
+				
+
+				</table>
+				
+					<tr>
+					<td class="auto-style42" colspan="2">
+					<strong>
+					<span class="auto-style32"><br />
+					</span><span class="auto-style34">Do you want reading more?<br />
+			</span></strong><span class="auto-style52"><br />
+					</span><span class="auto-style35">
+			<span class="auto-style46">There are some comprehensive references which 
+					could be helpful in more understanding kinetic modeling methods. 
+					<br />
+					We recommend reading the following 
+			references for better understanding:</span><span class="auto-style54"><o:p></o:p></span></span><span class="auto-style54">&nbsp;</span><span class="auto-style46"></td></span><span class="auto-style35">
+				</tr>
+			
+			</span>&nbsp;</div>
+        
+         <div class="pagging">
+         
+         <table style="width: 100%" class="auto-style56">
+				 <tr>
+					 <td style="width: 199px" class="auto-style57">
+					 <a href="http://www.ncbi.nlm.nih.gov/pubmed/19897108"target="_blank">
+					 <img alt="" height="200" src="images/myphoto/km-mendes.JPG" width="150" /></a></td>
+					 <td style="width: 201px" class="auto-style57">
+					 <a href="http://onlinelibrary.wiley.com/doi/10.1002/9780470475935.ch3/summary"target="_blank">
+					 <img alt="" height="200" src="images/myphoto/modeling-junker.JPG" width="150" /></a></td>
+					 <td style="width: 198px" class="auto-style57">
+					 <a href="http://www.amazon.com/Enzyme-Kinetics-A-Modern-Approach/dp/0471159859"target="_blank">
+					 <img alt="" height="200" src="images/myphoto/ek-2.JPG" width="150" /></a></td>
+					 <td style="width: 194px" class="auto-style57">
+					 <a href="http://www.amazon.com/Enzyme-Kinetics-Systems-Biology-Herbert/dp/0982477317" target="_blank">
+					 <img alt="" height="200" src="images/myphoto/ek-1.JPG" width="150" /></a></td>
+				 </tr>
+				 </table>
+            
+         
+            </div>
+        <div class="cleaner"></div>
+    </div>
+    
+	<!-- end of sidebar -->
+    <div class="cleaner"></div>
+</div> <!-- END of templatemo_main -->
+
+<iframe scrolling="no" src="bottom-frame.html" style="float: middle; height: 185px;" width="100%" border="0" frameborder="0" >
+Your browser does not support inline frames or is currently configured not to display inline frames.
+</iframe>
+
+</body>
+</html>

@@ -1,0 +1,1892 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="table2.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GEM DB, GEM Models</title>
+<meta name="keywords" content="Genome-scale Metabolic Modeling, Yazdan Asgari, Ali Salehzadeh-yazdi" />
+<meta name="description" content="Resources and softwares available for Genome-scale Metabolic Modeling" />
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+
+<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script> 
+<!--script type="text/javascript" src="/jqueryui/js/jquery-ui-1.7.2.custom.min.js"></script--> 
+<script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="js/showhide.js"></script> 
+<script type="text/JavaScript" src="js/jquery.mousewheel.js"></script> 
+
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+});
+</script>
+<style type="text/css">
+.auto-style1 {
+	border: 0px solid #000000;
+	background-color: #000000;
+}
+.auto-style23 {
+	color: #000000;
+}
+.auto-style26 {
+	color: #000000;
+	font-size: small;
+}
+.auto-style44 {
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.scrollToTop{
+	width:100px; 
+	height:130px;
+	padding:10px; 
+	text-align:center; 
+	background: whiteSmoke;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	position:fixed;
+	top:0px;
+	right:0px;
+	display:none;
+	background: url('images/myphoto/Arrow-Up.png') no-repeat 0px 20px;
+}
+.scrollToTop:hover{
+	text-decoration:none;
+}
+.auto-style49 {
+	font-size: small;
+}
+.auto-style59 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.auto-style64 {
+	font-size: medium;
+}
+.auto-style65 {
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.auto-style66 {
+	font-size: medium;
+	text-decoration: underline;
+}
+.auto-style68 {
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	text-align: center;
+}
+.auto-style69 {
+	text-align: center;
+}
+</style>
+
+</head>
+
+<body id="subpage" style="height: 12134px">
+
+<div id="templatemo_header_wrapper" style="width: 960px">
+	<div id="site_title" style="width: 787px; height: 63px;" class="auto-style2"><h1>
+		<a style="width: 719px; height: 55px;" class="auto-style1" ></a></h1></div>
+	
+     <div id="templatemo_menu" class="ddsmoothmenu" style="height: 38px; width: 871px">
+        <ul style="width: 112%; position: relative; left: -92px; top: 0px; right: 92px;">
+            <li><a style="width: 60px" href="index.html">Home</a></li>
+            <li><a style="width: 150px" href="GSMM-Recons.html" >GEM Reconstruction</a></li>
+			<li><a style="width: 80px"class="selected">GEM Models</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="GSM-Model.html">Models</a></li>
+                    <li><a href="Yeast.html">Yeast</a></li>
+                    <li><a href="Human.html">Human</a></li>
+                    <li><a href="Objective.html">Objective</a></li>
+              	</ul>
+			</li>
+            <li><a style="width: 140px">Topological Analysis</a>
+                <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Topological-Def.html">Definitions</a></li>
+                    <li><a href="Topological-Sof.html">Software</a></li>
+              	</ul>
+            </li>
+                                
+            <li><a style="width: 180px">Constraint-based Modeling</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                 	<li><a href="CB-Def.html">Definitions</a></li>
+                    <li><a href="CB-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+           
+			<li><a style="width: 115px">Kinetic Modeling</a>
+			<ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="KM-Def.html">Definitions</a></li>
+                    <li><a href="KM-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+                
+            <li><a style="width: 130px">Hybrid Approaches</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Hyb-Def.html">Definitions</a></li>
+                    <li><a href="Hyb-Int.html">Gene Exp. Mapping</a></li>
+              	</ul>
+			</li>
+			
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+        <br style="clear: left" />
+    </div> <!-- end of templatemo_menu -->
+<body style="height: 12134px">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="themes/1/js-image-slider.js" type="text/javascript"></script>
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+</head>
+    <div id="sliderFrame">
+    </div>
+</body>
+    <div class="cleaner"></div>
+</div>
+
+<a href="#" class="scrollToTop"></a>        
+
+	<!-- END of templatemo_header_wrapper -->
+
+<div id="templatemo_main">
+	<div id="content" style="width: 699px">
+    	<div class="post" style="height: 164px">
+            	
+            <h2 class="auto-style64"><strong>Genome-scale Metabolic Models</strong></h2>
+            	
+            <h2 class="auto-style64"><strong><br />
+			</strong>
+			</h2>
+                    
+            <span class="auto-style64"><strong>&nbsp;</strong></span><p style="height: 42px">
+            <span class="auto-style44">
+			<span class="auto-style49">We have listed all reconstructed genome-scale metabolic models</span></span>
+			
+			
+			<span class="auto-style65">(</span><span class="auto-style59"><strong><a href="#GSM_Models">GEM Models</a></strong><span class="auto-style23">). They includes 
+			<a href="#BACTERIA">Bacteria</a>, <a href="#ARCHAEA">Archaea</a>, 
+			<a href="#EUKARYOTES">Eukaryotes</a>, and <a href="#Mixed_Models">Mixed</a> Species.</span></span></p>
+			
+			<p style="height: 30px">
+			<span class="auto-style44">
+			<span class="auto-style49">You could also use resources which include different GEM models in various formats </span></span>
+			<span class="auto-style65">(</span><span class="auto-style59"><strong><a href="#Databases">Databases</a></strong></span><span class="auto-style65">).</span></p>
+			
+			<p style="height: 42px" class="auto-style44">
+			<span class="auto-style49">First, it is helpful to be familiar with some standards in the field of biological networks and GEM models</span> 
+			
+			<span class="auto-style26">(</span><strong><a href="#Standards"><span class="auto-style49">Standards</span></a></strong><span class="auto-style26">).</span></p>
+			<p style="height: 8px">
+			&nbsp;</p>
+			
+			
+			<div class="meta">
+                <div class="cleaner"><br />
+				</div>
+            </div> 
+        </div>
+        
+         <div class="pagging">
+      
+<table style="width: 100%">
+				 
+				 <tr>
+					 <td class="auto-style68" colspan="2">
+					 <strong><a name="Standards">Standards</a></strong></td>
+				 </tr>
+				 <tr>
+					 <td><strong>Name</strong></td>
+					 <td><strong>Description</strong></td>
+				 </tr>
+				 
+		<tr>
+		<td rowspan="2">SBML
+			<br />
+			<a href="http://sbml.org/Main_Page" target="_blank">
+			(Homepage)</a>
+		</td>
+		<td>
+			The Systems Biology Markup Language (SBML) is a 
+			representation format, based on XML, for communicating 
+			and storing computational models of biological processes.
+			<br/>There is also a library called <a href="http://sbml.org/Software/libSBML" target="_blank">
+			<strong>LibSBML</strong></a> which is a free, 
+			open-source programming library to help you read, write, 
+			manipulate, translate, and validate SBML files and data streams.			
+			</td>
+		</tr>
+	 	<tr>
+			<td>
+				It is also useful to take a look at the 
+				"<a href="http://sbml.org/Main_Page"target="_blank"><strong>sbml.org
+				</strong></a>" web page. 
+				<br />
+				In the "<a href="http://sbml.org/SBML_Software_Guide"target="_blank"><strong>SBML 
+				Software Guide</strong></a>" page, one could obtain information 
+				about all SBML-compatible software packages (which could 
+				deal with SBML file format) for models of metabolism, 
+				cell signaling, and more.  
+			</td>
+		</tr>
+		<tr>
+			<td>CellML
+				<br />
+				<a href="http://www.cellml.org/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is another XML based markup language for describing 
+				mathematical models.				  
+			</td>
+		</tr>
+		<tr>
+			<td>SBGN
+				<br />
+				<a href="http:/www.sbgn.org/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				The Systems Biology Graphical Notation (SBGN) is a 
+				standard for graphical representation.								  
+			</td>
+		</tr>
+		<tr>
+			<td>MIRIAM
+				<br />
+				<a href="http://co.mbine.org/standards/miriam" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				Minimum Information Requested In the Annotation of 
+				biochemical Models (MIRIAM) aims to add further 
+				confidence in quantitative biochemical models, 
+				making it easier and more precise to search for 
+				particular biochemical models, enabling researchers 
+				to identify biological phenomena captured by a 
+				biochemical model and, perhaps most importantly, 
+				facilitating model re-use and model composition.								  
+			</td>
+		</tr>
+		<tr>
+			<td>SBO
+				<br />
+				<a href="http://www.ebi.ac.uk/sbo/main/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				Systems Biology Ontology (SBO) consists of five 
+				controlled vocabularies and two relationships: 
+				is-part-of and is-a. Qualifying model participants 
+				(say as enzyme, macromolecule, metabolite or small 
+				species such as an ion) will make it easier to 
+				generate meaning from the model.												  
+			</td>
+		</tr>
+		<tr>
+			<td>BioPAX
+				<br />
+				<a href="http://www.biopax.org/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				Biological Pathway Exchange (BioPAX) is an XML-based 
+				format that will act as a bridge between different 
+				pathway databases and data. In relation to modeling 
+				software, it may offer a means to embed rich annotation 
+				data into an SBML or CellML model.																  
+			</td>
+		</tr>
+		<tr>
+			<td>TEDDY
+				<br />
+				<a href="http://co.mbine.org/standards/teddy/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				Terminology for the Description of Dynamics (TEDDY) 
+				provides a rich ontology to describe and quantify the 
+				kind of behavior that a computational model is able to 
+				exhibit (e.g. the characteristics of a model could 
+				describe bifurcation behavior in which the functionality 
+				of a model could be described as featuring oscillations 
+				or switch behavior).																				  
+			</td>
+		</tr>
+		<tr>
+			<td>MIASE
+				<br />
+				<a href="http://co.mbine.org/standards/miase" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				The Minimum Information About a Simulation Experiment 
+				(MIASE) will help to describe the simulation algorithms 
+				and the simulation tool used, along with all needed 
+				parameter settings.																								  
+			</td>
+		</tr>
+		<tr>
+			<td>CSML
+				<br />
+				<a href="http://www.csml.org/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				The Cell System Markup Language (CSML) is an XML format 
+				for modeling, visualizing and simulating biopathways. 
+				It supports to represent several pathway types including 
+				metabolic, signaling, and genetic regulatory pathways. 
+				This project aims to facilitate the exchange of 
+				biopathway data in different formats. 
+				Effort has been made for data conversion from other 
+				XML formats. In addition, to allow extensible and 
+				flexible features of CSML, the Cell System Ontology (CSO) 
+				has been developed.																												  
+			</td>
+		</tr>
+		<tr>
+			<td>SED-ML
+				<br />
+				<a href="http://sed-ml.org/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				The Simulation Experiment Description Markup Language 
+				(SED-ML) is an XML-based format for encoding 
+				simulation experiments. It allows to define a 
+				computer-readable format for representing the models 
+				of biological processes. It can be used with models 
+				encoded in several languages, as far as they are in XML.																																  
+			</td>
+		</tr>
+		<tr>
+			<td>SBOL
+				<br />
+				<a href="http://www.sbolstandard.org/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				The Synthetic Biology Open Language (SBOL) is a language 
+				for the description and the exchange of synthetic 
+				biological parts, devices and systems.																																				  
+			</td>
+		</tr>
+		<tr>
+			<td>Jamborees
+				<br />
+				<a href="https://systemsbiology.hi.is/wiki/Jamborees" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				A metabolic reconstruction jamboree is a community-driven 
+				effort to create a high-quality genome-scale biochemical 
+				network reconstruction for a target organism. 
+				This jamboree approach is analog to genome annotation 
+				jamborees that lead to community driven genome annotation 
+				process.																																				  
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="2">
+				More information about standards used to share data in life sciences 
+				can be found on the website of the 
+				<a href="http://www.biosharing.org"target="_blank">
+				<strong>BioSharing</strong></a> initiative.																																				  
+			</td>
+		</tr>
+				 			 
+ </table>
+ 
+ <table style="width: 100%">
+				 
+		 <tr>
+			 <td class="auto-style69" colspan="3">
+			 <strong><a name="Databases">Databases</a></strong></td>
+		 </tr>
+		 <tr>
+			 <td><strong>Name</strong></td>
+			 <td><strong>Description</strong></td>
+			 <td><strong>Reference</strong></td>
+		 </tr>
+				 
+		 <tr>
+			<td>MEMOSys
+				<br />
+				<a href="https://memosys.i-med.ac.at/MEMOSys/home.seam" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				Metabolic Model System is a web based bioinformatics platform 
+				for the management, storage, and development of metabolic 
+				models. It provides the SBML format which enables analysis in 
+				external tools. The web application is based on the Java 
+				framework.
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/24532766"target="_blank">24532766</a>
+		 	</td>
+		 </tr>
+		<tr>
+			<td>BiGG
+				<br />
+				<a href="http://bigg.ucsd.edu/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a knowledgebase of Biochemically, Genetically and 
+				Genomically structured genome-scale metabolic network 
+				reconstructions.				
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/20426874"target="_blank">20426874</a>
+				&
+				<a href="http://nar.oxfordjournals.org/content/early/2015/10/15/nar.gkv1049.full"target="_blank">New Paper</a>
+			</td>
+		</tr>
+		<tr>
+			<td>BioModels
+				<br />
+				<a href="http://www.ebi.ac.uk/biomodels-main/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				This Database serves as a reliable repository of computational 
+				models of biological processes. It also includes curated and 
+				non-curated models.								
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/20587024"target="_blank">20587024</a>
+			</td>
+		</tr>
+		<tr>
+			<td>CellML
+				<br />
+				<a href="http://www.cellml.org/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				The purpose of CellML is to store and exchange computer-based 
+				mathematical models. It allows scientists to share models even 
+				if they are using different modelling tools. It also enables 
+				them to reuse components from one model in another, thus 
+				accelerating model development.
+			</td>															
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/18658182"target="_blank">18658182</a>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<strong>Some other useful references:</strong>
+				<br/>
+				<em>Paper:</em> Calibration and analysis of genome-based models for microbial ecology 
+				(<a href="http://elifesciences.org/content/4/e08208.abstract" target="_blank">Link</a>)						
+			</td>
+		</tr>
+
+</table>
+ 
+<table style="width: 100%">
+				 
+		 <tr>
+			 <td class="auto-style69" colspan="3">
+			 <strong><a name="GSM_Models">GEM Models</a></strong></td>
+		 </tr>
+		 <tr>
+			 <td class="auto-style69" colspan="3">
+			 <a name="BACTERIA"><strong>BACTERIA</strong></a></td>
+		 </tr>
+		 
+		 <tr>
+			 <td><strong>Organism</strong></td>
+			 <td><strong>Model Name</strong></td>
+			 <td><strong>Reference</strong></td>
+		 </tr>
+		 
+		<tr>
+			<td>
+			Acinetobacter baumannii
+			</td>
+			<td>
+			AbyMBEL891
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20094653"target="_blank">20094653</a>
+			</td>
+		</tr>
+ 		<tr>
+			<td>
+			Acinetobacter baylyi
+			</td>
+			<td>
+			iAbaylyiV4
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/18840283"target="_blank">18840283</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">
+			Bacillus subtilis
+			</td>
+			<td>
+			model_v3
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/17573341"target="_blank">17573341</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iBsu1103
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/19555510"target="_blank">19555510</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Bifidobacterium adolescentis
+			</td>
+			<td>
+			iBif452
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/24708835"target="_blank">24708835</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Buchnera aphidicola
+			</td>
+			<td>
+			iGT196
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/19232131"target="_blank">19232131</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Burkholderia cenocepacia
+			</td>
+			<td>
+			iKF1028
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21609491"target="_blank">21609491</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Chromohalobacter salexigens
+			</td>
+			<td>
+			iOA584
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21251315"target="_blank">21251315</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">
+			Clostridium acetobutylicum
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/18767192"target="_blank">18767192</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/18758767"target="_blank">18758767</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Clostridium butyricum
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/25453441"target="_blank">25453441</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Clostridium thermocellum
+			</td>
+			<td>
+			iSR432
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20307315"target="_blank">20307315</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">
+			Corynebacterium glutamicum
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/18985611"target="_blank">18985611</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/19646286"target="_blank">19646286</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/26392034"target="_blank">26392034</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Dehalococcoides ethenogenes
+			</td>
+			<td>
+			iAI549
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20811585"target="_blank">20811585</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="6">
+			Escherichia coli
+			</td>
+			<td>
+			iJE660
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/10805808"target="_blank">10805808</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iJR904
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/12952533"target="_blank">12952533</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iAF1260
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/17593909"target="_blank">17593909</a>
+			</td>
+		</tr>
+		<tr>		
+			<td>
+			iJO1366
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21988831"target="_blank">21988831</a>
+			</td>
+		</tr>
+		<tr>		
+			<td>
+			iCA1273
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21208457"target="_blank">21208457</a>
+			</td>
+		</tr>
+		<tr>		
+			<td>
+			MG1655
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/24974895"target="_blank">24974895</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Faecalibacterium prausnitzii
+			</td>
+			<td>
+			iFap484
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/24708835"target="_blank">24708835</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Francisella tularensis
+			</td>
+			<td>
+			iRS605
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20731870"target="_blank">20731870</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Geobacillus LC300
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/26391740"target="_blank">26391740</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Geobacter metallireducens
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/19175927"target="_blank">19175927</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Geobacter sulfurreducens
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/16461711"target="_blank">16461711</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">
+			Haemophilus influenzae
+			</td>
+			<td>
+			iJE296
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/10364169"target="_blank">10364169</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iCS400
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/10716908"target="_blank">10716908</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">
+			Helicobacter pylori
+			</td>
+			<td>
+			iCS291
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/12142428"target="_blank">12142428</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iIT341
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/16077130"target="_blank">16077130</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Klebsiella pneumoniae
+			</td>
+			<td>
+			iYL1228
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21296962"target="_blank">21296962</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">
+			Lactobacillus casei
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/25365062"target="_blank">25365062</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/25452194"target="_blank">25452194</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Lactobacillus plantarum
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/17062565"target="_blank">17062565</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Lactococcus lactis
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/15982422"target="_blank">15982422</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">
+			Mannheimia succiniciproducens
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/15378067"target="_blank">15378067</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/17405177"target="_blank">17405177</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">
+			Mycobacterium tuberculosis
+			</td>
+			<td>
+			iNJ661
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/17555602"target="_blank">17555602</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			GSMN-TB
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/17521419"target="_blank">17521419</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iNJ661m
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21092312"target="_blank">21092312</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Mycoplasma genitalium
+			</td>
+			<td>
+			iPS189
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/19214212"target="_blank">19214212</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Neisseria meningitidis
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/17617894"target="_blank">17617894</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Pectobacterium carotovorum
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/25535697"target="_blank">25535697</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Phaeodactylum tricornutum
+			</td>
+			<td>
+			---
+			</td>							
+			<td>
+			<a href="http://dar.aucegypt.edu/handle/10526/3979"target="_blank">Paper_Link</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Porphyromonas gingivalis
+			</td>
+			<td>
+			iVM679
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/18931137"target="_blank">18931137</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Pseudoalteromonas haloplanktis
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/24889559"target="_blank">24889559</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Pseudomonas aeruginosa
+			</td>
+			<td>
+			iMO1056
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/18192387"target="_blank">18192387</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">
+			Pseudomonas putida
+			</td>
+			<td>
+			iNJ746
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/18793442"target="_blank">18793442</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iJP815
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/18974823"target="_blank">18974823</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			PpuMBEL1071
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20540110"target="_blank">20540110</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Rhizobium etli
+			</td>
+			<td>
+			iOR363
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/17922569"target="_blank">17922569</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Rhodobacter sphaeroides
+			</td>
+			<td>
+			iRsp1095
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21777427"target="_blank">21777427</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Rhodococcus jostii (RHA1)
+			</td>
+			<td>
+			iMT1174
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/26248853"target="_blank">26248853</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Rhodoferax ferrireducens
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/19772637"target="_blank">19772637</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Salinispora tropica (CNB-440)
+			</td>
+			<td>
+			---
+			</td>							
+			<td>
+			<a href="http://link.springer.com/article/10.1007%2Fs10482-015-0561-9"target="_blank">Paper_Link</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">
+			Salmonella typhimurium
+			</td>
+			<td>
+			iRR1083
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/19356237"target="_blank">19356237</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iMA945
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/19690172"target="_blank">19690172</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			STM_v1.0
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21244678"target="_blank">21244678</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Shewanella oneidensis
+			</td>
+			<td>
+			iSO783
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20589080"target="_blank">20589080</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">
+			Staphylococcus aureus
+			</td>
+			<td>
+			iSB619
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/15752426"target="_blank">15752426</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iMH551
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/16155945"target="_blank">16155945</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/19376871"target="_blank">19376871</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Streptococcus thermophilus
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/19346354"target="_blank">19346354</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">
+			Streptomyces coelicolor
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/15930493"target="_blank">15930493</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20338070"target="_blank">20338070</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">
+			Synechocystis sp. PCC6803
+			</td>
+			<td>
+			---
+			</td>							
+			<td>
+			<a href="http://onlinelibrary.wiley.com/doi/10.1002/jctb.2065/abstract"target="_blank">Paper_Link</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iSyn669
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21083885"target="_blank">21083885</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Synechococcus elongatus
+			</td>
+			<td>
+			iSyf715
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/25141288"target="_blank">25141288</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Thermotoga maritima
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/19762644"target="_blank">19762644</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Vibrio vulnificus
+			</td>
+			<td>
+			VvuMBEL943
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21245845"target="_blank">21245845</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Yersinia pestis
+			</td>
+			<td>
+			iAN818m
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/19396373"target="_blank">19396373</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">
+			Zymomonas mobilis
+			</td>
+			<td>
+			ZmobMBEL601
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21092328"target="_blank">21092328</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iZM363
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20967753"target="_blank">20967753</a>
+			</td>
+		</tr>
+
+		 <tr>
+			 <td class="auto-style69" colspan="3">
+			 <a name="ARCHAEA"><strong>ARCHAEA</strong></a></td>
+		 </tr>
+		 
+		 <tr>
+			 <td><strong>Organism</strong></td>
+			 <td><strong>Model Name</strong></td>
+			 <td><strong>Reference</strong></td>
+		 </tr>
+		 
+		<tr>
+			<td>
+			Halobacterium salinarum
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/18213408"target="_blank">18213408</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Methanosarcina acetivorans
+			</td>
+			<td>
+			iVS941
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21324125"target="_blank">21324125</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Methanosarcina barkeri
+			</td>
+			<td>
+			iAF692
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/16738551"target="_blank">16738551</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Natronomonas pharaonis
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20543878"target="_blank">20543878</a>
+			</td>
+		</tr>
+
+		 <tr>
+			 <td class="auto-style69" colspan="3">
+			 <a name="EUKARYOTES"><strong>EUKARYOTES</strong></a></td>
+		 </tr>
+		 
+		 <tr>
+			 <td><strong>Organism</strong></td>
+			 <td><strong>Model Name</strong></td>
+			 <td><strong>Reference</strong></td>
+		 </tr>
+
+		<tr>
+			<td rowspan="2">
+			Arabidopsis thaliana
+			</td>
+			<td>
+			AraGEM
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20044452"target="_blank">20044452</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iRS1597
+			</td>							
+			<td>
+			<a href="http://maranas.che.psu.edu/submission_models/a_thaliana_iRS1597_b.htm"target="_blank">Webpage</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Aspergillus nidulans
+			</td>
+			<td>
+			iHD666
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/18405346"target="_blank">18405346</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Aspergillus niger
+			</td>
+			<td>
+			iMA871
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/18364712"target="_blank">18364712</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Aspergillus oryzae
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/18500999"target="_blank">18500999</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">
+			Chlamydomonas reinhardtii
+			</td>
+			<td>
+			iRC1080
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21811229"target="_blank">21811229</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			---
+			</td>							
+			<td>
+			<a href="http://onlinelibrary.wiley.com/doi/10.1111/tpj.13059/abstract"target="_blank">Paper_Link</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Cryptosporidium hominis
+			</td>
+			<td>
+			iNV213
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20491062"target="_blank">20491062</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Ectocarpus siliculosus
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/25065645"target="_blank">25065645</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">
+			Homo sapiens
+			</td>
+			<td>
+			Recon 1
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/17267599"target="_blank">17267599</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Recon 2
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/23455439"target="_blank">23455439</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Leishmania major
+			</td>
+			<td>
+			iAC560
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/18364711"target="_blank">18364711</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Mortierella alpina
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/25582171"target="_blank">25582171</a>
+			</td>
+		</tr>		
+		<tr>
+			<td rowspan="5">
+			Mus musculus
+			</td>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/15903248"target="_blank">15903248</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/19425150"target="_blank">19425150</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20024077"target="_blank">20024077</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iMM1415
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20959003"target="_blank">20959003</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iSS1393
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/23022739"target="_blank">23022739</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">
+			Oryza sativa
+			</td>
+			<td>
+			---
+			</td>							
+			<td>
+			<a href="http://link.springer.com/article/10.1007/s12038-015-9563-z"target="_blank">Paper_Link</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/25506349"target="_blank">25506349</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">
+			Pichia pastoris
+			</td>
+			<td>
+			PpaMBEL1254
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20503221"target="_blank">20503221</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iPP668
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20594333"target="_blank">20594333</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			---
+			</td>							
+			<td>
+			<a href="http://onlinelibrary.wiley.com/doi/10.1002/bit.25863/full"target="_blank">Paper_Link</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">
+			Plasmodium falciparum
+			</td>
+			<td>
+			iPP668
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20807400"target="_blank">20807400</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20823846"target="_blank">20823846</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			---
+			</td>							
+			<td>
+			<a href="http://infoscience.epfl.ch/record/212954"target="_blank">Paper_Link</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="8">
+			Saccharomyces cerevisiae
+			</td>
+			<td>
+			iFF708
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/12566402"target="_blank">12566402</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iND750
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/15197165"target="_blank">15197165</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iLL672
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/16204195"target="_blank">16204195</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iIN800
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/18687109"target="_blank">18687109</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iMH805/775 <br/>(Yeast 1.0)
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/18846089"target="_blank">18846089</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			iMM904
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/19321003"target="_blank">19321003</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			improved_iMM904
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21190580"target="_blank">21190580</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			YEASTNET <br/>(Yeast 7.11)
+			</td>							
+			<td>
+			<a href="http://www.comp-sys-bio.org/yeastnet/"target="_blank">Webpage</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Scheffersomyces stipitis
+			</td>
+			<td>
+			---
+			</td>							
+			<td>
+			<a href="http://onlinelibrary.wiley.com/doi/10.1002/bit.25535/abstract"target="_blank">Paper_Link</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Schizochytrium limacinum SR21
+			</td>
+			<td>
+			---
+			</td>							
+			<td>
+			<a href="http://www.biomedcentral.com/1471-2164/16/799"target="_blank">Paper_Link</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Yarrowia lipolytica
+			</td>
+			<td>
+			---
+			</td>							
+			<td>
+			<a href="http://www.biomedcentral.com/1752-0509/9/72"target="_blank">Paper_Link</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">
+			Zea mays
+			</td>
+			<td>
+			iRS1563
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21755001"target="_blank">21755001</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			---
+			</td>							
+			<td>PMID:
+			<br/>
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/25806041"target="_blank">25806041</a>
+			</td>
+		</tr>
+		
+		 <tr>
+			 <td class="auto-style69" colspan="3">
+			 <a name="Mixed_Models"><strong>Mixed Models</strong></a></td>
+		 </tr>
+		 
+		 <tr>
+			 <td colspan="3">
+			 Mixed culture of Leptospirillum ferriphilum and Ferroplasma acidiphilum 
+			 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/25504621" target="_blank">Link</a>)
+			 </td>
+		 </tr>
+	 	<tr>
+			 <td colspan="3">
+			 ToMI-FBA: A genome-scale metabolic flux based algorithm to select optimum hosts and media formulations 
+			 for expressing pathways of interest 
+			 (<a href="http://www.aimspress.com/article/10.3934/bioeng.2015.4.335" target="_blank">Link</a>) 
+			 </td>
+		 </tr>
+		 		
+
+</table>
+               
+    </div>
+    <div class="cleaner"></div>
+    </div>
+  
+    <div id="sidebar" style="width: 228px">
+
+        <h3 class="auto-style66"><strong>Recent Models</strong></h3>
+        <ul class="recent_post">
+            <li><a href="http://www.ncbi.nlm.nih.gov/pubmed/25453441"target="_blank">Clostridium butyricum</a>Genome-scale metabolic reconstructions of Clostridium butyricum</li>
+            <li><a href="http://www.ncbi.nlm.nih.gov/pubmed/26391740"target="_blank">Geobacillus LC300</a>Genome-scale metabolic reconstructions of Geobacillus LC300</li>   
+            <li><a href="http://www.ncbi.nlm.nih.gov/pubmed/25506349"target="_blank">Oryza sativa</a>Genome-scale metabolic reconstructions of Oryza sativa (rice)</li>
+        </ul>
+   </div> <!-- end of sidebar -->
+   
+   <div class="cleaner"></div>
+   </div> <!-- END of templatemo_main -->
+
+<iframe scrolling="no" src="bottom-frame.html" style="float: middle; height: 190px;" width="100%" border="0" frameborder="0" >
+Your browser does not support inline frames or is currently configured not to display inline frames.
+</iframe>
+
+
+</body>
+</html>

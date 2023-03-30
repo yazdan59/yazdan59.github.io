@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GEM DB, Yeast Models</title>
+<meta name="keywords" content="Genome-scale Metabolic Modeling, Yazdan Asgari, Ali Salehzadeh-yazdi" />
+<meta name="description" content="Resources and softwares available for Genome-scale Metabolic Modeling" />
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+
+<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script> 
+<!--script type="text/javascript" src="/jqueryui/js/jquery-ui-1.7.2.custom.min.js"></script--> 
+<script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="js/showhide.js"></script> 
+<script type="text/JavaScript" src="js/jquery.mousewheel.js"></script> 
+
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+});
+</script> 
+
+<style type="text/css">
+.auto-style1 {
+	font-size: medium;
+}
+.auto-style2 {
+	font-size: large;
+}
+.auto-style45 {
+	text-align: center;
+}
+.scrollToTop{
+	width:100px; 
+	height:130px;
+	padding:10px; 
+	text-align:center; 
+	background: whiteSmoke;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	position:fixed;
+	top:0px;
+	right:0px;
+	display:none;
+	background: url('images/myphoto/Arrow-Up.png') no-repeat 0px 20px;
+}
+.scrollToTop:hover{
+	text-decoration:none;
+}
+.auto-style46 {
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.auto-style47 {
+	color: #000000;
+}
+.auto-style49 {
+	text-align: left;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12pt;
+	color: #000000;
+}
+.auto-style51 {
+	font-size: small;
+	color: black;
+	font-family: Arial, Helvetica, sans-serif;
+	margin-top: 12;
+}
+.auto-style52 {
+	clear: both;
+	margin-bottom: 60px;
+	margin-top: 0px;
+}
+.auto-style53 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.auto-style54 {
+	font-size: small;
+}
+.auto-style55 {
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+}
+.auto-style56 {
+	text-decoration: underline;
+}
+.auto-style57 {
+	font-size: medium;
+	text-decoration: underline;
+}
+.auto-style58 {
+	color: #000000;
+	text-decoration: underline;
+}
+</style>
+
+</head>
+
+<body id="subpage" style="height: 1465px">
+
+<div id="templatemo_header_wrapper" style="width: 960px">
+	<div id="site_title" style="width: 787px; height: 63px;" class="auto-style2"><h1>
+		<a style="width: 719px; height: 55px;" class="auto-style1" ></a></h1></div>
+	
+     <div id="templatemo_menu" class="ddsmoothmenu" style="height: 38px; width: 871px">
+        <ul style="width: 112%; position: relative; left: -92px; top: 0px; right: 92px;">
+            <li><a style="width: 60px" href="index.html" >Home</a></li>
+            <li><a style="width: 150px" href="GSMM-Recons.html" >GEM Reconstruction</a></li>           
+			<li><a style="width: 80px"class="selected">GEM Models</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="GSM-Model.html">Models</a></li>
+                    <li><a href="Yeast.html">Yeast</a></li>
+                    <li><a href="Human.html">Human</a></li>
+                    <li><a href="Objective.html">Objective</a></li>
+              	</ul>
+			</li>
+            
+            <li><a style="width: 140px">Topological Analysis</a>
+                <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Topological-Def.html">Definitions</a></li>
+                    <li><a href="Topological-Sof.html">Software</a></li>
+              	</ul>
+            </li>
+                                
+            <li><a style="width: 180px">Constraint-based Modeling</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                 	<li><a href="CB-Def.html">Definitions</a></li>
+                    <li><a href="CB-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+           
+			<li><a style="width: 115px">Kinetic Modeling</a>
+			<ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="KM-Def.html">Definitions</a></li>
+                    <li><a href="KM-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+                
+            <li><a style="width: 130px">Hybrid Approaches</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Yeast.html">Definitions</a></li>
+                    <li><a href="Hyb-Int.html">Gene Exp. Mapping</a></li>
+              	</ul>
+			</li>
+			
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+        <br style="clear: left" />
+    </div> <!-- end of templatemo_menu -->
+<body style="height: 1565px">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="themes/1/js-image-slider.js" type="text/javascript"></script>
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+</head>
+    <div id="sliderFrame">
+    </div>
+</body>
+    <div class="cleaner"></div>
+</div>
+
+<a href="#" class="scrollToTop"></a>        
+
+	<!-- END of templatemo_header_wrapper -->
+
+<div id="templatemo_main">
+	<div id="content" style="width: 944px; height: 1112px;">
+    	<div class="auto-style52" style="width: 965px; height: 1039px;">
+            	
+            <h2 class="auto-style57"><strong>GEM Models of Saccharomyces cerevisiae (Yeast)</strong></h2>
+                    
+            <span class="auto-style1">
+                    
+            <strong>
+                    
+            <br class="auto-style56" />
+			<br class="auto-style56" />
+			</strong>
+			</span>
+			<p class="auto-style51" style="height: 163px">
+			Saccharomyces cerevisiae is also a particularly suitable organism in which to perform such a study from a number of other perspectives: 
+			it is well-characterized genetically, and it can be grown under conditions of continuous culture in which its metabolism can adopt a steady state.<br /><br />
+
+			There are also lots of attempts for reconstruction of metabolic yeast model. Due to the availability of curated data, 
+			the budding yeast Saccharomyces cerevisiae is a model system of choice for this study for the epigenetic regulations of metabolism.<br /><br />
+
+			Because of its importance, we have collected some information based 
+			on all available yeast GEM models in the following table.<br /><br />
+			For each model, you could access to its reference through the 
+			<a href="GSM-Model.html"><strong>GEM Models</strong> </a>page.
+
+
+
+
+			<o:p></o:p>
+			</p>
+			<p class="auto-style45" style="height: 804px">
+			<o:p>
+			<img alt="" height="777" src="images/myphoto/yeast.JPG" width="960" style="float: left" /></o:p></p>
+			<p class="auto-style55">
+			<o:p>
+			<span class="auto-style58"><strong>Read more about genome-scale metabolic model reconstruction for yeast 
+			:</strong></span></o:p></p>
+			<ul>
+				<li>
+				<p class="auto-style46">
+				<o:p><span class="auto-style47">Genome-Scale 
+			Metabolic Models of Yeast, Methods for Their Reconstruction, and 
+			Other Applications (<a href="http://www.ncbi.nlm.nih.gov/pubmed/24744039" target="_blank">Link</a>)</span></o:p></p>
+				</li>
+				<li>
+				<p class="auto-style49">
+				<o:p><span class="auto-style53">Genome scale models of yeast: towards standardized 
+				evaluation and consistent omic integration (<a href="http://www.ncbi.nlm.nih.gov/pubmed/26079294" target="_blank">Link</a></span><span class="auto-style54">)</span></o:p></p>
+				</li>
+			</ul>
+				
+					<tr>
+					<td class="auto-style42" colspan="2">
+					</div>
+        
+         <div class="pagging">
+         
+         
+            </div>
+        <div class="cleaner"></div>
+    </div>
+    
+	<!-- end of sidebar -->
+    <div class="cleaner"></div>
+</div> <!-- END of templatemo_main -->
+
+<iframe scrolling="no" src="bottom-frame.html" style="float: middle; height: 185px;" width="100%" border="0" frameborder="0" >
+Your browser does not support inline frames or is currently configured not to display inline frames.
+</iframe>
+
+</body>
+</html>

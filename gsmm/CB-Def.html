@@ -1,0 +1,619 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>GEM DB, Constraint-based Modeling, Definitions</title>
+	<meta name="keywords" content="Genome-scale Metabolic Modeling, Yazdan Asgari, Ali Salehzadeh-yazdi" />
+	<meta name="description" content="Resources and softwares available for Genome-scale Metabolic Modeling" />
+	<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+	<link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+	
+	<script src="themes/1/js-image-slider.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script> 
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+	<script type="text/javascript" src="js/showhide.js"></script> 
+	<script type="text/JavaScript" src="js/jquery.mousewheel.js"></script> 
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/ddsmoothmenu.js"></script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+});
+</script> 
+
+<style type="text/css">
+.auto-style1 {
+	font-size: medium;
+}
+.auto-style2 {
+	font-size: large;
+}
+.auto-style3 {
+	font-family: "Times New Roman", serif;
+	font-size: large;
+}
+.auto-style12 {
+	margin-left: 120px;
+}
+.auto-style17 {
+	text-align: center;
+}
+.auto-style19 {
+	font-family: "Times New Roman", Times, serif;
+}
+.auto-style20 {
+	font-size: large;
+	color: #000000;
+	font-family: "Times New Roman", Times, serif;
+}
+.auto-style21 {
+	font-size: medium;
+	font-family: "Times New Roman", Times, serif;
+	color: #000000;
+}
+.auto-style22 {
+	font-size: large;
+	color: #000000;
+}
+.auto-style23 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	font-style: italic;
+}
+.auto-style24 {
+	font-size: large;
+	color: #000000;
+	font-family: "Times New Roman", Times, serif;
+	text-align: center;
+}
+.auto-style25 {
+	font-family: "Times New Roman", Times, serif;
+	color: #000000;
+}
+.auto-style27 {
+	font-size: small;
+}
+.auto-style28 {
+	color: #000000;
+}
+.auto-style29 {
+	font-size: 14pt;
+}
+.auto-style31 {
+	font-size: 14.0pt;
+	font-family: "Times New Roman", serif;
+	color: #000000;
+}
+.auto-style33 {
+	font-size: 14.0pt;
+	font-family: "Times New Roman", serif;
+	color: #000000;
+	text-align: center;
+}
+.auto-style35 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14pt;
+	color: #000000;
+}
+.scrollToTop{
+	width:100px; 
+	height:130px;
+	padding:10px; 
+	text-align:center; 
+	background: whiteSmoke;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	position:fixed;
+	top:0px;
+	right:0px;
+	display:none;
+	background: url('images/myphoto/Arrow-Up.png') no-repeat 0px 20px;
+}
+.scrollToTop:hover{
+	text-decoration:none;
+}
+.auto-style38 {
+	color: #7F0D0D;
+	font-size: small;
+	text-decoration: underline;
+}
+.auto-style39 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.auto-style40 {
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: underline;
+}
+.auto-style42 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: small;
+}
+.auto-style44 {
+	font-size: medium;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: underline;
+}
+.auto-style45 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+	text-decoration: underline;
+}
+.auto-style46 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.auto-style47 {
+	font-size: small;
+	text-decoration: underline;
+}
+.auto-style48 {
+	font-size: 14.0pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+.auto-style49 {
+	font-size: small;
+	color: #000000;
+}
+.auto-style50 {
+	font-size: small;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.auto-style51 {
+	font-size: small;
+	color: #000000;
+	text-decoration: underline;
+}
+.auto-style53 {
+	border-style: solid;
+	border-color: #FFFFFF;
+	text-align: center;
+}
+.auto-style55 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	text-align: center;
+}
+.auto-style56 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: x-small;
+}
+.auto-style57 {
+	font-size: medium;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+
+</head>
+
+<body id="subpage" style="height: 3010px">
+
+<div id="templatemo_header_wrapper" style="width: 960px">
+	<div id="site_title" style="width: 787px; height: 63px;" class="auto-style2"><h1>
+		<a style="width: 719px; height: 55px;" class="auto-style1" ></a></h1></div>
+	
+     <div id="templatemo_menu" class="ddsmoothmenu" style="height: 38px; width: 871px">
+        <ul style="width: 112%; position: relative; left: -92px; top: 0px; right: 92px;">
+            <li><a style="width: 60px" href="index.html" >Home</a></li>
+            <li><a style="width: 150px" href="GSMM-Recons.html" >GEM Reconstruction</a></li>
+			<li><a style="width: 80px">GEM Models</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="GSM-Model.html">Models</a></li>
+                    <li><a href="Yeast.html">Yeast</a></li>
+                    <li><a href="Human.html">Human</a></li>
+                    <li><a href="Objective.html">Objective</a></li>
+              	</ul>
+			</li>
+            <li><a style="width: 140px">Topological Analysis</a>
+                <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Topological-Def.html">Definitions</a></li>
+                    <li><a href="Topological-Sof.html">Software</a></li>
+              	</ul>
+            </li>
+                                
+            <li><a style="width: 180px"class="selected">Constraint-based Modeling</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                 	<li><a href="CB-Def.html">Definitions</a></li>
+                    <li><a href="CB-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+           
+			<li><a style="width: 115px">Kinetic Modeling</a>
+			<ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="KM-Def.html">Definitions</a></li>
+                    <li><a href="KM-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+                
+            <li><a style="width: 130px">Hybrid Approaches</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Hyb-Def.html">Definitions</a></li>
+                    <li><a href="Hyb-Int.html">Gene Exp. Mapping</a></li>
+              	</ul>
+			</li>
+			
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+        <br style="clear: left" />
+    </div> <!-- end of templatemo_menu -->
+
+    <div id="sliderFrame">
+    </div>
+
+    <div class="cleaner"></div>
+</div>
+
+<a href="#" class="scrollToTop"></a>        
+
+	<!-- END of templatemo_header_wrapper -->
+
+<div id="templatemo_main" style="height: 2877px">
+	<div id="content" style="width: 944px; height: 2896px;">
+    	<div class="post" style="width: 965px; height: 2652px;">
+            	
+            <h2 class="auto-style1"><strong>Constraint-based Modeling: Definitions</strong></h2>
+                    
+            <span class="auto-style1"><strong>
+                    
+            <br />
+			<br />
+			<br />
+			</strong></span>
+			<p class="auto-style20">
+			<span class="auto-style39">The idea of constraint-based modeling is to describe a biological 
+			system by a set of constraints, which characterize its possible 
+			behaviors, but in general do not allow to make a precise prediction.
+			<br />
+			The classical starting point of constraint-based modeling is flux 
+			balance analysis (FBA) of metabolic networks at steady state. <br />
+			Mathematically speaking, this involves computing a basis of the 
+			underlying polyhedral cone. <br />
+			Most methods focus on pointed cones, and the metabolic networks have 
+			to be reconfigured in order to obtain this property. But there are 
+			currently trying to develop new methods which work on non-pointed 
+			cones and which allow to characterize the possible behaviors of a 
+			metabolic network in a much more compact way.</span><br />
+			</p>
+			<p class="auto-style24" style="height: 240px">
+			<img alt="" height="249" src="images/myphoto/1.JPG" width="689" /></p>
+			<p class="auto-style21" style="height: 43px">
+			<strong>
+			<br class="auto-style40" />
+			</strong><span class="auto-style40"><strong>Here we explain FBA in more detail: 
+			</strong></span> </p>
+			<table style="width: 100%; height: 2171px;">
+				<tr>
+					<td class="auto-style22" style="width: 951px; height: 800px;">
+					<p class="MsoNormal">
+					<span style="mso-ascii-theme-font:major-bidi;
+mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi" class="auto-style39">Metabolic 
+					reactions are represented as a stoichiometric matrix (<b><em>S</em></b>) 
+					of size <i>m </i>× <i>n</i></span><span style="font-size:
+14.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ascii-theme-font:major-bidi;
+mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi">.<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-ascii-theme-font:major-bidi;
+mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi" class="auto-style39">Every row of 
+					this matrix represents one unique compound (for a system 
+					with <i>m </i>compounds) and every column represents one 
+					reaction (<i>n </i>reactions). <br />
+					The entries<i> </i>in each column are the stoichiometric 
+					coefficients of the metabolites participating<i> </i>in a 
+					reaction. <br />
+					There is a negative coefficient for every metabolite 
+					consumed and a<i> </i>positive coefficient for every 
+					metabolite that is produced. <br />
+					A stoichiometric<i> </i>coefficient of zero is used for 
+					every metabolite that does not participate in a<i> </i>
+					particular reaction. <b><br />
+					<em>S</em> </b>is a sparse matrix because most biochemical reactions<i>
+					</i>involve only a few different metabolites.</span><i><o:p></o:p></i></p>
+					<p class="auto-style39" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+					The flux through 
+					all of the reactions in a network is represented by the 
+					vector <b><em>v</em></b>, which has a length of <i>n</i>. <br />
+					The concentrations of all metabolites are represented by the 
+					vector <b><em>x</em></b>, with length <i>m</i>. <br />
+					The system of mass balance equations at steady state (d<b><em>x</em></b>/d<i>t
+					</i>=0) is given:<o:p></o:p></p>
+					<p class="MsoNormal"><b>
+					<span style="mso-ascii-theme-font:
+major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi" class="auto-style39"><em>Sv</em>
+					</span></b>
+					<span style="mso-ascii-theme-font:
+major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi" class="auto-style39">= </span>
+					<span style="font-size:14.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ascii-theme-font:
+major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi"> <b>
+					0<o:p></o:p></b></span></p>
+					<p class="auto-style39" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+					Any <b><em>v</em> </b>
+					that satisfies this equation is said to be in the null space 
+					of <b><em>S</em></b>. <br />
+					In any realistic large-scale metabolic model, there are more 
+					reactions than there are compounds (<i>n </i>&gt; <i>m</i>).
+					<br />
+					In other words, there are more unknown variables than 
+					equations, so there is no unique solution to this system of 
+					equations.<o:p></o:p></p>
+					<p class="auto-style39" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+					Although 
+					constraints define a range of solutions, it is still 
+					possible to identify and analyze single points within the 
+					solution space. <br />
+					For example, we may be interested in identifying which point 
+					corresponds to the maximum growth rate or to maximum ATP 
+					production of an organism, given its particular set of 
+					constraints. FBA is one method for identifying such optimal 
+					points within a constrained space.<o:p></o:p></p>
+					<p class="MsoNormal">
+					<span style="mso-ascii-theme-font:major-bidi;
+mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi" class="auto-style39">FBA seeks to 
+					maximize or minimize an objective function <i>Z = <b>c</b></i></span><sup><span class="auto-style23" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">T</span></sup><span style="mso-ascii-theme-font:major-bidi;
+mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi" class="auto-style42">v</span><span style="mso-ascii-theme-font:major-bidi;
+mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi" class="auto-style39">, which 
+					can be any linear combination of fluxes, where <b>c </b>is a 
+					vector of weights indicating how much each reaction (such as 
+					the biomass reaction when simulating maximum growth) 
+					contributes to the objective function. <br />
+					In practice, when only one reaction is desired for 
+					maximization or minimization, <b><em>c</em> </b>is a vector of zeros 
+					with a value of 1 at the position of the reaction of 
+					interest.<o:p></o:p></span></p>
+					<p class="auto-style39" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+					Optimization of 
+					such a system is accomplished by linear programming. <br />
+					FBA can thus be defined as the use of linear programming to 
+					solve the equation <b><em>Sv</em> </b>= <b>0</b>, given a set of 
+					upper and lower bounds on <b><em>v</em> </b>and a linear combination 
+					of fluxes as an objective function. <br />
+					The output of FBA is a particular flux distribution, <b><em>v</em></b>, 
+					which maximizes or minimizes the objective function.<o:p></o:p></p>
+					<p class="auto-style17" style="height: 352px">
+					<o:p>
+					<img alt="" height="344" src="images/myphoto/11.JPG" width="700" /></o:p></p>
+					</td>
+				</tr>
+				<tr>
+					<td class="auto-style3" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi; width: 951px; height: 1179px;">
+					<p class="MsoNormal"><span class="auto-style28">
+					<span style="mso-ascii-theme-font:major-bidi;
+mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi" class="auto-style45">
+					<strong>In summary the 
+					principle of Flux Balance Analysis will be as follows: 
+					</strong> <o:p></o:p>
+					</span></p>
+					<p class="MsoNormal"></span>
+					<span style="mso-ascii-theme-font:major-bidi;
+mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi" class="auto-style39">
+					<span class="auto-style28">I) Derive mass balance equations 
+					from the reconstruction of a metabolic network and create 
+					the stoichiometric matrix (<strong><em>S</em></strong>).
+					<br />
+					II) Apply constraints of different types such as steady 
+					state, mass balance, thermodynamic (direction of a reaction, 
+					e.g. the flux vector (<em><strong>v</strong></em>) of a 
+					irreversible reaction is constrained to be greater than or 
+					equal to 0), and capacity (enzyme capacity or nutrient 
+					availability constrain the reaction flux to an upper bound (<strong><em>ub</em></strong>) 
+					and a lower bound (<em><strong>lb</strong></em>)) to limit 
+					the feasible solution space.<br />
+					III) Find an optimal solution by the choice of a suitable 
+					optimization method (minimization or maximization of an 
+					objective function).</span><o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<o:p></o:p>
+					</p>
+					<p class="auto-style44">
+					<o:p><strong>Here we provide some analysis derived from a 
+					constraint-based modeling:</strong></o:p></p>
+					<p class="auto-style29">
+					<o:p></o:p>
+					</p>
+					<p class="auto-style31" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+					<span class="auto-style46">
+					<strong><span class="auto-style47">Flux in two different 
+					situations:</span></strong><br class="auto-style27" />
+					<span class="auto-style27">It is possible to use FBA in 
+					order to compare changes in flux distributions between two 
+					different conditions. For examples, in the following 
+					pictures, the state of the E. coli core model with maximum 
+					growth rate as the objective 
+					under aerobic (a) and anaerobic (b) conditions has been 
+					demonstrated. The thick blue arrows represent reactions 
+					carrying flux, and the thin black arrows represent unused 
+					reactions. The metabolic pathways 
+					shown in these maps are glycolysis (Glyc), pentose phosphate 
+					pathway (PPP), TCA cycle (TCA), oxidative phosphorylation 
+					(OxP), anaplerotic reactions (Ana), and fermentation 
+					pathways (Ferm).</span></span><o:p></o:p></p>
+					<p class="auto-style33" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+					<o:p>
+					<img alt="" height="284" src="images/myphoto/3.JPG" width="673" /></o:p></p>
+					<p class="auto-style48" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+					<strong><span class="auto-style47">Robustness analysis:</span></strong><br class="auto-style27" />
+					<span class="auto-style27">It is also possible to explore 
+					response to flux changes of a given reaction for maximum growth rate 
+					(which is called robustness analysis).</span></p>
+					<p class="auto-style31" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+					<span class="auto-style46">
+					<strong><span class="auto-style47">Phenotypic phase planes:</span></strong><br class="auto-style27" />
+					<span class="auto-style27">Doing robustness analysis for two 
+					reactions is called Phenotypic Phase Planes. For example one 
+					could calculated growth with varying glucose and oxygen uptake rates 
+					and see if there are various regions based on such changes.</span></span><o:p></o:p></p>
+					<p class="auto-style31" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+					<span class="auto-style46">
+					<strong><span class="auto-style47">Gene knockout:</span></strong><br class="auto-style27" />
+					<span class="auto-style27">Another analysis would be 
+					deletion of each genes and explore what would be response of 
+					the system. Gene knockout screen will be possible for single 
+					and double deletion (gene knockout in pairs). For example 
+					one could delete each of the 136 genes in the core E. coli model and 
+					see the resulting relative growth rates. Some genes are 
+					always essential, and result in a growth rate of 0 when 
+					knocked out no matter which other gene is also knocked out. 
+					Other genes form synthetic lethal pairs, where knocking out 
+					only one of the genes has no effect on growth rate, but 
+					knocking both out is lethal.</span></span><o:p></o:p></p>
+					<p class="auto-style31" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+					<span class="auto-style46">
+					<strong><span class="auto-style47">Correlation:</span></strong><o:p><br class="auto-style27" />
+					<span class="auto-style27">Other useful analysis would be 
+					finding correlations between reactions. The correlation between the network reactions cancould be 
+					plotted for a set of reactions</span></span><o:p>.</o:p></o:p></p>
+					<o:p>
+					<o:p></o:p>
+					<table style="width: 100%">
+						<tr>
+							<td>
+							<img alt="" height="200" src="images/myphoto/4-2.jpg" width="200" /></td>
+							<td>
+							<img alt="" height="200" src="images/myphoto/5-2.jpg" width="200" /></td>
+							<td>
+							<img alt="" height="200" src="images/myphoto/6-2.jpg" width="200" /></td>
+							<td>
+							<img alt="" height="200" src="images/myphoto/8-2.jpg" width="200" /></td>
+						</tr>
+						<tr>
+							<td class="auto-style55"><em>Robustness analysis</em></td>
+							<td class="auto-style55"><em>Phenotypic phase planes</em></td>
+							<td class="auto-style55"><em>Gene knockout</em></td>
+							<td class="auto-style55">C<em>orrelation</em></td>
+						</tr>
+					</table>
+					</o:p>
+					<p class="auto-style50">
+					<o:p></o:p>
+					</p>
+					<p class="auto-style50">
+					<o:p></o:p>
+					</p>
+					<p class="auto-style50">
+					&nbsp;</p>
+					<p class="auto-style50">
+					<o:p>... And there are even more analysis and concepts in 
+					the constraint-based modeling approach.<br />
+					In the past decade, flux balance analysis (FBA) has
+					been one of the most widely employed constraint-based
+					techniques for systems-level analysis of living organisms. Remarkably, since 2000, 
+					there has been a steady increase in the number of FBA software 
+					(see for example <em><span class="auto-style46">&quot;</span><span class="auto-style56">Software applications for flux balance analysis, Brief Bioinform. 2014, 15(1), 108-22</span><span class="auto-style46">&quot;</span></em>)</o:p></p>
+					
+					</td>
+				</tr>
+				
+
+				<tr>
+					<td class="auto-style12" style="width: 951px">
+					<span class="auto-style46">
+					<strong><span class="auto-style38">
+					Note:</span><span class="auto-style51">
+					Texts and figures in this page have been chosen 
+					from the following references:</span></strong></span><span class="auto-style19"><br /></span>
+					<o:p><span class="auto-style21">
+					<em>http://mathlife.mi.fu-berlin.de/matheonA8/</em></span></o:p><br />
+					<span class="auto-style25">What is flux balance analysis? (<em><span class="auto-style27">Nat Biotechnol., 2010, 28(3), 245–248</span></em>)
+					<br />
+					<span class="auto-style1">Elementary flux modes, flux balance analysis, and their application to plant metabolism.</span> (<em><span class="auto-style27">Methods Mol Biol., 2014, 1083, 231-52</span></em>)
+					</span>
+					</td>
+					
+				</tr>
+				
+
+				<tr>
+					<td class="auto-style12" style="width: 951px">
+					<span class="auto-style44">
+					<strong>
+					<br />
+					Do you want reading more?<br />
+					</strong></span><span class="auto-style57">
+					<span class="auto-style35"><span class="auto-style49">There are some comprehensive references which 
+					could be helpful in more understanding constraint-based methods. 
+					<br />
+					We recommend reading the following 
+			references for better understanding:</span><o:p></o:p></span></span></td>
+					
+				</tr>
+				
+
+				</table>
+				
+					</div>
+        
+         <div class="pagging">
+         
+         <table style="width: 100%">
+				 <tr>
+					 <td style="width: 199px" class="auto-style53">
+					 <a href="http://www.nature.com/nbt/journal/v28/n3/abs/nbt.1614.html"target="_blank">
+					 <img alt="" height="150" src="images/myphoto/fba-1.JPG" width="100" /></a></td>
+					 <td style="width: 201px" class="auto-style53">
+					 <a href="http://www.nature.com/nprot/journal/v5/n1/abs/nprot.2009.203.html"target="_blank">
+					 <img alt="" height="150" src="images/myphoto/reconstruction-protocol.JPG" width="100" /></a></td>
+					 <td style="width: 198px" class="auto-style53">
+					 <a href="http://www.ncbi.nlm.nih.gov/pubmed/22054827"target="_blank">
+					 <img alt="" height="150" src="images/myphoto/reconstruction-review.JPG" width="100" /></a></td>
+					 <td style="width: 194px" class="auto-style53">
+					 <a href="http://onlinelibrary.wiley.com/doi/10.1002/9781118617151.ch45/summary"target="_blank">
+					 <img alt="" height="150" src="images/myphoto/reconstruction-review-1.JPG" width="100" /></a></td>
+				 </tr>
+				 </table>
+            
+         
+            </div>
+        <div class="cleaner"></div>
+    </div>
+    
+</div> 
+<!-- END of templatemo_main -->
+
+<iframe scrolling="no" src="bottom-frame.html" style="float: middle; height: 187px;" width="100%" border="0" frameborder="0" >
+Your browser does not support inline frames or is currently configured not to display inline frames.
+</iframe>
+
+</body>
+</html>

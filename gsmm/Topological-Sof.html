@@ -1,0 +1,432 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="table2.css" />    
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GEM DB, Topological Analysis, Softwares</title>
+<meta name="keywords" content="Genome-scale Metabolic Modeling, Yazdan Asgari, Ali Salehzadeh-yazdi" />
+<meta name="description" content="Resources and softwares available for Genome-scale Metabolic Modeling" />
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+
+<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script> 
+<!--script type="text/javascript" src="/jqueryui/js/jquery-ui-1.7.2.custom.min.js"></script--> 
+<script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="js/showhide.js"></script> 
+<script type="text/JavaScript" src="js/jquery.mousewheel.js"></script> 
+
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+});
+</script> 
+
+<style type="text/css">
+.auto-style1 {
+	border: 0px solid #000000;
+	background-color: #000000;
+}
+.auto-style32 {
+	font-size: medium;
+}
+.scrollToTop{
+	width:100px; 
+	height:130px;
+	padding:10px; 
+	text-align:center; 
+	background: whiteSmoke;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	position:fixed;
+	top:0px;
+	right:0px;
+	display:none;
+	background: url('images/myphoto/Arrow-Up.png') no-repeat 0px 20px;
+}
+.scrollToTop:hover{
+	text-decoration:none;
+}
+.auto-style35 {
+	font-size: medium;
+	text-decoration: underline;
+}
+.auto-style39 {
+	text-decoration: underline;
+}
+</style>
+
+</head>
+
+<body id="subpage" style="height: 2966px">
+
+<div id="templatemo_header_wrapper" style="width: 960px">
+	<div id="site_title" style="width: 787px; height: 63px;" class="auto-style2"><h1>
+		<a style="width: 719px; height: 55px;" class="auto-style1" ></a></h1></div>
+	
+     <div id="templatemo_menu" class="ddsmoothmenu" style="height: 38px; width: 871px">
+        <ul style="width: 112%; position: relative; left: -92px; top: 0px; right: 92px;">
+            <li><a style="width: 60px" href="index.html">Home</a></li>
+            <li><a style="width: 150px" href="GSMM-Recons.html" >GEM Reconstruction</a></li>
+			<li><a style="width: 80px">GEM Models</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="GSM-Model.html">Models</a></li>
+                    <li><a href="Yeast.html">Yeast</a></li>
+                    <li><a href="Human.html">Human</a></li>
+                    <li><a href="Objective.html">Objective</a></li>
+              	</ul>
+			</li>
+            <li><a style="width: 140px"class="selected">Topological Analysis</a>
+                <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Topological-Def.html">Definitions</a></li>
+                    <li><a href="Topological-Sof.html">Software</a></li>
+              	</ul>
+            </li>
+                                
+            <li><a style="width: 180px">Constraint-based Modeling</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                 	<li><a href="CB-Def.html">Definitions</a></li>
+                    <li><a href="CB-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+           
+			<li><a style="width: 115px">Kinetic Modeling</a>
+			<ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="KM-Def.html">Definitions</a></li>
+                    <li><a href="KM-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+                
+            <li><a style="width: 130px">Hybrid Approaches</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Hyb-Def.html">Definitions</a></li>
+                    <li><a href="Hyb-Int.html">Gene Exp. Mapping</a></li>
+              	</ul>
+			</li>
+			
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+        <br style="clear: left" />
+    </div> <!-- end of templatemo_menu -->
+<body style="height: 2866px">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="themes/1/js-image-slider.js" type="text/javascript"></script>
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+</head>
+    <div id="sliderFrame">
+    </div>
+</body>
+    <div class="cleaner"></div>
+</div>
+
+<a href="#" class="scrollToTop"></a>        
+
+	<!-- END of templatemo_header_wrapper -->
+
+<div id="templatemo_main" style="height: 2640px">
+	<div id="content">
+    	<div class="post" style="height: 49px">
+            	
+            <h2 class="auto-style32"><strong>Topological Analysis: Softwares<br />
+			</strong>
+			</h2>
+                    
+            <strong>
+                    
+            <br class="auto-style32" />
+			</strong><span class="auto-style32"><strong>&nbsp;   
+            </strong></span>   
+            <div class="meta">
+                &nbsp;
+                <div class="cleaner"></div>
+            </div> 
+        </div>
+        
+         <div class="pagging">
+
+
+<table style="width: 100%">
+				 
+			<tr>
+				<td class="auto-style68" colspan="2">
+				Perhaps the most useful software for topological analysis of a biological network could be 
+				<a href="http://cytoscape.org/" target="_blank"><strong>Cytoscape</strong></a>. 
+				<br/>
+				It is an open source software platform for visualizing 
+				molecular interaction networks and biological pathways and 
+				integrating these networks with annotations, gene expression 
+				profiles and other state data. 
+				<br/>
+				Cytoscape core distribution provides a basic set of features 
+				for data integration, analysis, and visualization. 
+				Additional analysis and features are available as <b>Apps</b> (formerly called Plugins). 
+				Apps are available for network and molecular profiling analyses, new 
+				layouts, additional file format support, scripting, and 
+				connection with databases. They may be developed by anyone 
+				using the Cytoscape open API based on Java technology and App 
+				community development is encouraged. 
+				Most of the Apps are freely available from 
+				<a href="http://apps.cytoscape.org/" target="_blank"><strong>Cytoscape App Store</strong></a>.
+				</td>
+			</tr>			
+			<tr>
+				<td colspan="2">
+				We have divided topological analysis of biological networks 
+				into <strong>four</strong> major classes:
+				</td>
+			</tr>
+			<tr>
+				 <td rowspan="4">
+				 Calculation of primary network parameters
+				 </td>
+				 <td>
+				 Here are some examples of primary network parameters: degree, connected components, 
+				 network diameter, network centralization, characteristic path length, 
+				 average number of neighbors, network heterogeneity, and isolated node parameters.
+				 </td>
+			</tr>
+			<tr>
+				 <td>
+				 It is possible to do primary topological analysis using the 
+				<a href="http://med.bioinf.mpi-inf.mpg.de/netanalyzer/help/2.7/" target="_blank">
+				<strong>NetworkAnalyzer</strong></a> tool provided with 
+				<a href="http://cytoscape.org/" target="_blank"><strong>Cytoscape</strong></a> software. 
+				For every node in a network, NetworkAnalyzer could compute its degree 
+				(in- and out-degrees for directed networks), its clustering coefficient, 
+				the number of self-loops, and a variety of other parameters. 
+				NetworkAnalyzer also computes edge betweenness for each edge in the network. 
+				If the respective options are enabled, NetworkAnalyzer stores the computed values 
+				as attributes of the corresponding nodes and edges.
+				</td>
+			</tr>
+			<tr>
+				 <td>
+				 There is also a library called &quot;<a href="http://sbw.kgi.edu/sbwwiki/sysbio/libstructural" target="_blank"><strong>libStructural</strong></a>&quot; 
+				 which is a C/C++ portable software library for analyzing the structural properties of 
+				 stoichiometric networks. The library supports the analysis of both flux balance and 
+				 moiety conservation. The library will accept models in the form of either standard 
+				 SBML or raw stoichiometry matrices.
+				 </td>
+			</tr>			
+			<tr>
+				 <td>
+				 One could also write its own codes in different programing languages and use 
+				 various algorithms for calculation of primary features.				
+				 </td>
+			</tr>
+			<tr>
+				 <td rowspan="2">
+				 Centrality analysis
+				 </td>
+				 <td>
+				 Today, there are lots of centrality indices proposed for 
+				 finding essential nodes in biological networks, most of them 
+				 borrowed from the social network field. However, centrality 
+				 analysis includes lots of challenges and concepts such as 
+				 essentiality, lethality, etc.				
+				 </td>
+			</tr>
+			<tr>
+				 <td>
+				 For a good collection of these concepts and available 
+				 centrality finding algorithms in biological networks, 
+				 see the following reference:
+				 <a href="http://centiserver.org/" target="_blank"><strong>CentiServer</strong></a>			
+				 </td>
+			</tr>
+			<tr>
+				 <td rowspan="10">
+				 Motif discovery
+				 </td>
+				 <td>
+				 there are different algorithms for network motif finding. 
+				 Here we provided some of them:				 		
+				 </td>
+			</tr>
+			<tr>
+				 <td>
+				 <a href="http://www.weizmann.ac.il/mcb/UriAlon/" target="_blank"><strong>mfinder</strong></a>				 		
+				 </td>
+			</tr>
+			<tr>
+				 <td>
+				 <a href="http://theinf1.informatik.uni-jena.de/~wernicke/motifs/" target="_blank"><strong>FANMOD</strong></a>				 		
+				 </td>
+			</tr>
+			<tr>
+				 <td>
+				 <a href="http://lbb.ut.ac.ir/Download/LBBsoft/Kavosh/" target="_blank"><strong>Kavosh</strong></a>				 		
+				 </td>
+			</tr>
+			<tr>
+				 <td>
+				 <a href="http://www.dcc.fc.up.pt/gtries/" target="_blank"><strong>G-tries</strong></a>				 		
+				 </td>
+			</tr>
+			<tr>
+				 <td>
+				 <a href="http://mavisto.ipk-gatersleben.de/" target="_blank"><strong>Mavisto</strong></a>				 		
+				 </td>
+			</tr>
+			<tr>
+				 <td>
+				 <a href="https://www.msu.edu/~jinchen/" target="_blank"><strong>NeMoFinder</strong></a>				 		
+				 </td>
+			</tr>
+			<tr>
+				 <td>
+				 <a href="http://people.cs.uchicago.edu/~joshuag/index.html" target="_blank"><strong>Grochow-Kellis</strong></a>				 		
+				 </td>
+			</tr>
+			<tr>
+				 <td>
+				 <a href="http://lbb.ut.ac.ir/Download/LBBsoft/MODA/" target="_blank"><strong>MODA</strong></a>				 		
+				 </td>
+			</tr>
+			<tr>
+				 <td>
+				 <a href="http://www.math.tau.ac.il/~nogaa/" target="_blank"><strong>N. Alon</strong></a>				 		
+				 </td>
+			</tr>
+			<tr>
+				 <td rowspan="7">
+				 Clustering analysis
+				 </td>
+				 <td>
+				 Various algorithms have been implemented to extract clusters 
+				 (i.e., groups of densely connected nodes) from biological networks:				 		
+				 </td>
+			</tr>
+			<tr>
+				 <td>
+				 <em>Blatt, M., Wiseman, S., Domany, E. Superparamagnetic clustering of data, Phys. Rev. Lett. 
+				 76, 3251–3254 (1996)				 		
+				 </em>				 		
+				 </td>
+			</tr>
+			<tr>
+				 <td>
+				 <em>Bader, G.D., Hogue, C.W.V., An automated method for finding molecular complexes in large 
+				 protein interaction networks, BMC Bioinformatics 4, 2 (2003)				 		
+				 </em>				 		
+				 </td>
+			</tr>
+			<tr>
+				 <td>
+				 <em>Gagneur, J., Jackson, D.B., Casari, G. Hierarchical analysis of dependency in metabolic 
+				 networks, Bioinformatics 19, 1027–1034 (2003)				 		
+				 </em>				 		
+				 </td>
+			</tr>
+			<tr>
+				 <td>
+				 <em>Spirin, V., Mirny, L.A., Protein complexes and functional modules in molecular Networks, 
+				 Proc. Natl. Acad. Sci. USA 100, 12123–12128 (2003)				 		
+				 </em>				 		
+				 </td>
+			</tr>
+			<tr>
+				 <td>
+				 <em>King, A.D., Przulj, N., Jurisica, I., Protein complex prediction via cost-based clustering, 
+				 Bioinformatics 20, 3013–3020 (2004)				 		
+				 </em>				 		
+				 </td>
+			</tr>
+			<tr>
+				 <td>
+				 Among those, <strong>MCL algorithm</strong> has been shown to obtain good performances 
+				 for biological networks (<em>Van Dongen, S., Graph Clustering by Flow Simulation. PhD Thesis, 
+				 Centers for Mathematics and Computer Science (CWI), University of Utrecht, 2000</em>)				 		
+				 </td>
+			</tr>
+			<tr>
+				 <td class="auto-style39" colspan="2">
+				 <strong>Recent studies on Topological Softwares for GEM models:
+				 </strong>
+				 </td>
+			</tr>
+			<tr>
+				 <td colspan="2">
+				 Kiwi: a tool for integration and visualization of network topology and gene-set analysis 
+				 (<a href="http://www.biomedcentral.com/1471-2105/15/408" target="_blank">Link</a>)
+				 </td>
+			</tr>			
+			<tr>
+				 <td colspan="2">
+				 KeyPathwayMiner 4.0: condition-specific pathway analysis by combining multiple omics 
+				 studies and networks with Cytoscape 
+				 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/25134827" target="_blank">Link</a>)
+				 </td>
+			</tr>			
+
+</table>
+          
+	</div>
+    <div class="cleaner"></div>
+    </div>
+    
+    <div id="sidebar">
+
+        <h3 class="auto-style35"><strong>Recent Softwares</strong></h3>
+        <ul class="recent_post">
+            <li><a href="http://www.biomedcentral.com/1471-2105/15/408" target="_blank">Kiwi</a>a tool for integration and visualization of network topology and gene-set analysis</li>
+            <li><a href="http://www.ncbi.nlm.nih.gov/pubmed/25134827" target="_blank">KeyPathwayMiner</a>condition-specific pathway analysis by combining multiple omics studies and networks with Cytoscape</li>
+        </ul>
+    </div> <!-- end of sidebar -->
+    <div class="cleaner"></div>
+</div> <!-- END of templatemo_main -->
+
+<iframe scrolling="no" src="bottom-frame.html" style="float: middle; height: 189px;" width="100%" border="0" frameborder="0" >
+Your browser does not support inline frames or is currently configured not to display inline frames.
+</iframe>
+
+</body>
+</html>

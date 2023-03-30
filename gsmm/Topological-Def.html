@@ -1,0 +1,889 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GEM DB, Topological Analysis, Definitions</title>
+<meta name="keywords" content="Genome-scale Metabolic Modeling, Yazdan Asgari, Ali Salehzadeh-yazdi" />
+<meta name="description" content="Resources and softwares available for Genome-scale Metabolic Modeling" />
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+
+<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script> 
+<!--script type="text/javascript" src="/jqueryui/js/jquery-ui-1.7.2.custom.min.js"></script--> 
+<script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="js/showhide.js"></script> 
+<script type="text/JavaScript" src="js/jquery.mousewheel.js"></script> 
+
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+});
+</script> 
+
+<style type="text/css">
+.auto-style1 {
+	font-size: medium;
+}
+.auto-style2 {
+	font-size: large;
+}
+.auto-style5 {
+	line-height: 26.0pt;
+	text-align: left;
+	direction: ltr;
+	vertical-align: baseline;
+	font-size: small;
+	color: black;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+}
+.auto-style12 {
+	margin-left: 120px;
+}
+.auto-style17 {
+	text-align: center;
+}
+.auto-style18 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: medium;
+}
+.auto-style21 {
+	font-size: large;
+	font-family: "Times New Roman", serif;
+	color: #000000;
+}
+.auto-style22 {
+	font-size: large;
+	color: #000000;
+}
+.auto-style23 {
+	color: #000000;
+}
+.auto-style25 {
+	font-size: small;
+	font-weight: bold;
+	color: #005ECC;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.auto-style32 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: x-large;
+	color: #0000FF;
+}
+.auto-style35 {
+	margin-left: 120px;
+	font-family: "Times New Roman", Times, serif;
+	font-size: large;
+	color: #0000FF;
+}
+.auto-style37 {
+	border-style: solid;
+	border-color: #000000;
+	text-align: center;
+}
+.auto-style38 {
+	border-style: solid;
+	border-color: #000000;
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	font-size: medium;
+}
+.auto-style39 {
+	border-style: solid;
+	border-color: #000000;
+}
+.auto-style40 {
+	color: #000000;
+	font-family: "Times New Roman", Times, serif;
+	font-size: large;
+}
+.auto-style41 {
+	margin-top: 3px;
+}
+.auto-style42 {
+	margin-left: 120px;
+	color: #000000;
+}
+.auto-style44 {
+	line-height: 115%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #000000;
+}
+.auto-style47 {
+	font-size: small;
+	color: #FF00FF;
+}
+.auto-style48 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: small;
+}
+.scrollToTop{
+	width:100px; 
+	height:130px;
+	padding:10px; 
+	text-align:center; 
+	background: whiteSmoke;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	position:fixed;
+	top:0px;
+	right:0px;
+	display:none;
+	background: url('images/myphoto/Arrow-Up.png') no-repeat 0px 20px;
+}
+.scrollToTop:hover{
+	text-decoration:none;
+}
+
+.auto-style51 {
+	color: #7F0D0D;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.auto-style52 {
+	margin-bottom: 11px;
+}
+
+.auto-style53 {
+	font-size: small;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+.auto-style54 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.auto-style55 {
+	font-size: small;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: underline;
+}
+.auto-style56 {
+	font-size: small;
+}
+.auto-style57 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: italic;
+}
+.auto-style58 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+.auto-style59 {
+	font-size: large;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+.auto-style60 {
+	font-size: small;
+	color: #000000;
+}
+.auto-style61 {
+	color: #000000;
+	text-decoration: underline;
+}
+.auto-style62 {
+	text-decoration: underline;
+}
+.auto-style63 {
+	font-size: small;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: underline;
+}
+.auto-style65 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.auto-style66 {
+	color: #000000;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	text-decoration: underline;
+}
+.auto-style67 {
+	font-size: small;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: underline;
+}
+.auto-style68 {
+	font-size: small;
+	font-style: italic;
+}
+.auto-style69 {
+	font-weight: bold;
+	text-decoration: underline;
+}
+.auto-style70 {
+	font-size: small;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+.auto-style71 {
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.auto-style72 {
+	font-size: small;
+	text-decoration: underline;
+}
+.auto-style74 {
+	font-size: small;
+	color: #0000FF;
+}
+.auto-style75 {
+	color: #0000FF;
+}
+.auto-style76 {
+	font-size: small;
+	color: #000000;
+	text-decoration: underline;
+}
+.auto-style77 {
+	font-size: medium;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: underline;
+}
+
+</style>
+
+</head>
+
+<body id="subpage" style="height: 4516px">
+
+<div id="templatemo_header_wrapper" style="width: 960px">
+	<div id="site_title" style="width: 787px; height: 63px;" class="auto-style2"><h1>
+		<a style="width: 719px; height: 55px;" class="auto-style1" ></a></h1></div>
+	
+     <div id="templatemo_menu" class="ddsmoothmenu" style="height: 38px; width: 871px">
+        <ul style="width: 112%; position: relative; left: -92px; top: 0px; right: 92px;">
+            <li><a style="width: 60px" href="index.html">Home</a></li>
+            <li><a style="width: 150px" href="GSMM-Recons.html" >GEM Reconstruction</a></li>
+			<li><a style="width: 80px">GEM Models</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="GSM-Model.html">Models</a></li>
+                    <li><a href="Yeast.html">Yeast</a></li>
+                    <li><a href="Human.html">Human</a></li>
+                    <li><a href="Objective.html">Objective</a></li>
+              	</ul>
+			</li>
+            <li><a style="width: 140px"class="selected">Topological Analysis</a>
+                <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Topological-Def.html">Definitions</a></li>
+                    <li><a href="Topological-Sof.html">Software</a></li>
+              	</ul>
+            </li>
+                                
+            <li><a style="width: 180px">Constraint-based Modeling</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                 	<li><a href="CB-Def.html">Definitions</a></li>
+                    <li><a href="CB-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+           
+			<li><a style="width: 115px">Kinetic Modeling</a>
+			<ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="KM-Def.html">Definitions</a></li>
+                    <li><a href="KM-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+                
+            <li><a style="width: 130px">Hybrid Approaches</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Hyb-Def.html">Definitions</a></li>
+                    <li><a href="Hyb-Int.html">Gene Exp. Mapping</a></li>
+              	</ul>
+			</li>
+			
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+        <br style="clear: left" />
+    </div> <!-- end of templatemo_menu -->
+<body style="height: 4716px">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="themes/1/js-image-slider.js" type="text/javascript"></script>
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+</head>
+    <div id="sliderFrame">
+    </div>
+</body>
+    <div class="cleaner"></div>
+</div>
+
+<a href="#" class="scrollToTop"></a>        
+
+	<!-- END of templatemo_header_wrapper -->
+
+<div id="templatemo_main">
+	<div id="content" style="width: 944px; height: 4293px;">
+    	<div class="post" style="width: 965px; height: 4060px;">
+            	
+            <h2 class="auto-style1"><strong>Topological Analysis: Definitions</strong></h2>
+                    
+            <strong><span class="auto-style1">
+                    
+            <br />
+			<br />
+			</span></strong>
+			<p class="auto-style44" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+			The basic mathematical concept which underpins the study of complex 
+			networks in Biology is graph theory. Alongside the potential 
+			benefits of applying graph theoretical methods in molecular biology, 
+			it should be emphasized that the complexity of the networks 
+			encountered in cellular biology and the mechanisms behind their 
+			emergence presents the network researcher with numerous challenges 
+			and difficulties. <o:p></o:p></p>
+			<p class="auto-style53" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+			Here we introduce most common used graph theory definitions which 
+			apply for topological analysis of biological networks.</p>
+			<br />
+			<table style="width: 100%">
+				<tr>
+					<td class="auto-style22" style="width: 921px"><b>
+					<span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+					<span class="auto-style55">Graph theory</span></span><span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style54"><span class="auto-style56">
+					</span> </span></b>
+					<span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style54">
+					<span class="auto-style56">is the study of <i>graphs</i>, mathematical structures used 
+					to model pair wise relations between objects from a certain 
+					collection.</span><o:p></o:p></span></td>
+					<td class="auto-style39">
+					<img alt="" class="decoded" height="150" src="images/myphoto/graph.jpg" width="150" /></td>
+				</tr>
+				<tr>
+					<td class="auto-style21" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi; width: 921px; height: 114px;">
+					<span class="auto-style54"><span class="auto-style56">A &quot;<span class="auto-style62"><strong>graph</strong></span>&quot; in this context refers to a collection of vertices 
+					or &#39;nodes&#39; and a collection of <i>edges </i>that connect 
+					pairs of vertices.<o:p><br />
+					</span></span><span class="auto-style56">
+					<p class="MsoNormal">
+					<span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style57">
+					V</span></span><span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style54"><span class="auto-style56"> 
+					= <b>nodes</b> (vertices, points).</span><o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style57">
+					<span class="auto-style56">E</span></span><span class="auto-style56"><span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style54"> 
+					= <b>edges</b> (links, arcs) between pairs of nodes.<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style58">
+					graph size </span></span>
+					<span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style54">
+					<span class="auto-style56"><strong>parameters</strong>:<span style="mso-spacerun: yes">&nbsp; </span>
+					</span><i>
+					<span class="auto-style56">n = |V|, m = |E|</span></i><o:p></o:p></span></p>
+					</o:p></td>
+					<td class="auto-style37" style="height: 114px">
+					<img alt="" height="150" src="images/myphoto/img5.jpg" width="150" class="auto-style52" /></td>
+				</tr>
+				<tr>
+					<td style="width: 921px"><span class="auto-style53"><strong>
+					<span class="auto-style62">Example:</span><br class="auto-style62" />
+					</strong>
+					</span>
+					<p class="auto-style5" style="language: en-US; mso-line-height-rule: exactly; unicode-bidi: embed; mso-ascii-font-family: Arial; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; mso-color-index: 1; mso-font-kerning: 12.0pt; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: black; mso-style-textfill-fill-alpha: 100.0%;">
+					V = { 1, 2, 3, 4, 5, 6, 7, 8 }</p>
+					<p class="auto-style5" style="language: en-US; mso-line-height-rule: exactly; unicode-bidi: embed; mso-ascii-font-family: Arial; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; mso-color-index: 1; mso-font-kerning: 12.0pt; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: black; mso-style-textfill-fill-alpha: 100.0%;">
+					E = { {1,2}, {1,3}, {2,3}, {2,4}, {2,5}, {3,5}, {3,7}, 
+					{3,8}, {4,5}, {5,6} }<br />
+					n = 8</p>
+					<p class="auto-style5" style="language: en-US; mso-line-height-rule: exactly; unicode-bidi: embed; mso-ascii-font-family: Arial; mso-fareast-font-family: +mn-ea; mso-bidi-font-family: Arial; mso-fareast-theme-font: minor-fareast; mso-color-index: 1; mso-font-kerning: 12.0pt; mso-style-textfill-type: solid; mso-style-textfill-fill-themecolor: text1; mso-style-textfill-fill-color: black; mso-style-textfill-fill-alpha: 100.0%;">
+					m = 11</p>
+					</td>
+					<td class="auto-style39">
+					<img alt="" src="images/myphoto/img7.jpg" height="150" width="150" /></td>
+				</tr>
+				<tr>
+					<td style="width: 921px; height: 96px;">
+					<p class="auto-style59" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+					<span class="auto-style56">A </span> <b>
+					<span class="auto-style56"><span class="auto-style62">subgraph</span> </span> </b>
+					<span class="auto-style56">of a graph <i>H </i>is a graph whose 
+					vertex set is a subset of that of <i>G</i>, and whose 
+					adjacency relation is a subset of that of <i>G </i>
+					restricted to this subset.</span><o:p></o:p></p>
+					</td>
+					<td class="auto-style37" style="height: 96px">
+					<img alt="" src="images/myphoto/imgA.jpg" width="150" height="150" /><br />
+					<span class="auto-style65">S</span><span class="auto-style53">ubgraph</span><br />
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 921px" class="auto-style32">
+					<span class="auto-style54">
+					<strong><span class="auto-style56">
+					<span class="auto-style61">Direction:</span><br />
+					<br />
+					</span>
+					</strong><span class="auto-style60"><strong>Directed</strong> 
+					graph (digraph or oriented graph): It is a graph or set of nodes connected by edges, where the edges have a direction associated with them.
+					<br />
+					In Biology, transcriptional regulatory networks and metabolic networks would usually be modeled as directed graphs. 
+					For instance, in a transcriptional regulatory network, nodes would represent genes with edges denoting the interactions between them. 
+					This would be a directed graph because, if gene <strong>A</strong> regulates gene 
+					<strong>B</strong>, then there is a natural direction associated with the edge between the corresponding nodes, 
+					starting at <strong>A</strong> and finishing at <strong>B</strong>.<br />
+					<br />
+					<strong>Undirected</strong> graph: An undirected graph is a graph in which edges have no orientation. 
+					<br />
+					PPI networks are typically modeled as undirected graphs, in which nodes represent proteins and edges represent interactions.</span></span>
+					</td>
+					<td class="auto-style37">
+					<img alt="" src="images/myphoto/imgB.jpg" width="150" height="150" /><br />
+					<span class="auto-style53">Directed vs Undirected</span><br />
+					</td>
+				</tr>
+				<tr>
+					<td class="auto-style22" style="width: 921px">
+					<p class="MsoNormal">
+					<span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style63">
+					Degree:</span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;; mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi"><o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style58">
+					<span class="auto-style56">Undirected network: </span></span>
+					<span class="auto-style56">
+					<span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style54">
+					Degree in an undirected network is simply the total number of edges at 
+					a node.<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style58">
+					Directed network:</span></span><span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style54"><span class="auto-style56"> 
+					For a directed graph, there are two types of degree; Incoming degree 
+					(k<sub>in</sub><span style="mso-spacerun: yes">) which is number of edges that terminate at a node,
+					</span>and Outgoing degree (k<sub>out</sub> ) which is number of edges that start from a node.</span><o:p></o:p></span></p>
+					</td>
+					<td class="auto-style37">
+					<img alt="" src="images/myphoto/img10.jpg" width="150" height="150" /><br />
+					<span class="auto-style53">degree (undirected graph)</span><br />
+					<img alt="" src="images/myphoto/img11.jpg" width="150" height="150" /><br />
+					<span class="auto-style53">degree (directed graph)</span><br />
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 921px">
+					<p class="auto-style22">
+					<span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style63">
+					Weighted</span><span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style25">
+					</span>
+					<span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style65">
+					graph</span><span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style25">
+					</span>
+					<span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style65">
+					associates a label (<b>weight</b>) with every edge in the 
+					graph<o:p></o:p></span></p>
+					</td>
+					<td class="auto-style39">
+					<img alt="" height="150" src="images/myphoto/weight.jpg" width="150" /></td>
+				</tr>
+				<tr>
+					<td class="auto-style35" style="width: 921px">
+					<span class="auto-style54">
+					<span class="auto-style56"><span class="auto-style61"><strong>Graph Representation:</strong></span><br />
+					</span></span>
+					<span class="auto-style23"><span class="auto-style54">
+					<span class="auto-style56"><strong>Adjacency Matrix:</strong>is a means of representing which vertices (or nodes) of a graph are adjacent to which other vertices. <br />
+					<strong>Adjacency list:</strong>is a collection of unordered lists, one for each vertex in the graph. Each list describes the set of neighbors of its vertex.</span></span><br />
+					</span>
+					</td>
+					<td class="auto-style37">
+					<img alt="" src="images/myphoto/img14.jpg" width="150" height="150" /><br />
+					<span class="auto-style53">Adjacency matrix</span><span class="auto-style40"> </span><br />
+					<img alt="" src="images/myphoto/img15.jpg" width="150" height="150" /><br class="auto-style65" />
+					<span class="auto-style53">Adjacency list</span><br />
+					</td>
+				</tr>
+				<tr>
+					<td class="auto-style12" style="width: 921px; height: 141px;">
+					<p class="auto-style66" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">
+					Biological Networks<o:p></o:p></p>
+					<span class="auto-style56">
+					<p class="MsoNormal"></span>
+					<span class="auto-style23">
+					<span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style54">
+					<span class="auto-style56"><strong>Nodes</strong></span><span class="auto-style2"><span class="auto-style56">: Protein, 
+					peptide, or non-protein biomolecules</span></span></span></span><span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style54"><o:p></o:p></span></p>
+					<p class="auto-style21">
+					<o:p><span class="auto-style54"><strong>
+					<span class="auto-style56">Edges:</span></strong><span class="auto-style56"> Biological relationships, 
+					interactions, regulations, reactions, transformations, 
+					activation, inhibitions</span></span></o:p></p>
+					</td>
+					<td class="auto-style39" style="height: 141px">
+					<img alt="" height="150" src="images/myphoto/bn.jpg" width="150" /></td>
+				</tr>
+				<tr>
+					<td class="auto-style12" style="width: 921px">
+					<span class="auto-style66" style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:
+major-bidi">Global network properties</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
+mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:
+major-bidi"><o:p></o:p></span>&nbsp;</td>
+					<td>
+					&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="auto-style12" style="width: 921px; height: 218px;">
+					<ul>
+						<li>
+						<span class="auto-style67" style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:
+major-bidi;mso-bidi-theme-font:major-bidi"><strong>Degree distribution:</strong></span><span class="auto-style53" style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:
+major-bidi;mso-bidi-theme-font:major-bidi"> the <b>degree</b> 
+						of a node in a network is the number of connections it 
+						has to other nodes. The <b>degree distribution </b><i>P
+						</i>(<i>k</i>) gives the probability that a selected 
+						node has exactly <i>k </i>links.</span><i><span class="auto-style53" style="line-height: 115%; mso-fareast-font-family: &quot;Times New Roman&quot;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Arial; ">
+						</span>
+						<span class="auto-style23">
+						<span style="mso-ascii-theme-font:major-bidi;
+mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi" class="auto-style54">
+						<span class="auto-style56">P </span></span></span></i>
+						<span class="auto-style23">
+						<span class="auto-style56">
+						<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ascii-theme-font:major-bidi;
+mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi">
+						(</span><span style="mso-ascii-theme-font:major-bidi;
+mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi" class="auto-style57">k</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ascii-theme-font:major-bidi;
+mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi"><span style="mso-ascii-theme-font:major-bidi;
+mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi" class="auto-style54">) is obtained by 
+						counting the number of nodes N (<i>k</i>) with <i>k </i>= 1, 2,… links and dividing by the total number of nodes 
+						N.</span></span></span></span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ascii-theme-font:major-bidi;
+mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi"><span style="mso-ascii-theme-font:major-bidi;
+mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi" class="auto-style54"><o:p></o:p></span></span>&nbsp;</li>
+					</ul>
+					</td>
+					<td class="auto-style37" style="height: 218px">
+					<img alt="" height="150" src="images/myphoto/dd.jpg" width="150" /><br />
+					<span class="auto-style53">Degree distribution</span>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="auto-style12" style="width: 921px; height: 243px;">
+					<ul>
+						<li class="auto-style54">
+						<span style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:
+major-bidi;mso-bidi-theme-font:major-bidi" class="auto-style54">
+						<span class="auto-style56">
+						<span class="auto-style23"> <span class="auto-style69">Clustering coefficient</span> <i>C<sub>v</sub></i> 
+						of a node <i>v</i> can be viewed as the probability that 
+						two neighbors of <i>v</i> are connected. Thus </span> </span>
+						<span class="auto-style23">
+						<span class="auto-style68">0 ≤ C<sub>v </sub>≤ 1</span><span class="auto-style56">.</span></span></span><span class="auto-style23"><ul>
+							<li>
+							<p class="MsoNormal">
+							<span style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:
+major-bidi" class="auto-style54"><span class="auto-style56">In undirected networks, the clustering 
+							coefficient <b> <i>C<sub>v</sub></i></b> of a node <em>v</em> 
+							is defined as <i>C<sub>v</sub></i> = 2<i>e<sub>v</sub></i>/(<i>k<sub>v</sub></i>(<i>k<sub>v</sub></i>-1)), 
+							where <i>k<sub>v</sub></i> is the number of 
+							neighbors of <i>v</i> and <i>e<sub>v</sub></i> is 
+							the number of connected pairs between all neighbors 
+							of <i>v</i>.
+							<o:p></o:p>
+							</span></span><span class="auto-style2"></p>
+							</li>
+							<li>
+							<p class="MsoNormal"></span>
+							</span>
+							<span style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:
+major-bidi" class="auto-style54"><span class="auto-style23">
+							<span class="auto-style56">In directed networks, the definition is 
+							slightly different: <i>C<sub>v</sub></i> = <i>e<sub>v</sub></i>/(<i>k<sub>v</sub></i>(<i>k<sub>v</sub></i>-1)).</span></span><o:p></o:p></span></p>
+							</li>
+						</ul>
+						</li>
+					</ul>
+					<ul>
+						<li>
+						<span style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:
+major-bidi;mso-bidi-theme-font:major-bidi" class="auto-style54">
+						<span class="auto-style56">
+						<span class="auto-style61"><strong>Clustering 
+						spectrum</strong></span><span class="auto-style23"><i> C(k)</i> 
+						is the distribution of the average clustering 
+						coefficients of all nodes of degree <i>k</i> in the 
+						network, over all </span> </span>
+						<span class="auto-style23"><span class="auto-style68">k</span></span></span><span style="font-family:
+&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:
+major-bidi;mso-bidi-theme-font:major-bidi">.<o:p></o:p></span></li>
+					</ul>
+					</td>
+					<td class="auto-style37" style="height: 243px">
+					<span class="auto-style18">
+					<img alt="" height="150" src="images/myphoto/img21.jpg" width="150" /><br />
+					</span>
+					<span class="auto-style54">
+					<span class="auto-style60">Clustering spectrum</span></span>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="auto-style12" style="width: 921px; height: 24px;">
+					<ul>
+						<li>
+						<span class="auto-style53" style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:
+major-bidi;mso-bidi-theme-font:major-bidi"> <span class="auto-style62"><strong>Diameter 
+						</strong></span>of a network 
+						is the largest distance between any two nodes in the 
+						network.<o:p></o:p></span>&nbsp;</li>
+					</ul>
+					</td>
+					<td class="auto-style37" rowspan="2">
+					<span class="auto-style18">
+					<img alt="" height="150" src="images/myphoto/img22.jpg" width="150" class="auto-style41" /><br />
+					</span><span class="auto-style54">
+					<span class="auto-style60">Shortest PLs</span></span>&nbsp;<span class="auto-style54"><span class="auto-style60">Spectrum</span></span></td>
+				</tr>
+				<tr>
+					<td class="auto-style12" style="width: 921px; height: 137px;">
+					<ul>
+						<li>
+						<span class="auto-style70" style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:
+major-bidi;mso-bidi-theme-font:major-bidi"> Average path length 
+						(PL) </span>
+						<span class="auto-style53" style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:
+major-bidi;mso-bidi-theme-font:major-bidi"> is the average number of steps 
+						along the shortest paths for all possible pairs of 
+						network nodes. It is a measure of the efficiency of 
+						information or mass transport on a network.<o:p></o:p></span>&nbsp;</li>
+					</ul>
+					</td>
+				</tr>
+				<tr>
+					<td class="auto-style12" style="width: 921px">
+					<ul>
+						<li>
+						<span style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:
+major-bidi;mso-bidi-theme-font:major-bidi" class="auto-style54">
+						<span class="auto-style56">
+						<span class="auto-style23"> <b>
+						<span class="auto-style62">Centrality</span> </b>quantifies the 
+						topological importance of a node (edge) in a network. It 
+						means it ranks </span> </span></span>
+						<span class="auto-style23">
+						<span lang="EN-GB" style="mso-ascii-theme-font:
+major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi;
+mso-ansi-language:EN-GB" class="auto-style54"><span class="auto-style56">nodes according to their 
+						topological importance.</span></span></span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ascii-theme-font:major-bidi;
+mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi"><o:p></o:p></span></li>
+					</ul>
+					</td>
+					<td class="auto-style38"><br />
+					<img alt="" height="150" src="images/myphoto/cent.jpg" width="150" /><br />
+					<span class="auto-style53">Centrality</span></td>
+				</tr>
+				<tr>
+					<td class="auto-style12" style="width: 921px">
+					<span class="auto-style23">
+					<span class="auto-style63" style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:
+major-bidi">Local network</span></span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
+mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:
+major-bidi"><span class="auto-style23"><o:p><span class="auto-style63" style="mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:
+major-bidi"> properties</span></span><o:p></o:p></o:p></span>&nbsp;</td>
+					<td class="auto-style17">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="auto-style12" style="width: 921px">
+					<ul>
+						<li>
+						<span class="auto-style23">
+						<span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi" class="auto-style58">
+						<span class="auto-style72">Network motifs</span></span></span><span style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi"><span class="auto-style71"><span class="auto-style56"> 
+						are connectivity-patterns (sub-graphs) that occur much 
+						more often than they do in random networks. These small 
+						circuits can be considered as simple building blocks 
+						from which the network is composed. This idea was first 
+						presented by Uri Alon and his group when network motifs 
+						were discovered in the gene regulation network of the 
+						bacteria </span><span class="auto-style68">E. coli</span></span></span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;; mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi">.<o:p></o:p></span>&nbsp;</li>
+					</ul>
+					</td>
+					<td class="auto-style37"><span class="auto-style18">
+					<img alt="" height="150" src="images/myphoto/networkMotifs.png" width="150" /><br />
+					</span><span class="auto-style54">
+					<span class="auto-style60">Network motif</span></span>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="auto-style12" style="width: 921px">
+					<span class="auto-style54">
+					<strong><span class="auto-style74"><br />
+					</span><span class="auto-style76">Some Important graphs</span><span class="auto-style47"><br />
+					<br />
+					</span><span class="auto-style75">
+					<br class="auto-style56" />
+					</span><span class="auto-style60">Regular graph:</span></strong></span><span class="auto-style71"><span class="auto-style56">
+					a regular network is a graph where each vertex has the same number of neighbors; i.e. every vertex has the same degree.</span></span>
+					<span class="auto-style65">
+					<br />
+					<br />
+					</span></span><span class="auto-style53">
+					<strong>Random graph:</strong></span><span class="auto-style71"><span class="auto-style56"> 
+					The basic idea of the Erdos-Renyi (ER) random graph is that the degree distribution is binomial. 
+					For these networks, the characteristic path length is proportional to the logarithm of the network size, 
+					and the average clustering coefficient is inversely proportional to network size.</span></span>
+					<span class="auto-style65">
+					<br />
+					<br />
+					</span></span><span class="auto-style53">
+					<strong>Scale-free graph:</strong></span><span class="auto-style71"><span class="auto-style56"> 
+					The core idea of scale-free networks (which may also called Barabasi and Albert model) is a network whose degree 
+					distribution asymptotically approaches the power law (<em>P(k) ~ k</em><sup>γ</sup>). 
+					Numerous papers claim that biological interaction networks follow a power law. 
+					However, firstly, the scale-free network was not based on specific biological considerations. 
+					Rather, it is a mathematical model for the dynamical growth of networks that replicates the degree distributions, 
+					and some other properties, observed in studies of the WWW and other networks.<br />
+					</span></span><span class="auto-style65"><br />
+					
+					</span></span><span class="auto-style53">
+					<strong>Small-world graph:</strong></span><span class="auto-style71"><span class="auto-style56"> 
+					A small-world network is a type of mathematical graph in which most nodes are not neighbors of one another, 
+					but most nodes can be reached from every other by a small number of hops or steps. Specifically, 
+					a small-world network is defined to be a network where the typical distance 
+					<em>L</em> between two randomly chosen nodes 
+					(the number of steps required) grows proportionally to the logarithm of the number of nodes 
+					<em>N</em> in the network, 
+					that is: <em>L</em> ~ log <em>N</em>
+					<br />
+					</span></span><br class="auto-style65" />
+
+					
+					</td>
+					<td class="auto-style37">
+					<img alt="" height="150" src="images/myphoto/regular.gif" width="150" /><br />
+					<span class="auto-style53">Regular graph</span><span class="auto-style40"><br />
+					</span>
+					<img alt="" height="150" src="images/myphoto/random.gif" width="150" /><br />
+					<span class="auto-style53">Random graph</span><span class="auto-style40"><br />
+					</span>
+					<img alt="" height="150" src="images/myphoto/scalefree.JPG" width="150" /><br />
+					<span class="auto-style53">Scale-free graph</span><span class="auto-style40"><br />
+					</span>
+					<img alt="" height="150" src="images/myphoto/smallworld.gif" width="150" /><br />
+					<span class="auto-style53">Small-world graph</span></td>
+				</tr>
+				
+				
+				<tr>
+					<td class="auto-style42" colspan="2">
+					<strong>
+					<span class="auto-style56">
+					<span class="auto-style51">Note:</span></span><span class="auto-style65"> Texts and figures in this page have been chosen from the following references:</span></strong><span class="auto-style18"><br />
+					</span>
+					<span class="auto-style48">West, Douglas B. (2001<span dir="RTL" lang="AR-SA">).
+					</span><i>Introduction to Graph Theory </i>2<sup>nd</sup> 
+					ed.). Upper Saddle River: Prentice Hall<span dir="RTL" lang="AR-SA">.
+					</span>ISBN 0-13-01400-2<br />
+					Oliver Mason and Mark Verwoerd, Graph Theory and Networks in Biologyy
+					<br />
+					A. Abraham et al. Ed., Computational Social Network 
+					Analysis, Springer London, 2010</span></td>
+				</tr>
+				<tr>
+					<td class="auto-style42" colspan="2">
+					<strong>
+					<span class="auto-style32"><br />
+					</span>
+					<span class="auto-style77">Do you want reading more?</span></strong><span class="auto-style65"><br />
+					There are some comprehensive references which 
+					could be helpful in more understanding topological features. 
+					<br />
+					We recommend reading the following 
+			references for better understanding:</span><o:p></o:p>&nbsp;</td>
+				</tr>
+				</table>
+		&nbsp;</div>
+        
+         <div class="pagging">
+             <table style="width: 100%">
+				 <tr>
+					 <td style="width: 199px" class="auto-style37">
+					 <a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-0470041447.html" target="_blank">
+					 <img alt="" height="150" src="images/myphoto/bn-2.JPG" width="100" /></a></td>
+					 <td style="width: 199px" class="auto-style37">
+					 <a href="http://www.worldscientific.com/worldscibooks/10.1142/6459"target="_blank">
+					 <img alt="" height="150" src="images/myphoto/bn-1.JPG" width="100" /></a>&nbsp;</td>
+					 <td style="width: 201px" class="auto-style37">
+					 <a href="http://www.amazon.com/Introduction-Systems-Biology-Mathematical-Computational/dp/1584886420"target="_blank">
+					 <img alt="" height="150" src="images/myphoto/sb-alon.JPG" width="100" /></a>&nbsp;</td>
+					 <td style="width: 198px" class="auto-style37">
+					 <a href="http://www.amazon.com/Systems-Biology-Practice-Implementation-Application/dp/3527310789"target="_blank">
+					 <img alt="" height="150" src="images/myphoto/sb-klip.JPG" width="100" /></a>&nbsp;</td>
+					 <td style="width: 198px" class="auto-style37">
+					 <a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-3527318747.html"target="_blank">
+					 <img alt="" height="150" src="images/myphoto/sb-klip-2.JPG" width="100" /></a>&nbsp;</td>
+					 <td style="width: 194px" class="auto-style37">
+					 <a href="http://www.amazon.com/Systems-Biology-Properties-Reconstructed-Networks-ebook/dp/B0014XVIOO"target="_blank">
+					 <img alt="" height="150" src="images/myphoto/sb-palsson.JPG" width="100" /></a>&nbsp;</td>
+					 <td style="width: 194px" class="auto-style37">
+					 <a href="http://www.ncbi.nlm.nih.gov/pubmed/17441552"target="_blank">
+					 <img alt="" height="150" src="images/myphoto/bn-3.JPG" width="100" /></a>&nbsp;</td>
+				 </tr>
+				 <tr>
+					 <td style="width: 194px">&nbsp;</td>
+					 <td style="width: 194px">&nbsp;</td>
+					 <td>&nbsp;</td>
+					 <td>&nbsp;</td>
+				 </tr>
+			 </table>
+            </div>
+        <div class="cleaner"></div>
+    </div>
+    
+	<!-- end of sidebar -->
+    <div class="cleaner"></div>
+</div> <!-- END of templatemo_main -->
+
+<iframe scrolling="no" src="bottom-frame.html" style="float: middle; height: 186px;" width="100%" border="0" frameborder="0" >
+Your browser does not support inline frames or is currently configured not to display inline frames.
+</iframe>
+
+</body>
+</html>

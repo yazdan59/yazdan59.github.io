@@ -1,0 +1,356 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GEM DB, Human Objective Function</title>
+<meta name="keywords" content="Genome-scale Metabolic Modeling, Yazdan Asgari, Ali Salehzadeh-yazdi" />
+<meta name="description" content="Resources and softwares available for Genome-scale Metabolic Modeling" />
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+
+<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script> 
+<!--script type="text/javascript" src="/jqueryui/js/jquery-ui-1.7.2.custom.min.js"></script--> 
+<script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="js/showhide.js"></script> 
+<script type="text/JavaScript" src="js/jquery.mousewheel.js"></script> 
+
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+});
+</script> 
+
+<style type="text/css">
+.auto-style1 {
+	font-size: medium;
+}
+.auto-style2 {
+	font-size: large;
+}
+.auto-style45 {
+	text-align: center;
+}
+.scrollToTop{
+	width:100px; 
+	height:130px;
+	padding:10px; 
+	text-align:center; 
+	background: whiteSmoke;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	position:fixed;
+	top:0px;
+	right:0px;
+	display:none;
+	background: url('images/myphoto/Arrow-Up.png') no-repeat 0px 20px;
+}
+.scrollToTop:hover{
+	text-decoration:none;
+}
+.auto-style46 {
+	text-align: left;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14pt;
+	color: #000000;
+}
+.auto-style47 {
+	font-size: small;
+}
+.auto-style48 {
+	text-align: left;
+}
+.auto-style50 {
+	font-size: medium;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: underline;
+}
+.auto-style51 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: small;
+	color: #000000;
+}
+.auto-style52 {
+	text-align: left;
+	color: #000000;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12pt;
+}
+.auto-style54 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.auto-style55 {
+	text-align: left;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+}
+.auto-style56 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.auto-style57 {
+	text-align: left;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+</style>
+
+</head>
+
+<body id="subpage" style="height: 1290px">
+
+<div id="templatemo_header_wrapper" style="width: 960px">
+	<div id="site_title" style="width: 787px; height: 63px;" class="auto-style2"><h1>
+		<a style="width: 719px; height: 55px;" class="auto-style1" ></a></h1></div>
+	
+     <div id="templatemo_menu" class="ddsmoothmenu" style="height: 38px; width: 871px">
+        <ul style="width: 112%; position: relative; left: -92px; top: 0px; right: 92px;">
+            <li><a style="width: 60px" href="index.html" >Home</a></li>
+            <li><a style="width: 150px" href="GSMM-Recons.html" >GEM Reconstruction</a></li>
+           
+			<li><a style="width: 80px"class="selected">GEM Models</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="GSM-Model.html">Models</a></li>
+                    <li><a href="Yeast.html">Yeast</a></li>
+                    <li><a href="Human.html">Human</a></li>
+                    <li><a href="Objective.html">Objective</a></li>
+              	</ul>
+			</li>
+            
+            <li><a style="width: 140px">Topological Analysis</a>
+                <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Topological-Def.html">Definitions</a></li>
+                    <li><a href="Topological-Sof.html">Software</a></li>
+              	</ul>
+            </li>
+                                
+            <li><a style="width: 180px">Constraint-based Modeling</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                 	<li><a href="CB-Def.html">Definitions</a></li>
+                    <li><a href="CB-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+           
+			<li><a style="width: 115px">Kinetic Modeling</a>
+			<ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="KM-Def.html">Definitions</a></li>
+                    <li><a href="KM-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+                
+            <li><a style="width: 130px">Hybrid Approaches</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Objective.html">Definitions</a></li>
+                    <li><a href="Hyb-Int.html">Gene Exp. Mapping</a></li>
+              	</ul>
+			</li>
+			
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+        <br style="clear: left" />
+    </div> <!-- end of templatemo_menu -->
+<body style="height: 1490px">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="themes/1/js-image-slider.js" type="text/javascript"></script>
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+</head>
+    <div id="sliderFrame">
+    </div>
+</body>
+    <div class="cleaner"></div>
+</div>
+
+<a href="#" class="scrollToTop"></a>        
+
+	<!-- END of templatemo_header_wrapper -->
+
+<div id="templatemo_main">
+	<div id="content" style="width: 944px; height: 1034px;">
+    	<div class="post" style="width: 965px; height: 1052px;">
+            	
+            <h2 class="auto-style1"><strong>Human Objective function</strong></h2>
+                    
+            <span class="auto-style1">
+                    
+            <br />
+			<br />
+			</span>
+			<p class="auto-style51" style="height: 516px">
+			<span class="auto-style54">In the FBA, the choice of objective function has a deep impact on simulation results. 
+			This issue has not been received much attention in the case of human organism during the past decade due 
+			to the complexity of human metabolic models which includes lots of conditions such as normal, 
+			cancerous, tissue-specificity, and so on. 
+			Although in the study of microorganisms, there is agreement in literature that cell growth (biomass reaction) 
+			is an appropriate choice for an objective function, such selection is still challenging for a human 
+			metabolic model. </span><br class="auto-style54"> </br>
+			<span class="auto-style54">In human, healthy cells have a slow growth rate whereas considering a biomass 
+			for an objective function seems to be appropriate for cancerous cells. An understanding of cell 
+			growth is contingent on an understanding of what cells are made of? Or on the other hand, what is 
+			the biomass composition? Generally, it consists of five major components which are 
+			<em>protein</em>, <em>DNA</em>, <em>RNA</em>, 
+			<em>lipids</em>, and <em>carbohydrates</em> with an energy requirement in the form of ATP hydrolysis. There is also 
+			another category called the “<em>other</em>” which is usually taken to include ions and vitamins in order 
+			to satisfy the biological situation. However, it is usually difficult to examine the exact values 
+			for the “<em>other</em>” components. </br></br>Considering the growth medium is another key feature which is needed 
+			to gain a full understanding of human molecular physiology. It determines which metabolites the 
+			model could consume, on the input side. In other words, to which medium components should the 
+			simulated cells have access?
+			</br></br>
+			Some efforts have been performed to explore an applicable objective function for human metabolic models 
+			in the past decade. For instance, Gille et al. tested a liver model with 442 different objectives [1], 
+			in some other studies alternative types of objective functions have been proposed [2-4], 
+			some researchers performed a comparative Flux Variability Analysis (FVA) in order to test the precision 
+			of human metabolic models [5], but none seem to appeal to researchers on an intuitive level the way 
+			biomass objective function [6] does. Therefore, studies in recent years have been performed which 
+			tried to develop a biomass objective function for human metabolic models, but due to the complexity 
+			of a human cell cultures, more attention needed during the simulation study. For example, both 
+			Folger et al. [7] and Wang et al. [8] have almost used the same values for the metabolites appears 
+			in the biomass objective function in their models whereas the former work was done in a cancer network 
+			and the latter study was performed in a normal model. </br></br>Based on recent development for construction of 
+			tissue-specific metabolic models [8-9], there is need to introduce tissue-specific biomass reactions. 
+			There are new attempts for integration of gene expression data into human metabolic network in order 
+			to construct tissue-specific models [8-10]. These developments could assist researchers to 
+			explore biomass objective functions which would be applicable for human tissue-specific metabolic models. 
+			</br></br>Although no genome-scale study of human metabolism has included an experimentally determined biomass 
+			composition so far, attempting to gain such purpose could be helpful to develop computational 
+			approaches which be able to compute metabolite coefficients of a biomass reaction based on metabolite 
+			compositions derived from experimental evidences.
+			</br></br>
+			Here, we have just tried to inform some challenges regarding to human objective function. 
+			It is necessary for begginer scientist in this field to consider such debates about objective function. 
+			It seems a standard schema needed to be considered for future analysis to help scientists improving other studies continuously. 
+			&nbsp;</span></p>
+			<p class="auto-style45">
+			<o:p>
+			</o:p>
+			</p>
+			<p class="auto-style48">
+			<o:p>
+			<strong>
+			<span style="color:black" class="auto-style50">
+			Some recommended studies and recent studies on Objective function</span><span style="font-size:
+14.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;color:black"><span style="color:black" class="auto-style50">:</span></span></strong></o:p></p>
+			<ul>
+				<li>
+				<p class="auto-style55">
+				<o:p><span class="auto-style47">The biomass objective function (<a href="http://www.ncbi.nlm.nih.gov/pubmed/20430689" target="_blank">Link</a>)</span></o:p><span class="auto-style47">
+				</span>
+				</p>
+				</li>
+				<li>
+				<p class="auto-style57">
+				<o:p>Biomass composition: the “elephant in the room” of metabolic modelling (<a href="http://link.springer.com/article/10.1007/s11306-015-0819-2/fulltext.html" target="_blank">Link</a>)</o:p></p>
+				</li>
+				<li>
+				<p class="auto-style57">
+				<o:p>Interplay between constraints, objectives, and optimality 
+				for genome-scale stoichiometric models (<a href="http://www.ncbi.nlm.nih.gov/pubmed/25849486" target="_blank">Link</a>)</o:p></p>
+				</li>
+				<li>
+				<p class="auto-style57">
+				<o:p>Critical assessment of genome-scale metabolic networks: the 
+				need for a unified standard (<a href="http://bib.oxfordjournals.org/content/early/2015/02/27/bib.bbv003.abstract" target="_blank">Link</a>)</o:p></p>
+				</li>
+				<li>
+				<p class="auto-style57">
+				<o:p>Development of computational methods for the determination 
+				of biomass composition and evaluation of its impact in 
+				genome-scale models (<a href="http://repositorium.sdum.uminho.pt/handle/1822/27892" target="_blank">Link</a>)</o:p></p>
+				</li>
+				<li>
+				<p class="auto-style57">
+				<o:p>Do genome-scale models need exact solvers or clearer 
+				standards? (<a href="http://msb.embopress.org/content/11/10/831" target="_blank">Link</a>)</o:p></p>
+				</li>
+				<li>
+				<p class="auto-style52">
+				<o:p><span class="auto-style56">Reply to “Do genome-scale models need exact solvers or 
+				clearer standards?” (<a href="http://msb.embopress.org/content/11/10/830" target="_blank">Link</a></span>)</o:p></p>
+				</li>
+			</ul>
+			<p class="auto-style46" style="height: 217px">
+			<o:p>
+			<br />
+			<strong>References:</strong><br />
+			<span class="auto-style47">
+			
+1. Gille, C., et al., HepatoNet1: a comprehensive metabolic reconstruction of the human hepatocyte for the analysis of liver physiology. Mol Syst Biol, 2010. 6: p. 411.
+<br />2. Schuetz, R., L. Kuepfer, and U. Sauer, Systematic evaluation of objective functions for predicting intracellular fluxes in Escherichia coli. Mol Syst Biol, 2007. 3: p. 119.
+<br />3. Price, N.D., J.L. Reed, and B.O. Palsson, Genome-scale models of microbial cells: evaluating the consequences of constraints. Nat Rev Micro, 2004. 2(11): p. 886-897.
+<br />4. Holzhütter, H.-G., The principle of flux minimization and its application to estimate stationary fluxes in metabolic networks. Eur. J. of Biochem., 2004. 271(14): p. 2905-2922.
+<br />5. Boele, J., Of systems and cancer. 2014, Amsterdam Institute for Molecules, Medicines and Systems. p. 166.
+<br />6. Feist, A.M. and B.O. Palsson, The biomass objective function. Curr Opin Microbiol, 2010. 13(3): p. 344-9.
+<br />7. Folger, O., et al., Predicting selective drug targets in cancer through metabolic networks. Mol Syst Biol, 2011. 7: p. 501.
+<br />8. Wang, Y., J.A. Eddy, and N.D. Price, Reconstruction of genome-scale metabolic models for 126 human tissues using mCADRE. BMC Syst Biol, 2012. 6(1): p. 153.
+<br />9. Agren, R., et al., Reconstruction of Genome-Scale Active Metabolic Networks for 69 Human Cell Types and 16 Cancer Types Using INIT. Plos Computational Biology, 2012. 8(5).
+<br />10. Blazier, A.S. and J.A. Papin, Integration of expression data in genome-scale metabolic network reconstructions. Front Physiol, 2012. 3: p. 299.
+			</span> 
+			</o:p>
+			</p>
+				
+					<tr>
+					<td class="auto-style42" colspan="2">
+					</div>
+        
+    </div>
+    
+	<!-- end of sidebar -->
+    <div class="cleaner"></div>
+</div> <!-- END of templatemo_main -->
+
+<iframe scrolling="no" src="bottom-frame.html" style="float: middle; height: 184px;" width="100%" border="0" frameborder="0" >
+Your browser does not support inline frames or is currently configured not to display inline frames.
+</iframe>
+
+</body>
+</html>

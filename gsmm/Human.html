@@ -1,0 +1,382 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GEM DB, Human Models</title>
+<meta name="keywords" content="Genome-scale Metabolic Modeling, Yazdan Asgari, Ali Salehzadeh-yazdi" />
+<meta name="description" content="Resources and softwares available for Genome-scale Metabolic Modeling" />
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+
+<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script> 
+<!--script type="text/javascript" src="/jqueryui/js/jquery-ui-1.7.2.custom.min.js"></script--> 
+<script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="js/showhide.js"></script> 
+<script type="text/JavaScript" src="js/jquery.mousewheel.js"></script> 
+
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+});
+</script> 
+
+<style type="text/css">
+.auto-style1 {
+	font-size: medium;
+}
+.auto-style2 {
+	font-size: large;
+}
+.auto-style45 {
+	text-align: center;
+}
+.scrollToTop{
+	width:100px; 
+	height:130px;
+	padding:10px; 
+	text-align:center; 
+	background: whiteSmoke;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	position:fixed;
+	top:0px;
+	right:0px;
+	display:none;
+	background: url('images/myphoto/Arrow-Up.png') no-repeat 0px 20px;
+}
+.scrollToTop:hover{
+	text-decoration:none;
+}
+.auto-style46 {
+	text-align: left;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14pt;
+	color: #000000;
+}
+.auto-style47 {
+	font-size: small;
+}
+.auto-style48 {
+	text-align: left;
+}
+.auto-style50 {
+	font-size: medium;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: underline;
+}
+.auto-style51 {
+	text-align: left;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12pt;
+	color: #000000;
+}
+.auto-style53 {
+	font-size: 14.0pt;
+	color: black;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.auto-style54 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.auto-style55 {
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #000000;
+}
+.auto-style56 {
+	font-size: medium;
+	text-decoration: underline;
+}
+</style>
+
+</head>
+
+<body id="subpage" style="height: 2292px">
+
+<div id="templatemo_header_wrapper" style="width: 960px">
+	<div id="site_title" style="width: 787px; height: 63px;" class="auto-style2"><h1>
+		<a style="width: 719px; height: 55px;" class="auto-style1" ></a></h1></div>
+	
+     <div id="templatemo_menu" class="ddsmoothmenu" style="height: 38px; width: 871px">
+        <ul style="width: 112%; position: relative; left: -92px; top: 0px; right: 92px;">
+            <li><a style="width: 60px" href="index.html" >Home</a></li>
+            <li><a style="width: 150px" href="GSMM-Recons.html" >GEM Reconstruction</a></li>
+           
+			<li><a style="width: 80px"class="selected">GEM Models</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="GSM-Model.html">Models</a></li>
+                    <li><a href="Yeast.html">Yeast</a></li>
+                    <li><a href="Human.html">Human</a></li>
+                    <li><a href="Objective.html">Objective</a></li>
+              	</ul>
+			</li>
+            
+            <li><a style="width: 140px">Topological Analysis</a>
+                <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Topological-Def.html">Definitions</a></li>
+                    <li><a href="Topological-Sof.html">Software</a></li>
+              	</ul>
+            </li>
+                                
+            <li><a style="width: 180px">Constraint-based Modeling</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                 	<li><a href="CB-Def.html">Definitions</a></li>
+                    <li><a href="CB-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+           
+			<li><a style="width: 115px">Kinetic Modeling</a>
+			<ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="KM-Def.html">Definitions</a></li>
+                    <li><a href="KM-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+                
+            <li><a style="width: 130px">Hybrid Approaches</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Human.html">Definitions</a></li>
+                    <li><a href="Hyb-Int.html">Gene Exp. Mapping</a></li>
+              	</ul>
+			</li>
+			
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+        <br style="clear: left" />
+    </div> <!-- end of templatemo_menu -->
+<body style="height: 2492px">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="themes/1/js-image-slider.js" type="text/javascript"></script>
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+</head>
+    <div id="sliderFrame">
+    </div>
+</body>
+    <div class="cleaner"></div>
+</div>
+
+<a href="#" class="scrollToTop"></a>        
+
+	<!-- END of templatemo_header_wrapper -->
+
+<div id="templatemo_main">
+	<div id="content" style="width: 944px; height: 2028px;">
+    	<div class="post" style="width: 965px; height: 2223px;">
+            	
+			<p class="auto-style53" style="height: 447px">
+			<strong><span class="auto-style56">Genome-scale metabolic model for Human (normal and cancer tissues):</span><span class="auto-style47"><br />
+			</span>
+			</strong><span class="auto-style47"><br/>
+			With the advent of genome-scale metabolic (GEM) models of various cell types and diseases, 
+			a valuable tool to study genetic, epigenetic and metabolic events in combination, developed [1]. 
+			The convergence of these developments enables the researchers to predict physiological functions and 
+			the relevant growth rate of particular human cell types, tissue-specificity and cancer [2-4]. 
+			<br />
+			<br />
+			There are four generic reconstructed genome-scale human metabolic networks: Recon1 [5], Recon2 [6], 
+			the Edinburgh Human Metabolic Network (EHMN) [7], and HumanCyc [8]. 
+			<br />
+			<br />
+			For the study of particular human 
+			cell types, tissue-specificity, and cancer; metabolic models have been reconstructed either manually 
+			or automatically. <br />
+			<br />
+			Manually reconstructed metabolic models include models of the liver (HepatoNet1,[9]), 
+			kidney [10], brain [11], erythrocytes [12], alveolar macrophages [13] as well a model of the core  
+			metabolic pathways participating in cancer growth [14]. <br />
+			<br />
+			The first automatic reconstructed metabolic 
+			model has been developed by Schlomi et al. for 10 different human tissues [15] as subsets of Recon1. 
+			Later they proposed a different algorithm to generate a more flexible and functional tissue-specific model [16].
+			<br />
+			<br />
+			For human cancer metabolic models, First two models, which focused on core metabolic pathways was built by 
+			Resendis-Antonio et al. and Vazquez et al. in 2010 [14,17]. In 2011, Shlomi et al. have used Recon1 and a 
+			cancer biomass equation in order to provide insights into the Warburg effect [18]. Shortly thereafter, 
+			transcriptomic data from the NCI-60 cell lines were used to build a general genome-scale model of cancer 
+			metabolism, which was used to assess metabolic drug targets [19]. Agren et al. [20] have developed the 
+			INIT algorithm (Integrative Network Inference for Tissues) which relies on the Human Protein Atlas (HPA) 
+			as the main evidence source,  and on tissue-specific gene expression data [21] and metabolomic data from 
+			the Human Metabolome DataBase (HMDB) [22] as extra sources of evidence, leading to build 69 Human Cell 
+			Types and 16 Cancer Types. After that, Wang et al. [23] have developed a new approach named metabolic 
+			Context-specificity Assessed by Deterministic Reaction Evaluation (mCADRE) in order to build 126 human 
+			tissue-specific metabolic models. <br />
+			<br />
+			To date, different cancer tissue-specific models have been built using data 
+			from specific cell lines and tumors. These models have elucidated pathways that differ between tumors. 
+			Although these models were successful in predicting cancer specific metabolites and reactions with high accuracy, 
+			further curation and integration of data in these models subject to specific needs are warranted. 
+			Besides, they are still in their infancy which promises more computational work on metabolic models of cancer. 
+			The timeline of the genome-scale metabolic models for human normal and cancer tissues has been shown in 
+			the following Table:</span></p>
+			<p class="MsoNormal" style="height: 40px">
+			&nbsp;</p>
+			<p class="auto-style45">
+			<o:p>
+			<img alt="" height="555" src="images/myphoto/human-table.jpg" width="767" /></o:p></p>
+			<p class="auto-style48">
+			<o:p>
+			<strong>
+			<span style="color:black" class="auto-style50">
+			Recent studies on </span>
+			<span style="font-size:
+14.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;color:black">
+			<span style="color:black" class="auto-style50">
+			Human GEM models:</span></span></strong></o:p></p>
+			<ul>
+				<li>
+				<p class="auto-style55">
+				<o:p>Reducing Recon 2 for steady-state flux analysis of HEK cell 
+				culture (<a href="http://www.sciencedirect.com/science/article/pii/S0168165614002673" target="_blank">Link</a>)</o:p></p>
+				</li>
+				<li>
+				<p class="auto-style55">
+				<o:p>Biochemical Characterization of Human Gluconokinase and the 
+				Proposed Metabolic Impact of Gluconic Acid as Determined by 
+				Constraint Based Metabolic Network Analysis (<a href="http://www.ncbi.nlm.nih.gov/pubmed/24896608" target="_blank">Link</a>)</o:p></p>
+				</li>
+				<li>
+				<p class="auto-style55">
+				<o:p>Constraint-based modeling of host-microbe and 
+				microbe-microbe metabolic interactions in the human gut (Ph.D. 
+				Thesis) (<a href="http://skemman.is/handle/1946/22558" target="_blank">Link</a>)</o:p></p>
+				</li>
+				<li>
+				<p class="auto-style55">
+				<o:p>Reconstruction and validation of a constraint-based 
+				metabolic network model for bone marrow-derived mesenchymal stem 
+				cells (<a href="http://www.ncbi.nlm.nih.gov/pubmed/26132591" target="_blank">Link</a>)</o:p></p>
+				</li>
+				<li>
+				<p class="auto-style55">
+				<o:p>Modeling cancer metabolism on a genome scale (<a href="http://www.ncbi.nlm.nih.gov/pubmed/26130389" target="_blank">Link</a>)</o:p></p>
+				</li>
+				<li>
+				<p class="auto-style55">
+				<o:p>Metabolic network modeling of microbial communities (<a href="http://www.ncbi.nlm.nih.gov/pubmed/26109480" target="_blank">Link</a>)</o:p></p>
+				</li>
+				<li>
+				<p class="auto-style55">
+				<o:p>The Warburg effect: a balance of flux analysis (<a href="http://www.ncbi.nlm.nih.gov/pubmed/26207106" target="_blank">Link</a>)</o:p></p>
+				</li>
+				<li>
+				<p class="auto-style55">
+				<o:p>Genome-scale modeling and human disease: an overview (<a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4304257/" target="_blank">Link</a>)</o:p></p>
+				</li>
+				<li>
+				<p class="auto-style55">
+				<o:p>SteatoNet: the first integrated human metabolic model with 
+				multi-layered regulation to investigate liver-associated 
+				pathologies (<a href="http://www.ncbi.nlm.nih.gov/pubmed/25500563" target="_blank">Link</a>)</o:p></p>
+				</li>
+				<li>
+				<p class="auto-style55">
+				<o:p>Reconstruction of a generic metabolic network model of 
+				cancer cells (<a href="http://www.ncbi.nlm.nih.gov/pubmed/25196995" target="_blank">Link</a>)</o:p></p>
+				</li>
+				<li>
+				<p class="auto-style51">
+				<span class="auto-style54">
+				<o:p>A systems approach to predict oncometabolites via context-specific genome-scale metabolic networks (<a href="http://www.ncbi.nlm.nih.gov/pubmed/25232952" target="_blank">Link</a>)</o:p></span>
+				</p>
+				</li>
+			</ul>
+			<p class="auto-style46" style="height: 608px">
+			<o:p>
+			<br />
+			References:<br />
+			<span class="auto-style47">1. Palsson B (2009) Metabolic systems biology. FEBS Lett 583: 3900-3904.<br />
+			2. Feist AM, Palsson BO (2008) The growing scope of applications of genome-scale metabolic reconstructions using Escherichia coli. Nature Biotechnology 26: 659-667.<br />
+			3. Thiele I, Palsson BO (2010) A protocol for generating a high-quality genome-scale metabolic reconstruction. Nature Protocols 5: 93-121.<br />
+			4. Osterlund T, Nookaew I, Nielsen J (2012) Fifteen years of large scale metabolic modeling of yeast: Developments and impacts. Biotechnology Advances 30: 979-988.<br />
+			5. Duarte NC, Becker SA, Jamshidi N, Thiele I, Mo ML, et al. (2007) Global reconstruction of the human metabolic network based on genomic and bibliomic data. Proceedings of the National Academy of Sciences of the United States of America 104: 1777-1782.<br />
+			6. Thiele I, Swainston N, Fleming RM, Hoppe A, Sahoo S, et al. (2013) A community-driven global reconstruction of human metabolism. Nat Biotechnol 31: 419-425.<br />
+			7. Hao T, Ma HW, Zhao XM, Goryanin I (2010) Compartmentalization of the Edinburgh Human Metabolic Network. Bmc Bioinformatics 11.<br />
+			8. Romero P, Wagg J, Green ML, Kaiser D, Krummenacker M, et al. (2005) Computational prediction of human metabolic pathways from the complete human genome. Genome Biology 6.<br />
+			9. Gille C, Bolling C, Hoppe A, Bulik S, Hoffmann S, et al. (2010) HepatoNet1: a comprehensive metabolic reconstruction of the human hepatocyte for the analysis of liver physiology. Molecular Systems Biology 6.<br />
+			10. Chang RL, Xie L, Xie L, Bourne PE, Palsson BO (2010) Drug Off-Target Effects Predicted Using Structural Analysis in the Context of a Metabolic Network Model. Plos Computational Biology 6.<br />
+			11. Lewis NE, Schramm G, Bordbar A, Schellenberger J, Andersen MP, et al. (2010) Large-scale in silico modeling of metabolic interactions between cell types in the human brain. Nature Biotechnology 28: 1279-U1291.<br />
+			12. Bordbar A, Jamshidi N, Palsson BO (2011) iAB-RBC-283: A proteomically derived knowledge-base of erythrocyte metabolism that can be used to simulate its physiological and patho-physiological states. Bmc Systems Biology 5.<br />
+			13. Bordbar A, Lewis NE, Schellenberger J, Palsson BO, Jamshidi N (2010) Insight into human alveolar macrophage and M. tuberculosis interactions via metabolic reconstructions. Molecular Systems Biology 6.<br />
+			14. Resendis-Antonio O, Checa A, Encarnacion S (2010) Modeling Core Metabolism in Cancer Cells: Surveying the Topology Underlying the Warburg Effect. PLoS One 5.<br />
+			15. Shlomi T, Cabili MN, Herrgard MJ, Palsson BO, Ruppin E (2008) Network-based prediction of human tissue-specific metabolism. Nature Biotechnology 26: 1003-1010.<br />
+			16. Jerby L, Shlomi T, Ruppin E (2010) Computational reconstruction of tissue-specific metabolic models: application to human liver metabolism. Molecular Systems Biology 6.<br />
+			17. Vazquez A, Liu J, Zhou Y, Oltvai ZN (2010) Catabolic efficiency of aerobic glycolysis: the Warburg effect revisited. BMC Syst Biol 4: 58.<br />
+			18. Shlomi T, Benyamini T, Gottlieb E, Sharan R, Ruppin E (2011) Genome-scale metabolic modeling elucidates the role of proliferative adaptation in causing the Warburg effect. PLoS Comput Biol 7: e1002018.<br />
+			19. Folger O, Jerby L, Frezza C, Gottlieb E, Ruppin E, et al. (2011) Predicting selective drug targets in cancer through metabolic networks. Mol Syst Biol 7.<br />
+			20. Agren R, Bordel S, Mardinoglu A, Pornputtapong N, Nookaew I, et al. (2012) Reconstruction of Genome-Scale Active Metabolic Networks for 69 Human Cell Types and 16 Cancer Types Using INIT. Plos Computational Biology 8.<br />
+			21. Su AI, Wiltshire T, Batalov S, Lapp H, Ching KA, et al. (2004) A gene atlas of the mouse and human protein-encoding transcriptomes. Proceedings of the National Academy of Sciences of the United States of America 101: 6062-6067.<br />
+			22. Wishart DS, Tzur D, Knox C, Eisner R, Guo AC, et al. (2007) HMDB: the human metabolome database. Nucleic Acids Research 35: D521-D526.<br />
+			23. Wang Y, Eddy JA, Price ND (2012) Reconstruction of genome-scale metabolic models for 126 human tissues using mCADRE. BMC Syst Biol 6: 153.<br />
+			24. http://www.nature.com/nrgastro/journal/v11/n6/full/nrgastro.2014.70.html<br />
+			25. Asgari Y, Masoudi-nejad A (2014) Metabolic Cancer Biology: Structural-based analysis of cancer as a metabolic disease, new sights and opportunities for disease treatment. Seminar in Cancer Biology, 30, 21-29, 2015.
+			</span> 
+			</o:p>
+			</p>
+				
+					<tr>
+					<td class="auto-style42" colspan="2">
+					</div>
+        
+    </div>
+    
+	<!-- end of sidebar -->
+    <div class="cleaner"></div>
+</div> <!-- END of templatemo_main -->
+
+<iframe scrolling="no" src="bottom-frame.html" style="float: middle; height: 189px;" width="100%" border="0" frameborder="0" >
+Your browser does not support inline frames or is currently configured not to display inline frames.
+</iframe>
+
+</body>
+</html>

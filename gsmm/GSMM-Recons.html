@@ -1,0 +1,2248 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="table2.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>GEM DB, GEM Reconstruction</title>
+	
+	<meta name="keywords" content="Genome-scale Metabolic Modeling, Yazdan Asgari, Ali Salehzadeh-yazdi" />
+	<meta name="description" content="Resources and softwares available for Genome-scale Metabolic Modeling" />
+	<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<script type="text/javascript" src="js/select.js"></script> 
+	<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script> 
+	<!--script type="text/javascript" src="/jqueryui/js/jquery-ui-1.7.2.custom.min.js"></script--> 
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+	<script type="text/javascript" src="js/showhide.js"></script> 
+	<script type="text/JavaScript" src="js/jquery.mousewheel.js"></script> 
+	<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+});
+</script> 
+
+<style type="text/css">
+.auto-style1 {
+	border: 0px solid #000000;
+	background-color: #000000;
+}
+.auto-style10 {
+	color: #000000;
+	font-size: large;
+}
+.auto-style11 {
+	border: 3px solid #CC0000;
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	background-color: #FF0000;
+}
+.auto-style12 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14pt;
+}
+.auto-style16 {
+	font-size: large;
+}
+.auto-style17 {
+	border: 2px solid #99CCFF;
+	color: #000000;
+	background-color: #99CCFF;
+	font-size: large;
+}
+.auto-style18 {
+	line-height: 115%;
+	font-family: "Times New Roman", serif;
+	font-size: small;
+}
+.auto-style22 {
+	border: 2px solid #99CCFF;
+	background-color: #99CCFF;
+	text-align: center;
+}
+.auto-style23 {
+	color: #000000;
+}
+.auto-style26 {
+	color: #000000;
+	font-size: small;
+}
+.auto-style30 {
+	border: 3px solid #CC0000;
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	background-color: #FFFF00;
+}
+.auto-style35 {
+	border: 2px solid #99CCFF;
+	background-color: #CAE4FF;
+	text-align: center;
+}
+.auto-style36 {
+	border: 2px solid #99CCFF;
+	color: #000000;
+	background-color: #CAE4FF;
+	font-size: large;
+}
+.auto-style37 {
+	font-size: small;
+}
+.auto-style39 {
+	color: #1CAE26;
+	font-size: large;
+}
+.auto-style40 {
+	color: #1CAE26;
+}
+.auto-style41 {
+	border: 2px solid #99CCFF;
+	background-color: #99CCFF;
+	text-align: center;
+	color: #000000;
+	font-size: large;
+}
+.auto-style42 {
+	color: #000000;
+	font-size: small;
+	text-align: left;
+}
+.auto-style43 {
+	border: 2px solid #99CCFF;
+	background-color: #CAE4FF;
+	text-align: center;
+	color: #000000;
+	font-size: large;
+}
+.auto-style44 {
+	border-style: solid;
+	border-color: #FFFFFF;
+	color: #1CAE26;
+	background-color: #FFFFFF;
+}
+.auto-style45 {
+	color: #1CAE26;
+	background-color: #FFFFFF;
+}
+.auto-style46 {
+	border-style: solid;
+	border-color: #FF0000;
+	color: #1CAE26;
+	font-size: large;
+	text-align: center;
+	background-color: #FFFF00;
+}
+.auto-style48 {
+	line-height: 115%;
+	font-family: "Times New Roman", serif;
+	color: black;
+	font-size: large;
+}
+.auto-style50 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: large;
+}
+.scrollToTop{
+	width:100px; 
+	height:130px;
+	padding:10px; 
+	text-align:center; 
+	background: whiteSmoke;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	position:fixed;
+	top:0px;
+	right:0px;
+	display:none;
+	background: url('images/myphoto/Arrow-Up.png') no-repeat 0px 20px;
+}
+.scrollToTop:hover{
+	text-decoration:none;
+}
+.auto-style58 {
+	border: 2px solid #99CCFF;
+	background-color: #99CCFF;
+	text-align: center;
+	color: #000000;
+}
+.auto-style65 {
+	text-align: center;
+}
+.auto-style66 {
+	line-height: 115%;
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	font-size: small;
+}
+.auto-style68 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.auto-style69 {
+	font-size: medium;
+}
+.auto-style71 {
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: large;
+}
+.auto-style72 {
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.auto-style73 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.auto-style74 {
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+	text-decoration: underline;
+}
+</style>
+
+
+
+</head>
+
+<body id="subpage" style="height: 14212px">
+
+<div id="templatemo_header_wrapper" style="width: 960px">
+	<div id="site_title" style="width: 787px; height: 63px;" class="auto-style2"><h1>
+		<a style="width: 719px; height: 55px;" class="auto-style1" ></a></h1></div>
+	
+     <div id="templatemo_menu" class="ddsmoothmenu" style="height: 38px; width: 871px">
+        <ul style="width: 112%; position: relative; left: -92px; top: 0px; right: 92px;">
+            <li><a style="width: 60px" href="index.html">Home</a></li>
+            <li><a style="width: 150px" href="GSMM-Recons.html"class="selected" >GEM Reconstruction</a></li>
+			<li><a style="width: 80px">GEM Models</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="GSM-Model.html">Models</a></li>
+                    <li><a href="Yeast.html">Yeast</a></li>
+                    <li><a href="Human.html">Human</a></li>
+                    <li><a href="Objective.html">Objective</a></li>
+              	</ul>
+			</li>
+            <li><a style="width: 140px">Topological Analysis</a>
+                <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Topological-Def.html">Definitions</a></li>
+                    <li><a href="Topological-Sof.html">Software</a></li>
+              	</ul>
+            </li>
+                                
+            <li><a style="width: 180px">Constraint-based Modeling</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                 	<li><a href="CB-Def.html">Definitions</a></li>
+                    <li><a href="CB-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+           
+			<li><a style="width: 115px">Kinetic Modeling</a>
+			<ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="KM-Def.html">Definitions</a></li>
+                    <li><a href="KM-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+                
+            <li><a style="width: 130px">Hybrid Approaches</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Hyb-Def.html">Definitions</a></li>
+                    <li><a href="Hyb-Int.html">Gene Exp. Mapping</a></li>
+              	</ul>
+			</li>
+			
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+         <br style="clear: left" />
+    </div>
+	<!-- end of templatemo_menu -->
+<body style="height: 14212px">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="themes/1/js-image-slider.js" type="text/javascript"></script>
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+</head>
+    <div id="sliderFrame">
+    </div>
+</body>
+    <div class="cleaner"></div>
+</div>
+
+<a href="#" class="scrollToTop"></a>         
+
+	<!-- END of templatemo_header_wrapper -->
+
+<div id="templatemo_main">
+	<div id="content" style="width: 699px">
+    	<div class="post" style="height: 967px">
+           	           	
+            <h2 class="auto-style69"><strong>GEM Reconstruction</strong></h2>
+            	
+            <h2 class="auto-style69"><br />
+			</h2>
+            <p class="auto-style66" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi;">
+			Reconstruction of a genome-scale metabolic model is a time-consuming 
+			hard-working process.<br />
+			It would be possible to start using an automatic method and then 
+			refine the model manually.<br />
+			It would also be possible to initiate and perform all reconstruction 
+			approach by hand.</p>
+			<p class="auto-style48" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi;">
+			<span class="auto-style73">However the metabolic network reconstruction process usually 
+			consists of four major stages according to a protocole provided by 
+			<a href="http://www.nature.com/nprot/journal/v5/n1/abs/nprot.2009.203.html" target="_blank">Thiele and Palsson</a></span>:<o:p></o:p></p>
+			<p class="auto-style48" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi;">
+			<span class="auto-style68">
+			<strong><span class="auto-style37">Stage 1:</span></strong><span class="auto-style37"> Creating a draft reconstruction</span></span><o:p></o:p></p>
+			<ul>
+				<li>
+				<p class="auto-style66" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi;">
+				Genome annotation<o:p></o:p></p>
+				</li>
+				<li>
+				<p class="auto-style66" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi;">
+				Candidate metabolic functions<o:p></o:p></p>
+				</li>
+			</ul>
+			<p class="auto-style48" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi;">
+			<span class="auto-style68">
+			<strong><span class="auto-style37">Stage 2:</span></strong><span class="auto-style37"> Manual reconstruction refinement</span></span><o:p></o:p></p>
+			<p class="auto-style48" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi;">
+			<span class="auto-style68">
+			<strong><span class="auto-style37">Stage 3: </span> </strong>
+			<span class="auto-style37">Conversion of reconstruction to 
+			mathematical model</span></span><o:p></o:p></p>
+			<p class="auto-style48" style="mso-ascii-theme-font: major-bidi; mso-hansi-theme-font: major-bidi; mso-bidi-theme-font: major-bidi;">
+			<span class="auto-style68">
+			<strong><span class="auto-style37">Stage 4: </span> </strong>
+			<span class="auto-style37">Network evaluation </span></span> <o:p></o:p>
+			</p>
+			</br>
+			<p style="height: 17px" class="auto-style74"><strong>Some useful 
+			readings for GEM Reconstruction Process:</strong></p>
+			<ul style="height: 232px">
+				<li>
+				<p style="height: 23px" class="auto-style71"><em>
+				<span class="auto-style37">Paper:</span></em><span class="auto-style37"> 
+				Reconstruction of genome-scale human metabolic models using 
+				omics data (<a href="http://www.ncbi.nlm.nih.gov/pubmed/25730289" target="_blank">Link</a>)</span></p>
+				</li>
+				<li>
+				<p style="height: 23px" class="auto-style71"><em>
+				<span class="auto-style37">Book: </span> </em>
+				<span class="auto-style37">Systems Biology, Constraint-based Reconstruction and Analysis (<a href="http://www.cambridge.org/ar/academic/subjects/life-sciences/genomics-bioinformatics-and-systems-biology/systems-biology-constraint-based-reconstruction-and-analysis" target="_blank">Link</a>)</span></p>
+				</li>
+				<li>
+				<p style="height: 23px" class="auto-style71"><em>
+				<span class="auto-style37">Mini-Review:
+				</span>
+				</em><span class="auto-style37">Genome-scale modeling for metabolic engineering (<a href="http://link.springer.com/article/10.1007/s10295-014-1576-3" target="_blank">Link</a>)</span></p>
+				</li>
+				<li>
+				<p style="height: 23px" class="auto-style71"><em>
+				<span class="auto-style37">Paper:</span></em><span class="auto-style37"> 
+				Next-generation genome-scale models for metabolic engineering (<a href="http://www.ncbi.nlm.nih.gov/pubmed/25575024" target="_blank">Link</a>)</span></p>
+				</li>
+				<li>
+				<p style="height: 23px" class="auto-style71"><em>
+				<span class="auto-style37">Paper:</span></em> 
+				<span class="auto-style37">Applications of genome-scale 
+				metabolic network model in metabolic engineering (</span><a href="http://www.ncbi.nlm.nih.gov/pubmed/25465049" target="_blank"><span class="auto-style37">Link</span></a><span class="auto-style37">)</span></p>
+				</li>
+				<li>
+				<p style="height: 23px" class="auto-style71"><em>
+				<span class="auto-style37">Paper:</span></em><span class="auto-style37"> 
+				A Practical Protocol for Genome-Scale Metabolic Reconstructions (<a href="http://link.springer.com/protocol/10.1007/8623_2014_12" target="_blank">Link</a>)</span></p>
+				</li>
+				<li>
+				<p style="height: 23px" class="auto-style71"><em>
+				<span class="auto-style37">Paper:</span></em><span class="auto-style37"> 
+				Genome-Scale Metabolic Network Reconstruction (<a href="http://link.springer.com/protocol/10.1007/978-1-4939-1720-4_15" target="_blank">Link</a>)</span></p>
+				</li>
+			</ul>
+			<p style="height: 17px" class="auto-style74"><strong>Useful 
+			resources for GEM Reconstruction Process:</strong></p>
+			<p style="height: 42px" class="auto-style72">Here 
+			are some useful resources for reconstruction of a genome-scale metabolic network 
+			in order to be analyzed by different constraint-based modeling 
+			softwares. The resources have been categorized into the following sections:</p>
+			<ul style="height: 257px">
+				<li>
+				<p style="height: 45px" class="auto-style50"><strong><a href="#Annotation_Databases">
+				<span class="auto-style37">Annotation Databses</span></a><span class="auto-style37">:</span></strong><span class="auto-style37">
+				</span> 
+				<span class="auto-style23"><span class="auto-style37">If 
+				you want to start from a genome sequence, you should extract the 
+				coding regions of the sequence. Then
+				it is possible to find the corresponding enzymes.
+				</span>
+				</span>
+				</p>
+				</li>
+				<li>
+				<p style="height: 59px" class="auto-style73"><a href="#Metabolic_Pathways_Databases">Metabolic Pathways Databases</a><strong>: </strong>
+				<span class="auto-style23">After finding the enzymes names for a specific species, you 
+				should use the metabolic pathway databases to find the 
+				corresponding reactions and put them together in order to build 
+				a new model.
+				</span>
+				</p>
+				</li>
+				<li>
+				<p style="height: 56px" class="auto-style50">
+				<strong>
+				<a href="#Softwares_for_GSMM_Reconstruction">
+				<span class="auto-style37">Softwares for genome-scale metabolic reconstruction</span></a><span class="auto-style37">:</span></strong><span class="auto-style37">
+				</span> 
+				<span class="auto-style23"><span class="auto-style37">It is also possible to reconstruct metabolic models using 
+				various softwares. It is clear that outputs of the softwares 
+				should be checked manually for more precision.&nbsp; 
+				</span> 
+				</span> 
+				</p>
+				</li>
+				<li>
+				<p style="height: 53px" class="auto-style73">
+				<a href="#Visual_Editors">
+				Visual Editors:<span class="auto-style23"> 
+				</span>
+				</a><span class="auto-style23"> This contains softwares which have been designed for visualization of biological networks, 
+				especially metabolic networks.
+				</span>
+				</p>
+				</li>
+			</ul>
+			<div class="meta">
+            </div> 
+        </div>
+        
+         <div class="pagging">
+        
+        
+        
+        
+<table style="width: 100%">
+				 <tr>
+					 <td class="auto-style65" colspan="3">
+					 <strong><a name="Annotation_Databases">Annotation Databases</a></strong></td>
+				 </tr>
+				 <tr>
+					 <td><strong>Name</strong></td>
+					 <td><strong>Description</strong></td>
+					 <td><strong>Reference</strong></td>
+				 </tr>
+				 <tr>
+					<td>RAST
+						<br />
+						<a href="http://www.nmpdr.org/FIG/wiki/view.cgi/FIG/RapidAnnotationServer" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>Rapid Annotation using Subsystem Technology (RAST) is a 
+					 fully-automated service for annotating bacterial and 
+					 archaeal genomes. It provides high quality genome 
+					 annotations for these genomes across the whole phylogenetic 
+					 tree.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/18261238"target="_blank">18261238</a>
+				 	</td>
+				 </tr>
+				 
+				 <tr>
+					<td>KAAS
+						<br />
+						<a href="http://www.genome.jp/kegg/kaas/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>KEGG Automatic Annotation Server (KAAS) provides functional annotation of genes 
+					by BLAST comparisons against the manually curated KEGG GENES database. 
+					The result contains KO (KEGG Orthology) assignments and automatically generated KEGG pathways.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/17526522"target="_blank">17526522</a>
+				 	</td>
+				 </tr>
+				 
+				 <tr>
+					<td>GeneMarkS
+						<br />
+						<a href="http://exon.gatech.edu/GeneMark/genemarks.cgi" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>utilizes a non-supervised training procedure and can be used for a newly sequenced <strong>prokaryotic</strong>
+					genome with no prior knowledge of any protein or rRNA genes.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/11410670"target="_blank">11410670</a>
+				 	</td>
+				 </tr>
+				 
+				 <tr>
+					<td>ZCURVE
+						<br />
+						<a href="http://tubic.tju.edu.cn/Zcurve_B/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a system for recognizing protein coding genes in <strong>
+					bacterial</strong> and <strong>archaeal</strong> genomes with 
+					highly accurate gene start prediction. The program is based on 
+					the Z curve theory of DNA sequence.	
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/12626720"target="_blank">12626720</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>CRITICA
+						<br />
+						<a href="http://rdp.cme.msu.edu/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					Coding Region Identification Tool Invoking Comparative Analysis (CRITICA) 
+					is a suite of programs for identifying likely protein-coding sequences in 
+					DNA by combining comparative analysis of DNA sequences with more common	noncomparative
+					methods. It provides quality-controlled, aligned and annotated <strong>Bacterial
+					</strong> and <strong>Archaeal</strong>	16S rRNA sequences, and <strong>Fungal</strong>
+					28S rRNA sequences, and a suite of analysis tools to the scientific community.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/10331277"target="_blank">10331277</a>
+				 	</td>
+				 </tr>
+						 <tr>
+					<td>IdentiCS
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					Identification of Coding Sequences from Unfinished Genome Sequences
+					(IdentiCS) combines the identification of coding sequences (CDSs) 
+					with the reconstruction, comparison and visualization of metabolic 
+					networks.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/15312235"target="_blank">15312235</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>metaSHARK
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					The metabolic SearcH And Reconstruction Kit (metaSHARK) is a 
+					fully automated software package for the detection of enzyme-encoding
+					genes within unannotated genome data and their visualization in 
+					the context of the surrounding metabolic network.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/15745999"target="_blank">15745999</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>PRIAM
+						<br />
+						<a href="http://priam.prabi.fr/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					This is a method for automated enzyme detection in a fully 
+					sequenced genome, based on the classification of enzymes in the 
+					ENZYME database. It relies on sets of position-specific scoring 
+					matrices automatically tailored for each ENZYME entry.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/14602924"target="_blank">14602924</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>MaGe
+						<br />
+						<a href="https://www.genoscope.cns.fr/agc/microscope/home/index.php" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					Magnifying Genomes (MaGe) is a <strong>microbial</strong>
+					genome annotation system based on a relational database containing 
+					information on bacterial genomes, as well as a web interface to 
+					achieve genome annotation projects.		
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/16407324"target="_blank">16407324</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>AUTOGRAPH-method
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					This methodology could be applied to accelerate the reconstruction 
+					of genome-scale metabolic networks by taking optimal advantage of 
+					existing, manually curated networks. Only the translated open reading 
+					frames (ORFs) of a newly sequenced genome are necessary to reconstruct 
+					a metabolic network.		
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/16772023"target="_blank">16772023</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Genome Knowledgebase
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					It is a resource for biologists and bioinformaticists in which 
+					estimates on the number and nature of most of the proteincoding 
+					genes.					
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/15338623"target="_blank">15338623</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>CycADS
+						<br />
+						<a href="http://www.cycadsys.org/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					Cyc Annotation Database System is an automated annotation 
+					management system that allows the seamless integration of the 
+					latest sequence information into metabolic networks reconstruction.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/21474551"target="_blank">21474551</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Vertebrate Genome Annotation
+						<br />
+						<a href="http://vega.sanger.ac.uk/index.html" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					A repository for high-quality gene models produced by the manual 
+					annotation of <strong>vertebrate</strong> genomes.		
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/15608237"target="_blank">15608237</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>IMG
+						<br />
+						<a href="http://img.jgi.doe.gov/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					Integrated Microbial Genomes (IMG) system tries to support the annotation, 
+					analysis and distribution of <strong>microbial</strong> genome and metagenome 
+					datasets sequenced.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/22194640"target="_blank">22194640</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>H-InvDB
+						<br />
+						<a href="http://www.h-invitational.jp/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It provides curated annotations of <strong>human</strong> genes 
+					and transcripts that include gene structures, alternative 
+					splicing variants, non-coding functional RNAs, protein functions, 
+					functional domains, sub-cellular localizations, metabolic pathways, 
+					protein 3D structure, genetic polymorphisms (SNPs, indels and 
+					microsatellite repeats), relation with diseases, gene expression 
+					profiling, and molecular evolutionary features, protein-protein 
+					interactions and gene families.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/23245335"target="_blank">23245335</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Genome Reviews
+						<br />
+						<a href="http://www.ebi.ac.uk/GenomeReviews" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					This database provides an up-to-date, standardized and 
+					comprehensively annotated view of the genomic sequence of 
+					organisms with completely deciphered genomes.		
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/16901215"target="_blank">16901215</a>
+				 	</td>
+				 </tr>
+		 				 
+				 <tr>
+					<td class="auto-style65" colspan="3"><strong>
+				<a name="Metabolic_Pathways_Databases">Metabolic Pathways Databases</a></strong></td>
+				 </tr>
+				<tr>
+					 <td><strong>Name</strong></td>
+					 <td><strong>Description</strong></td>
+					 <td><strong>Reference</strong></td>
+				 </tr>
+				 <tr>
+					<td>Pathguide
+						<br />
+						<a href="http://www.pathguide.org/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It contains information about biological pathway related 
+					resources and molecular interaction related databases.			
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/16381921"target="_blank">16381921</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>KEGG
+						<br />
+						<a href="http://www.genome.jp/kegg/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					Kyoto Encyclopedia of Genes and Genomes (KEGG) is a database 
+					resource for understanding various biological systems, such as 
+					the cell, the organism and the ecosystem.						
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/10592173"target="_blank">10592173</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>The SEED
+						<br />
+						<a href="http://theseed.org/wiki/Main_Page" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					This database focuses on the development of the	comparative 
+					genomics environment and, more importantly, on the development of 
+					curated genomic data. The original SEED Project was started in 2003.						
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/16214803"target="_blank">16214803</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>MetRxn
+						<br />
+						<a href="http://www.metrxn.che.psu.edu/MetRxn.php" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					MetRxn is a comprehensive collection of consistent metabolite and 
+					reaction entities for use in metabolic analysis and model construction.			
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/22233419"target="_blank">22233419</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>BRENDA
+						<br />
+						<a href="http://www.brenda-enzymes.org/index.php4" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It represents a comprehensive collection of enzyme and metabolic 
+					information, based on literature.		
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/14681450"target="_blank">14681450</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>IntEnz
+						<br />
+						<a href="http://www.ebi.ac.uk/intenz/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					the Integrated relational Enzyme database (IntEnz) is the 
+					official version of the Enzyme Nomenclature.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/14681451"target="_blank">14681451</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>UMBBD
+						<br />
+						<a href="https://umbbd.ethz.ch/index.html" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					This database contains information on <strong>microbial</strong>
+					biocatalytic reactions and biodegradation pathways for primarily 
+					xenobiotic, chemical compounds. 
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/19767608"target="_blank">19767608</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>BKM-react
+						<br />
+						<a href="http://bkm-react.tu-bs.de/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is an integrated and non-redundant biochemical reaction 
+					database containing known enzyme-catalyzed and spontaneous reactions.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/21824409"target="_blank">21824409</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>MPW
+						<br />
+						<a href="http://genomedesigns.com/technology/mpw.html" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is the collection of metabolic diagrams curated since the 1980s.					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/9407141"target="_blank">9407141</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>BioSilico
+						<br />
+						<a href="http://biosilico.kaist.ac.kr/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a web-based database system that facilitates the search and 
+					analysis of metabolic pathways. Heterogeneous metabolic 
+					databases including LIGAND, ENZYME, EcoCyc and MetaCyc are 
+					integrated in a systematic way, thereby allowing users to 
+					efficiently retrieve the relevant information on enzymes, 
+					biochemical compounds and reactions.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/15201189"target="_blank">15201189</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>SABIO-RK
+						<br />
+						<a href="http://sabio.villa-bosch.de/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a curated database that contains information about 
+					biochemical reactions, their kinetic rate equations with 
+					parameters and experimental conditions.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/22102587"target="_blank">22102587</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Reactome
+						<br />
+						<a href="http://www.reactome.org/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a free, open-source, curated and peer reviewed 
+					pathway database.				
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/15608231"target="_blank">15608231</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>BNDB
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					The Biochemical Network Database (BNDB) is a 
+					powerful relational database platform allowing a 
+					complete semantic integration of an extensive 
+					collection of external databases. It is built 
+					upon a comprehensive and extensible object model 
+					called BioCore.							
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/17910766"target="_blank">17910766</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>EMP
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					The Enzymes and Metabolic Pathways database (EMP) is 
+					an encoding of the contents of over 10,000 original	
+					publications on the topics of enzymology and metabolism. 
+					<br/> Downloadable demo versions of EMP are available 
+					via anonymous FTP.										
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/8594593"target="_blank">8594593</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>PathDB
+						<br />
+						<a href="http://nashua.cwru.edu/pathways/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					Pathways Database System including PathCaseSB, 
+					PathCaseMAW, PathCaseKEGG, PathCaseRCMN, and 
+					PathCasealpha is an integrated system with a set 
+					of software tools for modeling, storing, analyzing, 
+					visualizing, and querying biological pathways data at 
+					different levels of genetic, molecular, biochemical 
+					and organismal detail.														
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/12761054"target="_blank">12761054</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>BioCarta
+						<br />
+						<a href="http://www.biocarta.com/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a commercial resource for study metabolic pathways.																
+					</td>
+					<td>PMID:
+						<br/>
+						Not Available
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Bioreaction DB
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					Metabolic networks of 80 fully sequenced organisms are 
+					reconstructed. The reaction database in excel format and 
+					the programs in Visual Basic are available upon request.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/12538249"target="_blank">12538249</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>PMN
+						<br />
+						<a href="http://www.plantcyc.org/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					The Plant Metabolic Network (PMN) provides a broad 
+					network of <strong>plant</strong>
+					metabolic pathway databases that contain curated 
+					information from the literature and computational 
+					analyses about the genes, enzymes, compounds, reactions, 
+					and pathways involved in primary and secondary metabolism 
+					in plants.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/20522724"target="_blank">20522724</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>PlantDB
+						<br />
+						<a href="http://www.pb.ethz.ch/downloads" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a Microsoft Office Access database with a 
+					user-friendly front-end feature for managing information 
+					relevant for <strong>experimental plants</strong>
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/18182106"target="_blank">18182106</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>MetaCrop
+						<br />
+						<a href="http://metacrop.ipk-gatersleben.de/apex/f?p=269:111:" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a database that summarizes diverse information about 
+					metabolic pathways in <strong>crop plants</strong> and 
+					allows automatic export of information for the creation 
+					of detailed metabolic models.				
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/17933764"target="_blank">17933764</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>PUMA2
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					It is an interactive, integrated bioinformatics environment 
+					for high-throughput genetic sequence analysis and metabolic 
+					reconstructions from sequence data. It provides a framework 
+					for comparative and evolutionary analysis of genomic data 
+					and metabolic networks in the context of taxonomic and 
+					phenotypic information.				
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/16381888"target="_blank">16381888</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>ERGO
+						<br />
+						<a href="http://ergo.integratedgenomics.com" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					This genome analysis and discovery suite is an integration 
+					of biological data from genomics, biochemistry, 
+					high-throughput expression profiling, genetics and 
+					peer-reviewed journals to achieve a comprehensive analysis 
+					of genes and genomes. It combines pattern-based analysis 
+					with comparative genomics by visualizing genes within 
+					the context of regulation, expression profiling, 
+					phylogenetic clusters, fusion events, networked 
+					cellular pathways and chromosomal neighborhoods of 
+					other functionally related genes.								
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/12519973"target="_blank">12519973</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>SoyBase
+						<br />
+						<a href="http://cgsc.biology.yale.edu/metab.html" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is the Metabolic Pathways Database for <strong>SoyBean</strong>
+					</td>
+					<td>PMID:
+						<br/>
+						Not Available
+					</td>
+				 </tr>
+				 <tr>
+					<td>TransportDB
+						<br />
+						<a href="http://www.membranetransport.org/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a relational database designed for 
+					describing the predicted cellular membrane 
+					transport proteins in organisms whose complete 
+					genome sequences are available. For each 
+					organism, the complete set of membrane 
+					transport systems was identified and classified 
+					into different types and families according to 
+					putative membrane topology, protein family, 
+					bioenergetics and substrate specificities.
+					It is the Metabolic Pathways Database for 
+					<strong>SoyBean</strong>
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/14681414"target="_blank">14681414</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Roche Biochemical Pathways
+						<br />
+						<a href="http://www.roche.com/responsibility/supporting_communities/science_education/pathways.htm" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It provides an overview of the chemical reactions of 
+					cells in various species and organs.
+					<br/>
+					(Ref.: Michal, Gerhard, and Dietmar Schomburg, eds. 
+					Biochemical pathways: an atlas of biochemistry and 
+					molecular biology. John Wiley &amp; Sons, 2013)
+					</td>
+					<td>PMID:
+						<br/>
+						Not Available
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>OMMBID
+						<br />
+						<a href="http://www.ommbid.com" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It includes the metabolic and molecular bases of inherited 
+					diseases.				
+					</td>
+					<td>PMID:
+						<br/>
+						Not Available
+					</td>
+				 </tr>
+				 <tr>
+					<td>HPD
+						<br />
+						<a href="http://discern.uits.iu.edu:8340/HPD/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is an integrated <strong>human</strong> pathway database 
+					providing comprehensive and combined view connecting 
+					human proteins, genes, RNAs, enzymes, signaling, 
+					metabolic reactions and gene regulatory events.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/19811689"target="_blank">19811689</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Metabolic disease database
+						<br />
+						<a href="http://www.metabolic-database.com" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It contains different tissues with totally different 
+					metabolisms, such as liver, brain, and others.
+					</td>
+					<td>PMID:
+						<br/>
+						Not Available
+					</td>
+				 </tr>
+				 <tr>
+					<td>RAMEDIS
+						<br />
+						<a href="http://www.ramedis.de" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a platform independent, web-based information system 
+					for rare metabolic diseases based on filed case reports. 
+					It was developed in close cooperation with clinical partners 
+					to allow them to collect information on rare metabolic 
+					diseases with extensive details, e.g. about occurring 
+					symptoms, laboratory findings, therapy and molecular data. 
+					In addition, a convenient graphical user interface is 
+					provided to the user accessible by every common web browser.				
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/16722776"target="_blank">16722776</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>HMDB
+						<br />
+						<a href="http://www.hmdb.ca/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					The Human Metabolome Database (HMDB) is a freely available 
+					electronic database containing detailed information about 
+					small molecule metabolites found in the	<strong>human</strong>
+					body.					
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/17202168"target="_blank">17202168</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>ExplorEnz
+						<br />
+						<a href="http://www.enzyme-database.org/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a way to access the data of the IUBMB Enzyme 
+					Nomenclature List. The enzymes are classifies in 6 different 
+					groups (Oxidoreductases, Transferases, Hydrolases, 
+					Lyases, Isomerases, Ligases)				
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/17662133"target="_blank">17662133</a>
+				 	</td>
+				 </tr>
+				 
+ 				<tr>
+					<td class="auto-style65" colspan="3"><strong>
+				<a name="Softwares_for_GSMM_Reconstruction">Softwares for GEM Reconstruction</a></strong></td>
+				 </tr>
+				<tr>
+					 <td><strong>Database</strong></td>
+					 <td><strong>Description</strong></td>
+					 <td><strong>Reference</strong></td>
+				 </tr>
+				 <tr>
+					<td>Pathways Tools
+						<br />
+						<a href="http://biocyc.org/download.shtml" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It supports creation, editing, querying, visualization,
+					and analysis of Pathway/Genome Database (PGDB). 
+					The software also allows users to publish a PGDB on 
+					the Web for access by the scientific community.								
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/19955237"target="_blank">19955237</a>
+						&
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/12169551"target="_blank">12169551</a>
+
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>metaSHARK
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					The metabolic SearcH And Reconstruction Kit (metaSHARK) 
+					is a fully automated software package for the detection 
+					of enzyme-encoding genes within unannotated genome data 
+					and their visualization in the context of the surrounding 
+					metabolic network.												
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/15745999"target="_blank">15745999</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>MetNetMaker
+						<br />
+						<a href="http://www.tomforth.co.uk/metnetmaker/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a free software designed solely to create metabolic networks based on 
+					the KEGG LIGAND database ready for Flux-Balance Analysis in the COBRA toolbox.															
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/20671147"target="_blank">20671147</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>SuBliMinaL Toolbox
+						<br />
+						<a href="http://www.mcisb.org/resources/subliminal/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It comprises a number of independent tools that can be used to automate 
+					steps in the development of genome-scale metabolic reconstructions.																			
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/22095399"target="_blank">22095399</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>iMAT or MBA
+						<br />
+						<a href="http://www.cs.technion.ac.il/~tomersh/methods.html" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a computational method for integrating transcriptomic and proteomic 
+					data with genome-scale metabolic network models to predict enzymes metabolic flux.																						
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/18711341"target="_blank">18711341</a>
+						&
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/21081510"target="_blank">21081510</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Model SEED
+						<br />
+						<a href="http://seed-viewer.theseed.org/seedviewer.cgi?page=ModelView" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a resource for the generation, optimization, curation, and analysis of 
+					genome-scale metabolic models.																						
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/20802497"target="_blank">20802497</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>IdentiCS
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					It combines the identification of coding sequences (CDSs) with the reconstruction, 
+					comparison and visualization of metabolic networks. 
+					<br/>It has been also mentioned in the Annotation Software Section.																										
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/15312235"target="_blank">15312235</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Bio-SPICE
+						<br />
+						<a href="http://biospice.sourceforge.net/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is an open source framework and software toolset for Systems Biology, 
+					which intends to assist biological researchers in the modeling 
+					and simulation of spatio-temporal processes in living cells.																													
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/14683613"target="_blank">14683613</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>PathFinder
+						<br />
+						(It is no longer available online.)
+					</td>
+					<td>
+					It is a tool for the dynamic visualization of metabolic pathways based on annotation data.																													
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/11836220"target="_blank">11836220</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>GEM System
+						<br />
+						<a href="http://www.g-language.org/gem/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					The Genome-based Modeling (GEM) System tries to perform automatically prototyping 
+					simulation models of cell-wide metabolic pathways from genome sequences and 
+					other public biological information.
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/16553966"target="_blank">16553966</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>PathoLogic
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					This program predicts the metabolic pathways of an organism from its 
+					annotated genome. It takes as input an annotated genome sequence for 
+					an organism and produces a new Pathway/Genome Database (PGDB) containing 
+					those pathways that it has computationally inferred to be present in the 
+					organism. A PGDB describes the genes, proteins, and metabolic reactions 
+					and pathways of an organism. The software is freely available 
+					to academic users, and is available to commercial users for a fee. 
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/12050068"target="_blank">12050068</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>semi-automated methodology
+						<br />
+						(Software and protocol are available in Java source code In the manuscript, Additional file 9.)
+					</td>
+					<td>
+					This semi-automated methodology aimed at streamlining the process 
+					of metabolic network reconstruction by enabling the integration of 
+					different genome-wide databases of metabolic reactions.				
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/20712863"target="_blank">20712863</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>CycSim
+						<br />
+						<a href="http://www.genoscope.cns.fr/cycsim/org.nemostudio.web.gwt.App/App.html" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a web application dedicated to in silico experiments with genome-scale 
+					metabolic models coupled to the exploration of knowledge from BioCyc and KEGG. 
+					It supports the design of knockout experiments: simulation of growth phenotypes 
+					of single or multiple gene deletions mutants on specified media, comparison of 
+					these predictions with experimental phenotypes and direct visualization of both 
+					on metabolic maps.						
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/19420054"target="_blank">19420054</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>WIT
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					What Is There (WIT) system supports comparative analysis of sequenced genomes 
+					and generate metabolic reconstructions based on chromosomal sequences and 
+					metabolic modules from the EMP/MPW family of databases.									
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/10592199"target="_blank">10592199</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>ADOMET
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					It is a useful tool for the Gap filling section. It could perform Identification of 
+					candidates genes based on local structure of the metabolic network using gene 
+					clustering, phylogentic information and others.												
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/16571130"target="_blank">16571130</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>BOSS
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					Biological Objective Solution Search (BOSS) identifies candidate objective reaction 
+					that can be an existing reaction, a combination of existing reactions, 
+					or a previously uncharacterized reaction. However this reaction 
+					must be linear and stoichiometric. The framework relies on a reconstructed 
+					network and experimental data.														
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/18218092"target="_blank">18218092</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>GapFill
+						<br />
+						(see additional file 4)
+					</td>
+					<td>
+					It proposes changes or additions to the network to connect blocked metabolites to 
+					the remainder of the network.																	
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/17584497"target="_blank">17584497</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>GapFind
+						<br />
+						(see additional file 3)
+					</td>
+					<td>
+					It performs systematic identification of metabolites along blocked reactions 
+					(blocked metabolites).																				
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/17584497"target="_blank">17584497</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>GrowMatch
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					It is an automated method for reconciling in silico/in vivo growth predictions.																				
+					</td>
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/19282964"target="_blank">19282964</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>OptFind
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					It uses experimental data, a reconstructed network and a scoring system to identify 
+					a network reaction that is likely to be a component of the cellular objective function.
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/12673766"target="_blank">12673766</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>ReMatch
+						<br />
+						<a href="http://www.cs.helsinki.fi/group/sysfys/software/rematch/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a web-based, user-friendly tool that constructs stoichiometric network models 
+					for metabolic flux analysis, integrating user-developed models into a database 
+					collected from several comprehensive metabolic data resources, including KEGG, MetaCyc and CheBI.				
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/20134058"target="_blank">20134058</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>RAVEN
+						<br />
+						<a href="http://129.16.106.142/tools.php?c=raven" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					Reconstruction, Analysis, and Visualization of Metabolic Networks (RAVEN) toolbox is a 
+					complete environment for reconstruction, analysis, simulation, and visualization of 
+					GSMM and runs within MATLAB. The software has three main features: 1) automatic 
+					reconstruction of GSMMs based on protein homology, 2) network analysis, modeling 
+					and interpretation of simulation results, and 3) visualization of GSMMs using pre-drawn 
+					metabolic network maps. 								
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/23555215"target="_blank">23555215</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>rBioNet
+						<br />
+						<a href="http://sourceforge.net/projects/opencobra/files/cobra/foundry/rBioNet/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a COBRA toolbox extension which enables the construction of publication-level 
+					biochemical networks while enforcing necessary quality control measures. 
+					It has an intuitive user interface facilitating the reconstruction process for 
+					novices and experts.												
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/21596791"target="_blank">21596791</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>SMILEY
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					It proposes possible missing functions given a metabolic model and physiological, growth data.																
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/17088549"target="_blank">17088549</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>PathwayBooster
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					A tool to support the curation of metabolic pathways																
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/25887214"target="_blank">25887214</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Pantograph
+						<br />
+						<a href="http://pathtastic.gforge.inria.fr/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a software toolbox to reconstruct, curate and validate genome-scale metabolic models. 
+					It uses existing metabolic models as templates, to start its reconstructions process, 
+					to which new, species-specific reactions are added. It uses an iterative approach to 
+					improve reconstructed models, facilitating manual curation and comparisons between 
+					reconstructed model's predictions and experimental evidence. 																				
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/25572717"target="_blank">25572717</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>BiGGR
+						<br />
+						<a href="https://www.bioconductor.org/packages/release/bioc/html/BiGGR.html" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					Constraint based modeling in R using metabolic reconstruction databases 																				
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/25806817"target="_blank">25806817</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>MOST
+						<br />
+						<a href="http://most.ccib.rutgers.edu/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a standalone software package that can be used to create constraint-based 
+					models of metabolism, load existing models, export models, and run analyses	on 
+					these models to predict the production of desired compounds by microbes under genetic manipulations.																								
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/25677126"target="_blank">25677126</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Merlin
+						<br />
+						<a href="http://www.merlin-sysbio.org/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					The Metabolic Models Reconstruction Using Genome-Scale Information (merlin) tool is an user-friendly 
+					Java application that performs the reconstruction of genome-scale metabolic models for any organism 
+					that has its genome sequenced. It performs the major steps of the reconstruction process, 
+					including the functional genomic annotation of the whole genome and subsequent construction 
+					of the portfolio of reactions. Moreover, it includes tools for the identification and 
+					annotation of genes encoding transport proteins, generating the transport reactions 
+					for those carriers. It also performs the compartmentalisation of the model, predicting the 
+					organelle localisation of the proteins encoded in the genome, and thus the localisation of 
+					the metabolites involved in the reactions promoted by such enzymes. 
+					The gene to proteins to reactions (GPR) associations are automatically generated and 
+					included in the model. Finally, merlin expedites the transition from genome-scale reconstructions 
+					to draft metabolic models exported in the SBML standard format, allowing the user to have a 
+					preliminary view of the biochemical network. 																								
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/25845595"target="_blank">25845595</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>KBase
+						<br />
+						<a href="http://kbase.us/reconstruct-genome-scale-metabolic-model-app" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					You could use this App to generate a draft metabolic model for the genome and then gapfill the metabolic model.																								
+					<td>NA
+				 	</td>
+				 </tr>
+
+
+				 <tr>
+					<td class="auto-style65" colspan="3"><strong>
+				<a name="Visual_Editors">Visual Editors</a></strong></td>
+				 </tr>				 
+				 <tr>
+					<td class="auto-style65" colspan="3">
+					There are some useful reviews which deal with visualization of biological networks:
+					<br><a href="http://bioinformatics.oxfordjournals.org/content/23/20/2651.long"target="_blank">
+					<em>Tools for visually exploring biological networks.</em></a>
+					<br><a href="http://www.nature.com/nmeth/journal/v7/n3s/full/nmeth.1436.html"target="_blank">
+					<em>Visualization of omics data for systems biology.</em></a>
+					<br>Here are some useful editors for visualizing metabolic networks:								
+					</td>
+				 </tr>
+				<tr>
+					 <td><strong>Name</strong></td>
+					 <td><strong>Description</strong></td>
+					 <td><strong>Reference</strong></td>
+				 </tr>
+				 <tr>
+				 <tr>
+					<td>Paint4Net
+						<br />
+						<a href="http://www.biosystems.lv/index.php/software/paint4net" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a novel COBRA Toolbox extension for automatic generation of a hypergraph layout of 
+					defined scope with the steady state rates of reaction fluxes of stoichiometric models. 
+					Directionalities and fluxes of reactions are constantly represented in the visualization 
+					while detailed information about reaction (ID, name and synonyms, and formula) and 
+					metabolite (ID, name and synonyms, and charged formula) appears placing the cursor on 
+					the item of interest. Additionally Paint4Net functionality can be used to get lists 
+					of involved metabolites and dead end metabolites of the visualized part of the network, 
+					exclude particular metabolites from representation, find isolated parts of a network, 
+					and find running cycles when all the substrates are cut down. 
+					Layout pictures can be saved in various formats.
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/22446067"target="_blank">22446067</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>MetVis-extension tool
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					This visualization approach is suitable for an intuitive interpretation of simulation 
+					data of metabolic networks under dynamic as well as steady-state conditions.
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/17939866"target="_blank">17939866</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Edinburgh Pathway Editor
+						<br />
+						<a href="http://epe.sourceforge.net/SourceForge/EPE.html" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a visual editor for Systems Biology. It allows you to draw Graphical Notations 
+					commonly used in Systems Biology. In particular it supports Systems Biology 
+					Graphical Notations (SBGN) and supports Windows, Mac and Linux				
+					<td>Ref:
+						<br/>
+						<a href="http://dx.doi.org/10.1147/rd.506.0561"target="_blank">Paper</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Cytoscape
+						<br />
+						<a href="http://www.cytoscape.org/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is an open source software platform for visualizing complex networks and integrating 
+					these with any type of attribute data. A lot of Apps are available for various 
+					kinds of problem domains, including bioinformatics, social network analysis, and semantic web.							
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/14597658"target="_blank">14597658</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>BioUML
+						<br />
+						<a href="http://www.biouml.org/index.shtml" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is an open source integrated Java platform for building virtual cell and virtual 
+					physiological human. It spans a comprehensive range of capabilities, including 
+					access to databases with experimental data, tools for formalized description 
+					of biological systems structure and functioning, as well as tools for their 
+					visualization, simulation, parameters fitting and analyses.											
+					<td>Ref:
+						<br/>
+						<a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwivlvDTtKTNAhURM8AKHRW0AhUQFggnMAE&url=http%3A%2F%2Fwww.bionet.nsc.ru%2Fmeeting%2Fbgrs_proceedings%2Fpapers%2F2004%2FBGRS_2004_V2_017.pdf&usg=AFQjCNFNvXv3fD3jaD8h9ne68IwMuIzDow&sig2=u5LWlGkWEVAVI0vvpWXj1A"target="_blank">Paper</a>
+				 	</td>
+				 </tr>				 
+				 <tr>
+					<td>BioTapestry
+						<br />
+						<a href="http://www.biotapestry.org/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is designed around the concept of a developmental network model, 
+					and is intended to deal with large scale models with consistency and clarity. 
+					It is capable of representing systems that exhibit increasing complexity over time.														
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/21938637"target="_blank">21938637</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>JDesigner
+						<br />
+						<a href="http://sbw.kgi.edu/software/jdesigner.htm" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a Win32 application which allows to draw a biochemical network and export the 
+					network in the form of SBML. The Designer has an Systems Biology Workbench (SBW) 
+					interface that allows it to be called from other SBW compliant modules. 
+					In addition, it has the ability to use Jarnac as a simulation server (via SBW) 
+					thus allowing models to be run from within JDesigner.																		
+					<td>Ref:
+						<br/>
+						<a href="http://dx.doi.org/10.1109/WSC.2006.322938"target="_blank">Paper</a>
+				 	</td>
+				 </tr>				 
+				 <tr>
+					<td>SimWiz
+						<br />
+						<a href="http://www.tucows.com/preview/513529/SimWiz" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					Simulation Wizard (SimWiz) is a computer program for defining, validating, 
+					analyzing, communicating and running a discrete event simulation model.																						
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/17052128"target="_blank">17052128</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>CADLIVE
+						<br />
+						<a href="http://www.cadlive.jp/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					Computer-Aided Design of LIVing systEms (CADLIVE) is a comprehensive computational 
+					tool for constructing large-scale biological network maps, analyzing the 
+					topological features of them, and simulating their dynamics.																										
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/15805500"target="_blank">15805500</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Cellware
+						<br />
+						<a href="http://www.bii.a-star.edu.sg/achievements/applications/cellware/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It has been designed to conduct modeling and simulation of gene regulatory and 
+					metabolic pathways and also offers an integrated environment for diverse 
+					mathematical representations, parameter estimation and optimization. 
+					In addition, a user-friendly graphical display and capability to run large and 
+					complex models would be provided by default.																														
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/14871872"target="_blank">14871872</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>ProMoT
+						<br />
+						<a href="http://www2.mpi-magdeburg.mpg.de/projects/promot/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is the Process Modeling Tool, a software for the construction and manipulation 
+					of complex technical and biological systems. Together with the simulation 
+					environment Diana, it provides capabilities for the development of dynamic 
+					models based on differential-algebraic equations, and their simulation and 
+					further analysis. It has being used as a modeling tool not only for the setup 
+					of dynamic models, but also for the visual construction of Boolean models 
+					that can be analyzed with CellNetAnalyzer.																														
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/12801880"target="_blank">12801880</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>CellDesigner
+						<br />
+						<a href="http://www.celldesigner.org/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a structured diagram editor for drawing gene-regulatory and biochemical networks.	
+					Networks are drawn based on the process diagram, with graphical notation system and are 
+					stored using the Systems Biology Markup Language (SBML). Networks are able to link 
+					with simulation and other analysis packages through Systems Biology Workbench (SBW). 
+					It supports simulation and parameter scan by an integration with SBML ODE Solver, SBML 
+					Simulation Core and Copasi. You can browse and modify existing SBML models with 
+					references to existing databases, simulate and view the dynamics through an 
+					intuitive graphical interface.																																		
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/24927840"target="_blank">24927840</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Cell Illustrator
+						<br />
+						<a href="https://cionline.hgc.jp/cifileserver/apps/usersman/main" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a software tool that enables biologists to draw, model, elucidate and simulate 
+					complex biological processes and systems. It has outstanding drawing capabilities, 
+					moreover it allows researchers to model metabolic pathways, signal transduction cascades, 
+					gene regulatory pathways as well as dynamic interactions of various biological 
+					entities such as genomic DNA, mRNA and proteins. In addition, it provides 
+					researchers with model diagrams of publication quality and simulation result charts.																																						
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/21685571"target="_blank">21685571</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>SimBiology
+						<br />
+						<a href="http://www.mathworks.com/products/simbiology/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It provides an application and programmatic tools to model, simulate, and analyze dynamic 
+					systems, focusing on pharmacokinetic/pharmacodynamic (PK/PD) and systems biology 
+					applications. It provides a block diagram editor for building models, or you can 
+					create models programmatically using the MATLAB language. It includes a library of 
+					common PK models, which you can customize and integrate with mechanistic systems biology 
+					models.	A variety of model exploration techniques let you identify optimal 
+					dosing schedules and putative drug targets in cellular pathways. It uses ordinary 
+					differential equations (ODEs) and stochastic solvers to simulate the time course 
+					profile of drug exposure, drug efficacy, and enzyme and metabolite levels. 
+					You can investigate system dynamics and guide experimentation using parameter 
+					sweeps and sensitivity analysis. You can also use single subject or population 
+					data to estimate model parameters.																																										
+					<td>NA
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>SBMLToolbox
+						<br />
+						<a href="http://sourceforge.net/projects/sbml/files/SBMLToolbox/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is built on top of libSBML and provides a set of basic functions allowing SBML 
+					models to be used in both MATLAB and Octave. It provides functions for creating 
+					and validating models; and manipulating and simulating these models using 
+					ordinary differential equation solvers.																																														
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/16574696"target="_blank">16574696</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>NetworkX
+						<br />
+						<a href="https://networkx.github.io/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a Python language software package for the creation, manipulation, 
+					and study of the structure, dynamics, and functions of complex networks.																																																	
+					<td>NA
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Pathway Studio
+						<br />
+						<a href="http://www.elsevier.com/online-tools/pathway-studio/FAQs" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					Pathway Studio (formerly PathwayAssist) is a Microsoft Windows application that 
+					combines an extensive set of features with a polished graphic user interface. 
+					It includes, most notably, customizable network display styles for assigning visual 
+					attributes such as node color, size and shape, multi-user support, subcellular 
+					localization visualization and tight integration with several databases.																																																					
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/14594725"target="_blank">14594725</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Osprey
+						<br />
+						<a href="http://biodata.mshri.on.ca/osprey/servlet/Index" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It was one of the first tools specifically designed to visualize and analyze large 
+					networks. All but one network layout in Osprey are elaborations of the circular 
+					layout because they can be quickly computed.																																																									
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/12620107"target="_blank">12620107</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>PATIKA
+						<br />
+						<a href="http://www.cs.bilkent.edu.tr/~patikaweb/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					The PATIKA Project provides a WWW-based visual editor, PATIKAweb, for accessing a 
+					central database containing pathway data from several sources including Reactome.																																																													
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/16287939"target="_blank">16287939</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>VisANT
+						<br />
+						<a href="http://visant.bu.edu/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It provides network drawing capabilities, including support for very large networks. 
+					It is also one of the first such packages to support creation, visualization, 
+					and analysis of mixed networks, i.e. networks containing both directed and undirected links.																																																																	
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/23716640"target="_blank">23716640</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>ProViz
+						<br />
+						(url is not available)
+					</td>
+					<td>
+					It leverages the power of the graph drawing package Tulip for handling graphs containing 
+					millions of nodes and edges, while maintaining a guaranteed response time 
+					(i.e. it will never make the user wait longer that predefined length of time).																																																																					
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/15347570"target="_blank">15347570</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>PathSys
+						<br />
+						<a href="http://biologicalnetworks.org/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a part of BiologicalNetworks project and extends Cytoscape and includes 
+					much of the functionality of Pathway Studio.																																																																									
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/16464251"target="_blank">16464251</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>GenMAPP
+						<br />
+						<a href="http://www.genmapp.org/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a computer application designed to visualize gene expression and other 
+					genomic data on maps representing biological pathways and groupings of genes.																																																																													
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/11984561"target="_blank">11984561</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>MSMB
+						<br />
+						<a href="http://www.copasi.org/SoftwareProjects" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					Multistate Model Builder (MSMB) is a flexible editor for compact biochemical models. 
+					It provides two separate advances on existing network model editors: 1)A simple 
+					but powerful syntax is used to describe multistate species. This reduces the number 
+					of reactions needed to represent certain molecular systems, thereby reducing the 
+					complexity of model creation. 2)Extensive feedback is given during all stages of 
+					the model creation process on the existing state of the model. 
+					Users may activate error notifications of varying stringency on the fly, 
+					and use these messages as a guide toward a consistent, syntactically correct model.																																																																													
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/24708852"target="_blank">24708852</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>FluxMap
+						<br />
+						<a href="http://vanted.ipk-gatersleben.de/addons/fluxmap/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					It is a tool for the advanced visualization and exploration of flux data in the 
+					context of metabolic networks. The template-based flux data import assigns 
+					flux values and optional quality parameters (e. g. the confidence interval) 
+					to biochemical reactions. It supports the discrimination between mass and 
+					substance fluxes, such as C- or N-fluxes. After import, flux data mapping 
+					and network-based visualization allow the interactive exploration of the dataset. 
+					Various visualization options enable the user to adapt layout and network 
+					representation according to individual purposes.																																																																																
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/22548786"target="_blank">22548786</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Escher
+						<br />
+						<a href="https://escher.github.io" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					A Web Application for Building, Sharing, and Embedding Data-Rich Visualizations of 
+					Biological Pathways																																																																																				
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/26313928"target="_blank">26313928</a>
+				 	</td>
+				 </tr>
+				 <tr>
+					<td>Mimoza
+						<br />
+						<a href="http://mimoza.bordeaux.inria.fr/" target="_blank">
+						(Homepage)</a>
+					</td>
+					<td>
+					Web-based semantic zooming and navigation in metabolic networks																																																																																							
+					<td>PMID:
+						<br/>
+						<a href="http://www.ncbi.nlm.nih.gov/pubmed/25889977"target="_blank">25889977</a>
+				 	</td>
+				 </tr>
+				 
+				 
+</table>
+        
+        
+                        
+            </div>
+        <div class="cleaner"></div>
+    </div>
+    
+    <div id="sidebar" style="width: 228px">
+
+        <h3 class="auto-style69"><strong>Recent Resources</strong></h3>
+        <ul class="recent_post">
+            <li><a href="http://www.biomedcentral.com/1752-0509/9/10"target="_blank">Mimoza</a>Web-based semantic zooming and navigation in metabolic networks.</li>
+            <li><a href="http://www.ncbi.nlm.nih.gov/pubmed/25677126"target="_blank">MOST</a>It is a standalone software package that can be used to create constraint-based models of metabolism, load existing models, export models, and run analyses on these models to predict the production of desired compounds by microbes under genetic manipulations.</li>
+            <li><a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4373785/"target="_blank">BiGGR</a>Constraint based modeling in R using metabolic reconstruction databases</li>
+            <li><a href="http://www.ncbi.nlm.nih.gov/pubmed/26313928"target="_blank">Escher</a>A Web Application for Building, Sharing, and Embedding Data-Rich Visualizations of Biological Pathways</li>
+		</ul>	
+    </div> <!-- end of sidebar -->
+    <div class="cleaner"></div>
+
+
+</div>
+<!-- END of templatemo_main -->
+
+<iframe scrolling="no" src="bottom-frame.html" style="float: middle; height: 191px;" width="100%" border="0" frameborder="0" >
+Your browser does not support inline frames or is currently configured not to display inline frames.
+</iframe>
+
+</body>
+</html>

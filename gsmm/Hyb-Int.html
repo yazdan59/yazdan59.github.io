@@ -1,0 +1,465 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="table2.css" />        
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GEM DB, Hybrid Approaches, Integration of Gene Expression into a GEM Model</title>
+<meta name="keywords" content="Genome-scale Metabolic Modeling, Yazdan Asgari, Ali Salehzadeh-yazdi" />
+<meta name="description" content="Resources and softwares available for Genome-scale Metabolic Modeling" />
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+
+<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script> 
+<!--script type="text/javascript" src="/jqueryui/js/jquery-ui-1.7.2.custom.min.js"></script--> 
+<script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="js/showhide.js"></script> 
+<script type="text/JavaScript" src="js/jquery.mousewheel.js"></script> 
+
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+});
+</script> 
+
+<style type="text/css">
+.auto-style1 {
+	border: 0px solid #000000;
+	background-color: #000000;
+}
+.auto-style2 {
+	font-size: large;
+}
+
+.scrollToTop{
+	width:100px; 
+	height:130px;
+	padding:10px; 
+	text-align:center; 
+	background: whiteSmoke;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	position:fixed;
+	top:0px;
+	right:0px;
+	display:none;
+	background: url('images/myphoto/Arrow-Up.png') no-repeat 0px 20px;
+}
+.scrollToTop:hover{
+	text-decoration:none;
+}
+.auto-style50 {
+	font-size: medium;
+}
+.auto-style51 {
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.auto-style52 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.auto-style53 {
+	font-size: medium;
+	text-decoration: underline;
+}
+.auto-style54 {
+	text-decoration: underline;
+}
+</style>
+
+</head>
+
+<body id="subpage" style="height: 2879px">
+
+<div id="templatemo_header_wrapper" style="width: 960px">
+	<div id="site_title" style="width: 787px; height: 63px;" class="auto-style2"><h1>
+		<a style="width: 719px; height: 55px;" class="auto-style1" ></a></h1></div>
+	
+     <div id="templatemo_menu" class="ddsmoothmenu" style="height: 38px; width: 871px">
+        <ul style="width: 112%; position: relative; left: -92px; top: 0px; right: 92px;">
+            <li><a style="width: 60px" href="index.html">Home</a></li>
+            <li><a style="width: 150px" href="GSMM-Recons.html" >GEM Reconstruction</a></li>
+			<li><a style="width: 80px">GEM Models</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="GSM-Model.html">Models</a></li>
+                    <li><a href="Yeast.html">Yeast</a></li>
+                    <li><a href="Human.html">Human</a></li>
+                    <li><a href="Objective.html">Objective</a></li>
+              	</ul>
+			</li>
+            <li><a style="width: 140px">Topological Analysis</a>
+                <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Topological-Def.html">Definitions</a></li>
+                    <li><a href="Topological-Sof.html">Software</a></li>
+              	</ul>
+            </li>
+                                
+            <li><a style="width: 180px">Constraint-based Modeling</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                 	<li><a href="CB-Def.html">Definitions</a></li>
+                    <li><a href="CB-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+           
+			<li><a style="width: 115px">Kinetic Modeling</a>
+			<ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="KM-Def.html">Definitions</a></li>
+                    <li><a href="KM-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+                
+            <li><a style="width: 130px"class="selected">Hybrid Approaches</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Hyb-Def.html">Definitions</a></li>
+                    <li><a href="Hyb-Int.html">Gene Exp. Mapping</a></li>
+              	</ul>
+			</li>
+			
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+        <br style="clear: left" />
+    </div> <!-- end of templatemo_menu -->
+<body style="height: 2879px">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="themes/1/js-image-slider.js" type="text/javascript"></script>
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+</head>
+    <div id="sliderFrame">
+    </div>
+</body>
+    <div class="cleaner"></div>
+</div>
+
+<a href="#" class="scrollToTop"></a>        
+
+	<!-- END of templatemo_header_wrapper -->
+
+<div id="templatemo_main">
+	<div id="content" style="width: 699px">
+    	<div class="post" style="height: 154px">
+            	
+            <h2 class="auto-style50"><span class="auto-style52"><strong>Hybrid Approaches: Integration of Gene Expression data into a 
+			GEM model</strong></span></h2>
+            	
+            <h2 class="auto-style50"><strong><br />
+			</strong>
+			</h2>
+                    
+            &nbsp;<p style="height: 107px" class="auto-style51">
+			Following the introduction of GEM Models and the high-throughput approaches for extracting 
+			genome-wide expression pattern of a cell (e.g. DNA microarray, ChIP-Seq and RNA-Seq), 
+			the new challenge for a better prediction of the metabolic activities of different cells appeared; 
+			how gene expression data can be integrated into GEM models. The conflation of genetic expression data and GEM models 
+			leads to a better and deeper understanding of the occurrence of certain changes in gene expression under 
+			different conditions.
+			<br />
+			First, <a href="http://www.jbc.org/content/277/31/28058.long">Covert and Palsson</a> addressed this issue by Boolean approach in 2002.
+			</p>
+        </div>
+        
+         <div class="pagging">
+
+
+<table style="width: 100%">
+
+		<tr>
+			 <td class="auto-style54" colspan="2">
+			 <strong>Afterward, different algorithms were developed for tackling this challenge:
+			 </strong>
+			 </td>
+		</tr>
+		<tr>
+			<td>
+			2004 - Akesson
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/15491858"target="_blank">15491858</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2008 - GIMME
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/18483554"target="_blank">18483554</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2008 - iMAT
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20823844"target="_blank">20823844</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2009 - Moxley
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/19346491"target="_blank">19346491</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2009 - E_Flux
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/19714220"target="_blank">19714220</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2010 - PROOM
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/20876091"target="_blank">20876091</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2011 - MADE
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21172910"target="_blank">21172910</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2011 - tFBAA
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21071808"target="_blank">21071808</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2012 - Lee
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/22713172"target="_blank">22713172</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2012 - RELATCH
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/23013597"target="_blank">23013597</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2012 - Fang
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/23028286"target="_blank">23028286</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2012 - INIT
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/22615553"target="_blank">22615553</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2012 - TEAM
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/23209390"target="_blank">23209390</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2012 - AdaM
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/23194026"target="_blank">23194026</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2012 - mCADRE
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/23234303"target="_blank">23234303</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2012 - GX_FBA
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/23216785"target="_blank">23216785</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2012 - E_Flux_Modified
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/22606312"target="_blank">22606312</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2013 - FCGs
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/23420780"target="_blank">23420780</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2013 - EXAMO
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/23555222"target="_blank">23555222</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			2013 - GIM3E
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/23975765"target="_blank">23975765</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			TIGER <br/>
+			a MATLAB Toolbox for Integrating Genome-scale Metabolism, Expression, and 
+			Regulation that includes implementations of three algorithms (GIMME, iMAT, and MADE)
+			</td>
+			<td>PMID:
+			<a href="http://www.ncbi.nlm.nih.gov/pubmed/21943338"target="_blank">21943338</a>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+			Some methods reduce gene expression levels to binary states (such as GIMME, iMAT, and MADE), 
+			whereas methods like the E-Flux tries to map gene expression data into a GEM by constraining 
+			the maximum possible flux through the reactions.
+			</td>
+		</tr>
+
+</table>
+
+
+<table style="width: 100%">
+
+		<tr>
+			<td class="auto-style54">
+			<strong>Recommended review papers for Integration of gene expression data in GEM models:
+			</strong>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Integration of expression data in genome-scale metabolic network reconstructions 
+			(<a href="http://www.ncbi.nlm.nih.gov/pubmed/22934050" target="_blank">Link</a>)
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Methods for integration of transcriptomic data in genome-scale metabolic models 
+			(<a href="http://www.ncbi.nlm.nih.gov/pubmed/25379144" target="_blank">Link</a>)
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Systematic evaluation of methods for integration of transcriptomic data into constraint-based 
+			models of metabolism 
+			(<a href="http://www.ncbi.nlm.nih.gov/pubmed/24762745" target="_blank">Link</a>)
+			</td>
+		</tr>
+		<tr>
+			<td>
+			A Practical Protocol for Integration of Transcriptomics Data into Genome-Scale Metabolic 
+			Reconstructions 
+			(<a href="http://link.springer.com/protocol/10.1007/8623_2015_98" target="_blank">Link</a>)
+			</td>
+		</tr>
+
+</table>
+
+    </div>            
+    <div class="cleaner"></div>
+    </div>
+    
+    <div id="sidebar" style="width: 228px">
+
+        <h3 class="auto-style53"><strong>Recent Softwares</strong></h3>
+        <ul class="recent_post">
+            <li><a href="http://www.ncbi.nlm.nih.gov/pubmed/23975765"target="_blank">GIM3E</a>Gene Inactivation Moderated by Metabolism, Metabolomics and Expression (GIM3E)
+             is an algorithm that enables the development of condition-specific models based on an objective function, 
+             transcriptomics and cellular metabolomics data. It establishes metabolite use requirements with metabolomics data, 
+             uses model-paired transcriptomics data to find experimentally supported solutions and provides calculations of 
+             the turnover (production/consumption) flux of metabolites.</li>
+        </ul>
+    </div> <!-- end of sidebar -->
+    <div class="cleaner"></div>
+</div> <!-- END of templatemo_main -->
+
+<iframe scrolling="no" src="bottom-frame.html" style="float: middle; height: 189px;" width="100%" border="0" frameborder="0" >
+Your browser does not support inline frames or is currently configured not to display inline frames.
+</iframe>
+
+</body>
+</html>

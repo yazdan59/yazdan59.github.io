@@ -1,0 +1,1124 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="table2.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GEM DB, Constraint-based Modeling, Softwares</title>
+<meta name="keywords" content="Genome-scale Metabolic Modeling, Yazdan Asgari, Ali Salehzadeh-yazdi" />
+<meta name="description" content="Resources and softwares available for Genome-scale Metabolic Modeling" />
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+
+<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script> 
+<!--script type="text/javascript" src="/jqueryui/js/jquery-ui-1.7.2.custom.min.js"></script--> 
+<script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="js/showhide.js"></script> 
+<script type="text/JavaScript" src="js/jquery.mousewheel.js"></script> 
+
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+});
+</script> 
+
+<style type="text/css">
+.auto-style1 {
+	border: 0px solid #000000;
+	background-color: #000000;
+}
+.auto-style10 {
+	color: #000000;
+	font-size: large;
+}
+.auto-style11 {
+	border: 3px solid #CC0000;
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	background-color: #FF0000;
+}
+.auto-style12 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14pt;
+}
+.auto-style17 {
+	border: 2px solid #99CCFF;
+	color: #000000;
+	background-color: #99CCFF;
+	font-size: large;
+}
+.auto-style22 {
+	border: 2px solid #99CCFF;
+	background-color: #99CCFF;
+	text-align: center;
+}
+.auto-style23 {
+	color: #000000;
+}
+.auto-style26 {
+	color: #000000;
+	font-size: small;
+}
+.auto-style30 {
+	border: 3px solid #CC0000;
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	background-color: #FFFF00;
+}
+.auto-style35 {
+	border: 2px solid #99CCFF;
+	background-color: #CAE4FF;
+	text-align: center;
+}
+.auto-style36 {
+	border: 2px solid #99CCFF;
+	color: #000000;
+	background-color: #CAE4FF;
+	font-size: large;
+}
+.auto-style37 {
+	font-size: small;
+}
+.auto-style40 {
+	border: 2px solid #FFFFFF;
+	color: #000000;
+	background-color: #FFFFFF;
+	font-size: large;
+}
+.auto-style41 {
+	color: #008000;
+	font-size: large;
+}
+.auto-style42 {
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.auto-style43 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.auto-style45 {
+	border: 2px solid #FFFFFF;
+	color: #000000;
+	background-color: #FFFFFF;
+	font-size: x-large;
+}
+.auto-style46 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: x-large;
+}
+.auto-style48 {
+	font-size: 16pt;
+}
+.scrollToTop{
+	width:100px; 
+	height:130px;
+	padding:10px; 
+	text-align:center; 
+	background: whiteSmoke;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	position:fixed;
+	top:0px;
+	right:0px;
+	display:none;
+	background: url('images/myphoto/Arrow-Up.png') no-repeat 0px 20px;
+}
+.scrollToTop:hover{
+	text-decoration:none;
+}
+.auto-style50 {
+	font-size: medium;
+}
+.auto-style51 {
+	font-size: medium;
+	text-decoration: underline;
+}
+.auto-style52 {
+	text-align: center;
+}
+</style>
+
+</head>
+
+<body id="subpage" style="height: 7521px">
+
+<div id="templatemo_header_wrapper" style="width: 960px">
+	<div id="site_title" style="width: 787px; height: 63px;" class="auto-style2"><h1>
+		<a style="width: 719px; height: 55px;" class="auto-style1" ></a></h1></div>
+	
+     <div id="templatemo_menu" class="ddsmoothmenu" style="height: 38px; width: 871px">
+        <ul style="width: 112%; position: relative; left: -92px; top: 0px; right: 92px;">
+            <li><a style="width: 60px" href="index.html">Home</a></li>
+            <li><a style="width: 150px" href="GSMM-Recons.html" >GEM Reconstruction</a></li>
+			<li><a style="width: 80px">GEM Models</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="GSM-Model.html">Models</a></li>
+                    <li><a href="Yeast.html">Yeast</a></li>
+                    <li><a href="Human.html">Human</a></li>
+                    <li><a href="Objective.html">Objective</a></li>
+              	</ul>
+			</li>
+            <li><a style="width: 140px">Topological Analysis</a>
+                <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Topological-Def.html">Definitions</a></li>
+                    <li><a href="Topological-Sof.html">Software</a></li>
+              	</ul>
+            </li>
+                                
+            <li><a style="width: 180px"class="selected">Constraint-based Modeling</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                 	<li><a href="CB-Def.html">Definitions</a></li>
+                    <li><a href="CB-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+           
+			<li><a style="width: 115px">Kinetic Modeling</a>
+			<ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="KM-Def.html">Definitions</a></li>
+                    <li><a href="KM-Sof.html">Software</a></li>
+              	</ul>
+			</li>
+                
+            <li><a style="width: 130px">Hybrid Approaches</a>
+            <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="Hyb-Def.html">Definitions</a></li>
+                    <li><a href="Hyb-Int.html">Gene Exp. Mapping</a></li>
+              	</ul>
+			</li>
+			
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+        <br style="clear: left" />
+    </div> <!-- end of templatemo_menu -->
+<body style="height: 7521px">
+<head>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="themes/1/js-image-slider.js" type="text/javascript"></script>
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+</head>
+    <div id="sliderFrame">
+    </div>
+</body>
+    <div class="cleaner"></div>
+</div>
+
+<a href="#" class="scrollToTop"></a>        
+
+	<!-- END of templatemo_header_wrapper -->
+
+<div id="templatemo_main">
+	<div id="content" style="width: 699px">
+    	<div class="post" style="height: 284px">
+            	
+            <h2 class="auto-style50"><strong>Constraint-based Modeling: Softwares</strong></h2>
+            	
+            <h2 class="auto-style50"><strong><br />
+			</strong>
+			</h2>
+                    
+            &nbsp;<p style="height: 49px" class="auto-style42">We have provided some useful softwares 
+			which performe constraint-based modeling on genome-scale metabolic 
+			models.
+			<br/>The softwares have been categorized into the following sections:</p>
+			<ul style="height: 96px">
+				<li style="height: 44px">
+				<p style="height: 52px">
+				<a href="#Constraint-based_Analysis_Softwares">
+				<span class="auto-style43">
+				<strong>
+				<span class="auto-style37">Constraint-based Analysis Softwares: </span>
+				</strong>
+				<span class="auto-style48">
+				</span></span>
+				</a>
+				<span class="auto-style43"><span class="auto-style23">
+				<span class="auto-style37">
+				Here are various softwares which have been developed for the constraint-based modeling framework.
+				</span></span></span>
+				</p>
+				</li>
+				<li style="height: 57px">
+				<p style="height: 70px"><a href="#EM_and_EP_Calculators">
+				<span class="auto-style43"><strong><span class="auto-style37">Elementary Modes 
+				(EMs) and Extreme 
+				Pathways (EPs) Calculators:</span></strong><span class="auto-style37">
+				</span></span> </a>
+				<span class="auto-style43">
+				<span class="auto-style23"><a href="#EM_and_EP_Calculators"></a>
+				<span class="auto-style37">It 
+				includes different algorithms and softwares which have been developed for the 
+				calculation of elementary modes, extreme pathways, and flux 
+				coupling analysis. </span> </span></span>
+				</p>
+				</li>
+			</ul>
+			<p style="height: 82px" class="auto-style46">
+			<span class="auto-style26">It is also recommended to see the following link which includes a good categorization of the Constraint-based methods:</span><br class="auto-style37"/>
+				<a href="http://cobramethods.wikidot.com/methods" target="_blank">
+				<span class="auto-style37">CoBRA Methods </span> </a>
+				<span class="auto-style23">
+				</span>
+				</p>
+			<div class="meta">
+                <div class="cleaner"><br />
+				</div>
+            </div> 
+        </div>
+
+   <div class="pagging">
+      
+<table style="width: 100%">
+				 
+			<tr>
+				<td class="auto-style52" colspan="3">
+				<strong><a name="Constraint-based_Analysis_Softwares">Constraint-based Analysis Softwares</a></strong></td>
+			</tr>
+				 
+			<tr>
+				<td><strong>Name</strong></td>
+				<td><strong>Description</strong></td>
+				<td><strong>Reference</strong></td>
+			</tr>
+			
+		<tr>
+			<td>COBRA
+				<br />
+				<a href="http://opencobra.github.io/cobratoolbox/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				The COnstraints Based Reconstruction and Analysis (COBRA) approach focuses on 
+				employing physicochemical constraints to define the set of feasible states for a 
+				biological network in a given condition based on current knowledge. These constraints 
+				include compartmentalization, mass conservation, molecular crowding, and thermodynamic 
+				directionality. Although this methods may not provide a unique solution, it provides a 
+				reduced set of solutions that may be used to guide biological hypothesis development.
+			</td>				
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/21886097"target="_blank">21886097</a>
+				<br/>&<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/17406635"target="_blank">17406635</a>
+			</td>
+		</tr>
+		<tr>
+			<td>ORCA
+				<br />
+				<a href="http://sourceforge.net/projects/exorca/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				ORCA is a Matlab package extending the scope of established COBRA metabolic 
+				modelling and integrates three unique functionalities: 1) a framework method 
+				integrating three analyses of multi-objective optimization, robustness analysis 
+				and fractional benefit analysis, 2) metabolic pathways identification with futile 
+				loop elimination, and 3) a dynamic flux balance analysis framework (dFBA) incorporating 
+				kinetic constraints.				
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/24336807"target="_blank">24336807</a>
+			</td>
+		</tr>
+		<tr>
+			<td>COBRApy
+				<br />
+				<a href="https://opencobra.github.io/cobrapy/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				COBRA for Python (COBRApy), is a Python package that provides support for basic 
+				COBRA methods. It is designed in an object-oriented fashion that facilitates the 
+				representation of the complex biological processes of metabolism and gene expression. 
+				COBRApy does not require MATLAB to function; however, it includes an interface to the 
+				COBRA Toolbox for MATLAB to facilitate use of legacy codes. For improved performance, 
+				COBRApy includes parallel processing support for computationally intensive processes.								
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/23927696"target="_blank">23927696</a>
+			</td>
+		</tr>
+		<tr>
+			<td>VANTED
+				<br />
+				<a href="http://vanted.ipk-gatersleben.de/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				Visualization and Analysis of Networks containing Experimental Data (VANTED) is a 
+				tool for the visualization and analysis of networks with related experimental data. 
+				Data from large-scale biochemical experiments is uploaded into the software via a 
+				Microsoft Excel-based form. Then it can be mapped on a network that is either drawn 
+				with the tool itself, downloaded from the KEGG Pathway database, or imported using 
+				standard network exchange formats. 
+				Transcript, enzyme, and metabolite data can be presented in the context of their 
+				underlying networks. Visualization and navigation methods support the visual exploration 
+				of the data-enriched networks. 												
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/16519817"target="_blank">16519817</a>
+			</td>
+		</tr>
+		<tr>
+			<td>MetaFluxNet
+				<br />
+				<a href="http://metafluxnet.kaist.ac.kr/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a program package for managing information on the metabolic reaction network and 
+				for quantitatively analyzing metabolic fluxes in an interactive and customized way, 
+				which allows users to interpret and examine metabolic behavior in response to genetic 
+				and/or environmental modifications.												
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/14594721"target="_blank">14594721</a>
+			</td>
+		</tr>
+		<tr>
+			<td>SurreyFBA
+				<br />
+				<a href="http://sysbio3.fhms.surrey.ac.uk/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It provides constraint-based simulations and network map visualization in a free, 
+				stand-alone software. In addition to basic simulation protocols, the tool also implements 
+				the analysis of minimal substrate and product sets, which is useful for metabolic 
+				engineering and prediction of nutritional requirements in complex in vivo environments. 
+				It is based on a command line interface to the GLPK solver distributed as binary and 
+				source code for the three major operating systems. 
+				The command line tool, implemented in C++, is easily executed within scripting languages 
+				used in the bioinformatics community and provides efficient implementation of tasks 
+				requiring iterative calls to the linear programming solver. 
+				It includes JyMet, a graphics user interface allowing spreadsheet-based model 
+				presentation, visualization of numerical results on metabolic networks represented in 
+				the Petri net convention, as well as in charts and plots.															
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/21148545"target="_blank">21148545</a>
+			</td>
+		</tr>
+		<tr>
+			<td>WEbcoli
+				<br />
+				<a href="http://webcoli.org/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a WEb application for in silico designing, analyzing and engineering 
+				Escherichia coli metabolism. It is devised and implemented using advanced web 
+				technologies, thereby leading to enhanced usability and dynamic web accessibility. 
+				As a main feature, this system provides a user-friendly rich web interface, allowing 
+				users to virtually design and synthesize mutant strains derived from the genome-scale 
+				wild-type E.coli model and to customize pathways of interest through a graph editor. 
+				In addition, constraints-based flux analysis can be conducted for quantifying metabolic 
+				fluxes and charactering the physiological and metabolic states under various genetic 
+				and/or environmental conditions.																		
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/19689960"target="_blank">19689960</a>
+			</td>
+		</tr>
+		<tr>
+			<td>BioMet Toolbox
+				<br />
+				<a href="http://biomet-toolbox.org/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a web-based resource for analysis of high-throughput data, together with 
+				methods for flux analysis and integration of transcriptome data exploiting the 
+				capabilites of metabolic networks described in genome scale models. It also includes 
+				genome scale metabolic models of various cell factories used both in industrial 
+				biotechnology and in fundamental research.																						
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/20483918"target="_blank">20483918</a>
+			</td>
+		</tr>
+		<tr>
+			<td>BioOpt
+				<br />
+				<a href="http://129.16.106.142/tools.php?c=bioopt" target="_blank">
+				(Homepage)</a>
+				<br/>
+				(sub-tool of biomet toolbox)
+			</td>
+			<td>
+				It is a software application running on Windows command prompt. The program focuses 
+				on the flux balance analysis, using linear programming as the mathematical support. 
+				Given a biological system model, which includes a set of metabolic reactions, the 
+				program is able to calculate all internal mass balance fluxes, reduced costs and 
+				shadow prices depending on the constraints and objective defined by the user. 																										
+			</td>
+			<td>Not Available
+			</td>
+		</tr>
+		<tr>
+			<td>Acorn
+				<br />
+				<a href="http://www.webcitation.org/query.php?url=http://code.google.com/p/a-c-o-r-n/&refdoi=10.1186/1471-2105-12-196" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a web server for constraint based modeling of genome scale metabolic reaction networks. 
+				After signing in, users can run Flux Balance Analysis simulations on multiple models loaded 
+				by an administrator from SBML files. 
+				Initial conditions of computer simulations (reaction bounds, objective function) are stored 
+				and can be shared with other users. 
+				Models and results are displayed in tables with genes linked to genome information portals, 
+				but pathway visualisation will soon be implemented. 
+				The server is capable of handling multiple users and iterative FBA simulations by using 
+				clusters set up in GlassFish environment.				 																										
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/21609434"target="_blank">21609434</a>
+			</td>
+		</tr>
+		<tr>
+			<td>PathwayAnalyser
+				<br />
+				<a href="http://openwetware.org/wiki/Chandra:Software_and_Databases:PathwayAnalyser" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a software for systems biologists who want to perform flux based analyses and 
+				simulations on SBML Models. 
+				It affords FBA as well as interfacing with Taylor software for high precision simulations of ODEs.							 																										
+			</td>
+			<td>Not Available
+			</td>
+		</tr>
+		<tr>
+			<td>FluxAnalyzer
+				<br />
+				(url is not available)
+			</td>
+			<td>
+				It is a MATLAB package which facilitates integrated pathway and flux analysis for metabolic 
+				networks within a graphical user interface. 
+				Arbitrary metabolic network models can be composed by instances of four types of network elements. 
+				The abstract network model is linked with network graphics leading to interactive flux maps which 
+				allow for user input and display of calculation results within a network visualization. 
+				Therein, a large and powerful collection of tools and algorithms can be applied interactively 
+				including metabolic flux analysis, flux optimization, detection of topological features 
+				and pathway analysis by elementary flux modes or extreme pathways.											 																										
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/12538248"target="_blank">12538248</a>
+			</td>
+		</tr>
+		<tr>
+			<td>CellNetAnalyzer
+				<br />
+				<a href="http://www2.mpi-magdeburg.mpg.de/projects/cna/cna.html" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a MATLAB package which provides a comprehensive and user-friendly environment 
+				for structural and functional analysis of biochemical networks. 
+				It facilitates the analysis of metabolic as well as signaling and regulatory networks 
+				solely on their network topology, i.e. independent of kinetic mechanisms and parameters. 
+				It provides a powerful collection of tools and algorithms for structural network 
+				analysis which can be started in a menu-controlled manner within interactive network maps.															 																										
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/17408509"target="_blank">17408509</a>
+			</td>
+		</tr>
+		<tr>
+			<td>MOMA
+				<br />
+				<a href="http://arep.med.harvard.edu/moma/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				Minimization of Metabolic Adjustment (MOMA) predicts the immediate sub-optimal flux 
+				distribution following the perturbation by minimizing the distance (Euclidean) 
+				between the wild-type FBA flux distribution and the mutant flux distribution 
+				using quadratic programming.
+				It employs quadratic programming to identify a point in flux space, which is 
+				closest to the wild-type point, compatibly with the gene deletion constraint.																			 																										
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/12415116"target="_blank">12415116</a>
+			</td>
+		</tr>
+		<tr>
+			<td>FAME
+				<br />
+				<a href="http://f-a-m-e.org/ajax/page1.php" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				The Flux Analysis and Modeling Environment (FAME) is a web-based modeling tool that 
+				combines the tasks of creating, editing, running, and analyzing/visualizing stoichiometric 
+				models into a single program. 
+				Analysis results can be automatically superimposed on familiar KEGG-like maps. 
+				It is written in PHP and uses the Python-based PySCeS-CBM for its linear solving capabilities.																							 																										
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/22289213"target="_blank">22289213</a>
+			</td>
+		</tr>
+		<tr>
+			<td>ROOM
+				<br />
+				(url is not available)
+			</td>
+			<td>
+				Regulatory onoff minimization (ROOM) is a constraint-based algorithm for predicting the 
+				metabolic steady state after gene knockouts. 
+				It aims to minimize the number of significant flux changes with respect to the wild type.
+				It attempts to improve the prediction of the metabolic state of an organism after a gene knockout. 
+				It follows the same premise as MOMA that an organism would try to restore a flux distribution 
+				as close as possible to the wild-type after a knockout. 
+				However it further hypothesizes that this steady state would be reached through a series 
+				of transient metabolic changes by the regulatory network and that the organism would try 
+				to minimize the number of regulatory changes required to reach the wild-type state. 
+				Instead of using a distance metric minimization however it uses a Mixed Integer Linear Programming method.																											 																										
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/15897462"target="_blank">15897462</a>
+			</td>
+		</tr>
+		<tr>
+			<td>PySCeS
+				<br />
+				<a href="http://pysces.sourceforge.net/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				The Python Simulator for Cellular Systems (PySCeS) is an extendable research tool for the 
+				numerical analysis and investigation of cellular systems.
+				It includes a selection of non-linear root-finding algorithms that can quickly and efficiently 
+				be used to calculate steady state solutions.
+				It includes Metabolic Control Analysis, structural analysis, bifurcation analysis, parameter scans, 
+				Visualise the results of simulations, SBML import and export capability.																															 																										
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/15454409"target="_blank">15454409</a>
+			</td>
+		</tr>
+		<tr>
+			<td>OpenFLUX
+				<br />
+				<a href="http://openflux.sourceforge.net/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a MATLAB-based modelling software for 13C metabolic flux analysis (MFA).
+				The OpenFLUX parser automatically generates MATLAB-readable metabolite and isotopomer 
+				balances, thus strongly facilitating model creation. The model can be used to perform 
+				experimental design, parameter estimation and sensitivity analysis either using the 
+				built-in gradient-based search or Monte Carlo algorithms or in user-defined algorithms.																																			 																										
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/19409084"target="_blank">19409084</a>
+			</td>
+		</tr>
+		<tr>
+			<td>OptFlux
+				<br />
+				<a href="http://www.optflux.org/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is an open-source and modular software to support in silico metabolic engineering tasks aimed 
+				at being the reference computational application in the field.																																			 																										
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/20403172"target="_blank">20403172</a>
+			</td>
+		</tr>
+		<tr>
+			<td>SBRT
+				<br />
+				<a href="http://www.ieu.uzh.ch/wagner/software/SBRT/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				The Systems Biology Research Tool (SBRT) tries to facilitate the computational aspects of systems biology. 
+				It performs 35 methods for analyzing stoichiometric networks and 16 methods from fields such as 
+				graph theory, geometry, algebra, and combinatorics. New computational techniques can 
+				be added to the SBRT via process plug-ins, providing a high degree of evolvability and a 
+				unifying framework for software development in systems biology.																																							 																										
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/18588708"target="_blank">18588708</a>
+			</td>
+		</tr>
+		<tr>
+			<td>FASIMU
+				<br />
+				<a href="http://www.bioinformatics.org/fasimu/downloads/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a command line oriented software for the computation of flux distributions using a 
+				variety of the most common FBA algorithms, including the first available implementation 
+				of weighted flux minimization, fitness maximization for partially inhibited enzymes, and
+				usage of the concentration-based thermodynamic feasibility constraint. 
+				It allows batch computation with varying objectives and constraints suited for network 
+				pruning, leak analysis, flux-variability analysis, and systematic probing of metabolic 
+				objectives for network curation. Input and output supports SBML. 
+				FASIMU can work with free (lp_solve and GLPK) or commercial solvers (CPLEX, LINDO). 
+				A new plugin (faBiNA) for BiNA allows to conveniently visualize calculated flux distributions.																																											 																										
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/21255455"target="_blank">21255455</a>
+			</td>
+		</tr>
+		<tr>
+			<td>GEMSiRV
+				<br />
+				<a href="http://sb.nhri.org.tw/GEMSiRV/en/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is an open-source software for building metabolic systems biology project.
+				It provides interactive features in model management, simulation, visualization and 
+				integration of omics data.
+				Furthermore, all of the GEMSiRV-generated metabolic models and analysis results, 
+				including projects in progress, can be easily exchanged in the research community. 
+				It is a powerful integrative resource that may facilitate the development of systems biology studies.
+			</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/22563070"target="_blank">22563070</a>
+			</td>
+		</tr>
+		<tr>
+			<td>SNA
+				<br />
+				<a href="http://www.bioinformatics.org/project/?group_id=546" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a Mathematica toolbox for stoichiometric network analysis. 
+				Among other things, it supports flux balance analysis and the enumeration of the 
+				elementary vectors of the flux and the conversion cone.
+				</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/16533403"target="_blank">16533403</a>
+			</td>
+		</tr>
+		<tr>
+			<td>MetaFlux
+				<br />
+				<a href="http://www.biocyc.org/download.shtml" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a multiple gap-filling method to accelerate the development of FBA models based on 
+				mixed integer linear programming (MILP). 
+				The method suggests corrections to the sets of reactions, biomass metabolites, nutrients and secretions. 
+				The method generates FBA models directly from Pathway/Genome Databases. Thus, FBA models developed 
+				in this framework are easily queried and visualized using the Pathway Tools software.				
+				</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/22262672"target="_blank">22262672</a>
+			</td>
+		</tr>
+		<tr>
+			<td>MicrobesFlux
+				<br />
+				<a href="http://tanglab.engineering.wustl.edu/static/MicrobesFlux.html" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a semi-automatic, web-based platform for generating and reconstructing metabolic 
+				models for annotated <strong>microorganisms</strong>. 
+				It is able to automatically download the metabolic network (including enzymatic reactions 
+				and metabolites) from the KEGG database and then convert it to a metabolic model draft. 
+				The platform also provides diverse customized tools, such as gene knockouts and the 
+				introduction of heterologous pathways, for users to reconstruct the model network. 
+				The reconstructed metabolic network can be formulated to a constraint-based flux model 
+				to predict and analyze the carbon fluxes in microbial metabolisms. 
+				The simulation results can be exported in the SBML format.				
+				</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/22857267"target="_blank">22857267</a>
+			</td>
+		</tr>
+		<tr>
+			<td>FBA3
+				<br />
+				<a href="http://arep.med.harvard.edu/gmc/fba.html" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				the Flux Balance Optimization linear programming package that can be used to study metabolic systems.
+				</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/11175725"target="_blank">11175725</a>
+			</td>
+		</tr>
+		<tr>
+			<td>SimPheny
+				<br />
+				(url is not available)
+			</td>
+			<td>
+				It is an enterprise-level software platform developed by Genomatica that enables the development 
+				of predictive computer models of organisms.				
+				</td>
+			<td>Commercial
+			</td>
+		</tr>
+		<tr>
+			<td>RAVEN
+				<br />
+				<a href="http://129.16.106.142/tools.php?c=raven" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				Reconstruction, Analysis, and Visualization of Metabolic Networks (RAVEN) toolbox is 
+				a complete environment for reconstruction, analysis, simulation, and visualization 
+				of GSMM and runs within MATLAB. The software has three main features: 
+				1) automatic reconstruction of GSMMs based on protein homology,
+				2) network analysis, modeling and interpretation of simulation results, 
+				and 3) visualization of GSMMs using pre-drawn metabolic network maps. 								
+				</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/23555215"target="_blank">23555215</a>
+			</td>
+		</tr>
+		<tr>
+			<td>libStructural
+				<br />
+				<a href="http://sbw.kgi.edu/sbwwiki/sysbio/libstructural" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				The structural analysis library is a C/C++ portable software library for analyzing the 
+				structural properties of stoichiometric networks. 
+				The library supports the analysis of both flux balance and moiety conservation. 
+				The library will accept models in the form of either standard SBML or raw stoichiometry matrices.												
+				</td>
+			<td>Not Available
+			</td>
+		</tr>
+		<tr>
+			<td>MetaNET
+				<br />
+				<a href="http://metanet.osdd.net" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				A web-accessible interactive platform for biological metabolic network analysis																
+				</td>
+			<td>
+				<a href="http://www.biomedcentral.com/1752-0509/8/130"target="_blank">Paper_Link</a>
+			</td>
+		</tr>
+		<tr>
+			<td>CBFA
+				<br />
+				<a href="http://www.optflux.org/cbfa" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				Phenotype prediction integrating metabolic models with constraints derived from experimental data																			
+				</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/25466481"target="_blank">25466481</a>
+			</td>
+		</tr>
+              
+			<tr>
+				<td class="auto-style52" colspan="3">
+				<strong><a name="EM_and_EP_Calculators">EM and EP Calculators</a></strong></td>
+			</tr>
+				 
+			<tr>
+				<td><strong>Name</strong></td>
+				<td><strong>Description</strong></td>
+				<td><strong>Reference</strong></td>
+			</tr>
+			
+		<tr>
+			<td>Metatool
+				<br />
+				<a href="http://pinguin.biologie.uni-jena.de/bioinformatik/networks/metatool/metatool5.1/metatool5.1.html" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a program for computing the nullspace matrix, elementary modes and other structural 
+				properties of biochemical reaction networks.																							
+				</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/10222413"target="_blank">10222413</a>
+				<br/>&<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/16731697"target="_blank">16731697</a>				
+			</td>
+		</tr>
+		<tr>
+			<td>BlockDiag
+				<br />
+				<a href="http://pinguin.biologie.uni-jena.de/bioinformatik/networks/blockdiag/blockdiag.html" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				This Program is for computing and block-diagonalizing the nullspace matrix to the 
+				stoichiometriy matrix of a chemical reaction network.																							
+				</td>
+			<td>Not Available
+			</td>
+		</tr>
+		<tr>
+			<td>OptiMode
+				<br />
+				<a href="http://pinguin.biologie.uni-jena.de/bioinformatik/networks/optimode/optimode.html" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a program for detecting the elementary mode with the highest molar yield for a 
+				specified substrate - product pair from the output file of METATOOL.																											
+				</td>
+			<td>Not Available
+			</td>
+		</tr>
+		<tr>
+			<td>Reducing modes
+				<br />
+				<a href="http://pinguin.biologie.uni-jena.de/bioinformatik/networks/complete/complete.html" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a program to calculate elementary modes for the complete variety of external and 
+				internal metabolites and a program to calculate the approximated minimal number of modes.																															
+				</td>
+			<td>Not Available
+			</td>
+		</tr>
+		<tr>
+			<td>Separator
+				<br />
+				<a href="http://pinguin.biologie.uni-jena.de/bioinformatik/networks/separator/separator.html" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				This Program is for decomposing of large biochemical networks in to smaller ones.																																			
+				</td>
+			<td>Not Available
+			</td>
+		</tr>
+		<tr>
+			<td>NAD+ metabolism
+				<br />
+				<a href="http://pinguin.biologie.uni-jena.de/bioinformatik/networks/NADMetabolism/nad.php" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It Visualizes all the elementary modes computed with Metatool 5.1 in the analysis of the 
+				NAD+ metabolic network.																																							
+				</td>
+			<td>Not Available
+			</td>
+		</tr>
+		<tr>
+			<td>Expa
+				<br />
+				<a href="http://systemsbiology.ucsd.edu/Downloads/ExtremePathwayAnalysis" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				This program could compute the set of extreme pathways (a generating set for all possible 
+				steady-state flux maps in a biochemical reaction network) from the stoichiometric matrix.																																											
+				</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/15613397"target="_blank">15613397</a>
+			</td>
+		</tr>
+		<tr>
+			<td>YANA
+				<br />
+				<a href="http://www.bioinfo.biozentrum.uni-wuerzburg.de/it/computing/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				This is a toolbox for metabolic networks with a graphical user interface to calculate 
+				(integrating METATOOL), edit (including support for the SBML format), visualize, centralize, 
+				and compare elementary flux modes. 
+				Further, it calculates expected flux distributions for a given Elementary Mode activity 
+				pattern and vice versa.																																															
+				</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/15929789"target="_blank">15929789</a>
+			</td>
+		</tr>
+		<tr>
+			<td>YANAsquare
+				<br />
+				<a href="http://www.bioinfo.biozentrum.uni-wuerzburg.de/it/computing/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It provides a software framework for rapid network assembly (flexible pathway browser with 
+				local or remote operation mode), network overview (visualization routine and YANAsquare editor), 
+				and network performance analysis (calculation of flux modes as well as target and robustness tests). 
+				It comes as an easy-to-setup program package in Java. It is fully compatible and integrates the 
+				programs YANA and Metatool.																																																			
+				</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/17725829"target="_blank">17725829</a>
+			</td>
+		</tr>
+		<tr>
+			<td>ScrumPy
+				<br />
+				<a href="http://mudshark.brookes.ac.uk/%20ScrumPy" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				It is a software package used for the definition and analysis of metabolic models. 
+				It is written using the Python programming language that is also used as a user interface. 
+				It has features for both kinetic and structural modelling, but the emphasis is on structural 
+				modelling and those features of most relevance to analysis of genome-scale models.																																																							
+				</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/16986321"target="_blank">16986321</a>
+			</td>
+		</tr>
+		<tr>
+			<td>DFS Algorithm
+				<br />
+				(Additional file 3 Contains MATLAB scripts for the DFS algorithm.)
+			</td>
+			<td>
+				This depth-first search algorithm uses linear programming (LP) to enumerate elementary flux modes (EFMs) 
+				in an exhaustive fashion. 
+				Constraints can be introduced to directly generate a subset of EFMs satisfying the set of constraints. 
+				It has a constant memory overhead. Using flux constraints, a large LP problem can be massively 
+				divided and parallelized into independent sub-jobs for deployment into computing clusters. 
+				Since the sub-jobs do not overlap, the approach scales to utilize all available computing 
+				nodes with minimal coordination overhead or memory limitations.																																																							
+				</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/25074068"target="_blank">25074068</a>
+			</td>
+		</tr>
+		<tr>
+			<td>F2C2
+				<br />
+				<a href="http://sourceforge.net/projects/f2c2/files/" target="_blank">
+				(Homepage)</a>
+			</td>
+			<td>
+				Flux coupling analysis (FCA) has become a useful tool in the constraint-based analysis of 
+				genome-scale metabolic networks. 
+				FCA allows detecting dependencies between reaction fluxes of metabolic networks at steady-state. 
+				On the one hand, this can help in the curation of reconstructed metabolic networks by verifying 
+				whether the coupling between reactions is in agreement with the experimental findings. 
+				On the other hand, FCA can aid in defining intervention strategies to knock out target reactions.
+				F2C2 is a fast tool for the computation of flux coupling in genome-scale metabolic networks.																																																						
+				</td>
+			<td>PMID:
+				<br/>
+				<a href="http://www.ncbi.nlm.nih.gov/pubmed/22524245"target="_blank">22524245</a>
+			</td>
+		</tr>
+
+
+</table>
+               
+            </div>
+        <div class="cleaner"></div>
+    </div>
+    
+    <div id="sidebar" style="width: 222px">
+
+        <h3 class="auto-style51"><strong>Recent Softwares</strong></h3>
+        <ul class="recent_post">
+            <li><a href="http://www.biomedcentral.com/1752-0509/8/130"target="_blank">MetaNET</a>A web-accessible interactive platform for biological metabolic network analysis</li>
+            <li><a href="http://www.ncbi.nlm.nih.gov/pubmed/25466481"target="_blank">CBFA</a>Phenotype prediction integrating metabolic models with constraints derived from experimental data</li>
+        </ul>
+    </div> <!-- end of sidebar -->
+    <div class="cleaner"></div>
+</div> <!-- END of templatemo_main -->
+
+<iframe scrolling="no" src="bottom-frame.html" style="float: middle; height: 185px;" width="100%" border="0" frameborder="0" >
+Your browser does not support inline frames or is currently configured not to display inline frames.
+</iframe>
+
+</body>
+</html>
