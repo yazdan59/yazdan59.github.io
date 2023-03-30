@@ -1,6 +1,6 @@
 ---
 title: "SCAN Toolbox"
-excerpt: "<img src='/images/scan_web.png'>"
+excerpt: "<a href="https://yazdan59.github.io/scan/index.htm"><img src='/images/scan_web.png', bordercolor="black"></a>"
 collection: portfolio
 ---
 
