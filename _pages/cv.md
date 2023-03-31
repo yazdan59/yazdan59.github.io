@@ -9,51 +9,45 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* Apr 2021 - Now: Postdoctoral Fellowship
+  * Équipe Exposome et Hérédité, CESP, Gustave Roussy, Villejuif, France
+  * Supervisor: Dr. T. Truong
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
-Skills
+* Jan 2016 - Mar 2021: Assistant Professor
+  * Department of Medical Biotechnology
+  * School of Advanced Technologies in Medicine, Tehran University of Medical Sciences, Tehran, Iran
+
+* Aug 2014 - Dec 2015: Postdoctoral Fellowship
+  * Institute for Research in Fundamental Sciences-IPM, Tehran, Iran
+  * Supervisor: Dr. M. Sadeghi
+
+Visiting Researcher
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Institute of Plant Genetics and Crop Plant Research-IPK, Gatersleben, Germany, 2011, (Supervisor: Prof. Falk Schreiber)
+* University of Lethbridge, Lethbridge-AB, Canada, 2008, (Supervisor: Prof. Marc Roussel)
+
+Education
+======
+* Ph.D in Bioinformatics, University of Tehran, Tehran, Iran, 2014 (Thesis Title: Modeling Cancer as a Metabolic Disease)
+* M.S. in Physical Chemistry, Khaje Nasir Toosi University of Technology, Tehran, Iran, 2004
+* B.S. in Applied Chemistry, University of Kashan, Kashan, Iran, 2002
 
 Publications
 ======
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
+
 Talks
 ======
   <ul>{% for post in site.talks %}
     {% include archive-single-talk-cv.html %}
   {% endfor %}</ul>
-  
+
 Teaching
 ======
   <ul>{% for post in site.teaching %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
