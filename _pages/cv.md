@@ -34,13 +34,13 @@ Education
 * M.S. in Physical Chemistry, Khaje Nasir Toosi University of Technology, Tehran, Iran, 2004
 * B.S. in Applied Chemistry, University of Kashan, Kashan, Iran, 2002
 
-Publications
+Selected Publications
 ======
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
-Talks
+Selected Talks
 ======
   <ul>{% for post in site.talks %}
     {% include archive-single-talk-cv.html %}
