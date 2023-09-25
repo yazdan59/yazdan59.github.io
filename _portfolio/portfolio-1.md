@@ -1,7 +1,8 @@
 ---
-title: "SCAN Toolbox"
-excerpt: "<img src='/images/scan_web.png'>"
+title: "GCPBayes Pipeline"
+excerpt: "<img src='/images/GCPBayes_Pipeline1.png'>"
 collection: portfolio
 ---
 
-SCAN is a MATLAB/Octave Toolbox which uses SBML files in COBRA structure format as input and builds different Metabolite-centric and Enzyme-centric Networks which are needed for pre- and post-process of structural analysis software such as Cytoscape. ["SCAN Toolbox"](https://yazdan59.github.io/scan/index.htm)
+GCPBayes Pipeline is a user-friendly pipeline to perform cross-phenotype gene-set analysis between two traits using GCPBayes, a method developed by our team. All analyses could be performed automatically by calling for different scripts in a simple way (using a Shiny app, Bash or R script). A Shiny application was also developed to create different plots to visualize outputs from GCPBayes.
+. ["GCPBayes Pipeline"](https://github.com/CESP-ExpHer/GCPBayes-Pipeline)
