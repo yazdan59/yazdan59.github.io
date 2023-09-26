@@ -15,11 +15,11 @@ Work experience
   * Équipe Exposome et Hérédité, CESP, Gustave Roussy, Villejuif, France
   * Supervisor: Dr. T. Truong
 
-* Jan 2016 - Mar 2021: Assistant Professor
+* Jan 2017 - Jan 2021: Assistant Professor
   * Department of Medical Biotechnology
   * School of Advanced Technologies in Medicine, Tehran University of Medical Sciences, Tehran, Iran
 
-* Aug 2014 - Dec 2015: Postdoctoral Fellowship
+* Aug 2015 - Dec 2016: Postdoctoral Fellowship
   * Institute for Research in Fundamental Sciences-IPM, Tehran, Iran
   * Supervisor: Dr. M. Sadeghi
 
@@ -33,21 +33,3 @@ Education
 * Ph.D in Bioinformatics, University of Tehran, Tehran, Iran, 2014 (Thesis Title: Modeling Cancer as a Metabolic Disease)
 * M.S. in Physical Chemistry, Khaje Nasir Toosi University of Technology, Tehran, Iran, 2004
 * B.S. in Applied Chemistry, University of Kashan, Kashan, Iran, 2002
-
-Selected Publications
-======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-
-Selected Talks
-======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-
-Teaching
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
