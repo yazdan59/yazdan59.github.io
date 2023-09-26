@@ -7,6 +7,9 @@ redirect_from:
   - /resume
 ---
 
+
+["Download the latest version of CV"](/files/cv.pdf)
+
 {% include base_path %}
 
 Work experience
