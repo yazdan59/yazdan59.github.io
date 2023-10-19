@@ -15,7 +15,7 @@ redirect_from:
 Work experience
 ======
 * Oct 2023 - Now: Ingénieur de recherche
-  * Équipe Exposome et Hérédité, CESP, Gustave Roussy, Villejuif, France
+  * Équipe Exposome et Hérédité, CESP, Villejuif, France
 
 * Apr 2021 - Sep 2023: Postdoctoral Fellowship
   * Équipe Exposome et Hérédité, CESP, Gustave Roussy, Villejuif, France
