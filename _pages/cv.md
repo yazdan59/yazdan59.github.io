@@ -14,7 +14,10 @@ redirect_from:
 
 Work experience
 ======
-* Apr 2021 - Now: Postdoctoral Fellowship
+* Oct 2023 - Now: Ingénieur de recherche
+  * Équipe Exposome et Hérédité, CESP, Gustave Roussy, Villejuif, France
+
+* Apr 2021 - Sep 2023: Postdoctoral Fellowship
   * Équipe Exposome et Hérédité, CESP, Gustave Roussy, Villejuif, France
   * Supervisor: Dr. T. Truong
 
