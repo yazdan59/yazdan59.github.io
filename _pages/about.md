@@ -15,4 +15,3 @@ I had to go through a long journey to become a bioinformatician, as I had always
 Currently, I am working on the application of GWAS summary statistic data to identify common genetic risk factors between different types of cancers.
 <br><br>
 You can follow our group's latest studies on our GitHub page: [CESP GitHub pages](https://github.com/CESP-ExpHer).
-Yes
