@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 
-["Download the latest version of CV"](/files/cv.pdf)
+["Download the latest version of CV"](/files/yazdan_asgari_cv_2026_en.pdf)
 
 {% include base_path %}
 
