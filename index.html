@@ -285,14 +285,32 @@
       "title": "Bioinformatics — Graduate Course",
       "institution": "School of Advanced Technologies in Medicine, TUMS",
       "location": "Tehran, Iran",
-      "desc": "Graduate-level course covering sequence analysis, structural bioinformatics, and systems biology methods."
+      "url":   "https://github.com/yazdan59/bioinf",
+      "desc": "Primary bioinformatics analysis methods used for study of biological data (mostly in Sequence Analysis part)"
     },
     {
       "year":  "2017–2021",
       "title": "Systems Biology — Graduate Course",
       "institution": "School of Advanced Technologies in Medicine, TUMS",
       "location": "Tehran, Iran",
-      "desc": "Introduction to genome-scale metabolic modeling, network analysis, and constraint-based methods."
+      "url":   "https://github.com/yazdan59/Systems_Biology",
+      "desc": "During this course, we are going to be familiar with some basics concepts and methods used in the Systems Biology approach"
+    },
+    {
+      "year":  "2017–2021",
+      "title": "Protein Engineering — Graduate Course",
+      "institution": "School of Advanced Technologies in Medicine, TUMS",
+      "location": "Tehran, Iran",
+      "url":   "https://github.com/yazdan59/Protein_Engineering",
+      "desc": "Understanding basic concepts related to proteins, structure and function, as well as their modelisation"
+    },
+    {
+      "year":  "2017–2021",
+      "title": "Research Method — Graduate Course",
+      "institution": "School of Advanced Technologies in Medicine, TUMS",
+      "location": "Tehran, Iran",
+      "url":   "https://github.com/yazdan59/res",
+      "desc": "This course tries to deal with different strategies used to implement a plan to answer your research question. One of the most important aspects of research is the statistics associated with results or conclusion part. So, a graduate student needs to be familiar with basics concepts in statistics. Therefore, during this course, I teach students how to perform statistical tests using R Software."
     }
   ],
 
@@ -759,7 +777,7 @@ function buildPublications() {
     ...allTags.map(t => `<button class="fbtn" onclick="filterPubs('${t}',this)">${tagLabels[t]||t}</button>`)
   ].join('');
 
-  const pubsHtml = [...D.publications].reverse().map(p => {
+  const pubsHtml = D.publications.map(p => {
     const doiLink = p.doi ? `<a class="pdoi" href="${p.doi}" target="_blank">DOI →</a>` : '';
     return `<div class="pub-item" data-tags="${p.tags.join(' ')}">
       <div class="pnum">#${String(p.num).padStart(2,'0')}</div>
@@ -869,7 +887,11 @@ function buildTeaching() {
     <div class="entry-card">
       <div class="entry-year">${t.year}</div>
       <div>
-        <div class="entry-title">${t.title}</div>
+        <div class="entry-title">
+          ${t.url
+            ? `<a href="${t.url}" target="_blank" style="color:var(--bright);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color .2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">${t.title} <span style="font-size:.75rem;color:var(--accent);font-family:'JetBrains Mono',monospace;">↗</span></a>`
+            : t.title}
+        </div>
         <div class="entry-sub">${t.institution}</div>
         <div class="entry-loc">${t.location}</div>
         ${t.desc ? `<div class="entry-desc">${t.desc}</div>` : ''}
