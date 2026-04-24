@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GCPBayes Pipeline — CESP-ExpHer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #0a0e17;
+  --bg2:       #0f1623;
+  --bg3:       #141d2e;
+  --card:      #111926;
+  --border:    rgba(100,160,255,0.12);
+  --accent:    #4f9dff;
+  --accent2:   #7ec8a4;
+  --accent3:   #f0a070;
+  --accent4:   #c97bff;
+  --text:      #d8e4f5;
+  --muted:     #6b82a8;
+  --bright:    #f0f6ff;
+  --glow:      rgba(79,157,255,0.18);
+  --glow2:     rgba(126,200,164,0.14);
+  --serif:     'DM Serif Display', Georgia, serif;
+  --mono:      'DM Mono', 'Fira Mono', monospace;
+  --sans:      'Outfit', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NOISE TEXTURE OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* ── GRID PATTERN ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(79,157,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,157,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(10,14,23,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 58px;
+}
+
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo span { color: var(--muted); }
+
+.nav-links {
+  display: flex;
+  gap: 0.2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--bright);
+  background: var(--glow);
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 2rem 4rem;
+  overflow: hidden;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+.orb1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(79,157,255,0.12) 0%, transparent 70%);
+  top: -100px; left: -200px;
+  animation: drift 12s ease-in-out infinite alternate;
+}
+.orb2 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(126,200,164,0.09) 0%, transparent 70%);
+  bottom: -50px; right: -150px;
+  animation: drift 15s ease-in-out infinite alternate-reverse;
+}
+.orb3 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(201,123,255,0.08) 0%, transparent 70%);
+  top: 40%; left: 60%;
+  animation: drift 9s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(40px, 30px) scale(1.08); }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(79,157,255,0.1);
+  border: 1px solid rgba(79,157,255,0.25);
+  border-radius: 100px;
+  padding: 0.35rem 1rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero-badge .dot {
+  width: 6px; height: 6px;
+  background: var(--accent2);
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--bright);
+  margin-bottom: 0.3rem;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-sub {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.hero-desc {
+  max-width: 620px;
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 3rem;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+
+.hero-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeUp 0.8s 0.4s ease both;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 10px;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: all 0.25s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #0a0e17;
+}
+.btn-primary:hover { background: #79b8ff; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(79,157,255,0.35); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent2);
+  border: 1px solid rgba(126,200,164,0.35);
+}
+.btn-secondary:hover { background: rgba(126,200,164,0.1); transform: translateY(-2px); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover { color: var(--bright); border-color: rgba(100,160,255,0.3); transform: translateY(-2px); }
+
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+  animation: fadeUp 0.8s 0.5s ease both;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stat {
+  text-align: center;
+}
+.stat-num {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  color: var(--bright);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.stat-num span { color: var(--accent); }
+.stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── SECTIONS ── */
+section {
+  position: relative;
+  z-index: 1;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--bright);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.section-desc {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 560px;
+  margin-bottom: 3rem;
+}
+
+/* ── PIPELINE FLOW ── */
+.pipeline-container {
+  position: relative;
+}
+
+.pipeline-track {
+  position: absolute;
+  left: 42px;
+  top: 20px;
+  bottom: 20px;
+  width: 2px;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    var(--accent) 8%,
+    var(--accent) 92%,
+    transparent 100%);
+  opacity: 0.3;
+}
+
+.pipeline-step {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.pipeline-step.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.step-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 1.2rem;
+}
+
+.step-num {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 2px solid;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+}
+
+.step-num.c0 { border-color: var(--muted); color: var(--muted); }
+.step-num.c1 { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 16px rgba(79,157,255,0.3); }
+.step-num.c2 { border-color: var(--accent4); color: var(--accent4); box-shadow: 0 0 16px rgba(201,123,255,0.3); }
+.step-num.c3 { border-color: var(--accent3); color: var(--accent3); box-shadow: 0 0 16px rgba(240,160,112,0.3); }
+.step-num.c4 { border-color: #60c0e0; color: #60c0e0; box-shadow: 0 0 16px rgba(96,192,224,0.3); }
+.step-num.c5 { border-color: var(--accent2); color: var(--accent2); box-shadow: 0 0 16px rgba(126,200,164,0.3); }
+.step-num.c6 { border-color: #e0a0c0; color: #e0a0c0; box-shadow: 0 0 16px rgba(224,160,192,0.3); }
+
+.step-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem 1.8rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.step-card:hover {
+  border-color: rgba(79,157,255,0.25);
+  box-shadow: 0 4px 40px rgba(79,157,255,0.08);
+}
+
+.step-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.step-title {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--bright);
+}
+
+.step-runtime {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.step-script {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-bottom: 0.7rem;
+}
+
+.step-desc {
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.step-io {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.io-block {
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem;
+}
+
+.io-in {
+  background: rgba(126,200,164,0.06);
+  border: 1px solid rgba(126,200,164,0.15);
+}
+
+.io-out {
+  background: rgba(240,160,112,0.06);
+  border: 1px solid rgba(240,160,112,0.15);
+}
+
+.io-label {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.4rem;
+}
+
+.io-in .io-label { color: var(--accent2); }
+.io-out .io-label { color: var(--accent3); }
+
+.io-files {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+/* ── PARAMS TABLE ── */
+.params-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+
+.param-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: border-color 0.2s;
+}
+.param-card:hover { border-color: rgba(79,157,255,0.2); }
+
+.param-val {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--accent);
+  min-width: 60px;
+  text-align: right;
+}
+
+.param-info { flex: 1; }
+.param-name {
+  font-size: 0.82rem;
+  color: var(--bright);
+  font-weight: 500;
+  margin-bottom: 0.15rem;
+}
+.param-ctx {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+/* ── SHINY APP ── */
+.shiny-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.shiny-tab {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem;
+  transition: all 0.25s;
+  cursor: default;
+}
+
+.shiny-tab:hover {
+  border-color: rgba(201,123,255,0.3);
+  box-shadow: 0 4px 24px rgba(201,123,255,0.08);
+  transform: translateY(-3px);
+}
+
+.tab-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.tab-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--bright);
+  margin-bottom: 0.35rem;
+}
+
+.tab-desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* ── OUTPUT COLUMNS ── */
+.output-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.output-table th {
+  background: rgba(79,157,255,0.12);
+  padding: 0.9rem 1.1rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  text-align: left;
+  font-weight: 500;
+}
+
+.output-table td {
+  padding: 0.75rem 1.1rem;
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+  color: var(--text);
+}
+
+.output-table td:first-child {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--accent2);
+}
+
+.output-table tr:hover td {
+  background: rgba(255,255,255,0.02);
+}
+
+/* ── INFO BOX ── */
+.info-box {
+  background: var(--card);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  color: var(--text);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.info-box.warn { border-left-color: var(--accent3); }
+.info-box.success { border-left-color: var(--accent2); }
+.info-box.purple { border-left-color: var(--accent4); }
+
+.info-box strong { color: var(--bright); }
+
+/* ── TWO PIPELINES ── */
+.pipeline-modes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.mode-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.mode-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.mode-card.primary::before { background: linear-gradient(90deg, var(--accent), var(--accent4)); }
+.mode-card.secondary::before { background: linear-gradient(90deg, var(--accent2), #60c0e0); }
+
+.mode-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+  margin-bottom: 1rem;
+}
+
+.mode-card.primary .mode-badge { background: rgba(79,157,255,0.12); color: var(--accent); border: 1px solid rgba(79,157,255,0.25); }
+.mode-card.secondary .mode-badge { background: rgba(126,200,164,0.12); color: var(--accent2); border: 1px solid rgba(126,200,164,0.25); }
+
+.mode-title { font-weight: 600; font-size: 1.05rem; color: var(--bright); margin-bottom: 0.6rem; }
+.mode-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; }
+
+.mode-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.mode-step-tag {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* ── EXAMPLE OUTPUT ── */
+.gene-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.gene-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem;
+  transition: all 0.25s;
+}
+
+.gene-card:hover {
+  border-color: rgba(79,157,255,0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(79,157,255,0.1);
+}
+
+.gene-name {
+  font-family: var(--mono);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.gene-theta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.theta-bar-bg {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.theta-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  border-radius: 2px;
+}
+
+.theta-val {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--accent2);
+}
+
+.gene-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.gene-meta span { color: var(--text); }
+
+/* ── RESOURCES ── */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.resource-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.3rem;
+  text-decoration: none;
+  transition: all 0.25s;
+}
+
+.resource-card:hover {
+  border-color: rgba(79,157,255,0.3);
+  box-shadow: 0 4px 24px rgba(79,157,255,0.1);
+  transform: translateY(-3px);
+}
+
+.resource-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.resource-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--bright);
+  margin-bottom: 0.25rem;
+}
+
+.resource-url {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--accent);
+  word-break: break-all;
+}
+
+.resource-desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 0.2rem;
+  line-height: 1.5;
+}
+
+/* ── DIVIDER ── */
+.hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* ── FOOTER ── */
+footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--muted);
+  font-size: 0.83rem;
+}
+
+footer a { color: var(--accent); text-decoration: none; }
+footer a:hover { color: var(--bright); }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(79,157,255,0.25); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(79,157,255,0.4); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .pipeline-modes, .step-io { grid-template-columns: 1fr; }
+  .pipeline-step { grid-template-columns: 58px 1fr; gap: 1rem; }
+  .nav-links { display: none; }
+  .hero-stats { gap: 1.5rem; }
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── CODE INLINE ── */
+code {
+  font-family: var(--mono);
+  font-size: 0.82em;
+  background: rgba(79,157,255,0.08);
+  border: 1px solid rgba(79,157,255,0.15);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  color: var(--accent);
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <circle cx="8" cy="8" r="3" fill="#4f9dff"/>
+      <circle cx="8" cy="8" r="7" stroke="#4f9dff" stroke-width="1" stroke-dasharray="2 2"/>
+    </svg>
+    GCPBayes <span>// Pipeline</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#pipeline">Pipeline</a></li>
+    <li><a href="#parameters">Parameters</a></li>
+    <li><a href="#outputs">Outputs</a></li>
+    <li><a href="#shiny">Shiny App</a></li>
+    <li><a href="#genes">Results</a></li>
+    <li><a href="#resources">Resources</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-orb orb3"></div>
+
+  <div class="hero-badge">
+    <div class="dot"></div>
+    CESP-ExpHer · INSERM U1018 · Paris-Saclay
+  </div>
+
+  <h1><em>GCPBayes</em><br>Pipeline</h1>
+  <p class="hero-sub">Gene-level Co-localization Pleiotropy</p>
+
+  <p class="hero-desc">
+    A complete bioinformatics workflow for detecting shared genetic architecture between pairs of complex traits from GWAS summary statistics — combining SNP-level pleiotropy screening (PLACO) with gene-level Bayesian inference (GCPBayes).
+  </p>
+
+  <div class="hero-links">
+    <a href="https://github.com/CESP-ExpHer/GCPBayes-Pipeline" target="_blank" class="btn btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.48 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub Repository
+    </a>
+    <a href="https://cespexpher.shinyapps.io/gcpbayesoutput/" target="_blank" class="btn btn-secondary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      Launch Shiny App
+    </a>
+    <a href="https://github.com/tbaghfalaki/GCPBayes" target="_blank" class="btn btn-ghost">
+      GCPBayes Package ↗
+    </a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">7<span>+</span></div>
+      <div class="stat-label">Pipeline Steps</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Workflow Modes</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">8</div>
+      <div class="stat-label">Shiny Visualizations</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">θ<span>&#62;0.5</span></div>
+      <div class="stat-label">Pleiotropy Threshold</div>
+    </div>
+  </div>
+</div>
+
+<hr class="hr">
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="section-label">01 — Overview</div>
+  <h2 class="section-title">What is GCPBayes<br>Pipeline?</h2>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:2.5rem;" class="reveal">
+    <div>
+      <p style="font-size:0.95rem; color:var(--text); line-height:1.8; margin-bottom:1rem;">
+        Pleiotropy — where a single genetic locus influences multiple phenotypes — is central to understanding the shared genetic basis of complex diseases. The GCPBayes Pipeline provides a rigorous, end-to-end approach to detecting such shared loci at the <strong style="color:var(--bright)">gene level</strong> using GWAS summary statistics.
+      </p>
+      <p style="font-size:0.95rem; color:var(--text); line-height:1.8;">
+        Unlike SNP-level approaches, gene-level Bayesian inference aggregates weak signals across all SNPs in a gene, increasing statistical power while retaining biological interpretability. The pipeline was applied to study shared genetic architecture between <strong style="color:var(--accent)">Breast Cancer (BCAC 2020)</strong> and <strong style="color:var(--accent2)">Ovarian Cancer (OCAC)</strong>.
+      </p>
+    </div>
+    <div>
+      <div class="info-box" style="margin:0 0 0.75rem 0;">
+        <strong>PLACO</strong> — PLeiotropic Analysis under COmposite null hypothesis<br>
+        <span style="color:var(--muted); font-size:0.85rem;">SNP-level pre-screening; identifies genome-wide significant pleiotropic variants (p &lt; 5×10⁻⁸)</span>
+      </div>
+      <div class="info-box success" style="margin:0 0 0.75rem 0;">
+        <strong>GCPBayes DS()</strong> — Dirichlet-Spike model<br>
+        <span style="color:var(--muted); font-size:0.85rem;">Gene-level Bayesian MCMC; estimates θ (pleiotropic probability) and PPAs per study</span>
+      </div>
+      <div class="info-box purple" style="margin:0;">
+        <strong>Annotation</strong> — GENCODE v38 lifted to hg19<br>
+        <span style="color:var(--muted); font-size:0.85rem;">Maps SNPs to coding genes; adds gene-level metadata (type, length, SNP density)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pipeline-modes reveal">
+    <div class="mode-card primary">
+      <div class="mode-badge">✦ Recommended</div>
+      <div class="mode-title">With LD Clumping</div>
+      <div class="mode-desc">Pre-processes PLACO output with PLINK LD clumping (r²=0.8) to retain only independent SNPs per gene window. Reduces collinearity and computation time.</div>
+      <div class="mode-steps">
+        <span class="mode-step-tag">Step 0</span>
+        <span class="mode-step-tag">Step 1</span>
+        <span class="mode-step-tag">Step 2</span>
+        <span class="mode-step-tag">Step 3 (LD)</span>
+        <span class="mode-step-tag">Step 4</span>
+        <span class="mode-step-tag">Step 5</span>
+        <span class="mode-step-tag">Step 6</span>
+      </div>
+    </div>
+    <div class="mode-card secondary">
+      <div class="mode-badge">Alternative</div>
+      <div class="mode-title">Without LD Clumping</div>
+      <div class="mode-desc">Retains all annotated SNPs within gene boundaries. No PLINK dependency. May capture more signal at the cost of collinearity and longer runtime.</div>
+      <div class="mode-steps">
+        <span class="mode-step-tag">Step 0</span>
+        <span class="mode-step-tag">Step 1</span>
+        <span class="mode-step-tag">Step 2</span>
+        <span class="mode-step-tag" style="opacity:0.35; text-decoration:line-through">Step 3</span>
+        <span class="mode-step-tag">Step 4 (alt)</span>
+        <span class="mode-step-tag">Step 5</span>
+        <span class="mode-step-tag">Step 6</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="hr">
+
+<!-- PIPELINE STEPS -->
+<section id="pipeline">
+  <div class="section-label">02 — Workflow</div>
+  <h2 class="section-title">Step-by-Step<br>Pipeline</h2>
+  <p class="section-desc">Run scripts in order. Edit the <code>DEFINITION SECTION</code> at the top of each script to set your local file paths.</p>
+
+  <div class="pipeline-container">
+    <div class="pipeline-track"></div>
+
+    <div class="pipeline-step">
+      <div class="step-icon">
+        <div class="step-num c0">0</div>
+      </div>
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-title">GWAS Reformatting</div>
+          <div class="step-runtime">⏱ ~3 min each</div>
+        </div>
+        <div class="step-script">0_code_reformatting_file_bcac_2020_all.py &nbsp;/&nbsp; 0_code_reformatting_file_ocac_bcac_2020_all.py</div>
+        <div class="step-desc">Python scripts that parse raw GWAS summary statistics from BCAC 2020 and OCAC into a standardized tab-separated format. Dataset-specific; must be adapted for other GWAS inputs.</div>
+        <div class="step-io">
+          <div class="io-block io-in">
+            <div class="io-label">▼ Input</div>
+            <div class="io-files">icogs_onco_gwas_meta_overall_...<br>extraction_OCAC.txt</div>
+          </div>
+          <div class="io-block io-out">
+            <div class="io-label">▲ Output</div>
+            <div class="io-files">BCAC_2020_onco_ALL_reformatted.txt<br>OCAC_BCAC_2020_onco_ALL_reformatted.txt</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pipeline-step">
+      <div class="step-icon">
+        <div class="step-num c1">1</div>
+      </div>
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-title">Common SNP Extraction + Z-scores</div>
+          <div class="step-runtime">⏱ ~3 min</div>
+        </div>
+        <div class="step-script">1_code_find_common_snps_one_pair.R</div>
+        <div class="step-desc">Filters both GWAS files (info &gt; 0.8, MAF &gt; 0.01), computes Z = β/SE (sentinel value 1×10⁸ when SE = 0), finds the SNP intersection via inner join on (snp, chr, bp_hg19), removes duplicates, sorts by SNP ID. Output files are direct PLACO input.</div>
+        <div class="step-io">
+          <div class="io-block io-in">
+            <div class="io-label">▼ Input</div>
+            <div class="io-files">BCAC_2020_onco_ALL_reformatted.txt<br>OCAC_BCAC_2020_onco_ALL_reformatted.txt</div>
+          </div>
+          <div class="io-block io-out">
+            <div class="io-label">▲ Output</div>
+            <div class="io-files">BCAC_2020_ALL_Common_OCAC_inc_Z.txt<br>OCAC_Common_BCAC_2020_ALL_inc_Z.txt</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pipeline-step">
+      <div class="step-icon">
+        <div class="step-num c2">2</div>
+      </div>
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-title">Pleiotropy Screening — PLACO</div>
+          <div class="step-runtime">⏱ ~3.5 hours</div>
+        </div>
+        <div class="step-script">2_code_run_PLACO_decor_one_pair.R</div>
+        <div class="step-desc">Builds Z-matrix and P-matrix. Tests Pearson correlation between trait Z-scores; if p &lt; 0.05, decorrelates via R^(−½) transformation. Estimates variance parameters (var.placo), runs placo() for each SNP, applies FDR correction. Significant threshold: <code>p.placo &lt; 5×10⁻⁸</code>. Sign of T.placo distinguishes same-direction (+) from opposite-direction (−) effects.</div>
+        <div class="step-io">
+          <div class="io-block io-in">
+            <div class="io-label">▼ Input</div>
+            <div class="io-files">BCAC_2020_ALL_Common_OCAC_inc_Z.txt<br>OCAC_Common_BCAC_2020_ALL_inc_Z.txt</div>
+          </div>
+          <div class="io-block io-out">
+            <div class="io-label">▲ Output</div>
+            <div class="io-files">output_PLACO_BCAC_2020_ALL_OCAC.txt<br>(T.placo, p.placo, FDR.placo per SNP)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pipeline-step">
+      <div class="step-icon">
+        <div class="step-num c3">3</div>
+      </div>
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-title">LD Clumping via PLINK</div>
+          <div class="step-runtime">⏱ ~7 hours</div>
+        </div>
+        <div class="step-script">3_code_ldclumping_08_local.R &nbsp; (skip for no-clumping workflow)</div>
+        <div class="step-desc">Runs PLINK clumping chromosome by chromosome (chr 1–22). Parameters: <code>clump_kb=10000</code>, <code>clump_r2=0.8</code>, <code>clump_p=0.99</code>. Uses 1000 Genomes EUR reference panel. Requires PLINK binary via <code>genetics.binaRies::get_plink_binary()</code>. At r²=0.8, highly correlated SNPs are removed while haplotype block representatives are retained.</div>
+        <div class="step-io">
+          <div class="io-block io-in">
+            <div class="io-label">▼ Input</div>
+            <div class="io-files">output_PLACO_BCAC_2020_ALL_OCAC.txt<br>1000G EUR reference (bed/bim/fam)</div>
+          </div>
+          <div class="io-block io-out">
+            <div class="io-label">▲ Output</div>
+            <div class="io-files">output_ld_clumping_08_BCAC_2020_ALL_OCAC.txt</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pipeline-step">
+      <div class="step-icon">
+        <div class="step-num c4">4</div>
+      </div>
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-title">GCPBayes Input Preparation (5-Step Pipeline)</div>
+          <div class="step-runtime">⏱ ~6 min</div>
+        </div>
+        <div class="step-script">4_code_pipeline_annot_coding_ldclumping_extra_info.R</div>
+        <div class="step-desc">Internal 5-step pipeline: <strong style="color:var(--bright)">(1)</strong> Re-filter GWAS (info&gt;0.9, MAF&gt;0.05), find common SNPs. <strong style="color:var(--bright)">(2)</strong> Join with SNP-to-gene annotation (ANNOT ≠ "."). <strong style="color:var(--bright)">(3)</strong> Merge both GWAS traits with gene labels. <strong style="color:var(--bright)">(4)</strong> Intersect with LD output to retain independent SNPs. <strong style="color:var(--bright)">(5)</strong> Clean gene labels (split multi-gene SNPs by "|", remove variant annotations), build Betah/Sigmah list structures per gene, build extra_info list with genomic metadata. Sorted by ascending SNP count.</div>
+        <div class="step-io">
+          <div class="io-block io-in">
+            <div class="io-label">▼ Input</div>
+            <div class="io-files">GWAS files (both traits)<br>Annot_BCAC_coding.txt<br>output_ld_clumping_08_...txt<br>annot_gencode_v38lift37_...txt</div>
+          </div>
+          <div class="io-block io-out">
+            <div class="io-label">▲ Output</div>
+            <div class="io-files">Matrices_output_pipeline_...Rdata<br>Matrices_extra_info_...Rdata</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pipeline-step">
+      <div class="step-icon">
+        <div class="step-num c5">5</div>
+      </div>
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-title">GCPBayes Run — Genes ≤ 500 SNPs</div>
+          <div class="step-runtime">⏱ ~1.5 days</div>
+        </div>
+        <div class="step-script">5_code_gcpbayes_less_extra_info.R</div>
+        <div class="step-desc">Runs <code>DS()</code> (Dirichlet-Spike model) for each gene. MCMC: <code>niter=3000</code>, <code>burnin=1000</code>, <code>nthin=2</code>, <code>nchains=1</code>. Priors: κ₀=0.5, σ²₀=1, a₁=a₂=d₁=d₂=0.1. Genes with θ &gt; 0.5 are flagged pleiotropic. Two SNP identification criteria: credible interval (CI) and posterior median thresholding. Errors caught via try(); logged to errors file.</div>
+        <div class="step-io">
+          <div class="io-block io-in">
+            <div class="io-label">▼ Input</div>
+            <div class="io-files">Matrices_output_pipeline_...Rdata<br>Matrices_extra_info_...Rdata</div>
+          </div>
+          <div class="io-block io-out">
+            <div class="io-label">▲ Output</div>
+            <div class="io-files">..._less_threshold_500_results.txt<br>..._less_threshold_500_pleiotropy.txt<br>..._less_threshold_500_errors.txt</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pipeline-step">
+      <div class="step-icon">
+        <div class="step-num c6">6</div>
+      </div>
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-title">GCPBayes Run — Genes &gt; 500 SNPs</div>
+          <div class="step-runtime">⏱ up to ~1 week</div>
+        </div>
+        <div class="step-script">6_code_gcpbayes_greater_extra_info.R</div>
+        <div class="step-desc">Identical to Step 5 but processes the computationally intensive genes with &gt; 500 SNPs. Separated to allow independent HPC job submission or parallel execution. Same GCPBayes DS() parameters apply. Steps 5 and 6 can run concurrently.</div>
+        <div class="step-io">
+          <div class="io-block io-in">
+            <div class="io-label">▼ Input</div>
+            <div class="io-files">Matrices_output_pipeline_...Rdata<br>Matrices_extra_info_...Rdata</div>
+          </div>
+          <div class="io-block io-out">
+            <div class="io-label">▲ Output</div>
+            <div class="io-files">..._greater_threshold_500_results.txt<br>..._greater_threshold_500_pleiotropy.txt<br>..._greater_threshold_500_errors.txt</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box warn reveal" style="margin-top:2rem;">
+    <strong>Analysis scripts (post-run):</strong><br>
+    <code>code_analysis_PLACO_results_one_pair.R</code> — Manhattan plot (ggplot2), Pearson/Spearman Z-score correlation, significant SNP export.<br>
+    <code>code_analysis_gcpbayes_input_ggplot.R</code> — SNP distribution histogram and bar chart from the Rdata input file.
+  </div>
+</section>
+
+<hr class="hr">
+
+<!-- PARAMETERS -->
+<section id="parameters">
+  <div class="section-label">03 — Configuration</div>
+  <h2 class="section-title">Key Parameters</h2>
+  <p class="section-desc">Critical values defined in each script's <code>DEFINITION SECTION</code>. Adjust to your study design.</p>
+
+  <div class="params-grid reveal">
+    <div class="param-card">
+      <div class="param-val">0.8</div>
+      <div class="param-info">
+        <div class="param-name">info threshold (Step 1)</div>
+        <div class="param-ctx">Imputation quality filter for PLACO input</div>
+      </div>
+    </div>
+    <div class="param-card">
+      <div class="param-val">0.01</div>
+      <div class="param-info">
+        <div class="param-name">MAF threshold (Step 1)</div>
+        <div class="param-ctx">Minor allele frequency filter for PLACO input</div>
+      </div>
+    </div>
+    <div class="param-card">
+      <div class="param-val">1e⁻⁴</div>
+      <div class="param-info">
+        <div class="param-name">PLACO decorrelation p-threshold</div>
+        <div class="param-ctx">Null-SNP selection for R matrix estimation</div>
+      </div>
+    </div>
+    <div class="param-card">
+      <div class="param-val">5e⁻⁸</div>
+      <div class="param-info">
+        <div class="param-name">PLACO significance</div>
+        <div class="param-ctx">Genome-wide pleiotropic SNP threshold</div>
+      </div>
+    </div>
+    <div class="param-card">
+      <div class="param-val">0.9</div>
+      <div class="param-info">
+        <div class="param-name">info threshold (Step 4)</div>
+        <div class="param-ctx">Stricter filter for GCPBayes pipeline input</div>
+      </div>
+    </div>
+    <div class="param-card">
+      <div class="param-val">0.05</div>
+      <div class="param-info">
+        <div class="param-name">MAF threshold (Step 4)</div>
+        <div class="param-ctx">Stricter filter for GCPBayes pipeline input</div>
+      </div>
+    </div>
+    <div class="param-card">
+      <div class="param-val">0.8</div>
+      <div class="param-info">
+        <div class="param-name">LD clumping r²</div>
+        <div class="param-ctx">PLINK r² threshold for independence</div>
+      </div>
+    </div>
+    <div class="param-card">
+      <div class="param-val">10⁴</div>
+      <div class="param-info">
+        <div class="param-name">LD clumping window (kb)</div>
+        <div class="param-ctx">Genomic window for PLINK clumping</div>
+      </div>
+    </div>
+    <div class="param-card">
+      <div class="param-val">3000</div>
+      <div class="param-info">
+        <div class="param-name">GCPBayes niter</div>
+        <div class="param-ctx">Total MCMC iterations</div>
+      </div>
+    </div>
+    <div class="param-card">
+      <div class="param-val">1000</div>
+      <div class="param-info">
+        <div class="param-name">GCPBayes burnin</div>
+        <div class="param-ctx">Discarded warm-up iterations</div>
+      </div>
+    </div>
+    <div class="param-card">
+      <div class="param-val">0.5</div>
+      <div class="param-info">
+        <div class="param-name">Theta threshold</div>
+        <div class="param-ctx">Minimum θ for pleiotropy classification</div>
+      </div>
+    </div>
+    <div class="param-card">
+      <div class="param-val">500</div>
+      <div class="param-info">
+        <div class="param-name">SNP split threshold</div>
+        <div class="param-ctx">Divides genes between scripts 5 and 6</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="hr">
+
+<!-- OUTPUTS -->
+<section id="outputs">
+  <div class="section-label">04 — Outputs</div>
+  <h2 class="section-title">Output File<br>Schema</h2>
+  <p class="section-desc">GCPBayes produces three file types per run. The pleiotropy file is the primary result of interest.</p>
+
+  <div class="reveal" style="margin-bottom:2rem;">
+    <p style="font-family:var(--mono); font-size:0.75rem; color:var(--accent4); margin-bottom:0.75rem; text-transform:uppercase; letter-spacing:0.1em;">▸ Pleiotropy Output File (candidate pleiotropic genes — θ &gt; 0.5)</p>
+    <table class="output-table">
+      <thead>
+        <tr>
+          <th>Column</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>GeneName</td><td>HGNC gene symbol</td></tr>
+        <tr><td>#SNPs / Theta</td><td>Number of SNPs in gene after pipeline filtering; posterior pleiotropic probability (0–1)</td></tr>
+        <tr><td>Pleiotropic_Effect_based_on_CI</td><td>Yes/No — pleiotropic SNPs identified via credible interval criterion</td></tr>
+        <tr><td>Pleiotropic_Effect_based_on_Median</td><td>Yes/No — pleiotropic SNPs identified via posterior median thresholding</td></tr>
+        <tr><td>chr / start / end</td><td>Genomic coordinates in hg19</td></tr>
+        <tr><td>gene_type</td><td>GENCODE biotype (e.g., protein_coding)</td></tr>
+        <tr><td>gene_length</td><td>Gene span in base pairs (end − start)</td></tr>
+        <tr><td>snp_number_gene_length_ratio</td><td>SNP density (SNPs per bp)</td></tr>
+        <tr><td>SNP_ID</td><td>Identifiers of pleiotropic SNPs (space-separated)</td></tr>
+        <tr><td>Study1 / Study2 / Total</td><td>Per-SNP significance indicators per trait and combined</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="reveal" style="margin-bottom:2rem;">
+    <p style="font-family:var(--mono); font-size:0.75rem; color:var(--accent); margin-bottom:0.75rem; text-transform:uppercase; letter-spacing:0.1em;">▸ Full Results File (all tested genes)</p>
+    <table class="output-table">
+      <thead><tr><th>Column</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>gene_index / gene</td><td>Internal gene index; HGNC gene name</td></tr>
+        <tr><td>log10BF</td><td>log₁₀ Bayes Factor — evidence for pleiotropy vs. null</td></tr>
+        <tr><td>lBFDR</td><td>Local Bayesian FDR — lower = more confident</td></tr>
+        <tr><td>theta</td><td>Posterior probability of pleiotropic effect (threshold: 0.5)</td></tr>
+        <tr><td>PPA1 / PPA2</td><td>Posterior Probability of Association per study (Trait 1 / Trait 2)</td></tr>
+        <tr><td>SNP_numbers / run_time</td><td>SNPs analyzed; computation time in seconds</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-box reveal">
+    <strong>Interpretation:</strong> High θ (near 1) + high log10BF + low lBFDR = strong pleiotropic evidence. The two SNP-level criteria (CI vs. median) may differ slightly; their intersection is the most conservative and robust set.
+  </div>
+</section>
+
+<hr class="hr">
+
+<!-- SHINY -->
+<section id="shiny">
+  <div class="section-label">05 — Visualization</div>
+  <h2 class="section-title">Shiny App</h2>
+  <p class="section-desc">An interactive R Shiny application for visualizing GCPBayes pleiotropy output. Upload your results file and explore candidate genes instantly.</p>
+
+  <div class="info-box success reveal" style="margin-bottom:2rem;">
+    <strong>Live app:</strong> <a href="https://cespexpher.shinyapps.io/gcpbayesoutput/" target="_blank" style="color:var(--accent2);">https://cespexpher.shinyapps.io/gcpbayesoutput/</a><br>
+    <span style="font-size:0.85rem; color:var(--muted);">Two versions: with karyotype (requires biomaRt/karyoploteR, slower) and without karyotype (faster, lighter dependencies). Input: CSV or tab-separated GCPBayes pleiotropy output file, max 30 MB.</span>
+  </div>
+
+  <div class="shiny-tabs reveal">
+    <div class="shiny-tab">
+      <span class="tab-icon">📂</span>
+      <div class="tab-name">Upload File</div>
+      <div class="tab-desc">File upload with configurable separator, quote character, and header detection. Preview data table.</div>
+    </div>
+    <div class="shiny-tab">
+      <span class="tab-icon">⬤</span>
+      <div class="tab-name">Scatter Plots</div>
+      <div class="tab-desc">Dynamic X/Y axis selection from numeric columns. Download as PDF.</div>
+    </div>
+    <div class="shiny-tab">
+      <span class="tab-icon">📊</span>
+      <div class="tab-name">Theta Histogram</div>
+      <div class="tab-desc">Dual histograms: zoomed (θ 0.5–1, binwidth=0.02) and full range (binwidth=0.05). Count labels on bars.</div>
+    </div>
+    <div class="shiny-tab">
+      <span class="tab-icon">🔵</span>
+      <div class="tab-name">Circos Plot</div>
+      <div class="tab-desc">BioCircos genomic circular plot: inner ring = gene length, outer ring = SNP count, color-coded per chromosome.</div>
+    </div>
+    <div class="shiny-tab">
+      <span class="tab-icon">🥧</span>
+      <div class="tab-name">Pie Chart</div>
+      <div class="tab-desc">Interactive Plotly pie showing distribution of candidate pleiotropic genes per chromosome.</div>
+    </div>
+    <div class="shiny-tab">
+      <span class="tab-icon">📦</span>
+      <div class="tab-name">Box Plot</div>
+      <div class="tab-desc">Three-panel gene length distribution: boxplot, jittered boxplot, log₁₀-scale violin plot.</div>
+    </div>
+    <div class="shiny-tab">
+      <span class="tab-icon">🧬</span>
+      <div class="tab-name">Karyotype (chr)</div>
+      <div class="tab-desc">Per-chromosome view with gene markers labeled via biomaRt. Select chromosome from dropdown. (With-karyotype version only.)</div>
+    </div>
+    <div class="shiny-tab">
+      <span class="tab-icon">🗺️</span>
+      <div class="tab-name">Karyotype (All)</div>
+      <div class="tab-desc">Full genome karyotype (chr1–22) with all candidate pleiotropic genes labeled. Download as PDF.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="hr">
+
+<!-- EXAMPLE RESULTS -->
+<section id="genes">
+  <div class="section-label">06 — Example Results</div>
+  <h2 class="section-title">Candidate Pleiotropic<br>Genes (BCAC × OCAC)</h2>
+  <p class="section-desc">Selected genes from the example pleiotropy output — all showing θ ≈ 1 and confirmed by both CI and median criteria.</p>
+
+  <div class="gene-grid reveal">
+    <div class="gene-card">
+      <div class="gene-name">FGFR2</div>
+      <div class="gene-theta">
+        <div class="theta-bar-bg"><div class="theta-bar" style="width:100%"></div></div>
+        <div class="theta-val">θ=1.000</div>
+      </div>
+      <div class="gene-meta">Chr <span>10</span> · <span>159</span> SNPs · <span>120,126</span> bp<br>Known breast cancer susceptibility locus</div>
+    </div>
+    <div class="gene-card">
+      <div class="gene-name">TOX3</div>
+      <div class="gene-theta">
+        <div class="theta-bar-bg"><div class="theta-bar" style="width:100%"></div></div>
+        <div class="theta-val">θ=1.000</div>
+      </div>
+      <div class="gene-meta">Chr <span>16</span> · <span>158</span> SNPs · <span>111,385</span> bp<br>Established breast cancer GWAS locus</div>
+    </div>
+    <div class="gene-card">
+      <div class="gene-name">MAP3K1</div>
+      <div class="gene-theta">
+        <div class="theta-bar-bg"><div class="theta-bar" style="width:100%"></div></div>
+        <div class="theta-val">θ=1.000</div>
+      </div>
+      <div class="gene-meta">Chr <span>5</span> · <span>154</span> SNPs · <span>80,603</span> bp<br>Known breast cancer susceptibility gene</div>
+    </div>
+    <div class="gene-card">
+      <div class="gene-name">ZEB2</div>
+      <div class="gene-theta">
+        <div class="theta-bar-bg"><div class="theta-bar" style="width:99.9999%"></div></div>
+        <div class="theta-val">θ≈1.000</div>
+      </div>
+      <div class="gene-meta">Chr <span>2</span> · <span>154</span> SNPs · <span>156,693</span> bp<br>Transcription factor; EMT regulator</div>
+    </div>
+    <div class="gene-card">
+      <div class="gene-name">STAT1</div>
+      <div class="gene-theta">
+        <div class="theta-bar-bg"><div class="theta-bar" style="width:99.998%"></div></div>
+        <div class="theta-val">θ=0.9999</div>
+      </div>
+      <div class="gene-meta">Chr <span>2</span> · <span>171</span> SNPs · <span>112,500</span> bp<br>Immune signaling; interferon pathway</div>
+    </div>
+    <div class="gene-card">
+      <div class="gene-name">PIK3R1</div>
+      <div class="gene-theta">
+        <div class="theta-bar-bg"><div class="theta-bar" style="width:100%"></div></div>
+        <div class="theta-val">θ=1.000</div>
+      </div>
+      <div class="gene-meta">Chr <span>5</span> · <span>173</span> SNPs · <span>86,065</span> bp<br>PI3K regulatory subunit</div>
+    </div>
+    <div class="gene-card">
+      <div class="gene-name">CRHR1</div>
+      <div class="gene-theta">
+        <div class="theta-bar-bg"><div class="theta-bar" style="width:100%"></div></div>
+        <div class="theta-val">θ=1.000</div>
+      </div>
+      <div class="gene-meta">Chr <span>17</span> · <span>170</span> SNPs · <span>51,548</span> bp<br>Stress hormone receptor</div>
+    </div>
+    <div class="gene-card">
+      <div class="gene-name">NDRG1</div>
+      <div class="gene-theta">
+        <div class="theta-bar-bg"><div class="theta-bar" style="width:99.9999%"></div></div>
+        <div class="theta-val">θ≈1.000</div>
+      </div>
+      <div class="gene-meta">Chr <span>8</span> · <span>151</span> SNPs · <span>64,847</span> bp<br>Tumor suppressor; differentiation</div>
+    </div>
+  </div>
+</section>
+
+<hr class="hr">
+
+<!-- RESOURCES -->
+<section id="resources">
+  <div class="section-label">07 — Resources</div>
+  <h2 class="section-title">Links &<br>References</h2>
+
+  <div class="resources-grid reveal">
+    <a href="https://github.com/CESP-ExpHer/GCPBayes-Pipeline" target="_blank" class="resource-card">
+      <div class="resource-icon">⚙️</div>
+      <div>
+        <div class="resource-title">Pipeline GitHub</div>
+        <div class="resource-url">github.com/CESP-ExpHer/GCPBayes-Pipeline</div>
+        <div class="resource-desc">All R scripts, README files, and example data for the full pipeline</div>
+      </div>
+    </a>
+    <a href="https://cespexpher.shinyapps.io/gcpbayesoutput/" target="_blank" class="resource-card">
+      <div class="resource-icon">📊</div>
+      <div>
+        <div class="resource-title">Shiny App (Live)</div>
+        <div class="resource-url">cespexpher.shinyapps.io/gcpbayesoutput</div>
+        <div class="resource-desc">Interactive visualization of GCPBayes pleiotropy results</div>
+      </div>
+    </a>
+    <a href="https://github.com/tbaghfalaki/GCPBayes" target="_blank" class="resource-card">
+      <div class="resource-icon">📦</div>
+      <div>
+        <div class="resource-title">GCPBayes R Package</div>
+        <div class="resource-url">github.com/tbaghfalaki/GCPBayes</div>
+        <div class="resource-desc">Baghfalaki T. et al. — Core statistical method; DS() and CS() functions</div>
+      </div>
+    </a>
+    <a href="https://github.com/RayDebashree/PLACO" target="_blank" class="resource-card">
+      <div class="resource-icon">🧪</div>
+      <div>
+        <div class="resource-title">PLACO</div>
+        <div class="resource-url">github.com/RayDebashree/PLACO</div>
+        <div class="resource-desc">Ray D. & Boehnke M. (2018) Genet Epidemiol — SNP-level pleiotropy test</div>
+      </div>
+    </a>
+    <a href="https://github.com/CESP-ExpHer" target="_blank" class="resource-card">
+      <div class="resource-icon">🏛️</div>
+      <div>
+        <div class="resource-title">CESP-ExpHer Lab</div>
+        <div class="resource-url">github.com/CESP-ExpHer</div>
+        <div class="resource-desc">Environmental Epidemiology of Cancer — INSERM U1018, Paris-Saclay University</div>
+      </div>
+    </a>
+    <div class="resource-card" style="cursor:default;">
+      <div class="resource-icon">📄</div>
+      <div>
+        <div class="resource-title">Data: BCAC 2020 & OCAC</div>
+        <div class="resource-url">bcac.ccge.medschl.cam.ac.uk</div>
+        <div class="resource-desc">Michailidou et al. (BCAC 2020) & Phelan et al. 2017 Nature Genetics (OCAC)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box reveal" style="margin-top:2rem;">
+    <strong>R dependencies (install if needed):</strong><br>
+    <code>devtools::install_github("tbaghfalaki/GCPBayes")</code><br>
+    <code>devtools::install_github("nyiuab/BhGLM.git")</code><br>
+    <code>source_url("https://github.com/RayDebashree/PLACO/blob/master/PLACO_v0.1.1.R?raw=TRUE")</code><br>
+    <span style="color:var(--muted); font-size:0.85rem;">Also required: vroom, dplyr, tidyr, tidyverse, data.table, ggplot2, patchwork, tictoc, shiny, BioCircos, plotly, ggpubr</span>
+  </div>
+</section>
+
+<footer>
+  <p style="margin-bottom:0.5rem;">
+    <strong style="color:var(--bright)">GCPBayes Pipeline</strong> — developed by Yazdan Asgari
+  </p>
+  <p>
+    CESP-ExpHer Laboratory · INSERM U1018 · Paris-Saclay University ·
+    <a href="https://github.com/CESP-ExpHer/GCPBayes-Pipeline">GitHub</a> ·
+    <a href="https://cespexpher.shinyapps.io/gcpbayesoutput/">Shiny App</a>
+  </p>
+</footer>
+
+<script>
+// ── Scroll reveal for pipeline steps ──
+const steps = document.querySelectorAll('.pipeline-step');
+const reveals = document.querySelectorAll('.reveal');
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => {
+        e.target.classList.add('visible');
+      }, e.target.dataset.delay || 0);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+steps.forEach((el, i) => {
+  el.dataset.delay = i * 80;
+  io.observe(el);
+});
+
+reveals.forEach(el => io.observe(el));
+
+// ── Nav active highlight on scroll ──
+const sections = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav-links a');
+
+const navIo = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(l => l.style.color = '');
+      const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if (active) active.style.color = 'var(--bright)';
+    }
+  });
+}, { threshold: 0.4 });
+
+sections.forEach(s => navIo.observe(s));
+</script>
+</body>
+</html>

@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yazdan Asgari — Bioinformatics Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- ════════════════════════════════════════════════════════════════════
+     ██████████████████████  EDIT YOUR DATA HERE  ██████████████████████
+     ════════════════════════════════════════════════════════════════════
+     Everything below in the <script id="site-data"> block is the ONLY
+     place you need to touch to update your website content.
+     
+     HOW TO ADD / REMOVE ENTRIES:
+       Publications : add a new {...} object to the PUBLICATIONS array
+       Talks        : add a new {...} object to the TALKS array
+       Teaching     : add a new {...} object to the TEACHING array
+       Tools        : add a new {...} object to the TOOLS array
+       CV entries   : add a new {...} object to CV.experience / CV.education
+     
+     FILES you reference (CV PDF, images, etc.) go into your GitHub
+     "files/" folder and you link to them as:  "files/yourfile.pdf"
+     
+     TOOLS that have their own folder (gsmm/, scan/) link to their
+     folder index automatically — just set  url: "gsmm/"  etc.
+     For the GCPBayes modal set  modal: "gcpbayes"  (special handler).
+     ════════════════════════════════════════════════════════════════════ -->
+
+<script id="site-data" type="application/json">
+{
+  "profile": {
+    "name":        "Yazdan Asgari",
+    "degree":      "Ph.D. in Bioinformatics",
+    "role":        "Ingénieur de Recherche",
+    "institution": "CESP, INSERM — Équipe Exposome et Hérédité",
+    "location":    "Villejuif, Île-de-France, France",
+    "photo":       "images/profile.png",
+    "cv_pdf":      "files/yazdan_asgari_cv_2026_en.pdf",
+    "bio":         "I develop <strong>statistical and computational methods</strong> for mining GWAS summary statistics, with a focus on pleiotropy detection and cross-phenotype genetic analysis. My current work investigates <strong>shared genetic architectures</strong> across cancer subtypes using Bayesian meta-analysis frameworks. I strongly believe science should be <strong>open, reproducible, and globally accessible</strong>.",
+    "stats": [
+      { "value": "65",  "label": "Publications"       },
+      { "value": "903", "label": "Citations (Scholar)" },
+      { "value": "3",   "label": "Tools Built"         },
+      { "value": "10+", "label": "Years Active"        }
+    ],
+    "interests": [
+      "GWAS Summary Statistics", "Pleiotropy Detection", "Bayesian Meta-Analysis",
+      "Cancer Genomics", "Genome-Scale Metabolic Models", "Systems Biology",
+      "Cross-Phenotype Genetics", "R Package Development", "Network Analysis",
+      "Statistical Bioinformatics"
+    ],
+    "social": [
+      { "label": "GitHub",        "url": "https://github.com/yazdan59",                                         "icon": "github"  },
+      { "label": "Scholar",       "url": "https://scholar.google.com/citations?user=dzYwzdwAAAAJ&hl=en",       "icon": "scholar" },
+      { "label": "PubMed",        "url": "https://www.ncbi.nlm.nih.gov/pubmed/?term=yazdan+asgari",            "icon": "pubmed"  },
+      { "label": "ORCID",         "url": "http://orcid.org/0000-0001-6993-6956",                               "icon": "orcid"   },
+      { "label": "CESP-ExpHer",   "url": "https://github.com/CESP-ExpHer",                                     "icon": "group"   }
+    ]
+  },
+
+  "publications": [
+    {
+      "num": 17,
+      "title": "Meta-analysis models with group structure for pleiotropy detection at gene and variant level using summary statistics from multiple datasets",
+      "authors": "P.E. Sugier, <b>Y. Asgari</b>, M. Sedki, T. Truong, B. Liquet",
+      "journal": "Biostatistics",
+      "year": 2025,
+      "doi": "https://academic.oup.com/biostatistics/article-abstract/26/1/kxaf037/8324642",
+      "tags": ["gwas", "tools"]
+    },
+    {
+      "num": 16,
+      "title": "Investigation of common genetic risk factors between thyroid traits and breast cancer",
+      "authors": "E.A. Lucotte, <b>Y. Asgari</b>, P.E. Sugier, M. Karimi, C. Domenighetti, F. Lesueur, A. Boland-Augé, E. Ostroumova, F. de Vathaire, M. Zidane, P. Guénel, J.F. Deleuze, M.C. Boutron-Ruault, G. Severi, B. Liquet, T. Truong",
+      "journal": "Human Molecular Genetics",
+      "year": 2024,
+      "doi": "https://academic.oup.com/hmg/article/33/1/38/7280729",
+      "tags": ["gwas"]
+    },
+    {
+      "num": 15,
+      "title": "GCPBayes: An R package for studying Cross-Phenotype Genetic Associations with Group-level Bayesian Meta-Analysis",
+      "authors": "T. Baghfalaki, P.E. Sugier, <b>Y. Asgari</b>, T. Truong, B. Liquet",
+      "journal": "R Journal",
+      "year": 2023,
+      "doi": "https://rjournal.github.io/articles/RJ-2023-028/",
+      "tags": ["gwas", "tools"]
+    },
+    {
+      "num": 14,
+      "title": "GCPBayes pipeline: a tool for exploring pleiotropy at the gene level",
+      "authors": "<b>Y. Asgari</b>, P.E. Sugier, T. Baghfalaki, E. Lucotte, M. Karimi, M. Sedki, A. Ngo, B. Liquet, T. Truong",
+      "journal": "NAR Genomics and Bioinformatics",
+      "year": 2023,
+      "doi": "https://academic.oup.com/nargab/article/5/3/lqad065/7219410",
+      "tags": ["gwas", "tools"]
+    },
+    {
+      "num": 13,
+      "title": "On the possibility of oscillating in the Ebola virus dynamics and investigating the effect of the lifetime of T lymphocytes",
+      "authors": "M. Ghaemi, M. Shojafar, Z. Zabihinpour, <b>Y. Asgari</b>",
+      "journal": "PLoS ONE",
+      "year": 2022,
+      "doi": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0265065",
+      "tags": ["other"]
+    },
+    {
+      "num": 12,
+      "title": "Network analysis reveals essential proteins that regulate sodium-iodide symporter expression in anaplastic thyroid carcinoma",
+      "authors": "H. Rakhsh-Khorshid, H. Samimi, S. Torabi, S.M. Sajjadi-Jazi, H. Samadi, F. Ghafouri, <b>Y. Asgari</b>, V. Haghpanah",
+      "journal": "Scientific Reports",
+      "year": 2020,
+      "doi": "https://www.nature.com/articles/s41598-020-78574-x",
+      "tags": ["metabolic"]
+    },
+    {
+      "num": 11,
+      "title": "Flux variability analysis reveals a tragedy of commons in cancer cells",
+      "authors": "<b>Y. Asgari</b>, P. Khosravi",
+      "journal": "SN Applied Sciences",
+      "year": 2020,
+      "doi": "https://link.springer.com/article/10.1007/s42452-020-03762-3",
+      "tags": ["metabolic"]
+    },
+    {
+      "num": 10,
+      "title": "Evidence for enhancer noncoding RNAs (enhancer-ncRNAs) with gene regulatory functions relevant to neurodevelopmental disorders",
+      "authors": "<b>Y. Asgari</b>, J. Ik-Tsen Heng, N. Lovell, A. Forrest, H. Alinejad-Rokny",
+      "journal": "bioRxiv (preprint)",
+      "year": 2020,
+      "doi": "https://www.biorxiv.org/content/10.1101/2020.05.16.087395v2.abstract",
+      "tags": ["gwas"]
+    },
+    {
+      "num": 9,
+      "title": "iMM1865: A New Reconstruction of Mouse Genome-Scale Metabolic Model",
+      "authors": "S. Khodaee, <b>Y. Asgari</b>, M. Totochi, M.H. Karimi-Jafari",
+      "journal": "Scientific Reports",
+      "year": 2020,
+      "doi": "https://www.nature.com/articles/s41598-020-63235-w",
+      "tags": ["metabolic"]
+    },
+    {
+      "num": 8,
+      "title": "The Significance of Noise in the Evolution of Negative and Positive Cooperativity in Protein Complexes",
+      "authors": "M. Taheri, K. Nouri, <b>Y. Asgari</b>, Z. Zabihinpour, M. Sadeghi",
+      "journal": "MATCH Communications in Mathematical and in Computer Chemistry",
+      "year": 2019,
+      "doi": "https://match.pmf.kg.ac.rs/electronic_versions/Match81/n1/match81n1_177-192.pdf",
+      "tags": ["other"]
+    },
+    {
+      "num": 7,
+      "title": "Exploring candidate biomarkers for lung and prostate cancers using gene expression and flux variability analysis",
+      "authors": "<b>Y. Asgari</b>, P. Khosravi, Z. Zabihinpour, M. Habibi",
+      "journal": "Integrative Biology",
+      "year": 2018,
+      "doi": "https://academic.oup.com/ib/article-abstract/10/2/113/5115777",
+      "tags": ["metabolic", "tools"]
+    },
+    {
+      "num": 6,
+      "title": "SCAN-Toolbox: Structural COBRA Add-oN for Analysing Large Metabolic Networks",
+      "authors": "<b>Y. Asgari</b>, Z. Zabihinpour, A. Masoudi-Nejad",
+      "journal": "Current Bioinformatics",
+      "year": 2018,
+      "doi": "https://www.ingentaconnect.com/content/ben/cbio/2018/00000013/00000001/art00015",
+      "tags": ["metabolic", "tools"]
+    },
+    {
+      "num": 5,
+      "title": "Alterations in cancer cell metabolism: the Warburg effect and metabolic adaptation",
+      "authors": "<b>Y. Asgari</b>, Z. Zabihinpour, A. Salehzadeh-Yazdi, F. Schreiber, A. Masoudi-Nejad",
+      "journal": "Genomics",
+      "year": 2015,
+      "doi": "https://www.sciencedirect.com/science/article/pii/S088875431500049X",
+      "tags": ["metabolic"]
+    },
+    {
+      "num": 4,
+      "title": "Metabolic Cancer Biology: Structural-based analysis of cancer as a metabolic disease, new sights and opportunities for disease treatment",
+      "authors": "A. Masoudi-Nejad, <b>Y. Asgari</b>",
+      "journal": "Seminars in Cancer Biology",
+      "year": 2015,
+      "doi": "https://www.sciencedirect.com/science/article/abs/pii/S1044579X14000236",
+      "tags": ["metabolic"]
+    },
+    {
+      "num": 3,
+      "title": "Controllability in Cancer Metabolic Networks According to Drug Targets as Driver Nodes",
+      "authors": "<b>Y. Asgari</b>, A. Salehzadeh-Yazdi, F. Schreiber, A. Masoudi-Nejad",
+      "journal": "PLoS ONE",
+      "year": 2013,
+      "doi": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0079397",
+      "tags": ["metabolic"]
+    },
+    {
+      "num": 2,
+      "title": "Pattern formation of the FitzHugh-Nagumo model: cellular automata approach",
+      "authors": "<b>Y. Asgari</b>, M. Ghaemi, M.G. Mahjani",
+      "journal": "Iranian Journal of Chemistry and Chemical Engineering",
+      "year": 2011,
+      "doi": "",
+      "tags": ["other"]
+    },
+    {
+      "num": 1,
+      "title": "Obtaining the critical point and shift exponent for the anisotropic two-layer Ising and Potts models: Cellular Automata approach",
+      "authors": "<b>Y. Asgari</b>, M. Ghaemi",
+      "journal": "Physica A: Statistical Mechanics and its Applications",
+      "year": 2008,
+      "doi": "https://www.sciencedirect.com/science/article/abs/pii/S0378437107012265",
+      "tags": ["other"]
+    }
+  ],
+
+  "tools": [
+    {
+      "name":  "GCPBayes Pipeline",
+      "type":  "R Pipeline · Bioinformatics",
+      "emoji": "🧬",
+      "color": "blue",
+      "desc":  "A comprehensive pipeline for exploring cross-phenotype genetic associations at the gene level using GWAS summary statistics. Implements group-level Bayesian meta-analysis to detect pleiotropy between two traits with fine-mapped credible sets.",
+      "tags":  ["GWAS", "Pleiotropy", "Bayesian", "R", "NAR Genomics 2023"],
+      "url":   "gcpbayes",
+      "modal": true,
+      "github": "https://github.com/CESP-ExpHer/GCPBayes_Pipeline"
+    },
+    {
+      "name":  "Genome-scale Metabolic Modeling Resource",
+      "type":  "Database · Systems Biology",
+      "emoji": "🧫",
+      "color": "green",
+      "desc":  "A curated resource of genome-scale metabolic (GSM) models for human cancer cell lines and mouse tissues, including the iMM1865 mouse model reconstructed from Recon3D. Designed for constraint-based flux analysis studies.",
+      "tags":  ["COBRA", "Flux Analysis", "MATLAB", "Cancer Models"],
+      "url":   "gsmm/",
+      "modal": false,
+      "github": ""
+    },
+    {
+      "name":  "SCAN Toolbox",
+      "type":  "MATLAB/Octave · Network Analysis",
+      "emoji": "⚙️",
+      "color": "orange",
+      "desc":  "Structural COBRA Add-oN (SCAN) for constructing and analysing metabolite- and enzyme-centric networks from genome-scale metabolic models. Integrates with Cytoscape for structural analyses. Published in Current Bioinformatics (2018).",
+      "tags":  ["COBRA", "Network Analysis", "MATLAB", "Cytoscape"],
+      "url":   "scan/",
+      "modal": false,
+      "github": ""
+    }
+  ],
+
+  "talks": [
+    {
+      "year":  "2023",
+      "title": "GCPBayes Pipeline: a tool for exploring pleiotropy at the gene level",
+      "venue": "NAR Genomics and Bioinformatics — Publication Talk",
+      "location": "International / Online"
+    },
+    {
+      "year":  "2022",
+      "title": "Cross-phenotype genetic analysis using GWAS summary statistics",
+      "venue": "CESP Internal Seminar, INSERM",
+      "location": "Villejuif, France"
+    },
+    {
+      "year":  "2018",
+      "title": "Genome-scale metabolic modeling in cancer research",
+      "venue": "Department Seminar, Tehran University of Medical Sciences",
+      "location": "Tehran, Iran"
+    },
+    {
+      "year":  "2011",
+      "title": "Computational biology of plant metabolic networks",
+      "venue": "Visiting Researcher Talk, IPK Gatersleben",
+      "location": "Gatersleben, Germany"
+    }
+  ],
+
+  "teaching": [
+    {
+      "year":  "2017–2021",
+      "title": "Bioinformatics — Graduate Course",
+      "institution": "School of Advanced Technologies in Medicine, TUMS",
+      "location": "Tehran, Iran",
+      "desc": "Graduate-level course covering sequence analysis, structural bioinformatics, and systems biology methods."
+    },
+    {
+      "year":  "2017–2021",
+      "title": "Systems Biology — Graduate Course",
+      "institution": "School of Advanced Technologies in Medicine, TUMS",
+      "location": "Tehran, Iran",
+      "desc": "Introduction to genome-scale metabolic modeling, network analysis, and constraint-based methods."
+    }
+  ],
+
+  "cv": {
+    "experience": [
+      {
+        "date":  "Oct 2023 — Present",
+        "role":  "Ingénieur de Recherche",
+        "place": "CESP, INSERM — Équipe Exposome et Hérédité · Villejuif, France",
+        "note":  ""
+      },
+      {
+        "date":  "Apr 2021 — Sep 2023",
+        "role":  "Postdoctoral Researcher",
+        "place": "CESP, Gustave Roussy · Villejuif, France",
+        "note":  "Supervisor: Dr. T. Truong"
+      },
+      {
+        "date":  "Jan 2017 — Jan 2021",
+        "role":  "Assistant Professor",
+        "place": "Department of Medical Biotechnology, School of Advanced Technologies in Medicine, Tehran University of Medical Sciences · Tehran, Iran",
+        "note":  ""
+      },
+      {
+        "date":  "Aug 2015 — Dec 2016",
+        "role":  "Postdoctoral Researcher",
+        "place": "Institute for Research in Fundamental Sciences–IPM · Tehran, Iran",
+        "note":  "Supervisor: Dr. M. Sadeghi"
+      }
+    ],
+    "education": [
+      {
+        "date":  "2014",
+        "role":  "Ph.D. in Bioinformatics",
+        "place": "University of Tehran · Tehran, Iran",
+        "note":  "Thesis: Modeling Cancer as a Metabolic Disease"
+      },
+      {
+        "date":  "2004",
+        "role":  "M.S. in Physical Chemistry",
+        "place": "Khaje Nasir Toosi University of Technology · Tehran, Iran",
+        "note":  ""
+      },
+      {
+        "date":  "2002",
+        "role":  "B.S. in Applied Chemistry",
+        "place": "University of Kashan · Kashan, Iran",
+        "note":  ""
+      }
+    ],
+    "visiting": [
+      {
+        "date":  "2011",
+        "role":  "Visiting Researcher",
+        "place": "IPK Gatersleben · Germany",
+        "note":  "Supervisor: Prof. Falk Schreiber"
+      },
+      {
+        "date":  "2008",
+        "role":  "Visiting Researcher",
+        "place": "University of Lethbridge · Lethbridge-AB, Canada",
+        "note":  "Supervisor: Prof. Marc Roussel"
+      }
+    ],
+    "skills": [
+      { "name": "Statistical Bioinformatics",  "pct": 95 },
+      { "name": "GWAS / Summary Statistics",   "pct": 95 },
+      { "name": "R / Bioconductor",            "pct": 90 },
+      { "name": "Bayesian Modeling",           "pct": 88 },
+      { "name": "Metabolic Modeling (COBRA)",  "pct": 85 },
+      { "name": "Network Analysis",            "pct": 85 },
+      { "name": "MATLAB / Octave",             "pct": 80 },
+      { "name": "Python",                      "pct": 75 }
+    ]
+  }
+}
+</script>
+<!-- ════════════════════════════════════════════════════════════════════
+     ████████████████████  END OF DATA SECTION  ████████████████████████
+     ════════════════════════════════════════════════════════════════════ -->
+
+<style>
+/* ── THEME VARIABLES ── */
+:root { --t: background 0.35s ease, color 0.35s ease, border-color 0.35s ease; }
+
+[data-theme="dark"] {
+  --bg:#080c14; --bg2:#0c1220; --bg3:#101829; --card:#0e1525; --card2:#131d30;
+  --border:rgba(90,150,255,.10); --borderS:rgba(90,150,255,.06);
+  --accent:#5a9eff; --a2:#6ec99a; --a3:#f5a060; --a4:#c47dff;
+  --text:#c8d8f0; --body:#94aac8; --muted:#5a6e8a; --bright:#eaf2ff;
+  --glow:rgba(90,150,255,.14); --tagBg:rgba(90,150,255,.09); --tagBd:rgba(90,150,255,.20);
+  --navBg:rgba(8,12,20,.92); --shadow:0 8px 40px rgba(0,0,0,.55);
+  --cardShadow:0 4px 24px rgba(0,0,0,.4);
+}
+[data-theme="light"] {
+  --bg:#f4f6fb; --bg2:#edf0f8; --bg3:#e6eaf4; --card:#fff; --card2:#f0f4ff;
+  --border:rgba(60,100,200,.12); --borderS:rgba(60,100,200,.07);
+  --accent:#2563eb; --a2:#059669; --a3:#d97706; --a4:#7c3aed;
+  --text:#1e293b; --body:#475569; --muted:#94a3b8; --bright:#0f172a;
+  --glow:rgba(37,99,235,.09); --tagBg:rgba(37,99,235,.07); --tagBd:rgba(37,99,235,.18);
+  --navBg:rgba(244,246,251,.94); --shadow:0 8px 40px rgba(0,0,0,.10);
+  --cardShadow:0 4px 24px rgba(0,0,0,.07);
+}
+
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;
+  font-weight:400;line-height:1.75;overflow-x:hidden;transition:var(--t)}
+a{color:var(--accent);text-decoration:none;transition:opacity .2s}
+a:hover{opacity:.72}
+
+/* ── NAVBAR ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:var(--navBg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);height:60px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;
+  transition:var(--t);
+}
+.nav-brand{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--accent);
+  letter-spacing:.05em;cursor:pointer;display:flex;align-items:center;gap:.5rem}
+.nav-brand .sl{color:var(--muted)}
+.nav-links{display:flex;list-style:none;gap:.1rem;align-items:center}
+.nav-links a{color:var(--body);font-size:.78rem;font-weight:500;letter-spacing:.05em;
+  text-transform:uppercase;padding:.38rem .85rem;border-radius:6px;transition:all .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--bright);background:var(--glow);opacity:1}
+.nav-right{display:flex;align-items:center;gap:.8rem}
+
+/* Theme toggle */
+.toggle-wrap{display:flex;align-items:center;gap:.4rem}
+.ti{font-size:.72rem;color:var(--muted);user-select:none}
+.toggle-btn{width:46px;height:25px;background:var(--bg3);border:1px solid var(--border);
+  border-radius:100px;cursor:pointer;position:relative;display:flex;align-items:center;
+  transition:all .3s}
+.toggle-btn::after{content:'';position:absolute;left:3px;width:17px;height:17px;
+  border-radius:50%;background:var(--accent);transition:transform .3s,background .3s;
+  box-shadow:0 1px 4px rgba(0,0,0,.3)}
+[data-theme="light"] .toggle-btn::after{transform:translateX(21px);background:var(--a3)}
+
+/* ── PAGE SYSTEM ── */
+.page{display:none;min-height:100vh;padding-top:60px}
+.page.active{display:block}
+
+/* ── CONTAINER ── */
+.wrap{max-width:1060px;margin:0 auto;padding:0 2rem}
+
+/* ── SECTION HEADER ── */
+.sec-head{padding:4.5rem 0 2.5rem;border-bottom:1px solid var(--borderS);margin-bottom:2.5rem}
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.15em;margin-bottom:.7rem}
+.sec-title{font-family:'Crimson Pro',Georgia,serif;font-size:clamp(1.9rem,4vw,3rem);
+  font-weight:300;color:var(--bright);line-height:1.1}
+.sec-title em{font-style:italic;color:var(--a2)}
+.sec-desc{font-size:.93rem;color:var(--body);max-width:620px;margin-top:.9rem;line-height:1.8}
+
+/* ── FOOTER ── */
+footer{background:var(--bg2);border-top:1px solid var(--borderS);padding:2rem 0;text-align:center}
+.foot-txt{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--muted);letter-spacing:.04em}
+.foot-txt span{color:var(--accent)}
+
+/* ────────── HOME ────────── */
+.hero{position:relative;display:grid;grid-template-columns:1fr 350px;gap:4rem;
+  align-items:center;padding:5rem 0 4rem;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;
+  animation:orbDrift 14s ease-in-out infinite alternate}
+.o1{width:650px;height:650px;background:radial-gradient(circle,rgba(90,158,255,.09) 0%,transparent 70%);top:-200px;left:-200px}
+.o2{width:480px;height:480px;background:radial-gradient(circle,rgba(110,201,154,.07) 0%,transparent 70%);bottom:-100px;right:-100px;animation-duration:18s}
+.o3{width:280px;height:280px;background:radial-gradient(circle,rgba(196,125,255,.06) 0%,transparent 70%);top:30%;right:18%;animation-duration:10s}
+@keyframes orbDrift{from{transform:translate(0,0) scale(1)}to{transform:translate(30px,22px) scale(1.06)}}
+
+.hero-text{position:relative;z-index:2}
+.badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--tagBg);
+  border:1px solid var(--tagBd);border-radius:100px;padding:.3rem .9rem;
+  font-family:'JetBrains Mono',monospace;font-size:.69rem;color:var(--accent);
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem;animation:fadeUp .7s ease both}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--a2);animation:pulseDot 2s ease infinite}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
+
+.hero-name{font-family:'Crimson Pro',serif;font-size:clamp(3.2rem,6vw,5.4rem);font-weight:300;
+  line-height:1.0;color:var(--bright);letter-spacing:-.01em;margin-bottom:.2rem;
+  animation:fadeUp .7s .1s ease both}
+.hero-name em{font-style:italic;color:var(--accent)}
+.hero-role{font-family:'JetBrains Mono',monospace;font-size:.83rem;color:var(--a2);
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:2rem;animation:fadeUp .7s .2s ease both}
+.hero-bio{font-size:.97rem;color:var(--body);line-height:1.85;max-width:580px;
+  margin-bottom:2.2rem;animation:fadeUp .7s .3s ease both}
+.hero-bio strong{color:var(--text);font-weight:600}
+
+.btn-row{display:flex;flex-wrap:wrap;gap:.65rem;animation:fadeUp .7s .4s ease both;margin-bottom:2.2rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.58rem 1.25rem;border-radius:8px;
+  font-size:.82rem;font-weight:600;letter-spacing:.03em;transition:all .22s;cursor:pointer;border:none}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{filter:brightness(1.14);opacity:1;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn-outline:hover{background:var(--glow);border-color:var(--accent);opacity:1}
+
+.social-row{display:flex;flex-wrap:wrap;gap:.55rem;animation:fadeUp .7s .5s ease both}
+.chip{display:inline-flex;align-items:center;gap:.4rem;background:var(--tagBg);border:1px solid var(--border);
+  border-radius:6px;padding:.3rem .72rem;font-size:.73rem;font-weight:500;color:var(--body);
+  text-decoration:none;transition:all .2s;letter-spacing:.02em}
+.chip:hover{color:var(--bright);border-color:var(--accent);background:var(--glow);opacity:1;transform:translateY(-1px)}
+.chip svg{width:13px;height:13px;flex-shrink:0}
+
+/* Profile card */
+.pcard{position:relative;z-index:2;background:var(--card);border:1px solid var(--border);
+  border-radius:20px;padding:2.2rem 1.8rem;text-align:center;box-shadow:var(--cardShadow);
+  animation:fadeUp .7s .2s ease both}
+.pimg{width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);
+  box-shadow:0 0 28px rgba(90,158,255,.22);margin-bottom:1.1rem}
+.pname{font-family:'Crimson Pro',serif;font-size:1.45rem;font-weight:400;color:var(--bright);margin-bottom:.2rem}
+.prole{font-family:'JetBrains Mono',monospace;font-size:.67rem;color:var(--a2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.15rem}
+.pinst{font-size:.77rem;color:var(--muted);margin-bottom:1.3rem;line-height:1.5}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-top:1rem}
+.stat{background:var(--bg3);border:1px solid var(--borderS);border-radius:10px;padding:.72rem .4rem;text-align:center}
+.stat-n{font-family:'Crimson Pro',serif;font-size:1.7rem;font-weight:600;color:var(--accent);line-height:1}
+.stat-l{font-size:.63rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:.15rem}
+
+/* Interest strip */
+.int-strip{background:var(--bg2);border-top:1px solid var(--borderS);border-bottom:1px solid var(--borderS);padding:2.2rem 0}
+.int-inner{display:flex;flex-wrap:wrap;gap:.65rem;justify-content:center;padding:0 2rem}
+.itag{background:var(--tagBg);border:1px solid var(--tagBd);border-radius:100px;
+  padding:.38rem .95rem;font-size:.79rem;color:var(--body);font-weight:500;white-space:nowrap}
+
+/* ────────── PUBLICATIONS ────────── */
+.pub-filter{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:2rem}
+.fbtn{padding:.36rem .88rem;border-radius:6px;border:1px solid var(--border);background:transparent;
+  color:var(--body);font-size:.74rem;font-weight:500;cursor:pointer;transition:all .2s;
+  font-family:'Manrope',sans-serif;letter-spacing:.02em}
+.fbtn:hover,.fbtn.active{background:var(--glow);border-color:var(--accent);color:var(--bright)}
+
+.pub-list{display:flex;flex-direction:column}
+.pub-item{display:grid;grid-template-columns:3rem 1fr;gap:1.5rem;padding:1.4rem 0;
+  border-bottom:1px solid var(--borderS);transition:all .2s;cursor:default}
+.pub-item:hover{padding-left:.45rem}
+.pub-item:hover .pnum{color:var(--accent)}
+.pnum{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted);
+  padding-top:.22rem;text-align:right;transition:color .2s}
+.ptitle{font-family:'Crimson Pro',serif;font-size:1.08rem;font-weight:400;color:var(--bright);
+  line-height:1.4;margin-bottom:.35rem}
+.pauthors{font-size:.77rem;color:var(--body);margin-bottom:.35rem;line-height:1.5}
+.pmeta{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap}
+.pjournal{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--a2);font-style:italic}
+.pyear{font-family:'JetBrains Mono',monospace;font-size:.67rem;color:var(--muted);
+  background:var(--bg3);border:1px solid var(--borderS);border-radius:4px;padding:.08rem .42rem}
+.pdoi{font-size:.7rem;color:var(--accent);transition:opacity .2s}
+
+/* ────────── TOOLS ────────── */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;padding-bottom:5rem}
+.tool-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;
+  transition:all .25s;position:relative;overflow:hidden;cursor:pointer}
+.tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.tool-card:hover{background:var(--card2);border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--cardShadow)}
+.tool-card:hover::before{transform:scaleX(1)}
+.tool-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-size:1.45rem;margin-bottom:1.1rem;border:1px solid var(--border)}
+.ic-blue{background:rgba(90,158,255,.10)} .ic-green{background:rgba(110,201,154,.10)} .ic-orange{background:rgba(245,160,96,.10)}
+.tool-name{font-family:'Crimson Pro',serif;font-size:1.25rem;font-weight:400;color:var(--bright);margin-bottom:.35rem}
+.tool-type{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.85rem}
+.tool-desc{font-size:.84rem;color:var(--body);line-height:1.7;margin-bottom:1.1rem}
+.tool-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1.1rem}
+.ttag{font-family:'JetBrains Mono',monospace;font-size:.63rem;color:var(--a2);
+  background:rgba(110,201,154,.08);border:1px solid rgba(110,201,154,.15);border-radius:4px;padding:.13rem .48rem}
+.tool-links{display:flex;gap:1rem;align-items:center}
+.tool-action{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:600;color:var(--accent);transition:gap .2s}
+.tool-action:hover{gap:.7rem;opacity:1}
+.tool-gh{font-size:.72rem;color:var(--muted);transition:color .2s}
+.tool-gh:hover{color:var(--accent);opacity:1}
+
+/* ────────── MODAL ────────── */
+.modal-overlay{display:none;position:fixed;inset:0;background:var(--navBg);
+  backdrop-filter:blur(4px);z-index:500;flex-direction:column;animation:fadeIn .2s ease}
+.modal-overlay.open{display:flex}
+.modal-bar{position:sticky;top:0;z-index:600;background:var(--navBg);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);padding:.8rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.modal-label{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--accent);letter-spacing:.08em}
+.modal-close{background:var(--bg3);border:1px solid var(--border);border-radius:8px;
+  color:var(--body);cursor:pointer;padding:.38rem .8rem;font-size:.78rem;font-family:'Manrope',sans-serif;
+  font-weight:500;display:flex;align-items:center;gap:.4rem;transition:all .2s}
+.modal-close:hover{background:var(--glow);color:var(--bright);border-color:var(--accent)}
+#gcpbayes-frame{flex:1;border:none;display:block;width:100%}
+
+/* ────────── CV ────────── */
+.cv-top{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem}
+.cv-grid{display:grid;grid-template-columns:1fr 270px;gap:3rem;padding-bottom:5rem}
+.cv-sec{margin-bottom:2.8rem}
+.cv-sec-title{font-family:'JetBrains Mono',monospace;font-size:.67rem;text-transform:uppercase;
+  letter-spacing:.15em;color:var(--accent);border-bottom:1px solid var(--border);
+  padding-bottom:.55rem;margin-bottom:1.4rem}
+.cv-entry{display:grid;grid-template-columns:145px 1fr;gap:1rem;margin-bottom:1.3rem;
+  padding-bottom:1.3rem;border-bottom:1px solid var(--borderS)}
+.cv-entry:last-child{border-bottom:none}
+.cv-date{font-family:'JetBrains Mono',monospace;font-size:.69rem;color:var(--muted);padding-top:.18rem;line-height:1.6}
+.cv-role{font-weight:600;color:var(--bright);font-size:.9rem;margin-bottom:.13rem}
+.cv-place{font-size:.81rem;color:var(--body);margin-bottom:.08rem}
+.cv-note{font-size:.74rem;color:var(--muted);font-style:italic}
+.skill-item{display:flex;justify-content:space-between;align-items:center;margin-bottom:.65rem;font-size:.81rem}
+.skill-name{color:var(--body)}
+.skill-bar{width:95px;height:4px;background:var(--bg3);border-radius:2px;overflow:hidden}
+.skill-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--a2));border-radius:2px}
+
+/* ────────── TALKS / TEACHING ────────── */
+.card-list{display:flex;flex-direction:column;gap:1.2rem;padding-bottom:5rem}
+.entry-card{background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:1.35rem 1.8rem;display:grid;grid-template-columns:85px 1fr;gap:1.4rem;
+  align-items:start;transition:all .2s}
+.entry-card:hover{border-color:var(--accent);transform:translateX(4px)}
+.entry-year{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--accent);font-weight:500;padding-top:.18rem}
+.entry-title{font-family:'Crimson Pro',serif;font-size:1.07rem;color:var(--bright);margin-bottom:.25rem}
+.entry-sub{font-size:.8rem;color:var(--body);margin-bottom:.15rem}
+.entry-loc{font-size:.74rem;color:var(--muted);font-style:italic}
+.entry-desc{font-size:.8rem;color:var(--body);margin-top:.35rem;line-height:1.6}
+
+/* ────────── CONTACT ────────── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;padding-bottom:5rem}
+.cinfo-list{display:flex;flex-direction:column;gap:1.2rem}
+.citem{background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:1.2rem 1.4rem;display:flex;align-items:flex-start;gap:.9rem;transition:all .2s}
+.citem:hover{border-color:var(--accent);background:var(--card2)}
+.cico{font-size:1.25rem;width:34px;text-align:center;flex-shrink:0;margin-top:.05rem}
+.clabel{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.18rem}
+.cval{font-size:.87rem;color:var(--text);font-weight:500}
+.cval a{color:var(--accent)}
+.plinks{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem}
+.plinks-title{font-family:'JetBrains Mono',monospace;font-size:.67rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.12em;margin-bottom:1.1rem}
+.plink{display:flex;align-items:center;justify-content:space-between;padding:.7rem 0;
+  border-bottom:1px solid var(--borderS);text-decoration:none;transition:all .2s}
+.plink:last-child{border-bottom:none}
+.plink:hover{padding-left:.3rem}
+.plink-name{font-size:.84rem;font-weight:500;color:var(--text);transition:color .2s}
+.plink:hover .plink-name{color:var(--accent)}
+.plink-arr{color:var(--muted);font-size:.78rem}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .pcard{max-width:340px}
+  .cv-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .cv-entry{grid-template-columns:1fr}
+  nav{padding:0 1.2rem}
+  .nav-links{display:none}
+  .wrap{padding:0 1.2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav>
+  <div class="nav-brand" onclick="go('home')"><span class="sl">//</span> yazdan.asgari</div>
+  <ul class="nav-links" id="nav-ul">
+    <li><a href="#" onclick="return go('home')"          id="n-home"         class="active">Home</a></li>
+    <li><a href="#" onclick="return go('publications')"  id="n-publications">Publications</a></li>
+    <li><a href="#" onclick="return go('talks')"         id="n-talks">Talks</a></li>
+    <li><a href="#" onclick="return go('teaching')"      id="n-teaching">Teaching</a></li>
+    <li><a href="#" onclick="return go('tools')"         id="n-tools">Tools</a></li>
+    <li><a href="#" onclick="return go('cv')"            id="n-cv">CV</a></li>
+    <li><a href="#" onclick="return go('contact')"       id="n-contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="toggle-wrap">
+      <span class="ti">🌙</span>
+      <div class="toggle-btn" onclick="toggleTheme()" title="Toggle light/dark"></div>
+      <span class="ti">☀️</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ PAGES ══ -->
+<div id="pg-home"         class="page active"></div>
+<div id="pg-publications" class="page"></div>
+<div id="pg-talks"        class="page"></div>
+<div id="pg-teaching"     class="page"></div>
+<div id="pg-tools"        class="page"></div>
+<div id="pg-cv"           class="page"></div>
+<div id="pg-contact"      class="page"></div>
+
+<!-- ══ GCPBAYES MODAL ══ -->
+<div class="modal-overlay" id="gcpbayes-modal">
+  <div class="modal-bar">
+    <div class="modal-label">// GCPBayes Pipeline — Documentation</div>
+    <button class="modal-close" onclick="closeModal()">✕ Close</button>
+  </div>
+  <iframe id="gcpbayes-frame" src="" title="GCPBayes Pipeline Documentation"></iframe>
+</div>
+
+<script>
+/* ══════════════════════════════════════════
+   LOAD DATA
+══════════════════════════════════════════ */
+const D = JSON.parse(document.getElementById('site-data').textContent);
+
+/* ══════════════════════════════════════════
+   SVG ICONS
+══════════════════════════════════════════ */
+const ICONS = {
+  github:  `<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>`,
+  scholar: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5z"/></svg>`,
+  pubmed:  `<svg viewBox="0 0 24 24" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>`,
+  orcid:   `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.6-1.563 3.6-3.722 0-1.994-1.175-3.722-3.469-3.722h-2.428z"/></svg>`,
+  group:   `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`
+};
+
+/* ══════════════════════════════════════════
+   BUILD HOME
+══════════════════════════════════════════ */
+function buildHome() {
+  const p = D.profile;
+  const socialHtml = p.social.map(s =>
+    `<a class="chip" href="${s.url}" target="_blank">${ICONS[s.icon]||''} ${s.label}</a>`
+  ).join('');
+  const statsHtml = p.stats.map(s =>
+    `<div class="stat"><div class="stat-n">${s.value}</div><div class="stat-l">${s.label}</div></div>`
+  ).join('');
+  const interestHtml = p.interests.map(i => `<span class="itag">${i}</span>`).join('');
+
+  document.getElementById('pg-home').innerHTML = `
+    <div class="wrap">
+      <div class="hero">
+        <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+        <div class="hero-text">
+          <div class="badge"><div class="dot"></div>Researcher in Bioinformatics &amp; Systems Biology</div>
+          <h1 class="hero-name">Yazdan<br><em>Asgari</em></h1>
+          <div class="hero-role">${p.role} · INSERM · ${p.location.split(',').slice(-2).join(',').trim()}</div>
+          <p class="hero-bio">${p.bio}</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="${p.cv_pdf}" target="_blank">↓ Download CV</a>
+            <a class="btn btn-outline" href="${p.social.find(s=>s.label==='Scholar')?.url}" target="_blank">Google Scholar</a>
+            <a class="btn btn-outline" href="https://github.com/CESP-ExpHer" target="_blank">Group GitHub</a>
+          </div>
+          <div class="social-row">${socialHtml}</div>
+        </div>
+        <div class="pcard">
+          <img src="${p.photo}" alt="${p.name}" class="pimg" onerror="this.style.display='none'">
+          <div class="pname">${p.name}</div>
+          <div class="prole">${p.degree}</div>
+          <div class="pinst">${p.institution}<br>${p.location}</div>
+          <div class="stat-grid">${statsHtml}</div>
+        </div>
+      </div>
+    </div>
+    <div class="int-strip"><div class="int-inner">${interestHtml}</div></div>
+    <footer><div class="wrap"><div class="foot-txt">© 2026 <span>${p.name}</span> · ${p.institution}</div></div></footer>
+  `;
+}
+
+/* ══════════════════════════════════════════
+   BUILD PUBLICATIONS
+══════════════════════════════════════════ */
+function buildPublications() {
+  const allTags = [...new Set(D.publications.flatMap(p => p.tags))].filter(t => t !== 'other');
+  const tagLabels = { gwas:'GWAS / Pleiotropy', tools:'Methods & Tools', metabolic:'Metabolic Networks', other:'Other' };
+
+  const filterBtns = [
+    `<button class="fbtn active" onclick="filterPubs('all',this)">All (${D.publications.length})</button>`,
+    ...allTags.map(t => `<button class="fbtn" onclick="filterPubs('${t}',this)">${tagLabels[t]||t}</button>`)
+  ].join('');
+
+  const pubsHtml = [...D.publications].reverse().map(p => {
+    const doiLink = p.doi ? `<a class="pdoi" href="${p.doi}" target="_blank">DOI →</a>` : '';
+    return `<div class="pub-item" data-tags="${p.tags.join(' ')}">
+      <div class="pnum">#${String(p.num).padStart(2,'0')}</div>
+      <div>
+        <div class="ptitle">${p.title}</div>
+        <div class="pauthors">${p.authors}</div>
+        <div class="pmeta">
+          <span class="pjournal">${p.journal}</span>
+          <span class="pyear">${p.year}</span>
+          ${doiLink}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('pg-publications').innerHTML = `
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-label">Research Output</div>
+        <h2 class="sec-title">Selected <em>Publications</em></h2>
+        <p class="sec-desc">Full list on <a href="${D.profile.social.find(s=>s.label==='Scholar')?.url}" target="_blank">Google Scholar</a> and <a href="${D.profile.social.find(s=>s.label==='PubMed')?.url}" target="_blank">PubMed</a>.</p>
+      </div>
+      <div class="pub-filter">${filterBtns}</div>
+      <div class="pub-list" id="pub-list">${pubsHtml}</div>
+    </div>
+    <footer><div class="wrap"><div class="foot-txt">© 2026 <span>${D.profile.name}</span> · ${D.profile.institution}</div></div></footer>
+  `;
+}
+
+function filterPubs(tag, btn) {
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.pub-item').forEach(el => {
+    el.style.display = (tag === 'all' || el.dataset.tags.split(' ').includes(tag)) ? '' : 'none';
+  });
+}
+
+/* ══════════════════════════════════════════
+   BUILD TOOLS
+══════════════════════════════════════════ */
+function buildTools() {
+  const cardsHtml = D.tools.map(t => {
+    const tagsHtml = t.tags.map(tg => `<span class="ttag">${tg}</span>`).join('');
+    const clickFn = t.modal
+      ? `openGCPBayes()`
+      : `window.open('${t.url}','_blank')`;
+    const ghLink = t.github ? `<a class="tool-gh" href="${t.github}" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>` : '';
+    return `
+      <div class="tool-card" onclick="${clickFn}">
+        <div class="tool-icon ic-${t.color}">${t.emoji}</div>
+        <div class="tool-name">${t.name}</div>
+        <div class="tool-type">${t.type}</div>
+        <p class="tool-desc">${t.desc}</p>
+        <div class="tool-tags">${tagsHtml}</div>
+        <div class="tool-links">
+          <div class="tool-action">View Documentation →</div>
+          ${ghLink}
+        </div>
+      </div>`;
+  }).join('');
+
+  document.getElementById('pg-tools').innerHTML = `
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-label">Software &amp; Resources</div>
+        <h2 class="sec-title">Tools, Pipelines<br>&amp; <em>Databases</em></h2>
+        <p class="sec-desc">Open-source computational tools developed for the research community. All tools are freely available and designed for reproducibility.</p>
+      </div>
+      <div class="tools-grid">${cardsHtml}</div>
+    </div>
+    <footer><div class="wrap"><div class="foot-txt">© 2026 <span>${D.profile.name}</span> · ${D.profile.institution}</div></div></footer>
+  `;
+}
+
+/* ══════════════════════════════════════════
+   BUILD TALKS
+══════════════════════════════════════════ */
+function buildTalks() {
+  const html = D.talks.map(t => `
+    <div class="entry-card">
+      <div class="entry-year">${t.year}</div>
+      <div>
+        <div class="entry-title">${t.title}</div>
+        <div class="entry-sub">${t.venue}</div>
+        <div class="entry-loc">${t.location}</div>
+      </div>
+    </div>`).join('');
+
+  document.getElementById('pg-talks').innerHTML = `
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-label">Presentations</div>
+        <h2 class="sec-title">Talks &amp; <em>Conferences</em></h2>
+        <p class="sec-desc">Selected oral presentations, workshops, and invited talks.</p>
+      </div>
+      <div class="card-list">${html}</div>
+    </div>
+    <footer><div class="wrap"><div class="foot-txt">© 2026 <span>${D.profile.name}</span> · ${D.profile.institution}</div></div></footer>
+  `;
+}
+
+/* ══════════════════════════════════════════
+   BUILD TEACHING
+══════════════════════════════════════════ */
+function buildTeaching() {
+  const html = D.teaching.map(t => `
+    <div class="entry-card">
+      <div class="entry-year">${t.year}</div>
+      <div>
+        <div class="entry-title">${t.title}</div>
+        <div class="entry-sub">${t.institution}</div>
+        <div class="entry-loc">${t.location}</div>
+        ${t.desc ? `<div class="entry-desc">${t.desc}</div>` : ''}
+      </div>
+    </div>`).join('');
+
+  document.getElementById('pg-teaching').innerHTML = `
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-label">Pedagogy</div>
+        <h2 class="sec-title">Teaching <em>Experience</em></h2>
+        <p class="sec-desc">Graduate and undergraduate courses in bioinformatics and systems biology.</p>
+      </div>
+      <div class="card-list">${html}</div>
+    </div>
+    <footer><div class="wrap"><div class="foot-txt">© 2026 <span>${D.profile.name}</span> · ${D.profile.institution}</div></div></footer>
+  `;
+}
+
+/* ══════════════════════════════════════════
+   BUILD CV
+══════════════════════════════════════════ */
+function buildCV() {
+  function entries(arr) {
+    return arr.map(e => `
+      <div class="cv-entry">
+        <div class="cv-date">${e.date}</div>
+        <div>
+          <div class="cv-role">${e.role}</div>
+          <div class="cv-place">${e.place}</div>
+          ${e.note ? `<div class="cv-note">${e.note}</div>` : ''}
+        </div>
+      </div>`).join('');
+  }
+
+  const skillsHtml = D.cv.skills.map(s => `
+    <div class="skill-item">
+      <span class="skill-name">${s.name}</span>
+      <div class="skill-bar"><div class="skill-fill" style="width:${s.pct}%"></div></div>
+    </div>`).join('');
+
+  document.getElementById('pg-cv').innerHTML = `
+    <div class="wrap">
+      <div class="sec-head cv-top">
+        <div>
+          <div class="sec-label">Academic Record</div>
+          <h2 class="sec-title">Curriculum <em>Vitæ</em></h2>
+        </div>
+        <a href="${D.profile.cv_pdf}" target="_blank" class="btn btn-primary">↓ Download PDF</a>
+      </div>
+      <div class="cv-grid">
+        <div>
+          <div class="cv-sec">
+            <div class="cv-sec-title">Work Experience</div>
+            ${entries(D.cv.experience)}
+          </div>
+          <div class="cv-sec">
+            <div class="cv-sec-title">Education</div>
+            ${entries(D.cv.education)}
+          </div>
+          <div class="cv-sec">
+            <div class="cv-sec-title">Visiting Researcher</div>
+            ${entries(D.cv.visiting)}
+          </div>
+        </div>
+        <div>
+          <div class="cv-sec">
+            <div class="cv-sec-title">Core Skills</div>
+            ${skillsHtml}
+          </div>
+          <div class="cv-sec" style="margin-top:2rem">
+            <div class="cv-sec-title">Profiles</div>
+            <div style="display:flex;flex-direction:column;gap:.45rem;margin-top:.5rem">
+              ${D.profile.social.map(s =>
+                `<a class="chip" href="${s.url}" target="_blank" style="justify-content:flex-start">${ICONS[s.icon]||''} ${s.label}</a>`
+              ).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer><div class="wrap"><div class="foot-txt">© 2026 <span>${D.profile.name}</span> · ${D.profile.institution}</div></div></footer>
+  `;
+}
+
+/* ══════════════════════════════════════════
+   BUILD CONTACT
+══════════════════════════════════════════ */
+function buildContact() {
+  const profileLinks = [
+    { name: 'Google Scholar', url: D.profile.social.find(s=>s.label==='Scholar')?.url, arr:'→' },
+    { name: 'PubMed',         url: D.profile.social.find(s=>s.label==='PubMed')?.url,  arr:'→' },
+    { name: `ORCID — ${D.profile.social.find(s=>s.label==='ORCID')?.url.split('/').pop()}`, url: D.profile.social.find(s=>s.label==='ORCID')?.url, arr:'→' },
+    { name: 'GitHub — yazdan59',    url: 'https://github.com/yazdan59',    arr:'→' },
+    { name: 'CESP-ExpHer Group',    url: 'https://github.com/CESP-ExpHer', arr:'→' },
+    { name: 'Download CV (PDF)',     url: D.profile.cv_pdf,                 arr:'↓' }
+  ];
+
+  document.getElementById('pg-contact').innerHTML = `
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-label">Get in Touch</div>
+        <h2 class="sec-title">Contact &amp; <em>Profiles</em></h2>
+        <p class="sec-desc">Open to collaborations, discussions, and opportunities in bioinformatics and computational biology.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="cinfo-list">
+          <div class="citem">
+            <div class="cico">🏛️</div>
+            <div>
+              <div class="clabel">Institution</div>
+              <div class="cval">${D.profile.institution}<br>${D.profile.location}</div>
+            </div>
+          </div>
+          <div class="citem">
+            <div class="cico">💻</div>
+            <div>
+              <div class="clabel">GitHub</div>
+              <div class="cval"><a href="https://github.com/yazdan59" target="_blank">github.com/yazdan59</a></div>
+            </div>
+          </div>
+          <div class="citem">
+            <div class="cico">🔬</div>
+            <div>
+              <div class="clabel">Research Group</div>
+              <div class="cval"><a href="https://github.com/CESP-ExpHer" target="_blank">CESP-ExpHer on GitHub</a></div>
+            </div>
+          </div>
+          <div class="citem">
+            <div class="cico">📄</div>
+            <div>
+              <div class="clabel">ORCID</div>
+              <div class="cval"><a href="${D.profile.social.find(s=>s.label==='ORCID')?.url}" target="_blank">0000-0001-6993-6956</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="plinks">
+          <div class="plinks-title">Academic Profiles &amp; Resources</div>
+          ${profileLinks.map(l => `
+            <a class="plink" href="${l.url}" target="_blank">
+              <span class="plink-name">${l.name}</span>
+              <span class="plink-arr">${l.arr}</span>
+            </a>`).join('')}
+        </div>
+      </div>
+    </div>
+    <footer><div class="wrap"><div class="foot-txt">© 2026 <span>${D.profile.name}</span> · ${D.profile.institution}</div></div></footer>
+  `;
+}
+
+/* ══════════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════════ */
+function go(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById('pg-' + name).classList.add('active');
+  document.getElementById('n-' + name).classList.add('active');
+  window.scrollTo(0, 0);
+  return false;
+}
+
+/* ══════════════════════════════════════════
+   THEME TOGGLE
+══════════════════════════════════════════ */
+function toggleTheme() {
+  const r = document.documentElement;
+  r.setAttribute('data-theme', r.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  try { localStorage.setItem('theme', r.getAttribute('data-theme')); } catch(e){}
+}
+(function(){
+  try {
+    const saved = localStorage.getItem('theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch(e){}
+})();
+
+/* ══════════════════════════════════════════
+   GCPBAYES MODAL
+══════════════════════════════════════════ */
+let gcpLoaded = false;
+function openGCPBayes() {
+  const m = document.getElementById('gcpbayes-modal');
+  m.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if (!gcpLoaded) {
+    document.getElementById('gcpbayes-frame').src = 'GCPBayes_Pipeline_Website.html';
+    gcpLoaded = true;
+  }
+}
+function closeModal() {
+  document.getElementById('gcpbayes-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* ══════════════════════════════════════════
+   INIT — build all pages on load
+══════════════════════════════════════════ */
+buildHome();
+buildPublications();
+buildTools();
+buildTalks();
+buildTeaching();
+buildCV();
+buildContact();
+</script>
+</body>
+</html>
